@@ -149,6 +149,48 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ WAYBAR ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# exec 'waybar --config ~/.config/waybar/config-sway.jsonc'
+# exec 'killall waybar || waybar
+# exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ SWAY-BAR ░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline $rgb-white
+        background $rgb-black
+        focused_workspace $rgba-blue $rgba-black $rgba-blue
+        active_workspace $rgba-blue $rgba-black $rgba-white
+        inactive_workspace $rgba-black $rgba-black $rgba-white
+        urgent_workspace $rgba-red $rgba-black $rgba-white
+    }
+}
+
+# Valid colors:
+    # statusline #ffffff
+    # background #323232
+    # inactive_workspace #32323200 #32323200 #5c5c5c
+
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░░░ IDLE ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
@@ -189,20 +231,3 @@ set $menu wmenu-run
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
