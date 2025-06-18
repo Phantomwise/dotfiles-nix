@@ -97,6 +97,7 @@ floating_modifier $mod normal
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
+bindsym $mod+Alt+c reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -137,7 +138,8 @@ bindsym $mod+Shift+g exec $gamesl
 bindsym Alt+Tab exec $windowmenu
 
 # Start/kill waybar
-bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+bindsym $mod+Alt+w exec 'killall waybar || waybar'
+# bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
