@@ -99,6 +99,8 @@
 		### FONTS ###
 		font-awesome
 		nerd-fonts._0xproto
+		nerd-fonts.fira-code
+		nerd-fonts.hack
 		nerd-fonts.geist-mono
 		nerd-fonts.terminess-ttf
 		### MISC ###
