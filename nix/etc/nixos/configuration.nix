@@ -96,13 +96,6 @@
 		# ms-edit
 		# vscode-with-extensions
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-		### FONTS ###
-		font-awesome
-		nerd-fonts._0xproto
-		nerd-fonts.fira-code
-		nerd-fonts.hack
-		nerd-fonts.geist-mono
-		nerd-fonts.terminess-ttf
 		### MISC ###
 		discord-canary
 		keepassxc
@@ -143,6 +136,20 @@
 	users.defaultUserShell = pkgs.zsh;
 
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+	fonts.packages = with pkgs; [
+		noto-fonts
+		noto-fonts-cjk-sans
+		noto-fonts-emoji
+		liberation_ttf
+		fira-code
+		fira-code-symbols
+		font-awesome
+		nerd-fonts._0xproto
+		nerd-fonts.hack
+		nerd-fonts.geist-mono
+		nerd-fonts.terminess-ttf
+	];
 
 	# This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
 	# For more on rec expressions see https://nix.dev/tutorials/first-steps/nix-language#recursive-attribute-set-rec
