@@ -94,6 +94,11 @@
 		# ms-edit
 		# vscode-with-extensions
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+		### FONTS ###
+		font-awesome
+		nerd-fonts._0xproto
+		nerd-fonts.geist-mono
+		nerd-fonts.terminess-ttf
 		### MISC ###
 		discord-canary
 		keepassxc
