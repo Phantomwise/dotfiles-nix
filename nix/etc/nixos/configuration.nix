@@ -71,7 +71,9 @@
 		gitmoji-cli
 		gvfs
 		gnome.gvfs
+		killall
 		inotify-tools
+		steam-run
 		stow
 		wl-clipboard
 		# zsh
