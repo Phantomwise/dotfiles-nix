@@ -1,0 +1,268 @@
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ VARIABLES ░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Environment variables
+# set $XDG_CURRENT_DESKTOP sway
+
+# Color variables
+    # Pure colors
+        set $rgb-black #000000
+        set $rgba-black #000000FF
+        set $rgb-white #FFFFFF
+        set $rgba-white #FFFFFFFF
+        # set $rgb-yellow-p = rgb(ffff00)
+        # set $rgb-red-p = rgb(ff0000)
+        # set $rgb-purple-p = rgb(ff00ff)
+        # set $rgb-blue-p = rgb(0000ff)
+        # set $rgb-cyan-p = rgb(00ffff)
+        # set $rgb-green-p = rgb(00ff00)
+        # set $rgb-xxx = rgb(0000ff)
+    # Other colors
+        set $rgb-blue #0080FF
+        set $rgba-blue #0080FFFF
+        # set $rgb-yellow-dk1 = rgb(ffaa00)
+        # set $rgb-yellow-dk2 = rgb(ee9400)
+        set $rgb-red #A10000
+        set $rgba-red #A10000FF
+        # set $rgb-pink = rgb(a00035)
+        # set $rgb-violet = rgb(8900ff)
+    # Theme colors
+        # set $rgb-light = rgb(004baa)
+        # set $rgb-dark = rgb(004baa)
+    # Transparent colors ()
+
+    # Color format : #RRGGBB or #RRGGBBAA
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░ INPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+# or input <identifier>
+
+input "type:keyboard" {
+    xkb_layout us,us,fr
+    xkb_variant ,colemak-kl,
+    # xkb_variant colemak-kl,,
+    xkb_options grp:alt_space_toggle
+}
+
+# Example configuration:
+#
+# input "2:14:SynPS/2_Synaptics_TouchPad" {
+    # dwt enabled
+    # tap enabled
+    # natural_scroll enabled
+    # middle_emulation enabled
+# }
+#
+
+input type:touchpad {
+    # dwt enabled
+    # tap enabled
+    # natural_scroll enabled
+    # middle_emulation enabled
+}
+
+input "1133:49271:Logitech_USB_Optical_Mouse" {
+    # left_handed enabled
+}
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ OUTPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#     output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ APPEARANCE ░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# window corner radius in px
+# corner_radius 0 # SwayFX option
+
+gaps inner 10
+# gaps inner|outer|horizontal|vertical|top|right|bottom|left <amount>
+            # Sets  default  amount pixels of inner or outer gap, where the inner affects spacing around each view and outer affects the spacing around each
+            # workspace. Outer gaps are in addition to inner gaps. To reduce or remove outer gaps, outer gaps can be set to a negative value. outer gaps can
+            # also be specified per side with top, right, bottom, and left or per direction with horizontal and vertical.
+            # This affects new workspaces only, and is used when the workspace doesn't have its own gaps settings (see: workspace <ws> gaps ...).
+
+# Opacity
+# exec /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.50
+
+# Window background blur
+# blur off # SwayFX option
+# blur_xray off # SwayFX option
+# blur_passes 2 # SwayFX option
+# blur_radius 5 # SwayFX option
+
+# shadows off # SwayFX option
+# shadows_on_csd off # SwayFX option
+# shadow_blur_radius 20 # SwayFX option
+# shadow_color #0000007F # SwayFX option
+
+# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+# default_dim_inactive 0.25 # SwayFX option
+# dim_inactive_colors.unfocused #00000000 # SwayFX option
+# dim_inactive_colors.unfocused #222222FF # SwayFX option
+# dim_inactive_colors.unfocused #000000FF # SwayFX option
+# dim_inactive_colors.urgent $rgba-red # SwayFX option
+
+# Move minimized windows into Scratchpad (enable|disable)
+# scratchpad_minimize disable # SwayFX option
+
+# Colors
+# class title_border_color title_background_color title_text_color indicator_color child_border_color
+client.focused $rgba-blue $rgba-black $rgba-white $rgba-white $rgba-blue
+client.focused_inactive $rgba-black $rgba-black $rgba-white $rgba-white $rgba-black
+client.focused_tab_title $rgba-black $rgba-black $rgba-white $rgba-white $rgba-black
+client.unfocused $rgba-black $rgba-black $rgba-white $rgba-white $rgba-black
+client.urgent $rgba-red $rgba-red $rgba-white $rgba-red $rgba-blue
+
+    # client.<class> <border> <background> <text> [<indicator> [<child_border>]]
+        # Configures  the  color  of window borders and title bars. The first three colors are required.
+        # When omitted indicator will use a sane default and child_border will use  the  color  set  for
+        # background. Colors may be specified in hex, either as #RRGGBB or #RRGGBBAA.
+
+        # The available classes are:
+            # client.focused
+                # The window that has focus.
+            # client.focused_inactive
+                # The most recently focused view within a container which is not focused.
+            # client.focused_tab_title
+                # A  view  that  has  focused descendant container. Tab or stack container title that is the
+                # parent of the focused container but is not directly focused. Defaults to  focused_inactive
+                # if not specified and does not use the indicator and child_border colors.
+            # client.placeholder
+                # Ignored (present for i3 compatibility).
+            # client.unfocused
+                # A view that does not have focus.
+            # client.urgent
+                # A  view with an urgency hint. Note: Native Wayland windows do not support urgency. Urgency
+                # only works for Xwayland windows.
+
+        # The meaning of each color is:
+            # border
+                # The border around the title bar.
+            # background
+                # The background of the title bar.
+            # text
+                # The text color of the title bar.
+            # indicator
+                # The color used to indicate where a new view will open. In a tiled  container,  this  would
+                # paint the right border of the current view if a new view would be opened to the right.
+            # child_border
+                # The border around the view itself.
+
+        # The default colors are:
+            # ┌─────────────────┬─────────┬────────────┬─────────┬───────────┬──────────────┐
+            # │      class      │ border  │ background │ text    │ indicator │ child_border │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ background      │ n/a     │ #ffffff    │ n/a     │ n/a       │ n/a          │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ focused         │ #4c7899 │ #285577    │ #ffffff │ #2e9ef4   │ #285577      │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ focused_inac‐   │ #333333 │ #5f676a    │ #ffffff │ #484e50   │ #5f676a      │
+            # │ tive            │         │            │         │           │              │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ focused_tab_ti‐ │ #333333 │ #5f676a    │ #ffffff │ n/a       │ n/a          │
+            # │ tle             │         │            │         │           │              │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ unfocused       │ #333333 │ #222222    │ #888888 │ #292d2e   │ #222222      │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ urgent          │ #2f343a │ #900000    │ #ffffff │ #900000   │ #900000      │
+            # ├─────────────────┼─────────┼────────────┼─────────┼───────────┼──────────────┤
+            # │ placeholder     │ #000000 │ #0c0c0c    │ #ffffff │ #000000   │ #0c0c0c      │
+            # └─────────────────┴─────────┴────────────┴─────────┴───────────┴──────────────┘
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░ IDLE ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ WAYBAR ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# exec 'waybar --config ~/.config/waybar/config-sway.jsonc'
+exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ SWAY-BAR ░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+    # position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    # colors {
+        # statusline $rgb-white
+        # background $rgb-black
+        # focused_workspace $rgba-blue $rgba-black $rgba-blue
+        # active_workspace $rgba-blue $rgba-black $rgba-white
+        # inactive_workspace $rgba-black $rgba-black $rgba-white
+        # urgent_workspace $rgba-red $rgba-black $rgba-white
+    # }
+# }
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ WALLPAPER ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ SWAYBG ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+exec 'swaybg'
+set $wallpaper_default "/home/phantomwise/.local/share/wallpapers/default.jpg"
+output * bg $wallpaper_default fill '#123456'
+
+### Command :
+    # output * bg /home/phantomwise/.local/share/wallpapers/best/111.jpg fill '#123456'
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░ END ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
