@@ -1,0 +1,369 @@
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░███████╗██╗░░░░██╗░█████╗░██╗░░░██╗███████╗██╗░░██╗░░░█║
+# █║░░░██╔════╝██║░░░░██║██╔══██╗╚██╗░██╔╝██╔════╝╚██╗██╔╝░░░█║
+# █║░░░███████╗██║░█╗░██║███████║░╚████╔╝░█████╗░░░╚███╔╝░░░░█║
+# █║░░░╚════██║██║███╗██║██╔══██║░░╚██╔╝░░██╔══╝░░░██╔██╗░░░░█║
+# █║░░░███████║╚███╔███╔╝██║░░██║░░░██║░░░██║░░░░░██╔╝░██╗░░░█║
+# █║░░░╚══════╝░╚══╝╚══╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░╚═╝░░╚═╝░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░ SwayFX configuration ░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ Keybindings ░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░ by Phantomwise ░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░ ~/.config/sway/keybindings ░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Mouse bindings
+    # Mouse bindings operate on the container under the cursor instead of the container that has fo‐
+    # cus. Mouse buttons can either be specified in the form button[1-9] or by using the name of the
+    # event code (ex BTN_LEFT or BTN_RIGHT). For the former option, the buttons will  be  mapped  to
+    # their  values  in  X11  (1=left, 2=middle, 3=right, 4=scroll up, 5=scroll down, 6=scroll left,
+    # 7=scroll right, 8=back, 9=forward). For the latter option, you can find the event names  using
+    # libinput debug-events.
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ VARIABLES ░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Mod key
+    # Mod1 = Alt
+    # Mod4 = Win
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left n
+set $down e
+set $up u
+set $right i
+
+# Programs
+set $terminal kitty
+set $texteditor leafpad
+set $codeeditor "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code --reuse-window @@ %F @@"
+# set $codeeditor vscodium
+# set $codeeditor "vscodium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
+# set $codeeditor /usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
+# set $codeeditor "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
+set $filemanager nemo
+set $office libreoffice
+set $webbrowser1 waterfox
+set $webbrowser2 librewolf
+set $audioplayer vlc
+set $videoplayer vlc
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu_path | wmenu | xargs swaymsg exec --
+
+# Application Launcher : rofi
+set $runmenu rofi -show run
+set $drunmenu rofi -show drun
+set $sshmenu rofi -show ssh
+set $windowmenu rofi -show window
+set $filebrowsermenu rofi -show filebrowser
+set $emoji rofimoji --action copy
+    # $emoji = rofi -modi "emoji:rofimoji" -show emoji
+set $calc rofi -show calc -no-show-match -no-sort
+    # ERROR: (but still working)
+    # ** (process:143427): WARNING **: 16:58:47.111: Mode 'calc' does not have a type set. Please update mode/plugin.
+set $powermenu rofi -show power-menu -modi power-menu:rofi-power-menu
+    # NB: located in /home/phantomwise/Scripts/rofi-power-menu
+    # NB: copy not in use in /home/phantomwise/Scripts/rofi-power-menu
+set $gamesl rofi -modi games -show games -theme theme-games-phantomwise-large
+set $gamess rofi -modi games -show games -theme theme-games-phantomwise-small
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░ KEY BINDINGS ░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░ APPLICATIONS ░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Applications
+bindsym $mod+Return exec $term
+bindsym $mod+z exec $terminal
+bindsym Ctrl+Alt+z exec $terminal
+bindsym Ctrl+Alt+t exec $texteditor
+bindsym Ctrl+Alt+c exec $codeeditor
+bindsym Ctrl+Alt+f exec $filemanager
+bindsym Ctrl+Alt+l exec $webbrowser2
+bindsym Ctrl+Alt+o exec $office
+bindsym Ctrl+Alt+w exec $webbrowser1
+bindsym Ctrl+Alt+m exec $audioplayer
+bindsym Ctrl+Alt+v exec $videoplayer
+
+# Start your sway-bar
+# bindsym $mod+d exec $menu
+
+# Start rofi
+bindsym $mod+r exec $runmenu
+bindsym $mod+x exec $drunmenu
+bindsym $mod+d exec $drunmenu
+bindsym $mod+b exec $filebrowsermenu
+bindsym $mod+s exec $sshmenu
+bindsym $mod+m exec $emoji
+bindsym $mod+c exec $calc
+bindsym $mod+g exec $gamess
+bindsym $mod+Shift+g exec $gamesl
+# bindsym $mod+l exec $powermenu
+bindsym Alt+Tab exec $windowmenu
+
+# Start/kill waybar
+bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░ MOVING AROUND ░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░ WORKSPACES ░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Cycle through workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Prior workspace prev
+bindsym $mod+Next workspace next
+
+# Cycle through workspaces with the mouse
+bindsym --whole-window {
+    $mod+button4 workspace prev
+    $mod+button5 workspace next
+}
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░░░ LAYOUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+# layout default|splith|splitv|stacking|tabbed
+    # Sets the layout mode of the focused container.
+# bindsym $mod+d layout default
+# bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+
+# layout toggle [split|all]
+    # Cycles  the  layout mode of the focused container though a preset list of layouts. If no argu‐
+    # ment is given, then it cycles through stacking, tabbed and the last split layout. If split  is
+    # given, then it cycles through splith and splitv. If all is given, then it cycles through every
+    # layout.
+# bindsym $mod+p layout toggle split
+bindsym $mod+l layout toggle all
+
+# layout toggle [split|tabbed|stacking|splitv|splith] [split|tabbed|stacking|splitv|splith]...
+    # Cycles the layout mode of the focused container through a list of layouts.
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░ SCRATCHPAD ░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░░░ RESIZE ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+bindsym $mod+Shift+r mode "resize"
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░░░ VOLUME ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+bindsym XF86AudioRaiseVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%+; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
+bindsym XF86AudioLowerVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 5%-; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
+bindsym Shift+XF86AudioRaiseVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 100%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
+bindsym Shift+XF86AudioLowerVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
+bindsym XF86AudioMute exec bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-mute.sh'
+# Add mute/unmute script
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░ SCREEN BRIGHTNESS ░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Change brightness with brightness keys
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl set 100% && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 0% && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+
+# Change brightness with ctrl + volume keys
+bindsym Ctrl+XF86AudioRaiseVolume exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym Ctrl+XF86AudioLowerVolume exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym Ctrl+XF86AudioMute exec brightnessctl set 50% && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░ SCREENSHOTS ░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+# Screenshot all screen to file named 'screenshot_date&hour.png'
+bindsym Print exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+bindsym $mod+p exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+bindsym $mod+F12 exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+
+# Screenshot active window to file named 'screenshot_date&hour_windowclass.png'
+bindsym $mod+Print exec screenshot-focused-window-sway.sh
+
+# Screenshot area to file 'screenshot_date&hour.png'
+bindsym $mod+Alt+Print exec grim -t png -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+    # ████████████████████████████████████████████████████████████╗
+    # █╔═════════════════════════════════════════════════════════█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░░ WALLPAPER ░░░░░░░░░░░░░░░░░░░░░░░█║
+    # █║░░░░░░░░░░░░░░░░░░░░░░░░ SWAYBG ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+    # ████████████████████████████████████████████████████████████║
+    # ╚═══════════════════════════════════════════════════════════╝
+
+### NB
+    ### Output
+        # output \*
+        # output eDP-1
+
+### Toogle swaybg
+bindsym $mod+Alt+p exec killall swaybg || swaybg
+
+### Set random wallpaper
+set $wallpapers_best $HOME/.local/share/wallpapers/best
+bindsym $mod+Shift+p exec swaymsg output \* bg "$(find $wallpapers_best -type f | shuf -n 1)" fill
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░ END ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
