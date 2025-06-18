@@ -224,9 +224,14 @@ bindsym $mod+v splitv
 
 # layout default|splith|splitv|stacking|tabbed
     # Sets the layout mode of the focused container.
+
+# Switch the current container between different layout styles
 # bindsym $mod+d layout default
-# bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+bindsym $mod+alt+s layout stacking
+bindsym $mod+alt+t layout tabbed
+bindsym $mod+alt+e layout toggle split
+bindsym $mod+alt+h layout splith
+bindsym $mod+alt+v layout splitv
 
 # layout toggle [split|all]
     # Cycles  the  layout mode of the focused container though a preset list of layouts. If no argu‐
