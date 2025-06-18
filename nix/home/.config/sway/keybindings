@@ -45,14 +45,14 @@ set $right i
 # Programs
 set $terminal kitty
 set $texteditor leafpad
-set $codeeditor "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code --reuse-window @@ %F @@"
+set $codeeditor code
 # set $codeeditor vscodium
 # set $codeeditor "vscodium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 # set $codeeditor /usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
 # set $codeeditor "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
 set $filemanager nemo
 set $office libreoffice
-set $webbrowser1 waterfox
+set $webbrowser1 firefox
 set $webbrowser2 librewolf
 set $audioplayer vlc
 set $videoplayer vlc
