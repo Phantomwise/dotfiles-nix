@@ -81,7 +81,7 @@
 		### COMPOSITOR ###
 		dunst
 		rofi-wayland
-		waybar
+		# waybar
 		nemo
 		### TERMINAL ###
 		foot
@@ -120,6 +120,7 @@
 		];
 
 	programs.sway.enable = true;
+	programs.waybar.enable = true;
 
 	programs.firefox.enable = true;
 
