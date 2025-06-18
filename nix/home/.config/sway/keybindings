@@ -138,7 +138,7 @@ bindsym $mod+Shift+g exec $gamesl
 bindsym Alt+Tab exec $windowmenu
 
 # Start/kill waybar
-bindsym $mod+Alt+w exec 'killall waybar || waybar'
+bindsym $mod+Alt+w exec 'pkill waybar || waybar'
 # bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 
 	# ███████████████████████████████████████████████████████████████╗
