@@ -1,0 +1,384 @@
+/*
+███████████████████████████████████████████████████████████████╗
+█╔════════════════════════════════════════════════════════════█║
+█║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+█║░░░░██╗░░░░██╗░█████╗░██╗░░░██╗██████╗░░█████╗░██████╗░░░░░░█║
+█║░░░░██║░░░░██║██╔══██╗╚██╗░██╔╝██╔══██╗██╔══██╗██╔══██╗░░░░░█║
+█║░░░░██║░█╗░██║███████║░╚████╔╝░██████╔╝███████║██████╔╝░░░░░█║
+█║░░░░██║███╗██║██╔══██║░░╚██╔╝░░██╔══██╗██╔══██║██╔══██╗░░░░░█║
+█║░░░░╚███╔███╔╝██║░░██║░░░██║░░░██████╔╝██║░░██║██║░░██║░░░░░█║
+█║░░░░░╚══╝╚══╝░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░ Waybar configuration ░░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░ CSS theme configuration ░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░░░░░░ Ioke theme ░░░░░░░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░░░░ by Phantomwise ░░░░░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░ ~/.config/waybar/style.css ░░░░░░░░░░░░░░░░█║
+█║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+███████████████████████████████████████████████████████████████║
+╚══════════════════════════════════════════════════════════════╝
+*/
+
+* {
+	font-size: 16px;
+	font-family: Terminess Nerd Font Mono;
+	/*
+	font-family: dungeon;
+	font-family: ProFont IIx Nerd Font Mono;
+	font-family: dungeon;
+	*/
+	/*
+	font-family: ProFont IIx Nerd Font Mono;
+	font-family: monospace;
+	*/
+	padding: 0 0px;
+	min-height: 0;
+}
+
+@import url("/home/phantomwise/.config/global.css");
+/*
+Replaces
+@import url("/home/phantomwise/.config/global.css");
+seems to work
+*/
+
+window#waybar {
+    background-color: transparent;
+}
+
+#workspaces button {
+	padding: 0 0px;
+	color: @color-white;
+	border-radius: 0px
+}
+
+#workspaces button.focused {
+	/*
+	border-top: 2px solid @color-text-on-light;
+	*/
+	color: @color-white;
+	background-color: @color-primary;
+}
+
+#workspaces button.urgent {
+	color: @color-urgent;
+}
+
+/*
+#workspaces
+#workspaces button
+#workspaces button.active
+#workspaces button.visible
+#workspaces button.urgent
+#workspaces button.empty
+#workspaces button.persistent
+#workspaces button.hidden
+*/
+
+#custom-arch {
+	font-size: 18px;
+	padding: 0 5px;
+}
+
+#clock.hour,
+#clock.day,
+#clock.date,
+#window.class,
+#window.title,
+#window.shell,
+#battery,
+#temperature,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#language {
+	padding: 0 5px;
+}
+
+#battery,
+#cpu,
+#memory,
+#disk {
+	min-width: 40px
+}
+
+/*
+#window {
+	padding: 0 5px
+}
+#clock {
+	padding: 0 5px
+}
+*/
+
+#clock.day,
+#clock.date,
+#workspaces,
+#window.title,
+#mode
+/*
+#battery,
+*/
+#pulseaudio,
+#tray {
+	color: @color-white;
+	background-color: @color-black;
+}
+#custom-arch,
+#clock.hour,
+#window.shell,
+#window.class,
+#network,
+#language {
+	color: @color-white;
+	background-color: @color-primary;
+}
+
+#battery {
+    color: @color-white;
+    background-color: @color-black;
+}
+#battery.charging {
+    color: @color-white;
+    background-color: @color-black;
+}
+#battery.discharging {
+    color: @color-white;
+    background-color: @color-black;
+}
+#battery.full {
+    color: @color-white;
+    background-color: @color-black;
+}
+#battery.low {
+    color: #ffbb00;
+    background-color: @color-black;
+}
+#battery.critical {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+#battery.urgent {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+
+#temperature {
+	color: @color-white;
+	background-color: @color-primary;
+}
+#temperature.critical {
+    color: @color-urgent;
+	background-color: @color-primary;
+}
+
+#cpu {
+	color: @color-white;
+	background-color: @color-black;
+}
+#cpu.low {
+	color: @color-white;
+	background-color: @color-black;
+}
+#cpu.medium {
+    color: @color-yellow;
+    background-color: @color-black;
+}
+#cpu.high {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+#cpu.critical {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+
+#memory {
+	color: @color-white;
+	background-color: @color-primary;
+}
+#memory.low {
+	color: @color-white;
+	background-color: @color-primary;
+}
+#memory.medium {
+    color: @color-yellow;
+	background-color: @color-primary;
+}
+#memory.high {
+    color: @color-urgent;
+	background-color: @color-primary;
+}
+#memory.critical {
+    color: @color-urgent;
+	background-color: @color-primary;
+}
+
+#disk {
+	color: @color-white;
+	background-color: @color-black;
+}
+#disk.low {
+	color: @color-white;
+	background-color: @color-black;
+}
+#disk.medium {
+    color: @color-yellow;
+    background-color: @color-black;
+}
+#disk.high {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+#disk.critical {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+
+
+#pulseaudio {
+	color: @color-white;
+    background-color: @color-black;
+}
+#pulseaudio.muted {
+    color: @color-urgent;
+    background-color: @color-black;
+}
+#pulseaudio.low {
+	color: @color-white;
+    background-color: @color-black;
+}
+#pulseaudio.medium {
+	color: @color-white;
+    background-color: @color-black;
+}
+#pulseaudio.high {
+	color: @color-white;
+    background-color: @color-black;
+}
+
+/*
+*/
+
+#custom-left-arrow-light-dark,
+#custom-right-arrow-dark-light,
+#custom-left-arrow-dark-light,
+#custom-right-arrow-light-dark,
+#custom-left-arrow-transparent-dark,
+#custom-right-arrow-dark-transparent,
+#custom-left-arrow-transparent-light,
+#custom-right-arrow-light-transparent,
+#custom-left-arrow-dark-transparent,
+#custom-right-arrow-transparent-dark,
+#custom-left-arrow-light-transparent,
+#custom-right-arrow-transparent-light {
+	font-size: 18px;
+}
+
+#custom-left-arrow-light-dark,
+#custom-right-arrow-dark-light {
+	color: @color-black;
+	background-color: @color-primary;
+}
+#custom-left-arrow-dark-light,
+#custom-right-arrow-light-dark {
+	color: @color-primary;
+	background-color: @color-black;
+}
+
+#custom-left-arrow-transparent-dark,
+#custom-right-arrow-dark-transparent {
+	color: @color-black;
+	background: transparent;
+}
+#custom-left-arrow-transparent-light,
+#custom-right-arrow-light-transparent {
+	color: @color-primary;
+	background: transparent;
+}
+#custom-left-arrow-dark-transparent,
+#custom-right-arrow-transparent-dark {
+	color: transparent;
+	background: @color-black;
+}
+#custom-left-arrow-light-transparent,
+#custom-right-arrow-transparent-light {
+	color: transparent;
+	background: @color-primary;
+}
+
+/*
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: #1a1a1a;
+}
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	color: #292b2e;
+	background: #1a1a1a;
+}
+*/
+
+
+/* TESTING : Arrow modules with changing color depending on the battery state */
+
+/*
+:root {
+    --color-default: #000000;
+    --color-charging: #FFFF00;
+    --text-color-default: #FFFFFF;
+    --text-color-charging: #000000;
+}
+*/
+
+/* New arrow modules specifically for the battery */
+/*
+#custom-left-arrow-battery,
+#custom-right-arrow-battery {
+    font-size: 18px;
+    color: @color-primary;
+    background-color: @color-black;
+}
+*/
+
+/* Change the color of the new arrow modules based on the battery state */
+/*
+#custom-left-arrow-battery + #battery.charging + #custom-right-arrow-battery,
+#custom-left-arrow-battery.battery-charging,
+#battery.charging + #custom-right-arrow-battery.battery-charging {
+    color: @color-urgent;
+    background-color: #FFFF00;
+}
+*/
+
+/* Change the color of the new arrow modules based on the battery state */
+/*
+#battery.charging ~ #custom-left-arrow-battery,
+#battery.charging ~ #custom-right-arrow-battery {
+    color: @color-urgent;
+    background-color: #FFFF00;
+}
+*/
+
+
+/* Change the color of the custom arrow modules depending on the battery state */
+/*
+#battery.charging ~ #custom-left-arrow-light-dark,
+#battery.charging ~ #custom-right-arrow-dark-light,
+#battery.charging ~ #custom-left-arrow-dark-light,
+#battery.charging ~ #custom-right-arrow-light-dark,
+#battery.charging ~ #custom-left-arrow-transparent-dark,
+#battery.charging ~ #custom-right-arrow-dark-transparent,
+#battery.charging ~ #custom-left-arrow-transparent-light,
+#battery.charging ~ #custom-right-arrow-light-transparent,
+#battery.charging ~ #custom-left-arrow-dark-transparent,
+#battery.charging ~ #custom-right-arrow-transparent-dark,
+#battery.charging ~ #custom-left-arrow-light-transparent,
+#battery.charging ~ #custom-right-arrow-transparent-light {
+	color: @color-urgent;
+    background-color: #ffbb00;
+}
+*/
