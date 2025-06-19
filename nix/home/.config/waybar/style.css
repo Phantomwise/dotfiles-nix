@@ -21,12 +21,12 @@
 */
 
 * {
+	font-size: 13px;
+	font-family: dungeon;
+	/*
 	font-size: 16px;
 	font-family: Terminess Nerd Font Mono;
-	/*
-	font-family: dungeon;
 	font-family: ProFont IIx Nerd Font Mono;
-	font-family: dungeon;
 	*/
 	/*
 	font-family: ProFont IIx Nerd Font Mono;
