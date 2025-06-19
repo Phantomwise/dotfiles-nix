@@ -1,0 +1,117 @@
+{
+  "MessageBoxWindow": {
+    "X": 509,
+    "Y": 199,
+    "Height": 345,
+    "Width": 348,
+    "IsMaximized": false
+  },
+  "Books": "/home/phantomwise/Downloads/Libation/",
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "ZipFile",
+        "Args": {
+          "path": "/home/phantomwise/Libation/_Log.log",
+          "rollingInterval": "Month",
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] (at {Caller}) {Message:lj}{NewLine}{Exception} {Properties:j}"
+        }
+      }
+    ],
+    "Using": [
+      "Dinah.Core",
+      "Serilog.Exceptions"
+    ],
+    "Enrich": [
+      "WithCaller",
+      "WithExceptionDetails"
+    ]
+  },
+  "FirstLaunch": false,
+  "ThemeVariant": "Dark",
+  "SettingsDialog": {
+    "X": 2,
+    "Y": 25,
+    "Height": 717,
+    "Width": 1362,
+    "IsMaximized": true
+  },
+  "ReplacementCharacters": {
+    "Replacement": [
+      {
+        "CharacterToReplace": "\u0000",
+        "ReplacementString": "_",
+        "Description": "All other invalid characters"
+      },
+      {
+        "CharacterToReplace": "/",
+        "ReplacementString": "∕",
+        "Description": "Forward Slash (Filename Only)"
+      },
+      {
+        "CharacterToReplace": "\\",
+        "ReplacementString": "\\",
+        "Description": "Back Slash (Filename Only)"
+      },
+      {
+        "CharacterToReplace": "\"",
+        "ReplacementString": "“",
+        "Description": "Open Quote"
+      },
+      {
+        "CharacterToReplace": "\"",
+        "ReplacementString": "”",
+        "Description": "Close Quote"
+      },
+      {
+        "CharacterToReplace": "\"",
+        "ReplacementString": "\"",
+        "Description": "Other Quote"
+      },
+      {
+        "CharacterToReplace": ":",
+        "ReplacementString": "_",
+        "Description": "Colon"
+      }
+    ]
+  },
+  "EditReplacementChars": {
+    "X": 0,
+    "Y": 0,
+    "Height": 768,
+    "Width": 1366,
+    "IsMaximized": false
+  },
+  "EditTemplateDialog": {
+    "X": 2,
+    "Y": 25,
+    "Height": 717,
+    "Width": 1362,
+    "IsMaximized": true
+  },
+  "FolderTemplate": "<author> - <series> - <series#> - <title short> - <title> (<language>) [<id>]",
+  "DownloadCoverArt": true,
+  "AccountsDialog": {
+    "X": 2,
+    "Y": 25,
+    "Height": 717,
+    "Width": 1362,
+    "IsMaximized": true
+  },
+  "MainWindow": {
+    "X": 2,
+    "Y": 25,
+    "Height": 717,
+    "Width": 1362,
+    "IsMaximized": true
+  },
+  "ImageDisplayDialog": {
+    "X": 2,
+    "Y": 25,
+    "Height": 717,
+    "Width": 1362,
+    "IsMaximized": true
+  },
+  "SavePodcastsToParentFolder": true
+}
