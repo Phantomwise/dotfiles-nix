@@ -107,7 +107,23 @@
 	programs.zsh.syntaxHighlighting.enable = true;
 
 	### DESKTOP ###
-	programs.sway.enable = true;
+
+	programs.sway = {
+		enable = true;
+		wrapperFeatures.gtk = true; # need to set up the gtk portal somewhere else probably
+		extraPackages = with pkgs; [
+				swaybg
+				swaylock
+				swayidle
+				swayimg
+				# grim         # screenshot functionality
+				# slurp        # screenshot functionality
+				# wl-clipboard
+				# make sure the default gnome icons are avaliable to gtk applications
+				adwaita-icon-theme
+			];
+	};
+
 	programs.waybar.enable = true;
 
 	### MISC ###
