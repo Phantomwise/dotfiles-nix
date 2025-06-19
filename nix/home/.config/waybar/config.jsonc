@@ -549,7 +549,7 @@ Packages :
 
 	"custom/os": {
 		"format": "{icon}",
-		"format-icons": "󰣇",
+		"format-icons": "󱄅",
 		/*
 		To move
 		*/
