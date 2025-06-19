@@ -59,6 +59,19 @@
 		# ms-edit # not in repo
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
+		### IMAGE ###
+		gimp3-with-plugins
+		grim
+		ksnip
+		slurp
+		sway-contrib.grimshot
+		swaybg
+		xnviewmp
+
+		### VIDEO ###
+		mpc
+		vlc
+
 		### MISC GUI ###
 		deltachat-desktop
 		discord-canary
