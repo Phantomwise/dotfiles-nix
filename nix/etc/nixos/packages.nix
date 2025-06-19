@@ -22,24 +22,26 @@
 		zsh-autocomplete
 		zsh-autosuggestions
 		#  wget
-		### COMPOSITOR ###
+
+		### DESKTOP ###
 		dunst
 		(rofi-wayland.override { plugins = [ pkgs.rofi-calc pkgs.rofi-games ]; })
 		rofimoji
-		# waybar
 		nemo-with-extensions
 		nemo-fileroller
+
 		### TERMINAL ###
 		foot
 		kitty
+
 		### EDITORS ###
 		featherpad
 		kakoune
 		micro
 		# leafpad # error: 'leafpad' has been removed due to lack of maintenance upstream. Consider using 'xfce.mousepad' instead
-		# ms-edit
-		# vscode-with-extensions
+		# ms-edit # not in repo
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+
 		### MISC ###
 		discord-canary
 		keepassxc
@@ -65,14 +67,17 @@
 		vscode-extensions.seatonjiang.gitmoji-vscode
 		];
 
-	programs.sway.enable = true;
-	programs.waybar.enable = true;
-
-	programs.firefox.enable = true;
-
+	### SHELL ###
 	programs.zsh.enable = true;
 	programs.zsh.enableCompletion = true;
 	programs.zsh.autosuggestions.enable = true;
 	programs.zsh.syntaxHighlighting.enable = true;
+
+	### DESKTOP ###
+	programs.sway.enable = true;
+	programs.waybar.enable = true;
+
+	### MISC ###
+	programs.firefox.enable = true;
 
 }
