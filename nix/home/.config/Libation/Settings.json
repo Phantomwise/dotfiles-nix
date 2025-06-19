@@ -113,5 +113,7 @@
     "Width": 1362,
     "IsMaximized": true
   },
-  "SavePodcastsToParentFolder": true
+  "SavePodcastsToParentFolder": true,
+  "SplitFilesByChapter": true,
+  "CombineNestedChapterTitles": true
 }
