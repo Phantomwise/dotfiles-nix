@@ -16,14 +16,19 @@
 		#  wget
 
 		### CLI ###
+		ani-cli
 		cron
+		ffmpeg
+		figlet
 		git
 		gitmoji-cli
 		killall
 		inotify-tools
+		rsync
 		steam-run
 		stow
 		wl-clipboard
+		yt-dlp
 
 		### DESKTOP ###
 		dunst
