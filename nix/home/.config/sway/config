@@ -94,7 +94,8 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 exec ~/.local/bin/scripts/dunst/check-updates.sh
 
 # Synology Drive Client
-exec wrapper-synology-drive-client
+exec steam-run synology-drive
+# exec wrapper-synology-drive-client
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
