@@ -84,7 +84,8 @@
 		#  wget
 		### COMPOSITOR ###
 		dunst
-		rofi-wayland
+		(rofi-wayland.override { plugins = [ pkgs.rofi-calc pkgs.rofi-games ]; })
+		rofimoji
 		# waybar
 		nemo-with-extensions
 		nemo-fileroller
