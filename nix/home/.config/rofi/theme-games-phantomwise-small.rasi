@@ -1,0 +1,29 @@
+@import "theme-games-phantomwise-large"
+
+window {
+    fullscreen:                     false;
+    border-radius:                  10px;
+    height:                         70%;
+    width:                          80%;
+    border:                         3px 3px 3px 3px;
+    border-color:                   @primary;
+    border-radius:                  0px;
+}
+
+listview {
+    columns:                        8;
+    padding:                        30px;
+}
+
+prompt {
+    enabled:                        false;
+}
+
+inputbar {
+    margin:                         20px 0px 10px 0px;
+}
+
+element-icon {
+    padding:                        0px 10px;
+    size:                           12%;
+}
