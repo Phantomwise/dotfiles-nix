@@ -84,7 +84,8 @@
 		dunst
 		rofi-wayland
 		# waybar
-		nemo
+		nemo-with-extensions
+		nemo-fileroller
 		### TERMINAL ###
 		foot
 		kitty
