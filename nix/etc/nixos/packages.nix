@@ -42,11 +42,13 @@
 		# ms-edit # not in repo
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
-		### MISC ###
+		### MISC GUI ###
+		deltachat-desktop
 		discord-canary
 		keepassxc
 		libation
 		synology-drive-client
+		zotero
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
