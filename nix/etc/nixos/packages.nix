@@ -54,6 +54,7 @@
 		discord-canary
 		keepassxc
 		libation
+		libreoffice
 		synology-drive-client
 		zotero
 
