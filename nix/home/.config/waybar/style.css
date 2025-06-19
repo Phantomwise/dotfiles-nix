@@ -76,7 +76,7 @@ window#waybar {
 #workspaces button.hidden
 */
 
-#custom-arch {
+#custom-os {
 	font-size: 18px;
 	padding: 0 5px;
 }
@@ -127,7 +127,7 @@ window#waybar {
 	color: @color-white;
 	background-color: @color-black;
 }
-#custom-arch,
+#custom-os,
 #clock.hour,
 #window.shell,
 #window.class,
