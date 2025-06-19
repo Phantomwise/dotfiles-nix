@@ -8,20 +8,22 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
+		gvfs
+		gnome.gvfs
+		# zsh
+		zsh-autocomplete
+		zsh-autosuggestions
+		#  wget
+
+		### CLI ###
 		cron
 		git
 		gitmoji-cli
-		gvfs
-		gnome.gvfs
 		killall
 		inotify-tools
 		steam-run
 		stow
 		wl-clipboard
-		# zsh
-		zsh-autocomplete
-		zsh-autosuggestions
-		#  wget
 
 		### DESKTOP ###
 		dunst
