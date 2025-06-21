@@ -11,6 +11,7 @@
       ./environment.nix
       ./fonts.nix
       ./packages.nix
+      ./packages-games.nix
     ];
 
   # Bootloader.
