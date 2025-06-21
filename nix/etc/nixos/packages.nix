@@ -27,7 +27,9 @@
 
 		### CLI ###
 		ani-cli
+		brightnessctl
 		cron
+		fastfetch
 		ffmpeg
 		figlet
 		git
@@ -74,6 +76,7 @@
 
 		### MISC GUI ###
 		deltachat-desktop
+		discord
 		discord-canary
 		keepassxc
 		libation
