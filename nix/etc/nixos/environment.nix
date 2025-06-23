@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+	environment.sessionVariables = {
+		PATH = [ 
+			# Preserve the existing PATH (optional but recommended)
+			"$PATH"
+			# Add scripts directories
+			"$HOME/.local/bin/scripts"
+			"$HOME/Scripts"
+		];
+	};
+
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 	# This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
