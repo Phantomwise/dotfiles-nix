@@ -36,7 +36,9 @@
 		gitmoji-cli
 		killall
 		inotify-tools
+		ncdu
 		rsync
+		smartmontools
 		steam-run
 		stow
 		wl-clipboard
