@@ -18,6 +18,7 @@
 		lutris
 
 		### GAMES ###
+		cataclysm-dda
 
 	];
 }
