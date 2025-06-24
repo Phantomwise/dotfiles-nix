@@ -36,6 +36,7 @@
 		gitmoji-cli
 		killall
 		inotify-tools
+		gnumake
 		ncdu
 		rsync
 		smartmontools
