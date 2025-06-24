@@ -42,6 +42,7 @@
 		smartmontools
 		steam-run
 		stow
+		tldr
 		wl-clipboard
 		yt-dlp
 
