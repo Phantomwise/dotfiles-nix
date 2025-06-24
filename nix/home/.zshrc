@@ -16,6 +16,3 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 # End of lines configured by zsh-newuser-install
-
-# export MICRO_CLIPBOARD_COPY="wl-copy"
-# export MICRO_CLIPBOARD_PASTE="wl-paste"
