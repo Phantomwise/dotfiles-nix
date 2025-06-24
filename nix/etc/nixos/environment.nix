@@ -3,11 +3,11 @@
 {
 	environment.sessionVariables = {
 		PATH = [ 
-			# Preserve the existing PATH (optional but recommended)
-			"$PATH"
 			# Add scripts directories
 			"$HOME/.local/bin/scripts"
 			"$HOME/Scripts"
+			# Preserve the existing PATH (optional but recommended)
+			"$PATH"
 		];
 	};
 
