@@ -28,6 +28,7 @@
 		### CLI ###
 		ani-cli
 		brightnessctl
+		bluetuith
 		cron
 		fastfetch
 		ffmpeg
