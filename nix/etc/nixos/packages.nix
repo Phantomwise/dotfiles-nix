@@ -74,6 +74,7 @@
 		slurp
 		sway-contrib.grimshot
 		swaybg
+		tiled
 		xnviewmp
 
 		### VIDEO ###
