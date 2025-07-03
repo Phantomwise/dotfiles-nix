@@ -45,6 +45,7 @@
 		steam-run
 		stow
 		tldr
+		wine
 		wl-clipboard
 		yt-dlp
 
@@ -77,7 +78,9 @@
 		tiled
 		xnviewmp
 
-		### VIDEO ###
+		### AUDIO & VIDEO ###
+		abcde
+		asunder
 		mpc
 		vlc
 
