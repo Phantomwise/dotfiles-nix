@@ -19,6 +19,7 @@
 
 		### GAMES ###
 		cataclysm-dda
+		# keeperrl # Error
 
 	];
 }
