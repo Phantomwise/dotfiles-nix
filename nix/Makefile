@@ -8,13 +8,13 @@ HOME_DIR := /home/phantomwise
 
 # restow
 restow:
-	@echo "Restowing $HOME directory"
+	@echo -e "\033[1;33mRestowing $HOME directory\033[0m"
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
-	@echo "Restowing /etc directory"
+	@echo -e "\033[1;33mRestowing /etc directory\033[0m"
 	sudo stow -v --restow --dir=$(CONFIG_DIR) etc --target=/etc
-	@echo "Restowing /usr directory"
+	@echo -e "\033[1;33mRestowing /usr directory\033[0m"
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
-	@echo "Restowing personal directory"
+	@echo -e "\033[1;33mRestowing personal directory\033[0m"
 	stow -v --restow --dir=$(PERSONAL_DIR) . --target=$(HOME_DIR)
 
 # stow -v --restow --dir=/home/phantomwise/SynologyDrive/dotfiles-nix/nix home --target=/home/phantomwise/
