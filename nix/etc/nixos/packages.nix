@@ -38,6 +38,7 @@
 		gitmoji-cli
 		killall
 		inotify-tools
+		libnotify
 		gnumake
 		ncdu
 		rsync
