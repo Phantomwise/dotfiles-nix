@@ -340,9 +340,9 @@ bindsym Ctrl+XF86AudioMute exec brightnessctl set 50% && exec $HOME/.local/bin/s
 	# ╚══════════════════════════════════════════════════════════════╝
 
 # Screenshot all screen to file named 'screenshot_date&hour.png'
-bindsym Print exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
-bindsym $mod+p exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
-bindsym $mod+F12 exec 'grim -t png $(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+bindsym Print exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+bindsym $mod+p exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
+bindsym $mod+F12 exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
 
 # Screenshot active window to file named 'screenshot_date&hour_windowclass.png'
 bindsym $mod+Print exec screenshot-focused-window-sway.sh
