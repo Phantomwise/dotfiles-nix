@@ -12,7 +12,7 @@
 	in {
 		defaultPackage.x86_64-linux = pkgs.libation.overrideAttrs (oldAttrs: {
 			src = libation_src;
-			version = "nightly-${libation_src.shortRev or "src"}";
+			version = "0.0.0-nightly.${libation_src.shortRev or "src"}";
 		});
 	};
 }
