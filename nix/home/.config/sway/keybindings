@@ -348,7 +348,7 @@ bindsym $mod+F12 exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date 
 bindsym $mod+Print exec screenshot-focused-window-sway.sh
 
 # Screenshot area to file 'screenshot_date&hour.png'
-bindsym $mod+Alt+Print exec grim -t png -g "$(slurp)" "$(xdg-user-dir PICTURES)/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+bindsym $mod+Alt+Print exec grim -t png -g "$(slurp)" "$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
