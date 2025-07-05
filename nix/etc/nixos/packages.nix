@@ -41,6 +41,7 @@
 		libnotify
 		gnumake
 		ncdu
+		pulsemixer
 		rsync
 		smartmontools
 		steam-run
