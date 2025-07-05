@@ -67,6 +67,8 @@
 		shell = pkgs.zsh;
 	};
 
+	# nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 	services.upower.enable = true;
 
 	users.defaultUserShell = pkgs.zsh;
