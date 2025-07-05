@@ -1,5 +1,5 @@
 # Declare all phony (non-file) targets here
-.PHONY: restow nix-cleanup
+.PHONY: restow nix-cleanup nix-update
 
 # Declare directories
 CONFIG_DIR := /home/phantomwise/SynologyDrive/dotfiles-nix/nix
@@ -37,3 +37,10 @@ nix-cleanup:
 	sudo nix-store --optimise
 	@echo -e "\033[1;33mList remaining generations\033[0m"
 	nix-env --list-generations
+
+# nix-update
+nix-update:
+	@echo -e "\033[1;33mUpdating channels\033[0m"
+	nix-channel --update
+	@echo -e "\033[1;33mRebuilding\033[0m"
+	sudo nixos-rebuild switch
