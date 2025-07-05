@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "libation_src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-OCkTObrz9f3dxmFtLe3e4b5XHVcY6LLjpcOxvU6B7H8=",
+        "type": "file",
+        "url": "https://github.com/rmcrackan/Libation"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/rmcrackan/Libation"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1751582995,
+        "narHash": "sha256-u7ubvtxdTnFPpV27AHpgoKn7qHuE7sgWgza/1oj5nzA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7a732ed41ca0dd64b4b71b563ab9805a80a7d693",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "libation_src": "libation_src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
