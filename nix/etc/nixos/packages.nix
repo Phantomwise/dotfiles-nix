@@ -47,6 +47,7 @@
 		steam-run
 		stow
 		tldr
+		tree
 		wine
 		wl-clipboard
 		yt-dlp
