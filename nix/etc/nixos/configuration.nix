@@ -14,6 +14,10 @@
       ./packages-games.nix
     ];
 
+	# nixpkgs.overlays = [
+		# (import ./overlays/libation-overlay.nix)
+	# ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
