@@ -3,11 +3,8 @@
 
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-
-		libation_src = {
-			url = "https://github.com/rmcrackan/Libation";
-			flake = false;
-		};
+		libation_src.url = "github:rmcrackan/Libation";
+		libation_src.flake = false;
 	};
 
 	outputs = { self, nixpkgs, libation_src }: let
