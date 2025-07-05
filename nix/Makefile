@@ -35,8 +35,10 @@ nix-cleanup:
 	nix-collect-garbage
 	@echo -e "\033[1;33mDeduplication\033[0m"
 	sudo nix-store --optimise
-	@echo -e "\033[1;33mList remaining generations\033[0m"
+	@echo -e "\033[1;33mListing remaining user generations\033[0m"
 	nix-env --list-generations
+	@echo -e "\033[1;33mListing remaining system generations\033[0m"
+	sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 
 # nix-update
 nix-update:
