@@ -3,13 +3,17 @@
     "libation_src": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-OCkTObrz9f3dxmFtLe3e4b5XHVcY6LLjpcOxvU6B7H8=",
-        "type": "file",
-        "url": "https://github.com/rmcrackan/Libation"
+        "lastModified": 1750869830,
+        "narHash": "sha256-zzkKzvhQGKjSbvzNTpblUvOdGjv2itxu9qgc/MgRawQ=",
+        "owner": "rmcrackan",
+        "repo": "Libation",
+        "rev": "f511041781c5df1c553f2fe41ef5e00c5029c069",
+        "type": "github"
       },
       "original": {
-        "type": "file",
-        "url": "https://github.com/rmcrackan/Libation"
+        "owner": "rmcrackan",
+        "repo": "Libation",
+        "type": "github"
       }
     },
     "nixpkgs": {
