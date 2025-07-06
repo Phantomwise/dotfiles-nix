@@ -66,7 +66,7 @@
 		### EDITORS ###
 		featherpad
 		kakoune
-		micro
+		micro-full
 		# leafpad # error: 'leafpad' has been removed due to lack of maintenance upstream. Consider using 'xfce.mousepad' instead
 		# ms-edit # not in repo
 		vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
