@@ -74,6 +74,7 @@
 		### IMAGE ###
 		gimp3-with-plugins
 		grim
+		imagemagick
 		ksnip
 		slurp
 		sway-contrib.grimshot
@@ -99,9 +100,15 @@
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
-					bbenoist.nix
-					ms-python.python
-					ms-azuretools.vscode-docker
+					bodil.blueprint-gtk          # Gtk Bluprint language support
+					ms-vscode.makefile-tools     # Makefile language support
+					bbenoist.nix                 # Nix language support
+					ms-python.python             # Python language support
+					naumovs.color-highlight      # Color Highlight
+					ms-azuretools.vscode-docker  # Docker
+					donjayamanne.githistory      # Git History
+					seatonjiang.gitmoji-vscode   # Gitmoji
+					github.copilot               # GitHub Copilot
 					ms-vscode-remote.remote-ssh
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 					{
@@ -112,8 +119,6 @@
 					}
 				];
 			})
-
-		vscode-extensions.seatonjiang.gitmoji-vscode
 		];
 
 	### SHELL ###
