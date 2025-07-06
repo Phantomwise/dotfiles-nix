@@ -1,5 +1,5 @@
 # Declare phony targets
-.PHONY: restow nix-update
+.PHONY: nix-update
 
 # Declare directories
 CONFIG_DIR := /home/phantomwise/SynologyDrive/dotfiles-nix/nix
@@ -11,6 +11,7 @@ TARGET ?= all
 
 # Include modular Makefile parts
 include nix-cleanup.mk
+include nix-update.mk
 
 # restow
 restow:
@@ -33,10 +34,3 @@ else
 	@echo -e "\033[1;31mValid options: all, home, etc, usr\033[0m"
 	@false
 endif
-
-# nix-update
-nix-update:
-	@echo -e "\033[1;33mUpdating channels\033[0m"
-	nix-channel --update
-	@echo -e "\033[1;33mRebuilding\033[0m"
-	sudo nixos-rebuild switch
