@@ -1,5 +1,5 @@
 # Declare phony targets
-.PHONY: restow nix-cleanup nix-update
+.PHONY: restow nix-update
 
 # Declare directories
 CONFIG_DIR := /home/phantomwise/SynologyDrive/dotfiles-nix/nix
@@ -8,6 +8,9 @@ HOME_DIR := /home/phantomwise
 
 # Default TARGET
 TARGET ?= all
+
+# Include modular Makefile parts
+include nix-cleanup.mk
 
 # restow
 restow:
@@ -30,24 +33,6 @@ else
 	@echo -e "\033[1;31mValid options: all, home, etc, usr\033[0m"
 	@false
 endif
-
-# nix-cleanup
-nix-cleanup:
-
-	@echo -e "\033[1;33mDeleting old system generations (keep last 10)\033[0m"
-	sudo nix-env --delete-generations +10 --profile /nix/var/nix/profiles/system
-	@echo -e "\033[1;33mDeleting old user generations (keep last 10)\033[0m"
-	nix-env --delete-generations +10
-	@echo -e "\033[1;33mCleaning up unused system paths\033[0m"
-	sudo nix-collect-garbage --delete-older-than 7d
-	@echo -e "\033[1;33mCleaning up unused user paths\033[0m"
-	nix-collect-garbage --delete-older-than 7d
-	@echo -e "\033[1;33mDeduplication\033[0m"
-	sudo nix-store --optimise
-	@echo -e "\033[1;33mListing remaining user generations\033[0m"
-	nix-env --list-generations
-	@echo -e "\033[1;33mListing remaining system generations\033[0m"
-	sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 
 # nix-update
 nix-update:
