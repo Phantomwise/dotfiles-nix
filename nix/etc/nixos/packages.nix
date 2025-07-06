@@ -111,8 +111,6 @@
 					donjayamanne.githistory      # Git History
 					seatonjiang.gitmoji-vscode   # Gitmoji
 					github.copilot               # GitHub Copilot
-				];
-			})
 
 					ms-vscode-remote.remote-ssh
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
