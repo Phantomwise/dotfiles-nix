@@ -1,4 +1,4 @@
-# Declare all phony (non-file) targets here
+# Declare phony targets
 .PHONY: restow nix-cleanup nix-update
 
 # Declare directories
