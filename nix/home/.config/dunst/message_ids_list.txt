@@ -1,0 +1,8 @@
+9991            Battery level --> To change
+98114105    bri Brightness
+99114103    crg Charger
+115110099   snc Sync
+117112100   upd Updates
+117112116   upt Uptime
+117115066   usl USB
+118111108   vol Volume
