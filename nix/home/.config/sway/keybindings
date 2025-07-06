@@ -333,6 +333,10 @@ bindsym Ctrl+XF86AudioRaiseVolume exec brightnessctl set 5%+ && exec $HOME/.loca
 bindsym Ctrl+XF86AudioLowerVolume exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh
 bindsym Ctrl+XF86AudioMute exec brightnessctl set 50% && exec $HOME/.local/bin/scripts/dunst/brightness.sh
 
+# Change brightness with mod + F10/F11
+bindsym $mod+F11 exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+bindsym $mod+F10 exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh
+
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░░░░ SCREENSHOTS ░░░░░░░░░░░░░░░░░░░░░░░░█║
