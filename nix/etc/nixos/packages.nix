@@ -36,9 +36,11 @@
 		figlet
 		git
 		gitmoji-cli
+		intel-gpu-tools
 		killall
 		inotify-tools
 		libnotify
+		lm_sensors
 		gnumake
 		ncdu
 		pulsemixer
@@ -109,6 +111,9 @@
 					donjayamanne.githistory      # Git History
 					seatonjiang.gitmoji-vscode   # Gitmoji
 					github.copilot               # GitHub Copilot
+				];
+			})
+
 					ms-vscode-remote.remote-ssh
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 					{
