@@ -5,6 +5,7 @@
 
 # Description:
 # Runs yt-dlp to download the best video format with subtitles
+# Uses cookies from Firefox to download restricted videos
 # Required: yt-dlp
 
 # Define global variables for colored messages
@@ -46,10 +47,10 @@ if is_playlist "$url"; then
     fi
 fi
 
-# Define function to download the best video format with subtitles
+# Define function to download the best video format with subtitles, using cookies from Firefox for restricted videos
 function download_video_w_sub {
     echo -e "${info} Running yt-dlp to download video with subtitles:"
-    yt-dlp --write-subs --sub-langs "all" "$url" && \
+    yt-dlp --cookies-from-browser firefox --write-subs --sub-langs "all" "$url" && \
     echo -e "${succ} Download video with subtitles successful." || \
     { echo -e "${err} Error while downloading video with subtitles."; return 1; }
 }
