@@ -17,6 +17,11 @@
 		### STORES ###
 		lutris
 
+		### TOOLS
+		gamescope
+		protontricks
+		winetricks
+
 		### GAMES ###
 		cataclysm-dda
 		# keeperrl # Error
