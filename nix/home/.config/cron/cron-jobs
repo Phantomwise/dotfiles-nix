@@ -1,0 +1,12 @@
+# Cron jobs configuration file
+
+# Run `crontab ~/.config/cron/cron-jobs` to load this file into crontab
+
+# To do later: Use inotifywait to monitor changes to this file and reload crontab automatically
+# To do later: Add ASCII art to make the file prettier
+
+# Check the uptime every 12 hours
+0 */12 * * * /home/phantomwise/git/dotfiles/arch/home/.local/bin/scripts/dunst/uptime.sh
+
+# Check for updates every 2 days
+0 20 */2 * * /home/phantomwise/git/dotfiles/arch/home/.local/bin/scripts/dunst/check-updates.sh
