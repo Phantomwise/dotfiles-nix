@@ -95,6 +95,7 @@
 		deltachat-desktop
 		discord
 		discord-canary
+		freetube
 		keepassxc
 		libation
 		libreoffice
