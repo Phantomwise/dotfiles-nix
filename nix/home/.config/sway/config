@@ -157,7 +157,7 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
 
 # exec 'waybar --config ~/.config/waybar/config-sway.jsonc'
 # exec 'killall waybar || waybar
-# exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
