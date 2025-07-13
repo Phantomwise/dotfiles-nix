@@ -38,7 +38,7 @@ fi
 echo -e "System Check"
 echo -e "├── Systemd"
 echo -e "│   ├── System State:"
-if system_state=$(systemctl status | grep -m 1 "State:" | awk '{print $2}'); then
+if system_state=$(systemctl show --property=SystemState --value); then
     echo -e "│   │   └── $(get_colored_state "$system_state")"
     if [ "$system_state" = "degraded" ]; then
         echo -e "│   │       ${red}System has degraded services:${reset}"
@@ -49,7 +49,8 @@ else
 fi
 
 echo -e "│   ├── User State:"
-if user_state=$(systemctl --user status | grep -m 1 "State:" | awk '{print $2}'); then
+if user_state=$(systemctl --user show --property=SystemState --value
+); then
     echo -e "│   │   └── $(get_colored_state "$user_state")"
     if [ "$user_state" = "degraded" ]; then
         echo -e "│   │       ${red}User services have degraded services:${reset}"
