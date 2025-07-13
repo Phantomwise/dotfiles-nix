@@ -44,6 +44,7 @@
 		gnumake
 		ncdu
 		pulsemixer
+		rclone
 		rsync
 		smartmontools
 		steam-run
