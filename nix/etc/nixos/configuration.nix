@@ -17,6 +17,7 @@
 			./packages-games.nix # Packages declarations for games
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
 			# ./config-wireguard.nix # Configuration for wireguard —NOT WORKING: cuts all internet
+			"/etc/nixos/networking-wg-quick.nix" # VPN config
 		];
 
 	# nixpkgs.overlays = [
