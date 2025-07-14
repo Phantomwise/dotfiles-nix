@@ -11,7 +11,8 @@ ifeq ($(TARGET),all)
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
 	sudo stow -v --restow --dir=$(CONFIG_DIR) etc --target=/etc
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
-	stow -v --restow --dir=$(PERSONAL_DIR) . --target=$(HOME_DIR)
+	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
+	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else ifeq ($(TARGET),home)
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
 else ifeq ($(TARGET),etc)
@@ -19,7 +20,11 @@ else ifeq ($(TARGET),etc)
 else ifeq ($(TARGET),usr)
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
 else ifeq ($(TARGET),personal)
-	stow -v --restow --dir=$(PERSONAL_DIR) . --target=$(HOME_DIR)
+	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
+else ifeq ($(TARGET),personal-adopt)
+	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
+else ifeq ($(TARGET),adopt)
+	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
 	@echo -e "\033[1;31mValid options: all, home, etc, usr\033[0m"
