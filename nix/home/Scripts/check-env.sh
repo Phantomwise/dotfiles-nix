@@ -10,8 +10,11 @@ variables=(
 	"USER"
 	"SHELL"
 	"WAYLAND_DISPLAY"
-	"TESTTESTTEST"
+	"TEST_EMPTY"
+	"TEST_UNSET"
 )
+
+TEST_EMPTY=""
 
 for variable in "${variables[@]}"
 	do
