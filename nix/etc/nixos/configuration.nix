@@ -15,6 +15,7 @@
 			./networking.nix # Networking config
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
+			./users.nix # Users configuration
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
 			# ./config-wireguard.nix # Configuration for wireguard —NOT WORKING: cuts all internet
 			"/etc/nixos/networking-wg-quick.nix" # VPN config
@@ -41,15 +42,6 @@
 
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-	# Define a user account. Don't forget to set a password with ‘passwd’.
-	users.users.phantomwise = {
-		isNormalUser = true;
-		description = "Phantomwise";
-		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [];
-		shell = pkgs.zsh;
-	};
 
 	# nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
