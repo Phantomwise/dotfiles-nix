@@ -12,7 +12,7 @@ ifeq ($(TARGET),all)
 	sudo stow -v --restow --dir=$(CONFIG_DIR) etc --target=/etc
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
-	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
+	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else ifeq ($(TARGET),home)
 	# Restow dotfiles-nix/home
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
@@ -27,10 +27,10 @@ else ifeq ($(TARGET),personal)
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
 else ifeq ($(TARGET),personal-adopt)
 	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
-	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
+	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else ifeq ($(TARGET),adopt)
 	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
-	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
+	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
 	@echo -e "\033[1;31mValid options: all, home, etc, usr, personal, personal-adopt, adopt\033[0m"
