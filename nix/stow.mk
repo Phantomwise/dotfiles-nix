@@ -14,16 +14,22 @@ ifeq ($(TARGET),all)
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
 	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else ifeq ($(TARGET),home)
+	# Restow dotfiles-nix/home
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
 else ifeq ($(TARGET),etc)
+	# Restow dotfiles-nix/etc
 	sudo stow -v --restow --dir=$(CONFIG_DIR) etc --target=/etc
 else ifeq ($(TARGET),usr)
+	# Restow dotfiles-nix/usr
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
 else ifeq ($(TARGET),personal)
+	# Restow Personal/home
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
 else ifeq ($(TARGET),personal-adopt)
+	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
 	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else ifeq ($(TARGET),adopt)
+	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
 	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
