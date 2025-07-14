@@ -10,3 +10,6 @@
 
 # Check for updates every 2 days
 0 20 */2 * * /home/phantomwise/git/dotfiles/arch/home/.local/bin/scripts/dunst/check-updates.sh
+
+# Sync to NAS with rclone every 30 minutes
+*/30 * * * * rclone sync -v /home/phantomwise/Sync/SynologyDrive NAS:personal/Sync/Dell-Latitude-E5530-Nix-Rclone
