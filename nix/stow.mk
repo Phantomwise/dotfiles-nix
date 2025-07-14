@@ -33,7 +33,7 @@ else ifeq ($(TARGET),adopt)
 	stow -v --restow --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
-	@echo -e "\033[1;31mValid options: all, home, etc, usr\033[0m"
+	@echo -e "\033[1;31mValid options: all, home, etc, usr, personal, personal-adopt, adopt\033[0m"
 	@false
 endif
 
@@ -66,6 +66,6 @@ else ifeq ($(TARGET),adopt)
 	stow -v --delete --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
-	@echo -e "\033[1;31mValid options: all, home, etc, usr\033[0m"
+	@echo -e "\033[1;31mValid options: all, home, etc, usr, personal, personal-adopt, adopt\033[0m"
 	@false
 endif
