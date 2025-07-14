@@ -34,5 +34,6 @@ for variable in "${variables[@]}"
 			val="${!variable}"
 			color="$green"
 		fi
-		printf "%-22s ${color}%-15s${reset} %s\n" "\$$variable" "$status" "$val"
+		# printf "%-22s ${color}%-15s${reset} %s\n" "\$$variable" "$status" "$val"
+		printf "%-22s %b%-15s%b %s\n" "\$$variable" "$color" "$status" "$reset" "$val"
 	done
