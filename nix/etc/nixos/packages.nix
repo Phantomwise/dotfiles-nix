@@ -24,6 +24,9 @@
 		zsh-autocomplete
 		zsh-autosuggestions
 		#  wget
+		wg-netmanager
+		wireguard-tools
+		wireguard-ui
 
 		### CLI ###
 		ani-cli
