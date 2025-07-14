@@ -15,6 +15,7 @@
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
 			./config-cron.nix # Configuration for cron
+			./config-wireguard.nix # Configuration for wireguard
 		];
 
 	# nixpkgs.overlays = [
