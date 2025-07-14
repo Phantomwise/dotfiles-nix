@@ -65,6 +65,15 @@
 			# This option has been removed due to being unsupported and discouraged by the GTK developers.
 	};
 
+	# Failing to set color for sudo password prompts
+	# security.sudo.extraConfig = ''
+		# Defaults use_pty
+		# Defaults passprompt="\033[1;34m[sudo] password for %p:\033[0m " # Not working, prints \033[1;34m[sudo] password for phantomwise:\033[0m
+		# Defaults passprompt="^[1;34m[sudo] password for %p:^[0m " # Not working, prints ^[1;34m[sudo] password for phantomwise:^[0m
+		# Defaults passprompt="␛[1;34m[sudo] password for %p:␛[0m " # Not working, prints ␛[1;34m[sudo] password for phantomwise:␛[0m
+		# Defaults passprompt="\\e[1;34m[sudo] password for %p:\\e[0m " # Not working, prints \\e[1;34m[sudo] password for phantomwise:\\e[0m
+	# '';
+
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
 	# programs.mtr.enable = true;
