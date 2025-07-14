@@ -14,7 +14,7 @@
 			./locale.nix # Locale settings
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
-			./config-cron.nix # Configuration for cron
+			# ./config-cron.nix # Configuration for cron —DEPRECATED
 			./config-wireguard.nix # Configuration for wireguard
 		];
 
