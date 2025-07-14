@@ -6,13 +6,14 @@
 
 {
 	imports =
-		[ # Include the results of the hardware scan.
+		[
+			# Include the results of the hardware scan.
 			./hardware-configuration.nix
-			./environment.nix
-			./fonts.nix
-			./locale.nix
-			./packages.nix
-			./packages-games.nix
+			./environment.nix # Environment variables
+			./fonts.nix # Fonts
+			./locale.nix # Locale settings
+			./packages.nix # Packages declarations
+			./packages-games.nix # Packages declarations for games
 		];
 
 	# nixpkgs.overlays = [
