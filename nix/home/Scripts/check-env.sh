@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Define color codes
-declare -r red='\033[31m'
-declare -r yellow='\033[33m'
-declare -r green='\033[32m'
+declare -r red='\033[1;31m'
+declare -r yellow='\033[1;33m'
+declare -r green='\033[1;32m'
 declare -r reset='\033[0m'
 
 variables=(
