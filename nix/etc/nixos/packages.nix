@@ -30,7 +30,7 @@
 		brightnessctl
 		bluetuith
 		btop
-		cron
+		# cron # Set in config-cron.nix
 		fastfetch
 		ffmpeg
 		figlet
