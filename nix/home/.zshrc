@@ -16,3 +16,8 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 # End of lines configured by zsh-newuser-install
+
+sudo() {
+  echo -e "\033[1;34m>>> sudo is requesting password now <<<\033[0m" >&2
+  command sudo "$@"
+}
