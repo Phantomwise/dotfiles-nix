@@ -14,22 +14,22 @@ ifeq ($(TARGET),all)
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
 	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 	sudo stow -v --restow --dir=$(PERSONAL_DIR) etc --target=/etc
-else ifeq ($(TARGET),home)
+else ifeq ($(TARGET),dhome)
 	# Restow dotfiles-nix/home
 	stow -v --restow --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
-else ifeq ($(TARGET),etc)
+else ifeq ($(TARGET),detc)
 	# Restow dotfiles-nix/etc
 	sudo stow -v --restow --dir=$(CONFIG_DIR) etc --target=/etc
-else ifeq ($(TARGET),usr)
+else ifeq ($(TARGET),dusr)
 	# Restow dotfiles-nix/usr
 	sudo stow -v --restow --dir=$(CONFIG_DIR) usr --target=/usr
-else ifeq ($(TARGET),personal)
+else ifeq ($(TARGET),phome)
 	# Restow Personal/home
 	stow -v --restow --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
-else ifeq ($(TARGET),personal-adopt)
+else ifeq ($(TARGET),phome-adopt)
 	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
 	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
-else ifeq ($(TARGET),personal-etc)
+else ifeq ($(TARGET),petc)
 	# Restow Personal/etc
 	sudo stow -v --restow --dir=$(PERSONAL_DIR) etc --target=/etc
 else ifeq ($(TARGET),adopt)
@@ -37,7 +37,7 @@ else ifeq ($(TARGET),adopt)
 	stow -v --restow --adopt --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
-	@echo -e "\033[1;31mValid options: all, home, etc, usr, personal, personal-adopt, adopt\033[0m"
+	@echo -e "\033[1;31mValid options: all, dhome, detc, dusr, phome, phome-adopt, petc, adopt\033[0m"
 	@false
 endif
 
@@ -52,22 +52,22 @@ ifeq ($(TARGET),all)
 	stow -v --delete --dir=$(PERSONAL_DIR) etc --target=$/etc
 	stow -v --delete --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 	sudo stow -v --delete --dir=$(PERSONAL_DIR) etc --target=/etc
-else ifeq ($(TARGET),home)
+else ifeq ($(TARGET),dhome)
 	# Restow dotfiles-nix/home
 	stow -v --delete --dir=$(CONFIG_DIR) home --target=$(HOME_DIR)
-else ifeq ($(TARGET),etc)
+else ifeq ($(TARGET),detc)
 	# Restow dotfiles-nix/etc
 	sudo stow -v --delete --dir=$(CONFIG_DIR) etc --target=/etc
-else ifeq ($(TARGET),usr)
+else ifeq ($(TARGET),dusr)
 	# Restow dotfiles-nix/usr
 	sudo stow -v --delete --dir=$(CONFIG_DIR) usr --target=/usr
-else ifeq ($(TARGET),personal)
+else ifeq ($(TARGET),phome)
 	# Restow Personal/home
 	stow -v --delete --dir=$(PERSONAL_DIR) home --target=$(HOME_DIR)
-else ifeq ($(TARGET),personal-adopt)
+else ifeq ($(TARGET),phome-adopt)
 	# Restow Personal/home-adopt (for pesky apps who break symlinks on their configs)
 	stow -v --delete --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
-else ifeq ($(TARGET),personal-etc)
+else ifeq ($(TARGET),petc)
 	# Restow Personal/etc
 	sudo stow -v --delete --dir=$(PERSONAL_DIR) etc --target=/etc
 else ifeq ($(TARGET),adopt)
@@ -75,6 +75,6 @@ else ifeq ($(TARGET),adopt)
 	stow -v --delete --dir=$(PERSONAL_DIR) home-adopt --target=$(HOME_DIR)
 else
 	@echo -e "\033[1;31mInvalid target '${TARGET}'\033[0m"
-	@echo -e "\033[1;31mValid options: all, home, etc, usr, personal, personal-adopt, adopt\033[0m"
+	@echo -e "\033[1;31mValid options: all, dhome, detc, dusr, phome, phome-adopt, petc, adopt\033[0m"
 	@false
 endif
