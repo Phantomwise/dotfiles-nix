@@ -16,6 +16,7 @@
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
 			./users.nix # Users configuration
+			./wayland.nix # Wayland portals configuration
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
 			# ./config-wireguard.nix # Configuration for wireguard —NOT WORKING: cuts all internet
 			"/etc/nixos/networking-wg-quick.nix" # VPN config
@@ -46,19 +47,6 @@
 	# nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	services.upower.enable = true;
-
-	users.defaultUserShell = pkgs.zsh;
-
-	xdg.portal = {
-		enable = true;
-		wlr.enable = true;
-		# gtk portal needed to make firefox happy
-		extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-		# gtkUsePortal = true;
-			# error:
-			# The option definition `xdg.portal.gtkUsePortal' in `/home/phantomwise/SynologyDrive/dotfiles-nix/nix/etc/nixos/configuration.nix' no longer has any effect; please remove it.
-			# This option has been removed due to being unsupported and discouraged by the GTK developers.
-	};
 
 	# Failing to set color for sudo password prompts
 	# security.sudo.extraConfig = ''
