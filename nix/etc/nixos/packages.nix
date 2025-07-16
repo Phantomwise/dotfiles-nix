@@ -20,10 +20,7 @@
 	environment.systemPackages = with pkgs; [
 		gvfs
 		gnome.gvfs
-		# zsh
-		zsh-autocomplete
-		zsh-autosuggestions
-		zsh-syntax-highlighting
+
 		#  wget
 		wg-netmanager
 		wireguard-tools
@@ -130,12 +127,6 @@
 				];
 			})
 		];
-
-	### SHELL ###
-	programs.zsh.enable = true;
-	programs.zsh.enableCompletion = true;
-	programs.zsh.autosuggestions.enable = true;
-	programs.zsh.syntaxHighlighting.enable = true;
 
 	### DESKTOP ###
 
