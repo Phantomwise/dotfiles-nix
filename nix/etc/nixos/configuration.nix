@@ -16,7 +16,7 @@
 			./networking.nix # Networking config
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
-			./shell.nix # Bash and Zsh configuration
+			./shellrc.nix # Bash and Zsh configuration
 			./users.nix # Users configuration
 			# ./systemd-services.nix # Systemd services and timers
 			./wayland.nix # Wayland portals configuration
