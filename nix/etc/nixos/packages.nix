@@ -23,6 +23,7 @@
 		# zsh
 		zsh-autocomplete
 		zsh-autosuggestions
+		zsh-syntax-highlighting
 		#  wget
 		wg-netmanager
 		wireguard-tools
