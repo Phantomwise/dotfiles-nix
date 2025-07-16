@@ -18,7 +18,7 @@
 			./users.nix # Users configuration
 			./wayland.nix # Wayland portals configuration
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
-			# ./config-wireguard.nix # Configuration for wireguard —NOT WORKING: cuts all internet
+			# "/etc/nixos/config-wireguard.nix" # Configuration for wireguard —NOT WORKING: cuts all internet
 			"/etc/nixos/networking-wg-quick.nix" # VPN config
 		];
 
