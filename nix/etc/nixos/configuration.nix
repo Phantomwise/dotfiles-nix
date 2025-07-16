@@ -11,6 +11,7 @@
 			./hardware-configuration.nix
 			./environment.nix # Environment variables
 			./fonts.nix # Fonts
+			./home-manager.nix # Home manager config
 			./locale.nix # Locale settings
 			./networking.nix # Networking config
 			./packages.nix # Packages declarations
