@@ -16,6 +16,7 @@
 			./packages.nix # Packages declarations
 			./packages-games.nix # Packages declarations for games
 			./users.nix # Users configuration
+			# ./systemd-services.nix # Systemd services and timers
 			./wayland.nix # Wayland portals configuration
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
 			# "/etc/nixos/config-wireguard.nix" # Configuration for wireguard —NOT WORKING: cuts all internet
