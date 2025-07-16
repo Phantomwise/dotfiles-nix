@@ -29,6 +29,7 @@
 		wireguard-ui
 
 		### CLI ###
+		acpi
 		ani-cli
 		brightnessctl
 		bluetuith
