@@ -26,4 +26,7 @@
 		variant = "colemak";
 	};
 
+	# Console keymap
+	console.keyMap = "colemak";
+
 }
