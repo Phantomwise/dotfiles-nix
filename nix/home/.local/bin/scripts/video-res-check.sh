@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # AI Disclaimer:
 # This script was written with help from GitHub Copilot.
