@@ -29,6 +29,7 @@
 		git
 		gitmoji-cli
 		intel-gpu-tools
+		jq
 		killall
 		inotify-tools
 		libnotify
