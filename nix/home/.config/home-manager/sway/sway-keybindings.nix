@@ -302,6 +302,21 @@ in
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
+	# Change brightness with brightness keys
+		"XF86MonBrightnessUp" = "exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"XF86MonBrightnessDown" = "exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"Shift+XF86MonBrightnessUp" = "exec brightnessctl set 100% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"Shift+XF86MonBrightnessDown" = "exec brightnessctl set 0% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+
+	# Change brightness with ctrl + volume keys
+		"Ctrl+XF86AudioRaiseVolume" = "exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"Ctrl+XF86AudioLowerVolume" = "exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"Ctrl+XF86AudioMute" = "exec brightnessctl set 50% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+
+	# Change brightness with mod + F10/F11
+		"${mod}+F11" = "exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+		"${mod}+F10" = "exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░░░░ SCREENSHOTS ░░░░░░░░░░░░░░░░░░░░░░░░█║
