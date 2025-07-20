@@ -8,7 +8,7 @@
 		syntaxHighlighting.enable = true;
 		dotDir = ".config/zsh";
 		history.ignoreAllDups = true;
-		history.path = ".config/zsh/.zsh-history";
+		# history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
 		history.size = 10000;
 		shellAliases = {
 			"~" = "cd ~";
