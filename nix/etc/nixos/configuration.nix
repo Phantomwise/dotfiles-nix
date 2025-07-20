@@ -47,6 +47,7 @@
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+	nix.settings.experimental-features = [ "nix-command" ];
 	# nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	services.upower.enable = true;
