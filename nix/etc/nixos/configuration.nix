@@ -53,6 +53,9 @@
 
 	services.upower.enable = true;
 
+	# Enable polkit
+	security.polkit.enable = true;
+
 	# Failing to set color for sudo password prompts
 	# security.sudo.extraConfig = ''
 		# Defaults use_pty
