@@ -36,57 +36,12 @@
     # Mod4 = Win
 set $mod Mod4
 
-# Home row direction keys, like vim
-set $left n
-set $down e
-set $up u
-set $right i
-
-# Programs
-set $terminal kitty
-set $texteditor leafpad
-set $codeeditor code
-# set $codeeditor vscodium
-# set $codeeditor "vscodium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
-# set $codeeditor /usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
-# set $codeeditor "code --enable-features=UseOzonePlatform --ozone-platform=wayland"
-set $filemanager nemo
-set $office libreoffice
-set $webbrowser1 firefox
-set $webbrowser2 librewolf
-set $audioplayer vlc
-set $videoplayer vlc
-
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
-
-# Application Launcher : rofi
-set $runmenu rofi -show run
-set $drunmenu rofi -show drun
-set $sshmenu rofi -show ssh
-set $windowmenu rofi -show window
-set $filebrowsermenu rofi -show filebrowser
-set $emoji rofimoji --action copy
-    # $emoji = rofi -modi "emoji:rofimoji" -show emoji
-set $calc rofi -show calc -no-show-match -no-sort
-    # ERROR: (but still working)
-    # ** (process:143427): WARNING **: 16:58:47.111: Mode 'calc' does not have a type set. Please update mode/plugin.
-set $powermenu rofi -show power-menu -modi power-menu:rofi-power-menu
-    # NB: located in /home/phantomwise/Scripts/rofi-power-menu
-    # NB: copy not in use in /home/phantomwise/Scripts/rofi-power-menu
-set $gamesl rofi -modi games -show games -theme theme-games-phantomwise-large
-set $gamess rofi -modi games -show games -theme theme-games-phantomwise-small
-
 # ███████████████████████████████████████████████████████████████╗
 # █╔════════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░ KEY BINDINGS ░░░░░░░░░░░░░░░░░░░░░░░█║
 # ███████████████████████████████████████████████████████████████║
 # ╚══════════════════════════════════════════════════════════════╝
 
-# Kill focused window
-bindsym $mod+Shift+q kill
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -108,67 +63,11 @@ bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. 
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
-# Applications
-bindsym $mod+Return exec $term
-bindsym $mod+z exec $terminal
-bindsym Ctrl+Alt+z exec $terminal
-bindsym Ctrl+Alt+t exec $texteditor
-bindsym Ctrl+Alt+c exec $codeeditor
-bindsym Ctrl+Alt+f exec $filemanager
-bindsym Ctrl+Alt+l exec $webbrowser2
-bindsym Ctrl+Alt+o exec $office
-bindsym Ctrl+Alt+w exec $webbrowser1
-bindsym Ctrl+Alt+m exec $audioplayer
-bindsym Ctrl+Alt+v exec $videoplayer
-
-# Start your sway-bar
-# bindsym $mod+d exec $menu
-
-# Start rofi
-bindsym $mod+r exec $runmenu
-bindsym $mod+x exec $drunmenu
-bindsym $mod+d exec $drunmenu
-bindsym $mod+b exec $filebrowsermenu
-bindsym $mod+s exec $sshmenu
-bindsym $mod+m exec $emoji
-bindsym $mod+c exec $calc
-bindsym $mod+g exec $gamess
-bindsym $mod+Shift+g exec $gamesl
-# bindsym $mod+l exec $powermenu
-bindsym Alt+Tab exec $windowmenu
-
-# Start/kill waybar
-# bindsym $mod+Alt+w exec 'pkill waybar || waybar'
-# bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
-bindsym $mod+Alt+w exec 'pkill waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
-
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░░░ MOVING AROUND ░░░░░░░░░░░░░░░░░░░░░░░█║
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
-
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
