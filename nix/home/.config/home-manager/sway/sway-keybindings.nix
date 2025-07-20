@@ -292,6 +292,7 @@ in
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
+		# Change volume with volume keys
 			"XF86AudioRaiseVolume" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 2%+; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
 			"XF86AudioLowerVolume" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 2%-; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
 			"Shift+XF86AudioRaiseVolume" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 100%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
