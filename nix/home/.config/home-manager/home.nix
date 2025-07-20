@@ -86,5 +86,5 @@
 
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
-	programs.home-manager.path = "$HOME/src/github.com/nix-community/home-manager";
+	# programs.home-manager.path = "$HOME/src/github.com/nix-community/home-manager";
 }
