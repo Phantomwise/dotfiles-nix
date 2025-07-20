@@ -299,6 +299,13 @@ in
 			"Shift+XF86AudioLowerVolume" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
 			"XF86AudioMute" = "exec bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-mute.sh'";
 
+		# Change volume with mod + F1/F2/F3 keys
+			"${mod}+F3" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 2%+; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
+			"${mod}+F2" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 2%-; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
+			"${mod}+Shift+F3" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 100%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
+			"${mod}+Shift+F2" = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
+			"${mod}+F1" = "exec bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-mute.sh'";
+
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░ SCREEN BRIGHTNESS ░░░░░░░░░░░░░░░░░░░░░█║
