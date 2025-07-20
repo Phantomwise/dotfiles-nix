@@ -324,10 +324,10 @@ in
 			"Ctrl+XF86AudioMute"          = "exec brightnessctl set 50% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
 
 		# Change brightness with mod + F10/F11
-			"${mod}+F11"                  = "exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
-			"${mod}+F10"                  = "exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
-			"${mod}+Shift+F11"            = "exec brightnessctl set 100% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
-			"${mod}+Shift+F10"            = "exec brightnessctl set 0% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+			"${mod}+F10"                  = "exec brightnessctl set 5%+ && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+			"${mod}+F9"                   = "exec brightnessctl set 5%- && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+			"${mod}+Shift+F10"            = "exec brightnessctl set 100% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
+			"${mod}+Shift+F9"             = "exec brightnessctl set 0% && exec $HOME/.local/bin/scripts/dunst/brightness.sh";
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
