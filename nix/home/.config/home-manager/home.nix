@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
+
 {
+	imports =
+	[
+		./zsh.nix
+	];
+
 	# Home Manager needs a bit of information about you and the paths it should
 	# manage.
 	home.username = "phantomwise";
