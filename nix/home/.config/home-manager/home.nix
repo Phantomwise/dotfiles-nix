@@ -77,6 +77,12 @@
 		# EDITOR = "emacs";
 	};
 
+	home.sessionPath =
+	[
+		"$HOME/.local/bin/scripts"
+		"$HOME/Scripts"
+	];
+
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 }
