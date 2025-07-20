@@ -15,6 +15,7 @@
 			./locale.nix # Locale settings
 			./networking.nix # Networking config
 			./packages.nix # Packages declarations
+			./packages-flatpak.nix # Flatpak packages
 			./packages-games.nix # Packages declarations for games
 			./shellrc.nix # Bash and Zsh configuration
 			./users.nix # Users configuration
