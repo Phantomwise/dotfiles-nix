@@ -91,6 +91,11 @@ in
 		# Unsorted keybindings
 			# Kill focused window
 			"${mod}+Shift+q" = "kill";
+			# Reload the configuration file
+			"${mod}+Shift+c" = "reload";
+			"${mod}+Alt+c" = "reload";
+			# Exit sway (logs you out of your Wayland session)
+			"${mod}+Shift+m" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
 
 		# Mouse bindings
 			# Mouse bindings operate on the container under the cursor instead of the container that has fo‐
