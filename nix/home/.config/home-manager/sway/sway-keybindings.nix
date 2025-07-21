@@ -334,14 +334,14 @@ in
 			"${mod}+F12" = "exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'";
 
 		# Screenshot active window to file named 'screenshot_date&hour_windowclass.png'
+		# NOTWORKING:
 			"Ctrl+Print" = "exec screenshot-focused-window-sway.sh";
 			"${mod}+Ctrl+F12" = "exec screenshot-focused-window-sway.sh";
-		# NOTWORKING
 
 		# Screenshot area to file 'screenshot_date&hour.png'
+		# NOTWORKING:
 			"${mod}+Alt+Print" = "exec grim -t png -g '$(slurp)' '$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'";
 			"${mod}+Alt+F12" = "exec grim -t png -g '$(slurp)' '$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'";
-		# NOTWORKING
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
