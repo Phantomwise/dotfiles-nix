@@ -10,6 +10,10 @@
 		history.ignoreAllDups = true;
 		# history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
 		history.size = 10000;
+		# setOptions = [ "NO_BEEP" ];  # This is case sensitive!
+		# setOptions = [
+			# "NO_BEEP"
+		# ];
 		shellAliases = {
 			"~" = "cd ~";
 			".." = "cd ..";
