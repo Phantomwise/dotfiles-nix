@@ -340,6 +340,7 @@ in
 
 		# Screenshot area to file 'screenshot_date&hour.png'
 			"${mod}+Alt+Print" = "exec grim -t png -g '$(slurp)' '$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'";
+			"${mod}+Alt+F12" = "exec grim -t png -g '$(slurp)' '$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'";
 		# NOTWORKING
 
 	# ███████████████████████████████████████████████████████████████╗
