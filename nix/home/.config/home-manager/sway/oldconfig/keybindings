@@ -75,12 +75,6 @@ bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. 
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
-	# Cycle through workspaces with the mouse
-	bindsym --whole-window {
-		$mod+button4 workspace prev
-		$mod+button5 workspace next
-	}
-
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░░░░░░░ LAYOUT ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
