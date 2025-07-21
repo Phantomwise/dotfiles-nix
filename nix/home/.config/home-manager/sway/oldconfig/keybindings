@@ -111,18 +111,6 @@ bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. 
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
-# Screenshot all screen to file named 'screenshot_date&hour.png'
-bindsym Print exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
-bindsym $mod+p exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
-bindsym $mod+F12 exec 'grim -t png $HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png'
-
-# Screenshot active window to file named 'screenshot_date&hour_windowclass.png'
-bindsym Ctrl+Print exec screenshot-focused-window-sway.sh
-bindsym Ctrl+$mod+F12 exec screenshot-focused-window-sway.sh
-
-# Screenshot area to file 'screenshot_date&hour.png'
-bindsym $mod+Alt+Print exec grim -t png -g "$(slurp)" "$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
-
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░░░░░ WALLPAPER ░░░░░░░░░░░░░░░░░░░░░░░░░█║
