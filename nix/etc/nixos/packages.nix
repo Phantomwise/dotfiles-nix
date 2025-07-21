@@ -36,6 +36,7 @@
 		lm_sensors
 		gnumake
 		ncdu
+		python3
 		pulsemixer
 		rclone
 		rsync
