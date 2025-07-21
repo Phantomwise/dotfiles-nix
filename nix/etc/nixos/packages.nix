@@ -10,6 +10,7 @@
 	environment.systemPackages = with pkgs; [
 		gvfs
 		gnome.gvfs
+		(python3.withPackages (ps: [ ps.requests ]))
 
 		#  wget
 		wg-netmanager
@@ -36,7 +37,6 @@
 		lm_sensors
 		gnumake
 		ncdu
-		python3
 		pulsemixer
 		rclone
 		rsync
