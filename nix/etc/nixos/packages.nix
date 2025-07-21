@@ -82,6 +82,7 @@
 		abcde
 		asunder
 		mpc
+		picard
 		vlc
 
 		### MISC GUI ###
