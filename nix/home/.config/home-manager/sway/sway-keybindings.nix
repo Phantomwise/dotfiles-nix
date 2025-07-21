@@ -192,15 +192,8 @@ in
 			"${mod}+Next" = "workspace next";
 
 		# Cycle through workspaces with the mouse
-			# "${mod}+button4" = "workspace prev";
-			# "${mod}+button5" = "workspace next";
-		# NOTWORKING
-		# Original config:
-			# Cycle through workspaces with the mouse
-			# bindsym --whole-window {
-				# $mod+button4 workspace prev
-				# $mod+button5 workspace next
-			# }
+			"--whole-window ${mod}+button4" = "workspace prev";
+			"--whole-window ${mod}+button5" = "workspace next";
 
 		# Move focused container to workspace
 			"${mod}+Shift+1" = "move container to workspace number 1";
