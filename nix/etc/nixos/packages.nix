@@ -12,6 +12,7 @@
 		gnome.gvfs
 		ntfs3g
 		(python3.withPackages (ps: [ ps.requests ]))
+		protonvpn-gui
 
 		#  wget
 		wg-netmanager
