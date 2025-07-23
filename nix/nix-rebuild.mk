@@ -3,5 +3,7 @@
 
 # nix-rebuild
 nix-rebuild:
-	@echo -e "\033[1;33mRebuilding\033[0m"
+	@echo -e "\033[1;33mRebuilding system configuration\033[0m"
 	sudo nixos-rebuild switch
+	@echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
+	home-manager switch
