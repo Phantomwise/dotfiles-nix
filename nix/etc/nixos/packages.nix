@@ -10,6 +10,7 @@
 	environment.systemPackages = with pkgs; [
 		gvfs
 		gnome.gvfs
+		ntfs3g
 		(python3.withPackages (ps: [ ps.requests ]))
 
 		#  wget
@@ -143,5 +144,5 @@
 
 	### MISC ###
 	programs.firefox.enable = true;
-
+	services.gvfs.enable = true;
 }
