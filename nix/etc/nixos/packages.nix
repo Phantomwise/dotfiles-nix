@@ -15,22 +15,15 @@
 			ps.requests
 			ps.curl-cffi
 			]))
-		protonvpn-gui
-
-		#  wget
-		wg-netmanager
-		wireguard-tools
-		wireguard-ui
+		wine
 
 		### CLI ###
 		acpi
-		ani-cli
 		brightnessctl
 		bluetuith
 		btop
 		# cron # Set in config-cron.nix
 		fastfetch
-		ffmpeg
 		figlet
 		git
 		gitmoji-cli
@@ -50,8 +43,14 @@
 		stow
 		tldr
 		tree
-		wine
 		wl-clipboard
+
+		### NETWORKING ###
+		#  wget
+		wg-netmanager
+		wireguard-tools
+		wireguard-ui
+		protonvpn-gui
 
 		### DESKTOP ###
 		dunst
@@ -85,7 +84,9 @@
 
 		### AUDIO & VIDEO ###
 		abcde
+		ani-cli
 		asunder
+		ffmpeg
 		mpc
 		picard
 		vlc
