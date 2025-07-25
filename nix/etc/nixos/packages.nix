@@ -95,6 +95,7 @@
 })) {})
 
 		### MISC GUI ###
+		bulky
 		deltachat-desktop
 		discord
 		discord-canary
