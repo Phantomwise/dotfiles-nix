@@ -11,7 +11,10 @@
 		gvfs
 		gnome.gvfs
 		ntfs3g
-		(python3.withPackages (ps: [ ps.requests ]))
+		(python3.withPackages (ps: [
+			ps.requests
+			ps.curl-cffi
+			]))
 		protonvpn-gui
 
 		#  wget
