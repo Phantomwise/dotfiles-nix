@@ -46,10 +46,10 @@ if is_playlist "$url"; then
     fi
 fi
 
-# Define function to download the best video format with subtitles
+# Define function to download the best video format with subtitles and impersonate Chrome + Windows 10
 function download_video_w_sub {
     echo -e "${info} Running yt-dlp to download video with subtitles:"
-    yt-dlp --write-subs --sub-langs "all" "$url" && \
+    yt-dlp --write-subs --sub-langs "all" --impersonate="chrome:windows-10" "$url" && \
     echo -e "${succ} Download video with subtitles successful." || \
     { echo -e "${err} Error while downloading video with subtitles."; return 1; }
 }
