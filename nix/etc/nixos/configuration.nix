@@ -17,6 +17,7 @@
 			./packages.nix # Packages declarations
 			./packages-flatpak.nix # Flatpak packages
 			./packages-games.nix # Packages declarations for games
+			./packages-unstable.nix # Packages from the unstable repo
 			./shellrc.nix # Bash and Zsh configuration
 			./users.nix # Users configuration
 			# ./systemd-services.nix # Systemd services and timers
