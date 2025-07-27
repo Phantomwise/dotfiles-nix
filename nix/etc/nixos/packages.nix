@@ -87,6 +87,7 @@
 		ani-cli
 		asunder
 		ffmpeg
+		# libation # moved to unstable
 		mpc
 		picard
 		vlc
@@ -102,7 +103,6 @@
 		discord-canary
 		freetube
 		keepassxc
-		libation
 		libreoffice
 		synology-drive-client
 		zotero
