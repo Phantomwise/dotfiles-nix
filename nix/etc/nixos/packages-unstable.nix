@@ -9,5 +9,6 @@ in {
 
 	environment.systemPackages = with unstable; [
 		# unstable packages
+		libation
 	];
 }
