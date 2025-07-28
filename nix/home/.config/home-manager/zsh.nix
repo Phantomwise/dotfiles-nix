@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+	aliases = import ./shellrc-aliases.nix;
+in
+
 {
 	programs.zsh = {
 		enable = true;
@@ -14,14 +18,6 @@
 		# setOptions = [
 			# "NO_BEEP"
 		# ];
-		shellAliases = {
-			"~" = "cd ~";
-			".." = "cd ..";
-			cdd = "cd ~/Sync/SynologyDrive/dotfiles-nix/nix/";
-			cds = "cd ~/Sync/SynologyDrive/";
-			ll = "ls -alh";
-			hh = "home-manager switch";
-			update = "sudo nixos-rebuild switch";
-		};
+		shellAliases = aliases;
 	};
 }
