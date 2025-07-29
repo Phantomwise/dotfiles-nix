@@ -86,6 +86,7 @@
 		abcde
 		ani-cli
 		asunder
+		cdrkit
 		ffmpeg
 		# libation # moved to unstable
 		mpc
