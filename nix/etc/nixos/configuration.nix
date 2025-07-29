@@ -20,6 +20,7 @@
 			./packages-unstable.nix # Packages from the unstable repo
 			./shellrc.nix # Bash and Zsh configuration
 			./users.nix # Users configuration
+			./systemd.nix # Systemd services and timers
 			# ./systemd-services.nix # Systemd services and timers
 			./wayland.nix # Wayland portals configuration
 			# ./config-cron.nix # Configuration for cron —DEPRECATED
