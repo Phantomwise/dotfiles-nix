@@ -22,6 +22,7 @@
 		brightnessctl
 		bluetuith
 		btop
+		clamav
 		# cron # Set in config-cron.nix
 		fastfetch
 		figlet
