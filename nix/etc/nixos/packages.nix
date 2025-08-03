@@ -22,6 +22,8 @@
 		brightnessctl
 		bluetuith
 		btop
+		iotop
+		sysstat
 		clamav
 		# cron # Set in config-cron.nix
 		fastfetch
