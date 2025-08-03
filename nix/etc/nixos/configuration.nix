@@ -50,6 +50,12 @@
 	system.autoUpgrade.enable = true;
 	system.autoUpgrade.dates = "weekly";
 
+	# Auto Cleanup
+	nix.gc.automatic = true;
+	nix.gc.dates = "weekly";
+	nix.gc.options = "--delete-older-than 7d";
+	nix.settings.auto-optimise-store = true;
+
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
