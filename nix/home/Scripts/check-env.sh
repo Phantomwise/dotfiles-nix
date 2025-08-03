@@ -42,10 +42,13 @@ variables=(
 	"XDG_STATE_HOME"
 	"XDG_VTNR"
 	"ZDOTDIR"
+	"TEST_SET"
 	"TEST_EMPTY"
 	"TEST_UNSET"
 )
 
+# Define test variables
+TEST_SET="Test set variable"
 TEST_EMPTY=""
 
 for variable in "${variables[@]}"
