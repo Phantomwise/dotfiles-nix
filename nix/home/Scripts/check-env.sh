@@ -19,6 +19,7 @@ variables=(
 	"HOSTNAME"
 	"LOGNAME"
 	"PAGER"
+	"PATH"
 	"UID"
 	"USER"
 	"SHELL"
