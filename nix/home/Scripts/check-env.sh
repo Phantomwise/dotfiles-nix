@@ -7,6 +7,7 @@ declare -r yellow="\033[1;33m"
 declare -r green="\033[1;32m"
 declare -r reset="\033[0m"
 
+# List of variables to check
 variables=(
 	"BASH_SOURCE"
 	"BASH_VERSION"
@@ -51,6 +52,7 @@ variables=(
 TEST_SET="Test set variable"
 TEST_EMPTY=""
 
+# Checks for each variable
 for variable in "${variables[@]}"
 	do
 		# Variable is not set
