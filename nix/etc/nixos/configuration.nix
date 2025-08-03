@@ -7,25 +7,24 @@
 {
 	imports =
 		[
-			# Include the results of the hardware scan.
-			./hardware-configuration.nix
-			./environment.nix # Environment variables
-			./fonts.nix # Fonts
-			# ./home-manager.nix # Home manager config —deactivated, trying a user install instead
-			./locale.nix # Locale settings
-			./networking.nix # Networking config
-			./packages.nix # Packages declarations
-			./packages-flatpak.nix # Flatpak packages
-			./packages-games.nix # Packages declarations for games
-			./packages-unstable.nix # Packages from the unstable repo
-			./shellrc.nix # Bash and Zsh configuration
-			./users.nix # Users configuration
-			./systemd.nix # Systemd services and timers
-			# ./systemd-services.nix # Systemd services and timers
-			./wayland.nix # Wayland portals configuration
-			# ./config-cron.nix # Configuration for cron —DEPRECATED
-			# "/etc/nixos/config-wireguard.nix" # Configuration for wireguard —NOT WORKING: cuts all internet
-			# "/etc/nixos/networking-wg-quick.nix" # VPN config
+			./hardware-configuration.nix            # Include the results of the hardware scan.
+			./environment.nix                       # Environment variables
+			./fonts.nix                             # Fonts
+			# ./home-manager.nix                    # Home manager config —deactivated, trying a user install instead
+			./locale.nix                            # Locale settings
+			./networking.nix                        # Networking config
+			./packages.nix                          # Packages declarations
+			./packages-flatpak.nix                  # Flatpak packages
+			./packages-games.nix                    # Packages declarations for games
+			./packages-unstable.nix                 # Packages from the unstable repo
+			./shellrc.nix                           # Bash and Zsh configuration
+			./users.nix                             # Users configuration
+			./systemd.nix                           # Systemd services and timers
+			# ./systemd-services.nix                # Systemd services and timers
+			./wayland.nix                           # Wayland portals configuration
+			# ./config-cron.nix                     # Configuration for cron —DEPRECATED
+			# "/etc/nixos/config-wireguard.nix"     # Configuration for wireguard —NOT WORKING: cuts all internet
+			# "/etc/nixos/networking-wg-quick.nix"  # VPN config
 		];
 
 	# nixpkgs.overlays = [
@@ -56,6 +55,7 @@
 	nix.gc.options = "--delete-older-than 7d";
 	nix.settings.auto-optimise-store = true;
 
+	# Bluetooth
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
