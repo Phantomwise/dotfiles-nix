@@ -4,6 +4,7 @@
 {
 	imports =
 	[
+		# ./systemd-timers.nix
 		./zsh.nix
 		./sway/sway-config.nix
 	];
