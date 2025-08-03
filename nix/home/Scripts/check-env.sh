@@ -59,7 +59,7 @@ for variable in "${variables[@]}"
 			val=""
 			color="$yellow"
 		# Variable is set and not empty
-		elif [ "${variable+x}" ]; then
+		elif [ -n "${!variable}" ]; then
 			status="(set)"
 			val="${!variable}"
 			color="$green"
