@@ -63,7 +63,7 @@ for variable in "${variables[@]}"
 			status="(set)"
 			val="${!variable}"
 			color="$green"
-		# Variable is not set nor empty nor unset??? (just in case)
+		# Variable is not set nor empty nor unset (should never be true, hopefully)
 		else
 			status="(unknown)"
 			val=""
