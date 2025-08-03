@@ -46,6 +46,8 @@
 	# networking.proxy.default = "http://user:password@proxy:port/";
 	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+	system.autoUpgrade.enable = true;
+	system.autoUpgrade.dates = "weekly";
 
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot

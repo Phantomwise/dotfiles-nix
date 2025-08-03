@@ -4,7 +4,7 @@
 	imports =
 		[
 			./systemd-clamav.nix
-			./systemd/auto-update.nix
+			# ./systemd/auto-update.nix
 		];
 
 }
