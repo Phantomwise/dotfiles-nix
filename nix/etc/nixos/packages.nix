@@ -17,6 +17,7 @@
 			]))
 		wine
 		libva-utils
+		tlp # Advanced Power Management for Linux
 
 		### CLI ###
 		acpi
