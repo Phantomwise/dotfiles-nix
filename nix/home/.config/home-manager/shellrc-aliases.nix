@@ -19,5 +19,5 @@
 	update = "sudo nixos-rebuild switch --upgrade";
 
 	# Other
-	"echo $PATH" = "echo $PATH | tr ':' '\n'"; # NOTWORKING
+	# "echo $PATH" = "echo $PATH | tr ':' '\n'"; # NOTWORKING
 }
