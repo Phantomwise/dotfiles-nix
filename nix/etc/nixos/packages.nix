@@ -16,6 +16,7 @@
 			ps.curl-cffi
 			]))
 		wine
+		libva-utils
 
 		### CLI ###
 		acpi
