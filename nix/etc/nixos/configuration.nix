@@ -67,6 +67,15 @@
 	# Enable polkit
 	security.polkit.enable = true;
 
+	# Enable tlp for power management
+	services.tlp = {
+		enable = true;
+		settings = {
+				START_CHARGE_THRESH_BAT0 = 50;
+				STOP_CHARGE_THRESH_BAT0 = 80;
+		};
+	};
+
 	# Configure logind
 	services.logind = {
 		hibernateKey = "ignore";
