@@ -67,6 +67,16 @@
 	# Enable polkit
 	security.polkit.enable = true;
 
+	# No idea what I'm doing, trying to fix graphics problem — TODO: check why it doesn't work
+	hardware.graphics = {
+		enable = true;
+		enable32Bit = true;
+		extraPackages = with pkgs; [
+			vaapiIntel          # Legacy Intel driver (Sandy/Ivy/Haswell)
+			libvdpau-va-gl      # Optional, bridges VA-API to VDPAU
+		];
+	};
+
 	# Failing to set color for sudo password prompts
 	# security.sudo.extraConfig = ''
 		# Defaults use_pty
