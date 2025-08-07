@@ -67,6 +67,19 @@
 	# Enable polkit
 	security.polkit.enable = true;
 
+	# Configure logind
+	services.logind = {
+		hibernateKey = "ignore";
+		hibernateKeyLongPress = "ignore";
+		lidSwitch = "suspend";
+		lidSwitchDocked = "ignore";
+		lidSwitchExternalPower = "suspend";
+		# powerKey = "poweroff";
+		# powerKeyLongPress = "ignore";
+		suspendKey = "ignore";
+		suspendKeyLongPress = "ignore";
+	};
+
 	# No idea what I'm doing, trying to fix graphics problem — TODO: check why it doesn't work
 	hardware.graphics = {
 		enable = true;
