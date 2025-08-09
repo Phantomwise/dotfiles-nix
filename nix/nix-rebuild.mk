@@ -7,5 +7,5 @@ nix-rebuild:
 	sudo nixos-rebuild switch
 	@echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
 	home-manager switch
-	@echo -e "\033[1;33mRefresh font cache\033[0m"
+	@echo -e "\033[1;33mRefreshing font cache\033[0m"
 	fc-cache -fv
