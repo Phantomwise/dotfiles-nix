@@ -9,3 +9,4 @@ nix-rebuild:
 	home-manager switch
 	@echo -e "\033[1;33mRefreshing font cache\033[0m"
 	fc-cache -fv
+	@echo -e "\033[1;32mRebuild complete\033[0m"
