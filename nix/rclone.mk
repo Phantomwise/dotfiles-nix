@@ -2,7 +2,7 @@
 .PHONY: rclone
 
 # Declare directories
-SYNC_SRC_DIR := /home/phantomwise/Sync/SynologyDrive
+SYNC_SRC_DIR := /home/phantomwise/Sync/
 
 # Sync with rclone
 rclone:
