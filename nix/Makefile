@@ -1,8 +1,8 @@
 # Declare phony targets
 
 # Declare directories
-CONFIG_DIR := /home/phantomwise/Sync/SynologyDrive/dotfiles-nix/nix
-PERSONAL_DIR := /home/phantomwise/Sync/SynologyDrive/Personal
+CONFIG_DIR := /home/phantomwise/Sync/dotfiles-nix/nix
+PERSONAL_DIR := /home/phantomwise/Sync/Personal
 HOME_DIR := /home/phantomwise
 
 # Include modular Makefile parts
