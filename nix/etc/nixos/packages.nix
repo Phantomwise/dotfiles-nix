@@ -11,6 +11,7 @@
 		gvfs
 		gnome.gvfs
 		ntfs3g
+		samba
 		(python3.withPackages (ps: [
 			ps.requests
 			ps.curl-cffi
