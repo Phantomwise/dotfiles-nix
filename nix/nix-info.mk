@@ -11,3 +11,5 @@ nix-info:
 	sudo nix-env --list-generations
 	@echo -e "\033[1;33mList user generations\033[0m"
 	nix-env --list-generations
+	@echo -e "\033[1;33mList Home Manager generations\033[0m"
+	home-manager generations
