@@ -7,7 +7,7 @@
 {
 	imports =
 		[
-			./hardware-configuration.nix            # Include the results of the hardware scan.
+			/etc/nixos/hardware-configuration.nix   # Include the results of the hardware scan.
 			./environment.nix                       # Environment variables
 			./fonts.nix                             # Fonts
 			# ./home-manager.nix                    # Home manager config —deactivated, trying a user install instead
