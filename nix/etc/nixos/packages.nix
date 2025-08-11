@@ -8,25 +8,41 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
-		gvfs
-		gnome.gvfs
-		ntfs3g
-		samba
-		(python3.withPackages (ps: [
-			ps.requests
-			ps.curl-cffi
-			]))
 		wine
 		libva-utils
 		tlp # Advanced Power Management for Linux
 
-		### CLI ###
+		### FILE SYSTEM ###
+		gvfs
+		gnome.gvfs
+		ntfs3g
+		samba
+
+		### LANGUAGES ###
+		(python3.withPackages (ps: [
+			ps.requests
+			ps.curl-cffi
+			]))
+
+		### SYSTEM TOOLS ###
+		killall
+		tree
+
+		### MONITORING ###
 		acpi
+		btop
+		ncdu
+		iotop
+		smartmontools
+		sysstat
+
+		### TOOLS ###
 		brightnessctl
 		bluetuith
-		btop
-		iotop
-		sysstat
+
+		### CLI ###
+
+		### UNSORTED ###
 		clamav
 		# cron # Set in config-cron.nix
 		fastfetch
@@ -35,20 +51,16 @@
 		gitmoji-cli
 		intel-gpu-tools
 		jq
-		killall
 		inotify-tools
 		libnotify
 		lm_sensors
 		gnumake
-		ncdu
 		pulsemixer
 		rclone
 		rsync
-		smartmontools
 		steam-run
 		stow
 		tldr
-		tree
 		wl-clipboard
 
 		### NETWORKING ###
