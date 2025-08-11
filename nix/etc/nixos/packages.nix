@@ -38,7 +38,7 @@
 
 		### TOOLS ###
 		brightnessctl       # This program allows you read and control device brightness
-		bluetuith           # TUI-based bluetooth connection manager
+		# bluetuith         # TUI-based bluetooth connection manager
 
 		### CLI ###
 
