@@ -25,43 +25,43 @@
 			]))
 
 		### SYSTEM TOOLS ###
-		killall
-		tree
+		killall             # 
+		tree                # Command to produce a depth indented directory listing
 
 		### MONITORING ###
-		acpi
-		btop
-		ncdu
-		iotop
-		smartmontools
-		sysstat
+		acpi                # Show battery status and other ACPI information
+		btop                # Monitor of resources
+		ncdu                # Disk usage analyzer with an ncurses interface
+		iotop               # Tool to find out the processes doing the most IO
+		smartmontools       # Tools for monitoring the health of hard drives
+		sysstat             # Collection of performance monitoring tools for Linux (such as sar, iostat and pidstat)
 
 		### TOOLS ###
-		brightnessctl
-		bluetuith
+		brightnessctl       # This program allows you read and control device brightness
+		bluetuith           # TUI-based bluetooth connection manager
 
 		### CLI ###
 
 		### UNSORTED ###
-		clamav
-		# cron # Set in config-cron.nix
-		fastfetch
-		figlet
-		git
-		gitmoji-cli
-		intel-gpu-tools
-		jq
+		clamav              # Antivirus engine designed for detecting Trojans, viruses, malware and other malicious threats
+		# cron              # Daemon for running commands at specific times
+		fastfetch           # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
+		figlet              # Program for making large letters out of ordinary text
+		git                 # Distributed version control system
+		gitmoji-cli         # Gitmoji client for using emojis on commit messages
+		intel-gpu-tools     # Tools for development and testing of the Intel DRM driver
+		jq                  # Lightweight and flexible command-line JSON processor
 		inotify-tools
-		libnotify
-		lm_sensors
-		gnumake
-		pulsemixer
-		rclone
-		rsync
-		steam-run
-		stow
-		tldr
-		wl-clipboard
+		libnotify           # Library that sends desktop notifications to a notification daemon
+		lm_sensors          # Tools for reading hardware sensors
+		gnumake             # Tool to control the generation of non-source files from sources
+		pulsemixer          # Cli and curses mixer for pulseaudio
+		rclone              # Command line program to sync files and directories to and from major cloud storage
+		rsync               # Fast incremental file transfer utility
+		steam-run           # Run commands in the same FHS environment that is used for Steam
+		stow                # Tool for managing the installation of multiple software packages in the same run-time directory tree
+		tldr                # Simplified and community-driven man pages
+		wl-clipboard        # Command-line copy/paste utilities for Wayland
 
 		### NETWORKING ###
 		#  wget
