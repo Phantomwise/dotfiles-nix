@@ -8,61 +8,58 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
+
+		### UNSORTED ###
+		# cron                 # Daemon for running commands at specific times
+		jq                     # Lightweight and flexible command-line JSON processor
+		inotify-tools          #
+		libnotify              # Library that sends desktop notifications to a notification daemon
+		tldr                   # Simplified and community-driven man pages
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libva-utils            # Collection of utilities and examples for VA-API
-		tlp                    # Advanced Power Management for Linux
-
-		### FILE SYSTEM ###
-		gvfs                   # Virtual Filesystem support library
-		gnome.gvfs             # Virtual Filesystem support library (full GNOME support)
-		ntfs3g                 # FUSE-based NTFS driver with full write support
-		samba                  # Standard Windows interoperability suite of programs for Linux and Unix
-
+ 
 		### LANGUAGES ###
 		(python3.withPackages (ps: [
 			ps.requests
 			ps.curl-cffi
 			]))
 
-		### SYSTEM TOOLS ###
-		killall                #
-		tree                   # Command to produce a depth indented directory listing
+		### FILESYSTEMS ###
+		gvfs                   # Virtual Filesystem support library
+		gnome.gvfs             # Virtual Filesystem support library (full GNOME support)
+		ntfs3g                 # FUSE-based NTFS driver with full write support
+		samba                  # Standard Windows interoperability suite of programs for Linux and Unix
 
 		### MONITORING ###
 		acpi                   # Show battery status and other ACPI information
 		btop                   # Monitor of resources
-		ncdu                   # Disk usage analyzer with an ncurses interface
+		intel-gpu-tools        # Tools for development and testing of the Intel DRM driver
 		iotop                  # Tool to find out the processes doing the most IO
+		lm_sensors             # Tools for reading hardware sensors
+		ncdu                   # Disk usage analyzer with an ncurses interface
 		smartmontools          # Tools for monitoring the health of hard drives
 		sysstat                # Collection of performance monitoring tools for Linux (such as sar, iostat and pidstat)
+
+		### SYSTEM TOOLS ###
+		killall                #
+		tree                   # Command to produce a depth indented directory listing
 
 		### TOOLS ###
 		brightnessctl          # This program allows you read and control device brightness
 		# bluetuith            # TUI-based bluetooth connection manager
-
-		### CLI ###
-
-		### UNSORTED ###
-		clamav                 # Antivirus engine designed for detecting Trojans, viruses, malware and other malicious threats
-		# cron                 # Daemon for running commands at specific times
-		fastfetch              # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
-		figlet                 # Program for making large letters out of ordinary text
 		git                    # Distributed version control system
 		gitmoji-cli            # Gitmoji client for using emojis on commit messages
-		intel-gpu-tools        # Tools for development and testing of the Intel DRM driver
-		jq                     # Lightweight and flexible command-line JSON processor
-		inotify-tools          #
-		libnotify              # Library that sends desktop notifications to a notification daemon
-		lm_sensors             # Tools for reading hardware sensors
 		gnumake                # Tool to control the generation of non-source files from sources
-		pulsemixer             # Cli and curses mixer for pulseaudio
 		rclone                 # Command line program to sync files and directories to and from major cloud storage
 		rsync                  # Fast incremental file transfer utility
 		steam-run              # Run commands in the same FHS environment that is used for Steam
 		stow                   # Tool for managing the installation of multiple software packages in the same run-time directory tree
-		tldr                   # Simplified and community-driven man pages
-		wl-clipboard           # Command-line copy/paste utilities for Wayland
- 
+		tlp                    # Advanced Power Management for Linux
+
+		### CLI ###
+		fastfetch              # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
+		figlet                 # Program for making large letters out of ordinary text
+
 		### NETWORKING ###
 		#  wget                # Tool for retrieving files using HTTP, HTTPS, and FTP
 		wg-netmanager          # Wireguard network manager
@@ -70,10 +67,17 @@
 		wireguard-ui           # Web user interface to manage your WireGuard setup
 		protonvpn-gui          # Proton VPN GTK app for Linux
 
-		### DESKTOP ###
+		### SECURITY ###
+		clamav                 # Antivirus engine designed for detecting Trojans, viruses, malware and other malicious threats
+
+		### GRAPHICAL SESSION ###
 		dunst                  # Lightweight and customizable notification daemon
 		(rofi-wayland.override { plugins = [ pkgs.rofi-calc pkgs.rofi-games ]; })
 		rofimoji               # Simple emoji and character picker for rofi
+		grim                   # Grab images from a Wayland compositor
+		slurp                  # Select a region in a Wayland compositor
+		swayimg                # Image viewer for Sway/Wayland #!
+		wl-clipboard           # Command-line copy/paste utilities for Wayland
 		nemo-with-extensions   # File browser for Cinnamon
 		nemo-fileroller        # Nemo file roller extension # TO CHECK IF NEEDED
 
@@ -91,12 +95,9 @@
 
 		### IMAGE ###
 		gimp3-with-plugins     # GNU Image Manipulation Program
-		grim                   # Grab images from a Wayland compositor
 		imagemagick            # Software suite to create, edit, compose, or convert bitmap images
 		ksnip                  # Cross-platform screenshot tool with many annotation features
-		slurp                  # Select a region in a Wayland compositor
 		sway-contrib.grimshot  # Helper for screenshots within sway
-		swaybg                 # Wallpaper tool for Wayland compositors #!
 		tiled                  # Free, easy to use and flexible tile map editor
 		xnviewmp               # Efficient multimedia viewer, browser and converter
 
@@ -109,6 +110,7 @@
 		# libation # moved to unstable
 		mpc                    #!
 		picard                 # picard
+		pulsemixer             # Cli and curses mixer for pulseaudio
 		vlc                    # Cross-platform media player and streaming server
 		(callPackage (import (builtins.fetchurl {
   url = "https://raw.githubusercontent.com/NixOS/nixpkgs/da2504032ba518133db8f559862d95bc95b1f81c/pkgs/by-name/yt/yt-dlp/package.nix";
@@ -137,7 +139,6 @@
 					donjayamanne.githistory      # View git log, file history, compare branches or commits
 					seatonjiang.gitmoji-vscode   # Gitmoji tool for git commit messages in VSCode
 					github.copilot               # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
-
 					ms-vscode-remote.remote-ssh  # Use any remote machine with a SSH server as your development environment
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 					{
@@ -150,8 +151,7 @@
 			})
 		];
 
-	### DESKTOP ###
-
+	### GRAPHICAL SESSION ###
 	programs.sway = {
 		enable = true;
 		wrapperFeatures.gtk = true; # need to set up the gtk portal somewhere else probably
@@ -159,15 +159,10 @@
 				swaybg              # Wallpaper tool for Wayland compositors
 				swaylock            # Screen locker for Wayland
 				swayidle            # Idle management daemon for Wayland
-				swayimg             # Image viewer for Sway/Wayland #!
-				# grim              #! screenshot functionality
-				# slurp             #! screenshot functionality
-				# wl-clipboard      #!
 				# make sure the default gnome icons are avaliable to gtk applications
 				adwaita-icon-theme  # —
 			];
 	};
-
 	programs.waybar.enable = true;
 
 	### MISC ###
