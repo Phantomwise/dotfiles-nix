@@ -24,6 +24,7 @@
 
 		### GAMES ###
 		cataclysm-dda
+		unciv
 		# keeperrl # Error
 
 	];
