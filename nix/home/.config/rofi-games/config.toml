@@ -35,6 +35,13 @@ launch_command = "cataclysm-tiles"
 path_box_art = "./Cataclysm-DDA.png"
 # path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
 
+# OpenRCT2 (Flatpak)
+[[entries]]
+title = "OpenRCT2 (Flatpak)"
+launch_command = "flatpak run --branch=stable --arch=x86_64 --command=openrct2 --file-forwarding"
+path_box_art = "./OpenRCT2.png"
+path_game_dir = "/var/lib/flatpak/app/io.openrct2.OpenRCT2"
+
 # Unciv
 [[entries]]
 title = "Unciv"
