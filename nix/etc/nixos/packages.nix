@@ -134,6 +134,7 @@
 					bodil.blueprint-gtk          # Gtk Blueprint language support.
 					ms-vscode.makefile-tools     # — Makefile language support
 					bbenoist.nix                 # — Nix language support
+					tamasfe.even-better-toml     # — TOML language support
 					ms-python.python             # Visual Studio Code extension with rich support for the Python language
 					naumovs.color-highlight      # Highlight web colors in your editor
 					ms-azuretools.vscode-docker  # Docker Extension for Visual Studio Code
