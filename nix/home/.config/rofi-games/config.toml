@@ -34,3 +34,10 @@ title = "Cataclysm DDA (Tiles)"
 launch_command = "cataclysm-tiles"
 path_box_art = "./Cataclysm-DDA.png"
 # path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
+
+# Unciv
+[[entries]]
+title = "Unciv"
+launch_command = "unciv"
+path_box_art = "./Unciv.png"
+# path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
