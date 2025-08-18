@@ -2,6 +2,8 @@
 
 {
 	environment.sessionVariables = {
+
+		# PATH definitions
 		PATH = [ 
 			# Add scripts directories
 			"$HOME/.local/bin/scripts"
@@ -9,9 +11,11 @@
 			# Preserve the existing PATH (optional but recommended)
 			"$PATH"
 		];
-	};
 
-	environment.sessionVariables.NIXOS_OZONE_WL = "1";
+		# Wayland
+		NIXOS_OZONE_WL = "1";
+
+	};
 
 	# This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
 	# For more on rec expressions see https://nix.dev/tutorials/first-steps/nix-language#recursive-attribute-set-rec
