@@ -50,7 +50,8 @@ fi
 # Define function to download the best audio format, using cookies from Firefox for restricted videos
 function download_audio {
     echo -e "${info} Running yt-dlp to download the best audio format:"
-    yt-dlp -x --cookies-from-browser firefox --audio-format best "$url" && \
+    yt-dlp -x --audio-format best "$url" && \
+    # yt-dlp -x --cookies-from-browser firefox --audio-format best "$url" && \
     echo -e "${succ} Download audio successful." || \
     echo -e "${err} Error while downloading audio."
 }
