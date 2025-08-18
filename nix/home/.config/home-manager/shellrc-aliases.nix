@@ -2,8 +2,8 @@
 	# Directories
 	"~" = "cd ~";
 	".." = "cd ..";
-	cdd = "cd ~/Sync/SynologyDrive/dotfiles-nix/nix/";
-	cds = "cd ~/Sync/SynologyDrive/";
+	cdd = "cd ~/Sync/dotfiles-nix/nix/";
+	cds = "cd ~/Sync/";
 	cdy = "cd ~/Downloads/yt-dlp/";
 
 	# Commands replacement
