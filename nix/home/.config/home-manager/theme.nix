@@ -20,14 +20,14 @@
 		iconTheme = {
 			# Candy (Full Icon Theme)
 				# https://www.opendesktop.org/p/1305251
-				# package = pkgs.candy-icons;
-				# name = "candy-icons";
+				package = pkgs.candy-icons;
+				name = "candy-icons";
 			# Material-Black
 				# https://www.opendesktop.org/p/1333360
 				# https://github.com/rtlewis88/rtl88-Themes/tree/material-black-COLORS
-				package = pkgs.material-black-colors;
+				# package = pkgs.material-black-colors;
 				# name = "Material-Black-Mango-Numix";
-				name = "Material-Black-Mango-Numix-FLAT";
+				# name = "Material-Black-Mango-Numix-FLAT";
 				# name = "Material-Black-Mango-Suru";
 				# name = "MB-Mango-Suru-GLOW";
 			# Sweet
@@ -44,5 +44,6 @@
 				# name = "Vimix-white";
 			};
 
-	};
+		};
+
 }
