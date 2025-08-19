@@ -18,19 +18,30 @@
 			};
 
 		iconTheme = {
+			# Candy (Full Icon Theme)
+				# https://www.opendesktop.org/p/1305251
+				# package = pkgs.candy-icons;
+				# name = "candy-icons";
 			# Material-Black
+				# https://www.opendesktop.org/p/1333360
 				# https://github.com/rtlewis88/rtl88-Themes/tree/material-black-COLORS
-				# package = pkgs.material-black-colors;
+				package = pkgs.material-black-colors;
 				# name = "Material-Black-Mango-Numix";
+				name = "Material-Black-Mango-Numix-FLAT";
 				# name = "Material-Black-Mango-Suru";
 				# name = "MB-Mango-Suru-GLOW";
 			# Sweet
 				# https://github.com/EliverLara/Sweet-folders
-				package = pkgs.sweet-folders;
-				name = "Sweet-Rainbow";
+				# package = pkgs.sweet-folders;
+				# name = "Sweet-Rainbow";
 				# name = "Sweet-Blue-Filled";
 				# name = "Sweet-Yellow";
 				# name = "Sweet-Yellow-Filled";
+			# Vimix (Full Icon Theme)
+				# https://www.opendesktop.org/p/1273372
+				# package = pkgs.vimix-icon-theme;
+				# name = "Vimix";
+				# name = "Vimix-white";
 			};
 
 	};
