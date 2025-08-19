@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
-
 {
 	imports =
 	[
 		# ./systemd-timers.nix
-		./theming.nix
+		./theme.nix
 		./zsh.nix
 		./sway/sway-config.nix
 	];
