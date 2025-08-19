@@ -20,6 +20,7 @@
 			./packages-games.nix                    # Packages declarations for games
 			./packages-unstable.nix                 # Packages from the unstable repo
 			./shellrc.nix                           # Bash and Zsh configuration
+			# ./theming.nix                           # Themes configuration --> NOT WORKING
 			./users.nix                             # Users configuration
 			./systemd.nix                           # Systemd services and timers
 			# ./systemd-services.nix                # Systemd services and timers
