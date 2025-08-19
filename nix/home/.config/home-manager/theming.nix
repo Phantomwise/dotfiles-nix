@@ -12,5 +12,14 @@
 			package = pkgs.sweet;
 			};
 
+		iconTheme = {
+			# https://github.com/EliverLara/Sweet-folders
+			name = "Sweet-Rainbow";
+			# name = "Sweet-Blue-Filled";
+			# name = "Sweet-Yellow";
+			# name = "Sweet-Yellow-Filled";
+			package = pkgs.sweet-folders;
+			};
+
 	};
 }
