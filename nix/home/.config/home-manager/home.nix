@@ -5,6 +5,7 @@
 	imports =
 	[
 		# ./systemd-timers.nix
+		./theming.nix
 		./zsh.nix
 		./sway/sway-config.nix
 	];
