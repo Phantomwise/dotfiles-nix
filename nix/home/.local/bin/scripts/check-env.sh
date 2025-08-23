@@ -77,5 +77,7 @@ for variable in "${variables[@]}"
 			color="$purple"
 		fi
 		# printf "%-22s ${color}%-15s${reset} %s\n" "\$$variable" "$status" "$val"
-		printf "%-27s %b%-15s%b %s\n" "\$$variable" "$color" "$status" "$reset" "$val"
+		printf "%-27s %b%-15s%b %s\n" "\$$variable" "$color" "$status" "$reset" "$val" | tr ':' '\n'
 	done
+
+# TODO: add echo $PATH | tr ':' '\n'
