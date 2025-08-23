@@ -17,7 +17,9 @@
 		tldr                   # Simplified and community-driven man pages
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libva-utils            # Collection of utilities and examples for VA-API
- 
+		mesa                   # Open source 3D graphics library
+		libGLU                 # OpenGL utility library
+
 		### LANGUAGES ###
 		(python3.withPackages (ps: [
 			ps.requests
