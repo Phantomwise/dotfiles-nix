@@ -27,6 +27,9 @@
 			# "${XDG_BIN_HOME}"
 		# ];
 
+		# Wayland
+		NIXOS_OZONE_WL = "1";
+
 		# TEST
 		TEST = "test";
 	};
