@@ -60,6 +60,34 @@ services.dunst.settings =
 		# will be ignored.
 		follow = "none";
 
+		#░███████████████████████████████████████████████████████████████╗
+		#░█╔════════════════════════════════════════════════════════════█║
+		#░█║░░░░░░░░░░░░░░░░░░░░░░░░░ GEOMETRY ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+		#░███████████████████████████████████████████████████████████████║
+		#░╚══════════════════════════════════════════════════════════════╝
+
+		### Geometry ###
+
+		# dynamic width from 0 to 300
+		width = "(0, 500)";
+		# constant width of 300
+		# width = 300;
+
+		# The maximum height of a single notification, excluding the frame.
+		height = "(0, 300)";
+
+		# Position the notification in the top right corner
+		origin = "top-right";
+
+		# Offset from the origin
+		offset = "(150, 150)";
+
+		# Scale factor. It is auto-detected if value is 0.
+		scale = 0;
+
+		# Maximum number of notification (0 means no limit)
+		notification_limit = 20;
+
 		};
 	};
 
