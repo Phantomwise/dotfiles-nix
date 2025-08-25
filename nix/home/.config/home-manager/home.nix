@@ -6,6 +6,7 @@
 		# ./systemd-timers.nix
 		./theme.nix
 		./zsh.nix
+		./dunst/dunst-config.nix
 		./sway/sway-config.nix
 	];
 
