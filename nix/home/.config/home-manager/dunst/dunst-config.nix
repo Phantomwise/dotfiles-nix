@@ -299,6 +299,19 @@ services.dunst.settings =
 		# Paths to default icons (only necessary when not using recursive icon lookup)
 		icon_path = "/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/phantomwise/.local/share/icons/svg/:/usr/share/icons/phantomwise/scalable/";
 
+		#░███████████████████████████████████████████████████████████████╗
+		#░█╔════════════════════════════════════════════════════════════█║
+		#░█║░░░░░░░░░░░░░░░░░░░░░░░░░ HISTORY ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+		#░███████████████████████████████████████████████████████████████║
+		#░╚══════════════════════════════════════════════════════════════╝
+
+		# Should a notification popped up from history be sticky or timeout
+		# as if it would normally do.
+		sticky_history = "yes";
+
+		# Maximum amount of notifications kept in history
+		history_length = 20;
+
 		};
 	};
 
