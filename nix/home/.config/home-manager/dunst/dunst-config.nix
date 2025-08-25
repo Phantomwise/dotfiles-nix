@@ -337,6 +337,57 @@ services.dunst.settings =
 		#░╚══════════════════════════════════════════════════════════════╝
 
 		};
+
+	#░███████████████████████████████████████████████████████████████╗
+	#░█╔════════════════════════════════════════════════════════════█║
+	#░█║░░░░░░░░░░░░░░░░░░░░░░░░░░ RULES ░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+	#░█║░░░░░░░░░░░░░░░░░░░░░░░░░ URGENCY ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+	#░███████████████████████████████████████████████████████████████║
+	#░╚══════════════════════════════════════════════════════════════╝
+
+	urgency_low = {
+		# IMPORTANT: colors have to be defined in quotation marks.
+		# Otherwise the "#" and following would be interpreted as a comment.
+		background = "#222222";
+		foreground = "#888888";
+		timeout = 10;
+		# Icon for notifications with low urgency, uncomment to enable
+		default_icon = "bell-white";
+		};
+
+	urgency_normal = {
+		background = "#004BAA";
+		foreground = "#ffffff";
+		timeout = 10;
+		override_pause_level = 30;
+		# Icon for notifications with normal urgency, uncomment to enable
+		default_icon = "bell-white";
+		};
+
+	urgency_critical = {
+		background = "#900000";
+		# background = "#a10000";
+		foreground = "#ffffff";
+		frame_color = "#ff0000";
+		timeout = 0;
+		override_pause_level = 60;
+		# Icon for notifications with critical urgency, uncomment to enable
+		default_icon = "warning-white";
+		script = "$HOME/.local/bin/scripts/dunst/play-sound-critical.sh";
+			# NB: Needs absolute path, '~' and '$HOME' not working
+			# NB: Several hours wasted and I still can't run a script with arguments in dunst. Giving up, try again later.
+			# NOW WORKING !!!
+				# script = "/home/phantomwise/.config/dunst/play-one-sound.sh"
+			# WORKING
+				# script = test.sh
+				# script = "/home/phantomwise/Scripts/test.sh"
+				# script = "/home/phantomwise/.config/dunst/test.sh"
+			# NOT WORKING
+				# script = "/home/phantomwise/.config/dunst/play-sound.sh /home/phantomwise/.local/share/sounds/wav/orchestral/mixkit-threatening-orchestra-trumpets-2284.wav"
+			# Links
+				# https://github.com/dunst-project/dunst/issues/257
+		};
+
 	};
 
 }
