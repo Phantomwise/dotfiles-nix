@@ -80,7 +80,7 @@ services.dunst.settings =
 		origin = "top-right";
 
 		# Offset from the origin
-		offset = "(150, 150)";
+		offset = "(50, 50)";
 
 		# Scale factor. It is auto-detected if value is 0.
 		scale = 0;
