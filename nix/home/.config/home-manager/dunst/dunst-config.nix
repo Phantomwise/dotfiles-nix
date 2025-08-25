@@ -20,6 +20,7 @@
 {
 
 services.dunst.enable = true;
+services.dunst.configFile = "~/.config/home-manager/dunst/dunstrc";
 
 # ███████████████████████████████████████████████████████████████╗
 # █╔════════════════════════════════════════════════════════════█║
