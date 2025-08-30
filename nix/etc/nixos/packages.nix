@@ -11,23 +11,27 @@
 
 		### UNSORTED ###
 		# cron                 # Daemon for running commands at specific times
-		jq                     # Lightweight and flexible command-line JSON processor
 		inotify-tools          #
-		libnotify              # Library that sends desktop notifications to a notification daemon
 		tldr                   # Simplified and community-driven man pages
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
-		libva-utils            # Collection of utilities and examples for VA-API
-		mesa                   # Open source 3D graphics library
-		libGLU                 # OpenGL utility library
 
-		### LANGUAGES ###
+		### LANGUAGES : JSON ###
+		jq                     # Lightweight and flexible command-line JSON processor
+		### LANGUAGES : PYTHON ###
 		(python3.withPackages (ps: [
 			ps.requests
 			ps.curl-cffi
 			]))
+		### LANGUAGES : SQL ###
 		# sqlite               # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlite-interactive     # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlitebrowser          # DB Browser for SQLite
+
+		### LIBRARIES ###
+		libnotify              # Library that sends desktop notifications to a notification daemon
+		libva-utils            # Collection of utilities and examples for VA-API
+		libGLU                 # OpenGL utility library
+		mesa                   # Open source 3D graphics library
 
 		### FILESYSTEMS ###
 		gvfs                   # Virtual Filesystem support library
