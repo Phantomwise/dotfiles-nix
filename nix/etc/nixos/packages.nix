@@ -25,6 +25,9 @@
 			ps.requests
 			ps.curl-cffi
 			]))
+		# sqlite               # Self-contained, serverless, zero-configuration, transactional SQL database engine
+		sqlite-interactive     # Self-contained, serverless, zero-configuration, transactional SQL database engine
+		sqlitebrowser          # DB Browser for SQLite
 
 		### FILESYSTEMS ###
 		gvfs                   # Virtual Filesystem support library
