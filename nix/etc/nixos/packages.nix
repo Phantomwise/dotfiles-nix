@@ -16,19 +16,20 @@
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 
 		### PROGRAMMING ###
+			### ASSEMBLY ###
 		nasm                   # 80x86 and x86-64 assembler designed for portability and modularity
+			### C ###
 		clang                  # C language family frontend for LLVM (wrapper script)
 		gcc                    # GNU Compiler Collection, version 14.3.0 (wrapper script)
 		codeblocksFull         # Open source, cross platform, free C, C++ and Fortran IDE
-
-		### LANGUAGES : JSON ###
+			### JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
-		### LANGUAGES : PYTHON ###
+			### PYTHON ###
 		(python3.withPackages (ps: [
 			ps.requests
 			ps.curl-cffi
 			]))
-		### LANGUAGES : SQL ###
+			### SQL ###
 		# sqlite               # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlite-interactive     # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlitebrowser          # DB Browser for SQLite
