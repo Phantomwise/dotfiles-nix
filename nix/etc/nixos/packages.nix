@@ -16,6 +16,7 @@
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 
 		### PROGRAMMING ###
+		nasm                   # 80x86 and x86-64 assembler designed for portability and modularity
 		clang                  # C language family frontend for LLVM (wrapper script)
 		gcc                    # GNU Compiler Collection, version 14.3.0 (wrapper script)
 		codeblocksFull         # Open source, cross platform, free C, C++ and Fortran IDE
