@@ -18,6 +18,7 @@
 		### PROGRAMMING ###
 		clang                  # C language family frontend for LLVM (wrapper script)
 		gcc                    # GNU Compiler Collection, version 14.3.0 (wrapper script)
+		codeblocksFull         # Open source, cross platform, free C, C++ and Fortran IDE
 
 		### LANGUAGES : JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
