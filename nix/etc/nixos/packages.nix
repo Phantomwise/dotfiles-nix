@@ -15,6 +15,10 @@
 		tldr                   # Simplified and community-driven man pages
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 
+		### PROGRAMMING ###
+		clang                  # C language family frontend for LLVM (wrapper script)
+		gcc                    # GNU Compiler Collection, version 14.3.0 (wrapper script)
+
 		### LANGUAGES : JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
 		### LANGUAGES : PYTHON ###
