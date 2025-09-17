@@ -151,19 +151,19 @@
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
-					bodil.blueprint-gtk          # Gtk Blueprint language support.
-					ms-vscode.makefile-tools     # — Makefile language support
-					bbenoist.nix                 # — Nix language support
-					tamasfe.even-better-toml     # — TOML language support
+					bodil.blueprint-gtk                 # Gtk Blueprint language support.
+					ms-vscode.makefile-tools            # — Makefile language support
+					bbenoist.nix                        # — Nix language support
+					tamasfe.even-better-toml            # — TOML language support
 					theangryepicbanana.language-pascal  # VSCode extension for high-quality Pascal highlighting
-					ms-python.python             # Visual Studio Code extension with rich support for the Python language
-					naumovs.color-highlight      # Highlight web colors in your editor
-					ms-azuretools.vscode-docker  # Docker Extension for Visual Studio Code
-					donjayamanne.githistory      # View git log, file history, compare branches or commits
-					seatonjiang.gitmoji-vscode   # Gitmoji tool for git commit messages in VSCode
-					github.copilot               # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
-					ms-vscode-remote.remote-ssh  # Use any remote machine with a SSH server as your development environment
-					ms-vscode.cpptools           # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
+					ms-python.python                    # Visual Studio Code extension with rich support for the Python language
+					naumovs.color-highlight             # Highlight web colors in your editor
+					ms-azuretools.vscode-docker         # Docker Extension for Visual Studio Code
+					donjayamanne.githistory             # View git log, file history, compare branches or commits
+					seatonjiang.gitmoji-vscode          # Gitmoji tool for git commit messages in VSCode
+					github.copilot                      # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
+					ms-vscode-remote.remote-ssh         # Use any remote machine with a SSH server as your development environment
+					ms-vscode.cpptools                  # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 					{
 						name = "remote-ssh-edit";
