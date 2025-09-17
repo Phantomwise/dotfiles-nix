@@ -17,7 +17,8 @@
 
 		### PROGRAMMING ###
 			### ASSEMBLY ###
-		ida-free               # Freeware version of the world's smartest and most feature-full disassembler
+		# ida-free             # Freeware version of the world's smartest and most feature-full disassembler
+		                       # NB: Can't be downloaded automatically because of licensing
 		nasm                   # 80x86 and x86-64 assembler designed for portability and modularity
 			### C ###
 		clang                  # C language family frontend for LLVM (wrapper script)
