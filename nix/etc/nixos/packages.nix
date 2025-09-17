@@ -164,6 +164,7 @@
 					github.copilot                      # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
 					ms-vscode-remote.remote-ssh         # Use any remote machine with a SSH server as your development environment
 					ms-vscode.cpptools                  # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
+					carrie999.cyberpunk-2020            # Cyberpunk-inspired colour theme to satisfy your neon dreams
 				] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 					{
 						name = "remote-ssh-edit";
