@@ -17,6 +17,7 @@
 
 		### PROGRAMMING ###
 			### ASSEMBLY ###
+		cutter                 # Free and Open Source Reverse Engineering Platform powered by rizin
 		# ida-free             # Freeware version of the world's smartest and most feature-full disassembler
 		                       # NB: Can't be downloaded automatically because of licensing
 		nasm                   # 80x86 and x86-64 assembler designed for portability and modularity
