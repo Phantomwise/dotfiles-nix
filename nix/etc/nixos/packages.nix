@@ -176,6 +176,10 @@
 					nur.just-black                            # Dark theme designed specifically for syntax highlighting
 					viktorqvarfordt.vscode-pitch-black-theme  # 
 					zhuangtongfa.material-theme               # 
+					### ICON THEMES ###
+					teabyii.ayu                               # Simple theme with bright colors and comes in three versions — dark, light and mirage for all day long comfortable work
+					vscode-icons-team.vscode-icons            # Bring real icons to your Visual Studio Code
+					# pkief.material-icon-theme                 # Material Design Icons for Visual Studio Code
 				];
 			})
 		];
