@@ -129,6 +129,7 @@
 		cdparanoia             # Tool and library for reading digital audio from CDs
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
+		libdvdcss              # Library for decrypting DVDs
 		mpv                    # General-purpose media player, fork of MPlayer and mplayer2
 		# libation # moved to unstable
 		mpc                    #!
