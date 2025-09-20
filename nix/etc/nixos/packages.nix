@@ -126,6 +126,7 @@
 		abcde                  # Command-line audio CD ripper
 		ani-cli                # Cli tool to browse and play anime
 		asunder                # Graphical Audio CD ripper and encoder for Linux
+		cdparanoia             # Tool and library for reading digital audio from CDs
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
 		mpv                    # General-purpose media player, fork of MPlayer and mplayer2
