@@ -169,8 +169,13 @@
 					seatonjiang.gitmoji-vscode          # Gitmoji tool for git commit messages in VSCode
 					ms-vscode-remote.remote-ssh         # Use any remote machine with a SSH server as your development environment
 					github.copilot                      # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
-					### THEMES ###
+					### COLOR THEMES ###
 					carrie999.cyberpunk-2020            # Cyberpunk-inspired colour theme to satisfy your neon dreams
+					dhedgecock.radical-vscode                 # Dark theme for radical hacking inspired by retro futuristic design
+					nonylene.dark-molokai-theme               # Theme inspired by VSCode default dark theme, monokai theme and Vim Molokai theme
+					nur.just-black                            # Dark theme designed specifically for syntax highlighting
+					viktorqvarfordt.vscode-pitch-black-theme  # 
+					zhuangtongfa.material-theme               # 
 				];
 			})
 		];
