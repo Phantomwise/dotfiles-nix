@@ -3,6 +3,7 @@
 	"~" = "cd ~";
 	".." = "cd ..";
 	cdd = "cd ~/Sync/dotfiles-nix/nix/";
+	cdp = "cd ~/Sync/Personal/home/Projects";
 	cds = "cd ~/Sync/";
 	cdy = "cd ~/Downloads/yt-dlp/";
 
