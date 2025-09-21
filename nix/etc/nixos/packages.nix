@@ -28,6 +28,8 @@
 		clang-tools            # Standalone command line tools for C++ development
 			### JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
+			### OCAML ###
+		ocamlPackages.utop     # Universal toplevel for OCaml
 			### PYTHON ###
 		(python3.withPackages (ps: [
 			ps.requests
@@ -128,6 +130,7 @@
 		asunder                # Graphical Audio CD ripper and encoder for Linux
 		cdparanoia             # Tool and library for reading digital audio from CDs
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
+		dvdbackup              # Tool to rip video DVDs from the command line
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
 		handbrake              # Tool for converting video files and ripping DVDs
 		libdvdcss              # Library for decrypting DVDs
