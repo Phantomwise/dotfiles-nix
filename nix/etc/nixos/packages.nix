@@ -164,6 +164,7 @@
 					ms-python.python                    # Visual Studio Code extension with rich support for the Python language
 					ms-vscode.cpptools                  # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
 					ms-vscode.makefile-tools            # — Makefile language support
+					ocamllabs.ocaml-platform            # Official OCaml Support from OCamlLabs
 					tamasfe.even-better-toml            # — TOML language support
 					theangryepicbanana.language-pascal  # VSCode extension for high-quality Pascal highlighting
 					### OTHER ###
