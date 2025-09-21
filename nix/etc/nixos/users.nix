@@ -6,7 +6,7 @@
 	users.users.phantomwise = {
 		isNormalUser = true;
 		description = "Phantomwise";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "cdrom"];
 		packages = with pkgs; [];
 		shell = pkgs.zsh;
 	};
