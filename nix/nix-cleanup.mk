@@ -22,3 +22,5 @@ nix-cleanup:
 	nix-env --list-generations
 	@echo -e "\033[1;33mListing remaining system generations\033[0m"
 	sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+	@echo -e "\033[1;33mList Home Manager generations\033[0m"
+	home-manager generations
