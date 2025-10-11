@@ -2,5 +2,7 @@
     "editor.insertSpaces": false,
     "editor.renderWhitespace": "all",
     "editor.fontFamily": "'Hack Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-    "editor.renderControlCharacters": true
+    "editor.renderControlCharacters": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "ayu"
 }
