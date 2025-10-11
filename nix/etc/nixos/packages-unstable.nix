@@ -9,6 +9,7 @@ in {
 
 	environment.systemPackages = with unstable; [
 		# unstable packages
+		yt-dlp
 		libation
 	];
 }

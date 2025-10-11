@@ -141,10 +141,11 @@
 		picard                 # picard
 		pulsemixer             # Cli and curses mixer for pulseaudio
 		vlc                    # Cross-platform media player and streaming server
-		(callPackage (import (builtins.fetchurl {
-  url = "https://raw.githubusercontent.com/NixOS/nixpkgs/da2504032ba518133db8f559862d95bc95b1f81c/pkgs/by-name/yt/yt-dlp/package.nix";
-  sha256 = "sha256:1ffrks7nk9s30g70k6b5qfyiy9ad8ydsqkq3y69f35pfxqblwfb7";
-})) {})
+		# yt-dlp
+		# (callPackage (import (builtins.fetchurl {
+			# url = "https://raw.githubusercontent.com/NixOS/nixpkgs/da2504032ba518133db8f559862d95bc95b1f81c/pkgs/by-name/yt/yt-dlp/package.nix";
+			# sha256 = "sha256:1ffrks7nk9s30g70k6b5qfyiy9ad8ydsqkq3y69f35pfxqblwfb7";
+			# })) {})
 
 		### MISC GUI ###
 		bulky                  # Bulk rename app
