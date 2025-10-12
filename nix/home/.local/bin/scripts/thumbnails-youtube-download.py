@@ -19,11 +19,32 @@ SUCC="\033[1;32m[SUCCESS]\033[0m"
 ERR="\033[1;31m[ERROR]\033[0m"
 
 def extract_video_id(filename):
-	# Extracts the YouTube video ID from the filename using a regular expression
-	match = re.search(r'\[([a-zA-Z0-9_-]{11})\]', filename)
-	if match:
-		return match.group(1)
-	return None
+	"""
+	Extract the YouTube video ID from a filename with multiple bracketed tags.
+	If multiple candidates are found, ask the user to pick one.
+	"""
+	matches = re.findall(r'\[([^\]]+)\]', filename)
+	# Filter to candidates that match YouTube ID pattern (11 chars, letters/numbers/_/-)
+	candidates = [m for m in matches if re.fullmatch(r'[a-zA-Z0-9_-]{11}', m)]
+
+	if not candidates:
+		return None
+
+	if len(candidates) == 1:
+		return candidates[0]
+
+	# Multiple candidates found: ask user
+	print(f"{YELLOW}Multiple possible video IDs found in '{filename}':{RESET}")
+	for i, candidate in enumerate(candidates, start=1):
+		print(f"  {i}: {candidate}")
+	
+	while True:
+		choice = input(f"Pick the correct video ID (1-{len(candidates)}): ")
+		if choice.isdigit():
+			index = int(choice) - 1
+			if 0 <= index < len(candidates):
+				return candidates[index]
+		print(f"{RED}Invalid choice, please try again.{RESET}")
 
 def download_thumbnail(video_id, save_path):
 	# List of possible thumbnail resolutions, from highest to lowest
