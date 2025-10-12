@@ -34,7 +34,7 @@ def extract_video_id(filename):
 		return candidates[0]
 
 	# Multiple candidates found: ask user
-	print(f"{YELLOW}Multiple possible video IDs found in '{filename}':{RESET}")
+	print(f"{INFO} Multiple possible video IDs found in '{filename}':")
 	for i, candidate in enumerate(candidates, start=1):
 		print(f"  {i}: {candidate}")
 	
@@ -44,7 +44,7 @@ def extract_video_id(filename):
 			index = int(choice) - 1
 			if 0 <= index < len(candidates):
 				return candidates[index]
-		print(f"{RED}Invalid choice, please try again.{RESET}")
+		print(f"{ERR} Invalid choice, please try again.")
 
 def download_thumbnail(video_id, save_path):
 	# List of possible thumbnail resolutions, from highest to lowest
@@ -60,19 +60,15 @@ def download_thumbnail(video_id, save_path):
 				with open(save_path, 'wb') as file:
 					file.write(response.content)
 				print(f'{SUCC} Thumbnail downloaded for video ID: {video_id} at resolution: {resolution}')
-				# print(f'{GREEN}Thumbnail downloaded for video ID: {video_id} at resolution: {resolution}{RESET}')
 				return
 			else:
 				# If the response is not successful, print an error message with the status code
-				print(f'{ERR} Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}')
-				# print(f'{RED}Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}{RESET}')
+				print(f'{INFO} Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}')
 		except requests.exceptions.RequestException as e:
 			# If there is a network-related error, print an exception message
 			print(f'{ERR} Exception occurred while downloading thumbnail for video ID: {video_id} at resolution: {resolution}, Exception: {e}')
-			# print(f'{RED}Exception occurred while downloading thumbnail for video ID: {video_id} at resolution: {resolution}, Exception: {e}{RESET}')
 	# If all attempts fail, print a message indicating that all attempts failed
 	print(f'{ERR} All attempts failed for video ID: {video_id}')
-	# print(f'{RED}All attempts failed for video ID: {video_id}{RESET}')
 
 def main():
 	# Set of video file extensions to look for
@@ -93,7 +89,7 @@ def main():
 				download_thumbnail(video_id, save_path)
 			else:
 				# If no video ID is found in the filename, print a message
-				print(f'{YELLOW}No video ID found in filename: {filename}{RESET}')
+				print(f'{ERR} No video ID found in filename: {filename}')
 
 if __name__ == "__main__":
 	# Entry point of the script
