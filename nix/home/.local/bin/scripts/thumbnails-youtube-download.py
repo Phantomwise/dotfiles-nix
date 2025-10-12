@@ -13,6 +13,11 @@ GREEN = '\033[92m'
 YELLOW = '\033[93m'
 RESET = '\033[0m'
 
+# Info messages formatting
+INFO="\033[1;33m[INFO]\033[0m"
+SUCC="\033[1;32m[SUCCESS]\033[0m"
+ERR="\033[1;31m[ERROR]\033[0m"
+
 def extract_video_id(filename):
     # Extracts the YouTube video ID from the filename using a regular expression
     match = re.search(r'\[([a-zA-Z0-9_-]{11})\]', filename)
@@ -33,16 +38,20 @@ def download_thumbnail(video_id, save_path):
                 # If the response is successful, save the thumbnail to the specified path
                 with open(save_path, 'wb') as file:
                     file.write(response.content)
-                print(f'{GREEN}Thumbnail downloaded for video ID: {video_id} at resolution: {resolution}{RESET}')
+                print(f'{SUCC} Thumbnail downloaded for video ID: {video_id} at resolution: {resolution}')
+                # print(f'{GREEN}Thumbnail downloaded for video ID: {video_id} at resolution: {resolution}{RESET}')
                 return
             else:
                 # If the response is not successful, print an error message with the status code
-                print(f'{RED}Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}{RESET}')
+                print(f'{ERR} Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}')
+                # print(f'{RED}Failed to download thumbnail for video ID: {video_id} at resolution: {resolution}, HTTP status code: {response.status_code}{RESET}')
         except requests.exceptions.RequestException as e:
             # If there is a network-related error, print an exception message
-            print(f'{RED}Exception occurred while downloading thumbnail for video ID: {video_id} at resolution: {resolution}, Exception: {e}{RESET}')
+            print(f'{ERR} Exception occurred while downloading thumbnail for video ID: {video_id} at resolution: {resolution}, Exception: {e}')
+            # print(f'{RED}Exception occurred while downloading thumbnail for video ID: {video_id} at resolution: {resolution}, Exception: {e}{RESET}')
     # If all attempts fail, print a message indicating that all attempts failed
-    print(f'{RED}All attempts failed for video ID: {video_id}{RESET}')
+    print(f'{ERR} All attempts failed for video ID: {video_id}')
+    # print(f'{RED}All attempts failed for video ID: {video_id}{RESET}')
 
 def main():
     # Set of video file extensions to look for
