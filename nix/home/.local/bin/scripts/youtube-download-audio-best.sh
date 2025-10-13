@@ -18,11 +18,7 @@ read -e -p "Enter YouTube URL or ID: " input
 
 # Function to check if the URL is a playlist
 function is_playlist {
-    if [[ $1 == *"list="* ]]; then
-        return 0
-    else
-        return 1
-    fi
+    [[ $1 == *"list="* ]]
 }
 
 # Check if the input is a URL or an ID
@@ -50,8 +46,12 @@ fi
 # Define function to download the best audio format, using cookies from Firefox for restricted videos
 function download_audio {
     echo -e "${info} Running yt-dlp to download the best audio format:"
-    yt-dlp -x --audio-format best "$url" && \
-    # yt-dlp -x --cookies-from-browser firefox --audio-format best "$url" && \
+    yt-dlp \
+        -x \
+        --audio-format best \
+        -o "%(title)s [YouTube] [] [%(id)s] [%(format_id)s].%(ext)s" \
+        "$url" && \
+    # yt-dlp -x --cookies-from-browser firefox --audio-format best -o "%(title)s [%(id)s] [%(format_id)s].%(ext)s" "$url" && \
     echo -e "${succ} Download audio successful." || \
     echo -e "${err} Error while downloading audio."
 }
