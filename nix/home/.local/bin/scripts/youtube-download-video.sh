@@ -49,7 +49,7 @@ fi
 # Define function to download the best video format with subtitles and impersonate Chrome + Windows 10
 function download_video_w_sub {
     echo -e "${info} Running yt-dlp to download video with subtitles:"
-    yt-dlp -f - -o "%(title)s [%(id)s] [%(format_id)s].%(ext)s" --write-subs --sub-langs "all" --impersonate="chrome:windows-10" --sleep-interval 20 --max-sleep-interval 40 --limit-rate 600K "$url" && \
+    yt-dlp -f - -o "%(title)s [YouTube] [] [%(id)s] [%(format_id)s].%(ext)s" --write-subs --sub-langs "all" --impersonate="chrome:windows-10" --sleep-interval 20 --max-sleep-interval 40 --limit-rate 600K "$url" && \
     echo -e "${succ} Download video with subtitles successful." || \
     { echo -e "${err} Error while downloading video with subtitles."; return 1; }
 }
