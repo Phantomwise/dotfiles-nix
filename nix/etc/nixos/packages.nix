@@ -34,6 +34,7 @@
 		(python3.withPackages (ps: [
 			ps.requests
 			ps.curl-cffi
+			ps.colorama        # Cross-platform colored terminal text
 			]))
 			### SQL ###
 		# sqlite               # Self-contained, serverless, zero-configuration, transactional SQL database engine
