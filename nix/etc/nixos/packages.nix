@@ -170,6 +170,7 @@
 					ms-vscode.cpptools                        # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
 					ms-vscode.makefile-tools                  # — Makefile language support
 					ms-python.vscode-pylance                  # Performant, feature-rich language server for Python in VS Code
+					mechatroner.rainbow-csv                   # Rainbow syntax higlighting for CSV and TSV files in Visual Studio Code
 					ocamllabs.ocaml-platform                  # Official OCaml Support from OCamlLabs
 					tamasfe.even-better-toml                  # — TOML language support
 					theangryepicbanana.language-pascal        # VSCode extension for high-quality Pascal highlighting
