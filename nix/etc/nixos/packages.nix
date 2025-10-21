@@ -5,6 +5,10 @@
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
+	nixpkgs.config.permittedInsecurePackages = [
+		"ventoy-1.1.05"
+	];
+
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -13,6 +17,7 @@
 		# cron                 # Daemon for running commands at specific times
 		inotify-tools          #
 		tldr                   # Simplified and community-driven man pages
+		ventoy-full            # New Bootable USB Solution
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 
 		### PROGRAMMING ###
