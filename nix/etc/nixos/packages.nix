@@ -109,6 +109,7 @@
 		wl-clipboard           # Command-line copy/paste utilities for Wayland
 		nemo-with-extensions   # File browser for Cinnamon
 		nemo-fileroller        # Nemo file roller extension # TO CHECK IF NEEDED
+		xdg-desktop-portal-wlr # xdg-desktop-portal backend for wlroots
 
 		### TERMINAL ###
 		foot                   # Fast, lightweight and minimalistic Wayland terminal emulator
