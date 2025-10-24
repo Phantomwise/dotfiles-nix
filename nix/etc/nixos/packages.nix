@@ -7,6 +7,7 @@
 
 	nixpkgs.config.permittedInsecurePackages = [
 		"ventoy-1.1.05"
+		"mbedtls-2.28.10"
 	];
 
 	# List packages installed in system profile. To search, run:
