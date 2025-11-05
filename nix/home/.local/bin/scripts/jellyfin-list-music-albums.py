@@ -23,10 +23,11 @@ import csv
 def split_album(album):
     """
     Splits album folder name into:
-    - title
-    - year
-    - disc count and medium
-    - label, catalog, barcode
+    - album title
+    - year (second-to-last parenthetical)
+    - disc count and medium (last parenthetical)
+    - tags: Label, Catalog, Barcode
+    Raises ValueError if expected parentheticals are missing or malformed.
     """
     # Step 1: extract bracketed tags
     last_close = album.rfind(')')
@@ -37,11 +38,12 @@ def split_album(album):
     else:
         main_part = album
 
+    # Extract tags from brackets
     tags = [tag.strip(' []') for tag in tags_part.split('[') if tag.strip()]
     while len(tags) < 3:
-        tags.append('')
+        tags.append('')  # fill missing tags with empty strings
 
-    # Step 2: extract parenthetical parts (from end)
+    # Step 2: extract all parentheticals
     parens = []
     start = len(main_part)
     while True:
@@ -54,24 +56,22 @@ def split_album(album):
         parens.insert(0, main_part[open_idx+1:close_idx].strip())
         start = open_idx
 
-    # Step 3: determine album title, year, disc count/medium
-    album_title = main_part
-    year = ''
-    disc_count = ''
-    medium = ''
-    if parens:
-        # Check last two parentheses for year and disc info
-        last_two = parens[-2:] if len(parens) >= 2 else parens
-        for p in reversed(last_two):
-            # Year: 4-digit number
-            if not year and p.isdigit() and len(p) == 4:
-                year = p
-                album_title = main_part[:main_part.rfind(f'({p})')].strip()
-            # Disc info: starts with digit
-            elif not disc_count and (p[:2].isdigit() or (p[0].isdigit() and ' ' in p)):
-                parts = p.split(' ', 1)
-                disc_count = parts[0]
-                medium = parts[1] if len(parts) > 1 else ''
+    # Step 3: enforce strict last-two-parentheticals rule
+    if not parens:
+        raise ValueError(f"Album '{album}' has no parentheticals; disc info is required.")
+    disc_info = parens[-1]
+    parts = disc_info.split(' ')
+    if len(parts) != 2:
+        raise ValueError(f"Disc info malformed: '{disc_info}' in album '{album}'")
+    disc_count, medium = parts
+
+    if len(parens) < 2:
+        raise ValueError(f"Album '{album}' missing second-to-last parenthetical for year.")
+    year = parens[-2]
+
+    # Album title is everything before the second-to-last parenthetical
+    title_end = main_part.rfind(f'({year})')
+    album_title = main_part[:title_end].strip() if title_end != -1 else main_part
 
     return album_title, year, disc_count, medium, tags
 
