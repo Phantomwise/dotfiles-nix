@@ -5,6 +5,21 @@ import csv
 
 # AI Disclaimer: This script was generated with the assistance of an AI language model.
 
+# Description:
+    # Lists music albums in the current directory
+    # Outputs CSV file
+
+# Usage:
+    # Run the script in the directory to be scanned to produce the CSV file
+    # Run `open albums-formatted.csv` in nushell to view the results
+
+# Supported folders names:
+    # - Artist/Album Title (Year) (Disc Count Medium) [Label] [Catalog] [Barcode]
+    # - Album Title (Year) (Disc Count Medium) [Label] [Catalog] [Barcode]
+
+# TODO: Rewrite without AI when I have time
+# TODO: Maybe remove the intermediate albums-raw.csv file? It was needed during debugging but now it works so I guess it's not needed anymore.
+
 def split_album(album):
     """
     Splits album folder name into:
