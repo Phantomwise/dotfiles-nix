@@ -2,6 +2,9 @@
 
 import os
 import csv
+from colorama import Fore, Style, init
+
+init(autoreset=True)
 
 # AI Disclaimer: This script was generated with the assistance of an AI language model.
 
@@ -58,15 +61,17 @@ def split_album(album):
 
     # Step 3: enforce strict last-two-parentheticals rule
     if not parens:
-        raise ValueError(f"Album '{album}' has no parentheticals; disc info is required.")
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} No parentheticals found in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'; disc info and year are required.")
+        raise ValueError(album)
     disc_info = parens[-1]
     parts = disc_info.split(' ')
     if len(parts) != 2:
-        raise ValueError(f"Disc info malformed: '{disc_info}' in album '{album}'")
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Disc info malformed in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{disc_info}{Style.RESET_ALL}'")
+        raise ValueError(album)
     disc_count, medium = parts
-
     if len(parens) < 2:
-        raise ValueError(f"Album '{album}' missing second-to-last parenthetical for year.")
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Missing second-to-last parenthetical for year in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'.")
+        raise ValueError(album)
     year = parens[-2]
 
     # Album title is everything before the second-to-last parenthetical
