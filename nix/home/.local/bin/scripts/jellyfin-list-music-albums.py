@@ -27,58 +27,65 @@ def split_album(album):
     """
     Splits album folder name into:
     - album title
-    - year (second-to-last parenthetical)
+    - original_year (second-to-last parenthetical)
     - disc count and medium (last parenthetical)
-    - tags: Label, Catalog, Barcode
-    Raises ValueError if expected parentheticals are missing or malformed.
+    - issue_year (first bracketed)
+    - label, catalog, barcode (next brackets)
+    Raises ValueError if any expected parenthetical or bracket is missing.
     """
-    # Step 1: extract bracketed tags
-    last_close = album.rfind(')')
-    tags_part = ''
-    if last_close != -1:
-        tags_part = album[last_close+1:].strip()
-        main_part = album[:last_close+1].strip()
-    else:
-        main_part = album
-
-    # Extract tags from brackets
-    tags = [tag.strip(' []') for tag in tags_part.split('[') if tag.strip()]
-    while len(tags) < 3:
-        tags.append('')  # fill missing tags with empty strings
-
-    # Step 2: extract all parentheticals
+    # Step 1: extract all parentheticals
     parens = []
-    start = len(main_part)
+    start = len(album)
     while True:
-        close_idx = main_part.rfind(')', 0, start)
+        close_idx = album.rfind(')', 0, start)
         if close_idx == -1:
             break
-        open_idx = main_part.rfind('(', 0, close_idx)
+        open_idx = album.rfind('(', 0, close_idx)
         if open_idx == -1:
             break
-        parens.insert(0, main_part[open_idx+1:close_idx].strip())
+        parens.insert(0, album[open_idx+1:close_idx].strip())
         start = open_idx
 
-    # Step 3: enforce strict last-two-parentheticals rule
-    if not parens:
+    if len(parens) < 2:
         print(f"{Fore.RED}Error:{Style.RESET_ALL} No parentheticals found in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'; disc info and year are required.")
         raise ValueError(album)
+
+    original_year = parens[-2]
     disc_info = parens[-1]
+
+    # parse disc count and medium
     parts = disc_info.split(' ')
     if len(parts) != 2:
         print(f"{Fore.RED}Error:{Style.RESET_ALL} Disc info malformed in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{disc_info}{Style.RESET_ALL}'")
         raise ValueError(album)
     disc_count, medium = parts
-    if len(parens) < 2:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Missing second-to-last parenthetical for year in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'.")
-        raise ValueError(album)
-    year = parens[-2]
 
     # Album title is everything before the second-to-last parenthetical
-    title_end = main_part.rfind(f'({year})')
-    album_title = main_part[:title_end].strip() if title_end != -1 else main_part
+    title_end = album.rfind(f'({original_year})')
+    album_title = album[:title_end].strip() if title_end != -1 else album
 
-    return album_title, year, disc_count, medium, tags
+    # Step 2: extract bracketed values strictly in order
+    brackets = []
+    remainder = album[title_end + len(f'({original_year})') + len(f'({disc_info})'):]  # rest after last two parentheses
+    idx = 0
+    while idx < len(remainder):
+        if remainder[idx] == '[':
+            close_idx = remainder.find(']', idx)
+            if close_idx == -1:
+                print(f"{Fore.RED}Error:{Style.RESET_ALL} Unmatched '[' in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'")
+                raise ValueError(album)
+            brackets.append(remainder[idx+1:close_idx].strip())
+            idx = close_idx + 1
+        else:
+            idx += 1
+
+    if len(brackets) < 4:
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Album '{Fore.YELLOW}{album}{Style.RESET_ALL}' must have 4 bracketed values: [issue_year] [label] [catalog] [barcode]")
+        raise ValueError(album)
+
+    issue_year, label, catalog, barcode = brackets[:4]
+
+    return album_title, original_year, disc_count, medium, issue_year, label, catalog, barcode
 
 # Step 1: Detect if folders are Artist/Album or just Album
 all_items = [d for d in os.listdir('.') if os.path.isdir(d)]
@@ -112,20 +119,22 @@ with open('albums-raw.csv', newline='', encoding='utf-8') as rawfile:
     reader = csv.DictReader(rawfile)
     for row in reader:
         album = row['Album']
-        album_title, year, disc_count, medium, tags = split_album(album)
+        (album_title, original_year, disc_count, medium,
+         issue_year, label, catalog, barcode) = split_album(album)
         formatted_rows.append({
             'Artist': row['Artist'],
             'AlbumTitle': album_title,
-            'Year': year,
+            'O Year': original_year,
             'Nb': disc_count,
             'Medium': medium,
-            'Label': tags[0],
-            'Catalog': tags[1],
-            'Barcode': tags[2]
+            'I Year': issue_year,
+            'Label': label,
+            'Catalog': catalog,
+            'Barcode': barcode
         })
 
 # Step 3: Write albums-formatted.csv with selective quoting
-fieldnames = ['Artist', 'AlbumTitle', 'Year', 'Nb', 'Medium', 'Label', 'Catalog', 'Barcode']
+fieldnames = ['Artist', 'AlbumTitle', 'O Year', 'Nb', 'Medium', 'I Year', 'Label', 'Catalog', 'Barcode']
 text_fields = {'Artist', 'AlbumTitle', 'Barcode'}
 
 with open('albums-formatted.csv', 'w', newline='', encoding='utf-8') as outfile:
