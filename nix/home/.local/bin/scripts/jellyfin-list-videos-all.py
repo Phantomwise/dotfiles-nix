@@ -2,6 +2,7 @@
 
 import os
 import csv
+import sys
 from colorama import Fore, Style, init
 
 init(autoreset=True)
@@ -137,63 +138,74 @@ def split_video(path):
         'Uploader': uploader
     }
 
-# Traverse the nested structure to collect all <Movie Folder> paths
-raw_rows = []
-for category in os.listdir('.'):
-    category_path = os.path.join('.', category)
-    if not os.path.isdir(category_path) or category not in ['Films', 'Series']:
-        continue
-    for vtype in os.listdir(category_path):
-        type_path = os.path.join(category_path, vtype)
-        if not os.path.isdir(type_path):
-            continue
-        for style in os.listdir(type_path):
-            style_path = os.path.join(type_path, style)
-            if not os.path.isdir(style_path):
+def main():
+    raw_csv = 'videos-raw.csv'
+    formatted_csv = 'videos-formatted.csv'
+    try:
+        # Traverse the nested structure to collect all <Movie Folder> paths
+        raw_rows = []
+        for category in os.listdir('.'):
+            category_path = os.path.join('.', category)
+            if not os.path.isdir(category_path) or category not in ['Films', 'Series']:
                 continue
-            for collection in os.listdir(style_path):
-                collection_path = os.path.join(style_path, collection)
-                if not os.path.isdir(collection_path):
+            for vtype in os.listdir(category_path):
+                type_path = os.path.join(category_path, vtype)
+                if not os.path.isdir(type_path):
                     continue
-                for source in os.listdir(collection_path):
-                    source_path = os.path.join(collection_path, source)
-                    if not os.path.isdir(source_path):
+                for style in os.listdir(type_path):
+                    style_path = os.path.join(type_path, style)
+                    if not os.path.isdir(style_path):
                         continue
-                    for moviefolder in os.listdir(source_path):
-                        moviefolder_path = os.path.join(source_path, moviefolder)
-                        if os.path.isdir(moviefolder_path):
-                            rel_path = os.path.join(category, vtype, style, collection, source, moviefolder)
-                            raw_rows.append({'FullPath': rel_path})
+                    for collection in os.listdir(style_path):
+                        collection_path = os.path.join(style_path, collection)
+                        if not os.path.isdir(collection_path):
+                            continue
+                        for source in os.listdir(collection_path):
+                            source_path = os.path.join(collection_path, source)
+                            if not os.path.isdir(source_path):
+                                continue
+                            for moviefolder in os.listdir(source_path):
+                                moviefolder_path = os.path.join(source_path, moviefolder)
+                                if os.path.isdir(moviefolder_path):
+                                    rel_path = os.path.join(category, vtype, style, collection, source, moviefolder)
+                                    raw_rows.append({'FullPath': rel_path})
 
-with open('videos-raw.csv', 'w', newline='', encoding='utf-8') as rawfile:
-    writer = csv.DictWriter(rawfile, fieldnames=['FullPath'])
-    writer.writeheader()
-    writer.writerows(raw_rows)
+        with open(raw_csv, 'w', newline='', encoding='utf-8') as rawfile:
+            writer = csv.DictWriter(rawfile, fieldnames=['FullPath'])
+            writer.writeheader()
+            writer.writerows(raw_rows)
 
-# Parse and create formatted output, excluding 'Collection' from CSV
-formatted_rows = []
-with open('videos-raw.csv', newline='', encoding='utf-8') as rawfile:
-    reader = csv.DictReader(rawfile)
-    for row in reader:
-        full_path = row['FullPath']
-        try:
-            parsed = split_video(full_path)
-            formatted_rows.append(parsed)
-        except ValueError:
-            print(f"{Fore.RED}Skipping:{Style.RESET_ALL} '{full_path}' due to parsing error.")
-            continue
+        # Parse and create formatted output, excluding 'Collection' from CSV
+        formatted_rows = []
+        with open(raw_csv, newline='', encoding='utf-8') as rawfile:
+            reader = csv.DictReader(rawfile)
+            for row in reader:
+                full_path = row['FullPath']
+                try:
+                    parsed = split_video(full_path)
+                    formatted_rows.append(parsed)
+                except ValueError:
+                    print(f"{Fore.RED}Skipping:{Style.RESET_ALL} '{full_path}' due to parsing error.")
+                    continue
 
-fieldnames = [
-    'Category', 'Type', 'Style',  # new fields, keep order
-    'Source', 'Title', 'Year', 'MProv', 'MID', 'Edition',
-    'Languages', 'Resolution', 'HR', 'VR', 'Src', 'Uploader'
-    # 'Collection' field omitted
-]
-text_fields = {'Category', 'Type', 'Style', 'Source', 'Title', 'Edition', 'Languages', 'Resolution', 'Src', 'Uploader'}
+        fieldnames = [
+            'Category', 'Type', 'Style',  # new fields, keep order
+            'Source', 'Title', 'Year', 'MProv', 'MID', 'Edition',
+            'Languages', 'Resolution', 'HR', 'VR', 'Src', 'Uploader'
+            # 'Collection' field omitted
+        ]
 
-with open('videos-formatted.csv', 'w', newline='', encoding='utf-8') as outfile:
-    writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(fieldnames)
-    for row in formatted_rows:
-        output_row = [row.get(field, '') for field in fieldnames]
-        writer.writerow(output_row)
+        with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
+            writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(fieldnames)
+            for row in formatted_rows:
+                output_row = [row.get(field, '') for field in fieldnames]
+                writer.writerow(output_row)
+
+        print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} '{Fore.CYAN}{raw_csv}{Style.RESET_ALL}' and '{Fore.CYAN}{formatted_csv}{Style.RESET_ALL}' created")
+    except Exception as e:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} {str(e)}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
