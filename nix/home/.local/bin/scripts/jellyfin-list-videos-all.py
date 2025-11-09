@@ -135,41 +135,47 @@ def main():
     try:
         raw_rows = []
         # CATEGORY
-        for category in os.listdir('.'):
-            category_path = os.path.join('.', category)
-            if not os.path.isdir(category_path):
-                continue  # Only interested in directories for categories
+        for cat_entry in os.scandir('.'):
+            if not cat_entry.is_dir():
+                continue
+            category = cat_entry.name
+            category_path = cat_entry.path
             if category not in ['Films', 'Series']:
                 print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping directory '{Fore.BLUE}{category_path}{Style.RESET_ALL}' (not a recognized category).")
                 continue
+
             # TYPE
-            for vtype in os.listdir(category_path):
-                type_path = os.path.join(category_path, vtype)
-                if not os.path.isdir(type_path):
-                    continue  # Only interested in directories for types
+            for type_entry in os.scandir(category_path):
+                if not type_entry.is_dir():
+                    continue
+                vtype = type_entry.name
+                type_path = type_entry.path
                 # STYLE
-                for style in os.listdir(type_path):
-                    style_path = os.path.join(type_path, style)
-                    if not os.path.isdir(style_path):
-                        continue  # Only interested in directories for styles
+                for style_entry in os.scandir(type_path):
+                    if not style_entry.is_dir():
+                        continue
+                    style = style_entry.name
+                    style_path = style_entry.path
                     # COLLECTION
-                    for collection in os.listdir(style_path):
-                        collection_path = os.path.join(style_path, collection)
-                        if not os.path.isdir(collection_path):
-                            continue  # Only interested in directories for collections
+                    for coll_entry in os.scandir(style_path):
+                        if not coll_entry.is_dir():
+                            continue
+                        collection = coll_entry.name
+                        collection_path = coll_entry.path
                         # SOURCE
-                        for source in os.listdir(collection_path):
-                            source_path = os.path.join(collection_path, source)
-                            if not os.path.isdir(source_path):
-                                continue  # Only interested in directories for sources
+                        for src_entry in os.scandir(collection_path):
+                            if not src_entry.is_dir():
+                                continue
+                            source = src_entry.name
+                            source_path = src_entry.path
+                            # MOVIEFOLDER
                             moviefolders = [
-                                folder for folder in os.listdir(source_path)
-                                if os.path.isdir(os.path.join(source_path, folder))
+                                mf_entry.name for mf_entry in os.scandir(source_path)
+                                if mf_entry.is_dir()
                             ]
                             if not moviefolders:
                                 print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.BLUE}{source_path}{Style.RESET_ALL}' has no movie folders.")
                             for moviefolder in moviefolders:
-                                moviefolder_path = os.path.join(source_path, moviefolder)
                                 rel_path = os.path.join(category, vtype, style, collection, source, moviefolder)
                                 raw_rows.append({'FullPath': rel_path})
 
