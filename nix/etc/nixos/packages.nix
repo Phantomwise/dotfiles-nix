@@ -140,6 +140,7 @@
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
 		dvdbackup              # Tool to rip video DVDs from the command line
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
+		jellyfin-media-player  # Jellyfin Desktop Client based on Plex Media Player
 		handbrake              # Tool for converting video files and ripping DVDs
 		libdvdcss              # Library for decrypting DVDs
 		makemkv                # Convert blu-ray and dvd to mkv
