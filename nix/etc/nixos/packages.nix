@@ -135,30 +135,32 @@
 		xnviewmp               # Efficient multimedia viewer, browser and converter
 
 		### AUDIO & VIDEO ###
-		abcde                  # Command-line audio CD ripper
 		ani-cli                # Cli tool to browse and play anime
-		asunder                # Graphical Audio CD ripper and encoder for Linux
-		cdparanoia             # Tool and library for reading digital audio from CDs
-		cdrdao                 # Tool for recording audio or data CD-Rs in disk-at-once (DAO) mode
-		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
-		dvdbackup              # Tool to rip video DVDs from the command line
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
 		jellyfin-media-player  # Jellyfin Desktop Client based on Plex Media Player
-		handbrake              # Tool for converting video files and ripping DVDs
-		libdvdcss              # Library for decrypting DVDs
-		makemkv                # Convert blu-ray and dvd to mkv
 		mpv                    # General-purpose media player, fork of MPlayer and mplayer2
 		# libation # moved to unstable
 		mpc                    #!
 		picard                 # picard
 		pulsemixer             # Cli and curses mixer for pulseaudio
 		vlc                    # Cross-platform media player and streaming server
-		whipper                # CD ripper aiming for accuracy over speed
 		# yt-dlp
 		# (callPackage (import (builtins.fetchurl {
 			# url = "https://raw.githubusercontent.com/NixOS/nixpkgs/da2504032ba518133db8f559862d95bc95b1f81c/pkgs/by-name/yt/yt-dlp/package.nix";
 			# sha256 = "sha256:1ffrks7nk9s30g70k6b5qfyiy9ad8ydsqkq3y69f35pfxqblwfb7";
 			# })) {})
+
+		### AUDIO & VIDEO : RIP ###
+		abcde                  # Command-line audio CD ripper
+		asunder                # Graphical Audio CD ripper and encoder for Linux
+		cdparanoia             # Tool and library for reading digital audio from CDs
+		cdrdao                 # Tool for recording audio or data CD-Rs in disk-at-once (DAO) mode
+		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
+		dvdbackup              # Tool to rip video DVDs from the command line
+		handbrake              # Tool for converting video files and ripping DVDs
+		libdvdcss              # Library for decrypting DVDs
+		makemkv                # Convert blu-ray and dvd to mkv
+		whipper                # CD ripper aiming for accuracy over speed
 
 		### MISC GUI ###
 		bulky                  # Bulk rename app
