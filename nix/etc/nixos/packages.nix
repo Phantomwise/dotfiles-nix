@@ -32,6 +32,8 @@
 		gcc                    # GNU Compiler Collection, version 14.3.0 (wrapper script)
 		codeblocksFull         # Open source, cross platform, free C, C++ and Fortran IDE
 		clang-tools            # Standalone command line tools for C++ development
+			### JAVASCRIPT ###
+		deno                   # Secure runtime for JavaScript and TypeScript
 			### JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
 			### OCAML ###
