@@ -152,6 +152,7 @@
 		picard                 # picard
 		pulsemixer             # Cli and curses mixer for pulseaudio
 		vlc                    # Cross-platform media player and streaming server
+		whipper                # CD ripper aiming for accuracy over speed
 		# yt-dlp
 		# (callPackage (import (builtins.fetchurl {
 			# url = "https://raw.githubusercontent.com/NixOS/nixpkgs/da2504032ba518133db8f559862d95bc95b1f81c/pkgs/by-name/yt/yt-dlp/package.nix";
