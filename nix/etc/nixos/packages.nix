@@ -139,6 +139,7 @@
 		ani-cli                # Cli tool to browse and play anime
 		asunder                # Graphical Audio CD ripper and encoder for Linux
 		cdparanoia             # Tool and library for reading digital audio from CDs
+		cdrdao                 # Tool for recording audio or data CD-Rs in disk-at-once (DAO) mode
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
 		dvdbackup              # Tool to rip video DVDs from the command line
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
