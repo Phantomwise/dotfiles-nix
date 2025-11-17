@@ -157,9 +157,11 @@
 		cdrdao                 # Tool for recording audio or data CD-Rs in disk-at-once (DAO) mode
 		cdrkit                 # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
 		dvdbackup              # Tool to rip video DVDs from the command line
+		exactaudiocopy         # Precise CD audio grabber for creating perfect quality rips using CD and DVD drives
 		handbrake              # Tool for converting video files and ripping DVDs
 		libdvdcss              # Library for decrypting DVDs
 		makemkv                # Convert blu-ray and dvd to mkv
+		rubyripper             # High quality CD audio ripper
 		whipper                # CD ripper aiming for accuracy over speed
 
 		### MISC GUI ###
