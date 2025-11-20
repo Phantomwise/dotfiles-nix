@@ -69,6 +69,7 @@
 		iotop                  # Tool to find out the processes doing the most IO
 		lm_sensors             # Tools for reading hardware sensors
 		ncdu                   # Disk usage analyzer with an ncurses interface
+		nethogs                # Small 'net top' tool, grouping bandwidth by process
 		smartmontools          # Tools for monitoring the health of hard drives
 		sysstat                # Collection of performance monitoring tools for Linux (such as sar, iostat and pidstat)
 
