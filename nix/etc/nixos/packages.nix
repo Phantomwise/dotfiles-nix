@@ -136,7 +136,9 @@
 
 		### AUDIO & VIDEO ###
 		ani-cli                # Cli tool to browse and play anime
+		beets                  # Music tagger and library organizer
 		ffmpeg                 # Complete, cross-platform solution to record, convert and stream audio and video
+		finamp                 # Open source Jellyfin music player
 		jellyfin-media-player  # Jellyfin Desktop Client based on Plex Media Player
 		mpv                    # General-purpose media player, fork of MPlayer and mplayer2
 		# libation # moved to unstable
@@ -172,6 +174,7 @@
 		freetube               # Open Source YouTube app for privacy
 		keepassxc              # Offline password manager with many features
 		libreoffice            # Comprehensive, professional-quality productivity suite, a variant of openoffice.org
+		qbittorrent            # Featureful free software BitTorrent client
 		synology-drive-client  # Desktop application to synchronize files and folders between the computer and the Synology Drive server
 		zotero                 # Collect, organize, cite, and share your research sources
 		evolution              # Personal information management application that provides integrated mail, calendaring and address book functionality
