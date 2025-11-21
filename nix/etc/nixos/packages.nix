@@ -16,6 +16,7 @@
 
 		### UNSORTED ###
 		# cron                 # Daemon for running commands at specific times
+		dig                    # Domain name server
 		inotify-tools          #
 		tldr                   # Simplified and community-driven man pages
 		ventoy-full            # New Bootable USB Solution
