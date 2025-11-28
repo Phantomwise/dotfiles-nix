@@ -181,6 +181,7 @@
 		synology-drive-client  # Desktop application to synchronize files and folders between the computer and the Synology Drive server
 		zotero                 # Collect, organize, cite, and share your research sources
 		evolution              # Personal information management application that provides integrated mail, calendaring and address book functionality
+		# calibre              # Comprehensive e-book software
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
