@@ -21,6 +21,7 @@
 		tldr                   # Simplified and community-driven man pages
 		ventoy-full            # New Bootable USB Solution
 		wine                   # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
+		libgourou              # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 
 		### PROGRAMMING ###
 			### ASSEMBLY ###
