@@ -15,6 +15,7 @@
 	environment.systemPackages = with pkgs; [
 
 		### UNSORTED ###
+		appimage-run           # 
 		# cron                 # Daemon for running commands at specific times
 		dig                    # Domain name server
 		inotify-tools          #
