@@ -40,7 +40,10 @@
 			### JSON ###
 		jq                     # Lightweight and flexible command-line JSON processor
 			### OCAML ###
+		ocaml                    # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
+		ocamlPackages.ocaml-lsp  # OCaml Language Server Protocol implementation
 		ocamlPackages.utop     # Universal toplevel for OCaml
+		ocamlPackages.ocamlformat  # Auto-formatter for OCaml code
 			### PYTHON ###
 		(python3.withPackages (ps: [
 			ps.requests
