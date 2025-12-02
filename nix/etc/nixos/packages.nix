@@ -49,6 +49,7 @@
 			ps.requests
 			ps.curl-cffi
 			ps.colorama        # Cross-platform colored terminal text
+			ps.pandas          # Powerful data structures for data analysis, time series, and statistics
 			]))
 			### SQL ###
 		# sqlite               # Self-contained, serverless, zero-configuration, transactional SQL database engine
