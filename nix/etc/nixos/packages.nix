@@ -25,7 +25,9 @@
 		libgourou              # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 
 		### PROGRAMMING ###
+		git                    # Distributed version control system
 		git-filter-repo        # Quickly rewrite git repository history
+		gitmoji-cli            # Gitmoji client for using emojis on commit messages
 			### ASSEMBLY ###
 		cutter                 # Free and Open Source Reverse Engineering Platform powered by rizin
 		# ida-free             # Freeware version of the world's smartest and most feature-full disassembler
@@ -88,8 +90,6 @@
 		### TOOLS ###
 		brightnessctl          # This program allows you read and control device brightness
 		# bluetuith            # TUI-based bluetooth connection manager
-		git                    # Distributed version control system
-		gitmoji-cli            # Gitmoji client for using emojis on commit messages
 		gnumake                # Tool to control the generation of non-source files from sources
 		rclone                 # Command line program to sync files and directories to and from major cloud storage
 		rsync                  # Fast incremental file transfer utility
