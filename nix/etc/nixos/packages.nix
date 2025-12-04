@@ -25,6 +25,7 @@
 		libgourou              # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 
 		### PROGRAMMING ###
+		git-filter-repo        # Quickly rewrite git repository history
 			### ASSEMBLY ###
 		cutter                 # Free and Open Source Reverse Engineering Platform powered by rizin
 		# ida-free             # Freeware version of the world's smartest and most feature-full disassembler
