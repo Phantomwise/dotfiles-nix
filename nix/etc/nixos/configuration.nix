@@ -80,16 +80,16 @@
 	};
 
 	# Configure logind
-	services.logind = {
-		hibernateKey = "ignore";
-		hibernateKeyLongPress = "ignore";
-		lidSwitch = "suspend";
-		lidSwitchDocked = "ignore";
-		lidSwitchExternalPower = "suspend";
+	services.logind.settings.Login = {
+		HandleHibernateKey = "ignore";
+		HandleHibernateKeyLongPress = "ignore";
+		HandleLidSwitch = "suspend";
+		HandleLidSwitchDocked = "ignore";
+		HandleLidSwitchExternalPower = "suspend";
 		# powerKey = "poweroff";
 		# powerKeyLongPress = "ignore";
-		suspendKey = "ignore";
-		suspendKeyLongPress = "ignore";
+		HandleSuspendKey = "ignore";
+		HandleSuspendKeyLongPress = "ignore";
 	};
 
 	# No idea what I'm doing, trying to fix graphics problem — TODO: check why it doesn't work
