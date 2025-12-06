@@ -70,12 +70,34 @@
 # client.unfocused         $rgba-black        $rgba-black            $rgba-white      $rgba-white     $rgba-black
 # client.urgent            $rgba-red          $rgba-red              $rgba-white      $rgba-red       $rgba-blue
 			};
+
+			startup = [
+				{
+					# NOTWORKING >_<
+					command = ''
+						${pkgs.waybar}/bin/waybar --config ~/.config/waybar/config-sway.jsonc
+						'';
+						# ${pkgs.bash}/bin/bash -lc 'pkill -x waybar 2>/dev/null || true; exec ${pkgs.waybar}/bin/waybar --config "$HOME/.config/waybar/config-sway.jsonc"'
+						# ${pkgs.bash}/bin/bash -lc 'pgrep -x waybar >/dev/null || exec ${pkgs.waybar}/bin/waybar --config "$HOME/.config/waybar/config-sway.jsonc"'
+					# always = true;
+					# ${pkgs.bash}/bin/bash -lc 'pkill -x waybar || true; exec ${pkgs.waybar}/bin/waybar --config $HOME/.config/waybar/config-sway.jsonc'
+					# always = true;
+					# command = "${pkgs.waybar}/bin/waybar --config ~/.config/waybar/config-sway.jsonc";
+				}
+			];
+
 		};
+		# extraConfig =
+			# ''
+			# exec 'pkill waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+			# ''
+		# ;
 		# extraConfig =
 		# ''
 			# ${builtins.readFile ./oldconfig/config}
 			# ${builtins.readFile ./oldconfig/keybindings}
 		# '';
+		# };
 	};
 
 }
