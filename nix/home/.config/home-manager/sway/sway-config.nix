@@ -92,6 +92,10 @@
 				}
 			];
 
+			window = {
+				titlebar = false;
+			};
+
 		};
 		# extraConfig =
 			# ''
