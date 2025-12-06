@@ -23,13 +23,50 @@
 				# Launch Firefox on start
 				# {command = "firefox";}
 			# ];
-			input = 
-				{
+			input = {
 				"*" = {
 					xkb_layout = "us";
 					xkb_variant = "colemak";
 					xkb_options = "grp:alt_space_toggle";
 				};
+			};
+
+			colors = {
+				# class names (camelCase) the module expects:
+				focused = {
+					border     = "#004BAA";  # previously title_border_color
+					background = "#000000";  # previously title_background_color
+					text       = "#ffffff";  # previously title_text_color
+					indicator  = "#ffffff";  # previously indicator_color
+					childBorder = "#004BAA"; # previously child_border_color
+				};
+				focusedInactive = {
+					border     = "#000000";  # previously title_border_color
+					background = "#000000";  # previously title_background_color
+					text       = "#ffffff";  # previously title_text_color
+					indicator  = "#ffffff";  # previously indicator_color
+					childBorder = "#000000"; # previously child_border_color
+				};
+				unfocused = {
+					border     = "#000000";  # previously title_border_color
+					background = "#000000";  # previously title_background_color
+					text       = "#ffffff";  # previously title_text_color
+					indicator  = "#ffffff";  # previously indicator_color
+					childBorder = "#000000"; # previously child_border_color
+				};
+				urgent = {
+					border     = "#A10000";  # previously title_border_color
+					background = "#A10000";  # previously title_background_color
+					text       = "#ffffff";  # previously title_text_color
+					indicator  = "#A10000";  # previously indicator_color
+					childBorder = "#004BAA"; # previously child_border_color
+				};
+# # class                  title_border_color title_background_color title_text_color indicator_color child_border_color
+# client.focused           $rgba-blue         $rgba-black            $rgba-white      $rgba-white     $rgba-blue
+# client.focused_inactive  $rgba-black        $rgba-black            $rgba-white      $rgba-white     $rgba-black
+# client.focused_tab_title $rgba-black        $rgba-black            $rgba-white      $rgba-white     $rgba-black
+# client.unfocused         $rgba-black        $rgba-black            $rgba-white      $rgba-white     $rgba-black
+# client.urgent            $rgba-red          $rgba-red              $rgba-white      $rgba-red       $rgba-blue
 			};
 		};
 		# extraConfig =
