@@ -113,7 +113,7 @@
 
 		### GRAPHICAL SESSION ###
 		dunst                       # Lightweight and customizable notification daemon
-		(rofi-wayland.override { plugins = [ pkgs.rofi-calc pkgs.rofi-games ]; })
+		(rofi.override { plugins = [ pkgs.rofi-calc pkgs.rofi-games ]; })
 		rofimoji                    # Simple emoji and character picker for rofi
 		grim                        # Grab images from a Wayland compositor
 		slurp                       # Select a region in a Wayland compositor
