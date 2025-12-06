@@ -77,6 +77,21 @@
 				size = 11.0;
 			};
 
+			gaps = {
+				# Sets  default  amount pixels of inner or outer gap, where the inner affects spacing around each view and outer affects the spacing around each
+				# workspace. Outer gaps are in addition to inner gaps. To reduce or remove outer gaps, outer gaps can be set to a negative value. outer gaps can
+				# also be specified per side with top, right, bottom, and left or per direction with horizontal and vertical.
+				# This affects new workspaces only, and is used when the workspace doesn't have its own gaps settings (see: workspace <ws> gaps ...).
+				inner = 6;
+				outer = -6;
+				# top = 8;
+				bottom = 6;
+				# left = 8;
+				# right = 8;
+				# horizontal = 8;
+				# vertical = 8;
+			};
+
 			startup = [
 				{
 					# NOTWORKING >_<
