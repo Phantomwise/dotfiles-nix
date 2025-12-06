@@ -29,7 +29,9 @@
 
 	# Commands replacement
 	alias ll = ls -alh
+	alias core-grep = grep
 	alias grep = grep --color=auto
+	alias core-clamscan = clamscan
 	alias clamscan = clamscan -r --log=/tmp/clamscan.txt
 	alias clamscan-full = clamscan -r --follow-dir-symlinks --follow-file-symlinks --log=/tmp/clamscan.txt
 	alias weather = curl wttr.in
