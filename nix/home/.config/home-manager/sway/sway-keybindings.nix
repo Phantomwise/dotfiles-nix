@@ -304,6 +304,13 @@ in
 			"${mod}+Shift+F2"            = "exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'";
 			"${mod}+F1"                  = "exec bash -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-mute.sh'";
 
+		# Toggle microphone with mod + F4 key
+			# "${mod}+F4"                  = "exec wpctl set-mute 56 toggle";
+
+		# Push-to-talk with F4 key
+			# "F4"                        = "exec wptcl set-mute 56 0";
+			# "--release F4"              = "exec wpctl set-mute 56 1";
+
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
 	# █║░░░░░░░░░░░░░░░░░░░░ SCREEN BRIGHTNESS ░░░░░░░░░░░░░░░░░░░░░█║
