@@ -71,6 +71,12 @@
 # client.urgent            $rgba-red          $rgba-red              $rgba-white      $rgba-red       $rgba-blue
 			};
 
+			fonts = {
+				names = [ "Dungeon Regular" ];
+				# style = "Bold Semi-Condensed";
+				size = 11.0;
+			};
+
 			startup = [
 				{
 					# NOTWORKING >_<
