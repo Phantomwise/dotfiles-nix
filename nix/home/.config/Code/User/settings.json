@@ -4,5 +4,8 @@
     "editor.fontFamily": "'Hack Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
     "editor.renderControlCharacters": true,
     "workbench.colorTheme": "Visual Studio Dark",
-    "workbench.iconTheme": "ayu"
+    "workbench.iconTheme": "ayu",
+    "python.languageServer": "Pylance",
+    "security.workspace.trust.untrustedFiles": "open",
+    "diffEditor.maxComputationTime": 0
 }
