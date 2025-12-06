@@ -31,6 +31,8 @@
 				};
 			};
 
+			bars = [];
+
 			colors = {
 				# class names (camelCase) the module expects:
 				focused = {
