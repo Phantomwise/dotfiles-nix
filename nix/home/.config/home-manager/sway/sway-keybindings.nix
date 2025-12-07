@@ -362,6 +362,17 @@ in
 	# ███████████████████████████████████████████████████████████████║
 	# ╚══════════════════════════════════════════════════════════════╝
 
+		# output \*
+		# output eDP-1
+
+		# Toogle swaybg
+			"${mod}+Alt+p" = "exec pkill swaybg || swaybg";
+
+		# Set random wallpaper
+			"${mod}+Shift+p" = ''
+				exec swaymsg output \* bg "$(find $HOME/.local/share/wallpapers/rotate -type f | shuf -n 1)" fill
+			'';
+
 	};
 
 # ███████████████████████████████████████████████████████████████╗
