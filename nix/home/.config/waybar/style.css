@@ -53,6 +53,11 @@ window#waybar {
 	border-radius: 0px
 }
 
+#workspaces button:hover {
+	background: @color-white;
+	color: @color-black;
+}
+
 #workspaces button.focused {
 	/*
 	border-top: 2px solid @color-text-on-light;
