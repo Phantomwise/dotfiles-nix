@@ -141,6 +141,12 @@
 			};
 
 		};
+		extraConfig =
+			''
+			exec 'swaybg'
+			output * bg /home/phantomwise/.local/share/wallpapers/default.jpg fill '#123456'
+			''
+		;
 		# extraConfig =
 			# ''
 			# exec 'pkill waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
