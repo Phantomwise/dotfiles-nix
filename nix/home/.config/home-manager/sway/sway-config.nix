@@ -113,7 +113,7 @@
 				inner = 6;
 				outer = -6;
 				# top = 8;
-				bottom = 6;
+				bottom = 4;
 				# left = 8;
 				# right = 8;
 				# horizontal = 8;
