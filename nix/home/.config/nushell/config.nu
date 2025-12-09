@@ -38,8 +38,8 @@
 
 	# Nix commands
 	alias hh = home-manager switch
-	alias rebuild = sudo nixos-rebuild switch
-	alias update = sudo nixos-rebuild switch --upgrade
+	# alias rebuild = sudo nixos-rebuild switch
+	# alias update = sudo nixos-rebuild switch --upgrade
 
 	# Other
 #	alias "path" = "echo $PATH | tr ':' '\n'" # NOTWORKING
