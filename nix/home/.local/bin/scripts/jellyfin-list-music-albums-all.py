@@ -20,6 +20,11 @@ init(autoreset=True)
 #   Writes music-albums-raw.csv and music-albums-formatted.csv.
 #   Captures stdout and stderr and writes them to music-albums.log (overwritten each run)
 #   while still printing to the console.
+#
+#   Album folder name format (all fields required; some bracketed fields may be empty):
+#       title (original_year) (nb medium) (tracks) [issue_year] [label] [catalog] [barcode]
+#   Example:
+#       My Album Title (1975) (2 CD) (18) [1999] [SomeLabel] [CAT-001] [1234567890123]
 
 LOG_FILE = 'music-albums.log'
 
@@ -116,8 +121,9 @@ def split_album(album):
     """
     Splits album folder name into:
     - album title
-    - original_year (second-to-last parenthetical)
-    - disc count and medium (last parenthetical)
+    - original_year (third-to-last parenthetical)
+    - disc count and medium (second-to-last parenthetical)
+    - tracks (last parenthetical) -> integer
     - issue_year (first bracketed)
     - label, catalog, barcode (next brackets)
 
@@ -135,18 +141,29 @@ def split_album(album):
         parens.insert(0, album[open_idx + 1:close_idx].strip())
         start = open_idx
 
-    if len(parens) < 2:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} No parentheticals found in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'; disc info and year are required.")
-        raise ValueError(f"No parentheticals in '{album}'")
+    # Expect three parentheticals: original_year, disc info, tracks
+    if len(parens) < 3:
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Not enough parentheticals in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'; expected (original_year) (nb medium) (tracks).")
+        raise ValueError(f"Not enough parentheticals in '{album}'")
 
-    original_year = parens[-2]
-    disc_info = parens[-1]
+    original_year = parens[-3]
+    disc_info = parens[-2]
+    tracks_str = parens[-1]
 
     parts = disc_info.split(' ')
     if len(parts) != 2:
         print(f"{Fore.RED}Error:{Style.RESET_ALL} Disc info malformed in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{disc_info}{Style.RESET_ALL}'")
         raise ValueError(f"Disc info malformed in '{album}'")
     disc_count, medium = parts
+
+    if tracks_str == '':
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Tracks parenthetical is empty in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'")
+        raise ValueError(f"Tracks missing in '{album}'")
+    try:
+        tracks = int(tracks_str)
+    except ValueError:
+        print(f"{Fore.RED}Error:{Style.RESET_ALL} Tracks must be an integer in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{tracks_str}{Style.RESET_ALL}'")
+        raise ValueError(f"Tracks not integer in '{album}'")
 
     title_end = album.rfind(f'({original_year})')
     album_title = album[:title_end].strip() if title_end != -1 else album
@@ -172,7 +189,7 @@ def split_album(album):
 
     issue_year, label, catalog, barcode = brackets[:4]
 
-    return album_title, original_year, disc_count, medium, issue_year, label, catalog, barcode
+    return album_title, original_year, disc_count, medium, tracks, issue_year, label, catalog, barcode
 
 
 def main():
@@ -271,7 +288,7 @@ def main():
             for row in reader:
                 album = row['Album']
                 try:
-                    (album_title, original_year, disc_count, medium,
+                    (album_title, original_year, disc_count, medium, tracks,
                      issue_year, label, catalog, barcode) = split_album(album)
                     formatted_rows.append({
                         'Source': row.get('Source', ''),
@@ -280,6 +297,7 @@ def main():
                         'Album': album_title,
                         'OYear': original_year,
                         'Nb': disc_count,
+                        'Tracks': tracks,
                         'Medium': medium,
                         'IYear': issue_year,
                         'Label': label,
@@ -291,7 +309,7 @@ def main():
                     print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping album '{Fore.BLUE}{album}{Style.RESET_ALL}' - Reason: {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
                     continue
 
-        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode', 'Collection']
+        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Tracks', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode', 'Collection']
         text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Collection', 'Label'}
 
         with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
