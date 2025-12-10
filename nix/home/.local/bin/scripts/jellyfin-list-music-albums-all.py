@@ -117,7 +117,7 @@ def should_skip(name):
     return name.startswith('_')
 
 
-def split_album(album):
+def split_album(album, album_path=None):
     """
     Splits album folder name into:
     - album title
@@ -128,7 +128,12 @@ def split_album(album):
     - label, catalog, barcode (next brackets)
 
     Raises ValueError if expected parenthetical or bracket is missing or malformed.
+
+    album_path: optional full path (not used for the concise error messages).
     """
+    # Always use the concise folder name for in-function error messages
+    display = album
+
     parens = []
     start = len(album)
     while True:
@@ -143,7 +148,7 @@ def split_album(album):
 
     # Expect three parentheticals: original_year, disc info, tracks
     if len(parens) < 3:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Not enough parentheticals in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'; expected (original_year) (nb medium) (tracks).")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Not enough parentheticals in album '{Fore.CYAN}{display}{Style.RESET_ALL}'; expected (original_year) (nb medium) (tracks).")
         raise ValueError(f"Not enough parentheticals in '{album}'")
 
     original_year = parens[-3]
@@ -152,17 +157,17 @@ def split_album(album):
 
     parts = disc_info.split(' ')
     if len(parts) != 2:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Disc info malformed in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{disc_info}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Disc info malformed in album '{Fore.YELLOW}{display}{Style.RESET_ALL}': '{Fore.BLUE}{disc_info}{Style.RESET_ALL}'")
         raise ValueError(f"Disc info malformed in '{album}'")
     disc_count, medium = parts
 
     if tracks_str == '':
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Tracks parenthetical is empty in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Tracks parenthetical is empty in album '{Fore.YELLOW}{display}{Style.RESET_ALL}'")
         raise ValueError(f"Tracks missing in '{album}'")
     try:
         tracks = int(tracks_str)
     except ValueError:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Tracks must be an integer in album '{Fore.YELLOW}{album}{Style.RESET_ALL}': '{Fore.CYAN}{tracks_str}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Tracks must be an integer in album '{Fore.YELLOW}{display}{Style.RESET_ALL}': '{Fore.BLUE}{tracks_str}{Style.RESET_ALL}'")
         raise ValueError(f"Tracks not integer in '{album}'")
 
     title_end = album.rfind(f'({original_year})')
@@ -176,7 +181,7 @@ def split_album(album):
         if remainder[idx] == '[':
             close_idx = remainder.find(']', idx)
             if close_idx == -1:
-                print(f"{Fore.RED}Error:{Style.RESET_ALL} Unmatched '[' in album '{Fore.YELLOW}{album}{Style.RESET_ALL}'")
+                print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in album '{Fore.YELLOW}{display}{Style.RESET_ALL}'")
                 raise ValueError(f"Unmatched '[' in '{album}'")
             brackets.append(remainder[idx + 1:close_idx].strip())
             idx = close_idx + 1
@@ -184,7 +189,7 @@ def split_album(album):
             idx += 1
 
     if len(brackets) < 4:
-        print(f"{Fore.RED}Error:{Style.RESET_ALL} Album '{Fore.YELLOW}{album}{Style.RESET_ALL}' must have 4 bracketed values: [issue_year] [label] [catalog] [barcode]")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Album '{Fore.YELLOW}{display}{Style.RESET_ALL}' must have 4 bracketed values: [issue_year] [label] [catalog] [barcode]")
         raise ValueError(f"Not enough bracketed values in '{album}'")
 
     issue_year, label, catalog, barcode = brackets[:4]
@@ -252,7 +257,7 @@ def main():
                         artist_path = artist_entry.path
                         album_dirs = [a.name for a in os.scandir(artist_path) if a.is_dir() and not should_skip(a.name)]
                         if not album_dirs:
-                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Artist '{Fore.BLUE}{artist_path}{Style.RESET_ALL}' has no album folders.")
+                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Artist '{Fore.CYAN}{artist_path}{Style.RESET_ALL}' has no album folders.")
                         for album in album_dirs:
                             raw_rows.append({
                                 'Artist': artist,
@@ -287,9 +292,16 @@ def main():
             reader = csv.DictReader(rawfile)
             for row in reader:
                 album = row['Album']
+                # Construct full path from current working directory for clearer debug output.
+                parts = ['.', 'Music', 'Audio', 'Collection', row.get('Collection', ''), row.get('Source', ''), row.get('Type', '')]
+                artist_field = row.get('Artist', '')
+                if artist_field and artist_field != 'None':
+                    parts.append(artist_field)
+                parts.append(album)
+                album_path = os.path.join(*parts)
                 try:
                     (album_title, original_year, disc_count, medium, tracks,
-                     issue_year, label, catalog, barcode) = split_album(album)
+                     issue_year, label, catalog, barcode) = split_album(album, album_path=album_path)
                     formatted_rows.append({
                         'Source': row.get('Source', ''),
                         'Type': row.get('Type', ''),
@@ -306,7 +318,9 @@ def main():
                         'Collection': row.get('Collection', '')
                     })
                 except ValueError as e:
-                    print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping album '{Fore.BLUE}{album}{Style.RESET_ALL}' - Reason: {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
+                    # Print the concise skip reason, then print the full path on a separate DEBUG line for readability.
+                    print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping album '{Fore.CYAN}{album}{Style.RESET_ALL}' - Reason: {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
+                    print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Full path: '{Fore.BLUE}{album_path}{Style.RESET_ALL}'")
                     continue
 
         fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Tracks', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode', 'Collection']
