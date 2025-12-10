@@ -235,6 +235,7 @@ def main():
                     print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Type '{Fore.BLUE}{tpath}{Style.RESET_ALL}' has no artist or album folders.")
                     continue
 
+                # Detect whether there's an artist level (artist folders containing albums).
                 has_artist_level = False
                 for child in type_children:
                     try:
@@ -246,6 +247,11 @@ def main():
                             break
                     except PermissionError:
                         continue
+
+                # Special-case: Soundtrack types are album-level (no artist layer),
+                # even if the album folders contain per-disc subfolders.
+                if tname.lower() == 'soundtrack':
+                    has_artist_level = False
 
                 if has_artist_level:
                     for artist_entry in type_children:
@@ -266,12 +272,13 @@ def main():
                                 'Type': tname
                             })
                 else:
+                    # No artist layer: treat entries under Type as albums.
                     for album_entry in type_children:
                         if should_skip(album_entry.name):
                             continue
                         album = album_entry.name
                         raw_rows.append({
-                            'Artist': 'None',
+                            'Artist': '',
                             'Album': album,
                             'Source': source,
                             'Type': tname
@@ -293,7 +300,7 @@ def main():
                 # Construct full path from current working directory for clearer debug output.
                 parts = ['.', 'Music', 'Audio', 'Collection', row.get('Source', ''), row.get('Type', '')]
                 artist_field = row.get('Artist', '')
-                if artist_field and artist_field != 'None':
+                if artist_field:
                     parts.append(artist_field)
                 parts.append(album)
                 album_path = os.path.join(*parts)
