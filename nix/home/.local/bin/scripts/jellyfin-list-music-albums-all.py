@@ -263,8 +263,7 @@ def main():
                                 'Artist': artist,
                                 'Album': album,
                                 'Source': source,
-                                'Type': tname,
-                                'Collection': coll_entry.name
+                                'Type': tname
                             })
                 else:
                     for album_entry in type_children:
@@ -275,14 +274,13 @@ def main():
                             'Artist': 'None',
                             'Album': album,
                             'Source': source,
-                            'Type': tname,
-                            'Collection': coll_entry.name
+                            'Type': tname
                         })
 
         raw_csv = 'music-albums-raw.csv'
         formatted_csv = 'music-albums-formatted.csv'
         with open(raw_csv, 'w', newline='', encoding='utf-8') as rawfile:
-            fieldnames = ['Artist', 'Album', 'Source', 'Type', 'Collection']
+            fieldnames = ['Artist', 'Album', 'Source', 'Type']
             writer = csv.DictWriter(rawfile, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(raw_rows)
@@ -293,7 +291,7 @@ def main():
             for row in reader:
                 album = row['Album']
                 # Construct full path from current working directory for clearer debug output.
-                parts = ['.', 'Music', 'Audio', 'Collection', row.get('Collection', ''), row.get('Source', ''), row.get('Type', '')]
+                parts = ['.', 'Music', 'Audio', 'Collection', row.get('Source', ''), row.get('Type', '')]
                 artist_field = row.get('Artist', '')
                 if artist_field and artist_field != 'None':
                     parts.append(artist_field)
@@ -314,8 +312,7 @@ def main():
                         'IYear': issue_year,
                         'Label': label,
                         'Catalog': catalog,
-                        'Barcode': "#"+barcode,
-                        'Collection': row.get('Collection', '')
+                        'Barcode': "#"+barcode
                     })
                 except ValueError as e:
                     # Print the concise skip reason, then print the full path on a separate DEBUG line for readability.
@@ -323,8 +320,8 @@ def main():
                     print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Full path: '{Fore.BLUE}{album_path}{Style.RESET_ALL}'")
                     continue
 
-        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Tracks', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode', 'Collection']
-        text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Collection', 'Label'}
+        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Tracks', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode']
+        text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Label'}
 
         with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
             writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL)
