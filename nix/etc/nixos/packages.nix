@@ -66,6 +66,7 @@
 		mesa                        # Open source 3D graphics library
 
 		### FILESYSTEMS ###
+		cifs-utils                  # Tools for managing Linux CIFS client filesystems
 		gvfs                        # Virtual Filesystem support library
 		gnome.gvfs                  # Virtual Filesystem support library (full GNOME support)
 		nfs-utils                   # Linux user-space NFS utilities
