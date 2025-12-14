@@ -49,6 +49,7 @@
 		ocamlPackages.ocamlformat   # Auto-formatter for OCaml code
 			### PYTHON ###
 		(python3.withPackages (ps: [
+			ps.pyqt5                # Python bindings for Qt5
 			ps.requests
 			ps.curl-cffi
 			ps.colorama             # Cross-platform colored terminal text
