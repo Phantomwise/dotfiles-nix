@@ -47,6 +47,8 @@
 		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
 		ocamlPackages.utop          # Universal toplevel for OCaml
 		ocamlPackages.ocamlformat   # Auto-formatter for OCaml code
+			### PASCAL ###
+		lazarus                     # Graphical IDE for the FreePascal language
 			### PYTHON ###
 		(python3.withPackages (ps: [
 			ps.colorama             # Cross-platform colored terminal text
