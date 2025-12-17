@@ -55,6 +55,7 @@
 			ps.curl-cffi            #
 			ps.pandas               # Powerful data structures for data analysis, time series, and statistics
 			ps.pyqt5                # Python bindings for Qt5
+			ps.pyqt6                # Python bindings for Qt6
 			ps.requests             # HTTP library for Python
 			]))
 			### SQL ###
