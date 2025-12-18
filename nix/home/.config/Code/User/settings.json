@@ -7,5 +7,6 @@
     "workbench.iconTheme": "ayu",
     "python.languageServer": "Pylance",
     "security.workspace.trust.untrustedFiles": "open",
-    "diffEditor.maxComputationTime": 0
+    "diffEditor.maxComputationTime": 0,
+    "python.analysis.typeCheckingMode": "standard"
 }
