@@ -3,6 +3,8 @@
 import os
 import csv
 import sys
+import atexit
+from datetime import datetime, timezone
 from colorama import Fore, Style, init
 
 init(autoreset=True)
@@ -15,6 +17,102 @@ init(autoreset=True)
 #   Outputs CSV file with Category, Type, Style, Source, and other info.
 #   Category can be only 'Films' or 'Series'.
 #   Previously there was a 'Collection' layer; this script has been updated to remove it.
+
+LOG_FILE = 'videos.log'
+
+class StreamTee:
+    """Tee-like stream: write to original stream and to a log file."""
+    def __init__(self, orig_stream, log_file):
+        self.orig = orig_stream
+        self.logf = log_file
+
+    def write(self, text):
+        # Write to original (console)
+        try:
+            self.orig.write(text)
+        except Exception:
+            pass
+        # Write to log file (no-op if closed)
+        try:
+            self.logf.write(text)
+        except Exception:
+            pass
+
+    def flush(self):
+        try:
+            self.orig.flush()
+        except Exception:
+            pass
+        try:
+            self.logf.flush()
+        except Exception:
+            pass
+
+    @property
+    def encoding(self):
+        return getattr(self.orig, "encoding", "utf-8")
+
+
+def setup_stdout_stderr_capture(path=LOG_FILE):
+    """Replace sys.stdout and sys.stderr with tee wrappers that also write to log file.
+
+    The log file is opened with mode 'w' so it is overwritten each run.
+    The function writes a success line to the original stdout before replacing
+    the streams, so the user always sees the "Created '<logfile>'" message.
+    """
+    # Capture originals first so we can write to them before replacing
+    orig_stdout = sys.stdout
+    orig_stderr = sys.stderr
+
+    # Open log file in write mode to overwrite previous runs
+    logf = open(path, "w", encoding="utf-8")
+    # Write a run header with timezone-aware timestamp
+    header = f"--- Run at {datetime.now(timezone.utc).isoformat()} ---\n"
+    logf.write(header)
+    logf.flush()
+
+    # Notify user that the log file was created (write to original stdout)
+    try:
+        orig_stdout.write(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} Created '{Fore.CYAN}{path}{Style.RESET_ALL}'\n")
+        orig_stdout.flush()
+    except Exception:
+        # Fallback to print if write fails for some reason
+        try:
+            print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} Created '{Fore.CYAN}{path}{Style.RESET_ALL}'")
+        except Exception:
+            pass
+
+    sys.stdout = StreamTee(orig_stdout, logf)
+    sys.stderr = StreamTee(orig_stderr, logf)
+
+    # Ensure the log file is closed and streams restored on exit
+    def restore():
+        try:
+            # flush wrappers first
+            try:
+                sys.stdout.flush()
+                sys.stderr.flush()
+            except Exception:
+                pass
+            # restore originals
+            try:
+                sys.stdout = orig_stdout
+                sys.stderr = orig_stderr
+            except Exception:
+                pass
+            # write footer and close logfile
+            try:
+                logf.write(f"\n--- End run at {datetime.now(timezone.utc).isoformat()} ---\n")
+                logf.flush()
+                logf.close()
+            except Exception:
+                pass
+        except Exception:
+            pass
+
+    # Use atexit to restore on normal exit
+    atexit.register(restore)
+
 
 def split_video(path):
     """
@@ -136,7 +234,7 @@ def main():
         for category in ['Films', 'Series']:
             category_path = os.path.join('.', category)
             if not os.path.isdir(category_path):
-                print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Category '{Fore.BLUE}{category_path}{Style.RESET_ALL}' not found; skipping.")
+                print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Category '{Fore.CYAN}{category_path}{Style.RESET_ALL}' not found; skipping.")
                 continue
 
             # TYPE
@@ -163,7 +261,7 @@ def main():
                             if mf_entry.is_dir()
                         ]
                         if not moviefolders:
-                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.BLUE}{source_path}{Style.RESET_ALL}' has no movie folders.")
+                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.CYAN}{source_path}{Style.RESET_ALL}' has no movie folders.")
                         for moviefolder in moviefolders:
                             rel_path = os.path.join(category, vtype, style, source, moviefolder)
                             raw_rows.append({'FullPath': rel_path})
@@ -182,7 +280,7 @@ def main():
                     parsed = split_video(full_path)
                     formatted_rows.append(parsed)
                 except ValueError as e:
-                    print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping directory '{Fore.BLUE}{full_path}{Style.RESET_ALL}' - Reason: {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
+                    print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping directory '{Fore.CYAN}{full_path}{Style.RESET_ALL}' - Reason: {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
                     continue
 
         fieldnames = [
@@ -204,4 +302,6 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
+    # Start capturing stdout/stderr to videos.log while still printing to console
+    setup_stdout_stderr_capture(LOG_FILE)
     main()
