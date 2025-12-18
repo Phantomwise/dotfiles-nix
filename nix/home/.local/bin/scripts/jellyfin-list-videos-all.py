@@ -132,14 +132,11 @@ def main():
     formatted_csv = 'videos-formatted.csv'
     try:
         raw_rows = []
-        # CATEGORY
-        for cat_entry in os.scandir('.'):
-            if not cat_entry.is_dir():
-                continue
-            category = cat_entry.name
-            category_path = cat_entry.path
-            if category not in ['Films', 'Series']:
-                print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Skipping directory '{Fore.BLUE}{category_path}{Style.RESET_ALL}' (not a recognized category).")
+        # Only check the known top-level category directories to avoid scanning all entries
+        for category in ['Films', 'Series']:
+            category_path = os.path.join('.', category)
+            if not os.path.isdir(category_path):
+                print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Category '{Fore.BLUE}{category_path}{Style.RESET_ALL}' not found; skipping.")
                 continue
 
             # TYPE
