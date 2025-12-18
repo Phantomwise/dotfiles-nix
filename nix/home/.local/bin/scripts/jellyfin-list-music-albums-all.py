@@ -263,7 +263,7 @@ def main():
                         artist_path = artist_entry.path
                         album_dirs = [a.name for a in os.scandir(artist_path) if a.is_dir() and not should_skip(a.name)]
                         if not album_dirs:
-                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Artist '{Fore.CYAN}{artist_path}{Style.RESET_ALL}' has no album folders.")
+                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Artist '{Fore.BLUE}{artist_path}{Style.RESET_ALL}' has no album folders.")
                         for album in album_dirs:
                             raw_rows.append({
                                 'Artist': artist,
