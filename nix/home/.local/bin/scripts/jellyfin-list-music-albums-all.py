@@ -327,7 +327,7 @@ def main():
                     print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Full path: '{Fore.BLUE}{album_path}{Style.RESET_ALL}'")
                     continue
 
-        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Tracks', 'Medium', 'IYear', 'Label', 'Catalog', 'Barcode']
+        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Medium', 'Tracks', 'IYear', 'Label', 'Catalog', 'Barcode']
         text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Label'}
 
         with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
