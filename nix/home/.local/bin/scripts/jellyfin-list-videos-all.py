@@ -45,17 +45,17 @@ def split_video(path):
     year_start = remainder.find('(')
     year_end = remainder.find(')')
     if year_start == -1 or year_end == -1 or year_end < year_start:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No year parenthetical in '{Fore.BLUE}{remainder}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No year parenthetical in '{Fore.CYAN}{remainder}{Style.RESET_ALL}'")
         raise ValueError("No year parenthetical")
     title = remainder[:year_start].strip()
     year = remainder[year_start+1:year_end].strip()
     remainder2 = remainder[year_end+1:].strip()
     if not remainder2.startswith('['):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No metadata bracket in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No metadata bracket in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("No metadata bracket")
     meta_end = remainder2.find(']')
     if meta_end == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Unmatched '[' in metadata")
     meta = remainder2[1:meta_end]
     remainder2 = remainder2[meta_end+1:].strip()
@@ -64,21 +64,21 @@ def split_video(path):
         raise ValueError("Metadata malformed")
     metadata_provider, metadata_id = meta.split('-', 1)
     if not remainder2.startswith('-'):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Expected '-' separator for edition in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Expected '-' separator for edition in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Expected '-' for edition")
     remainder2 = remainder2[1:].strip()
     paren_idx = remainder2.find('(')
     if paren_idx == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found after edition in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found after edition in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("No languages parenthesis after edition")
     edition_details = remainder2[:paren_idx].strip()
     remainder2 = remainder2[paren_idx:].strip()
     if not remainder2.startswith('('):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("No languages parenthesis")
     lang_end = remainder2.find(')')
     if lang_end == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '(' in languages: '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '(' in languages: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Unmatched '(' in languages")
     languages = remainder2[1:lang_end].strip()
     remainder2 = remainder2[lang_end+1:].strip()
@@ -86,24 +86,24 @@ def split_video(path):
     while remainder2.startswith('['):
         res_end = remainder2.find(']')
         if res_end == -1:
-            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in resolution: '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in resolution: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
             raise ValueError("Unmatched '[' in resolution")
         resolutions.append(remainder2[1:res_end].strip())
         remainder2 = remainder2[res_end+1:].strip()
     resolution = 'x'.join(resolutions)
     if 'x' not in resolution:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Resolution '{Fore.BLUE}{resolution}{Style.RESET_ALL}' does not contain 'x'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Resolution '{Fore.CYAN}{resolution}{Style.RESET_ALL}' does not contain 'x'")
         raise ValueError("Resolution format problem")
     elif resolution.count('x') == 1:
         hr, vr = resolution.split('x')
     else:
         hr = vr = 'Unknown'
     if not remainder2.startswith('{'):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No source_details braces found in '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No source_details braces found in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("No source_details braces")
     src_end = remainder2.find('}')
     if src_end == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '{{' in source details: '{Fore.BLUE}{remainder2}{Style.RESET_ALL}'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '{{' in source details: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Unmatched '{' in source details")
     source_details = remainder2[1:src_end].strip()
     details = [x.strip() for x in source_details.split(',')]
@@ -198,7 +198,7 @@ def main():
                 output_row = [row.get(field, '') for field in fieldnames]
                 writer.writerow(output_row)
 
-        print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} {Fore.BLUE}'{raw_csv}'{Style.RESET_ALL} and {Fore.BLUE}'{formatted_csv}'{Style.RESET_ALL} created")
+        print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} {Fore.CYAN}'{raw_csv}'{Style.RESET_ALL} and {Fore.CYAN}'{formatted_csv}'{Style.RESET_ALL} created")
     except Exception as e:
         print(f"{Fore.RED}ERROR:{Style.RESET_ALL} {Fore.YELLOW}{str(e)}{Style.RESET_ALL}")
         sys.exit(1)
