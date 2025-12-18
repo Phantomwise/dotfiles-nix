@@ -56,6 +56,7 @@
 			ps.pandas               # Powerful data structures for data analysis, time series, and statistics
 			ps.pyqt5                # Python bindings for Qt5
 			ps.pyqt6                # Python bindings for Qt6
+			ps.pyyaml               # Next generation YAML parser and emitter for Python
 			ps.requests             # HTTP library for Python
 			]))
 			### SQL ###
