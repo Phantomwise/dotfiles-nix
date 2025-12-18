@@ -10,21 +10,20 @@ init(autoreset=True)
 # AI Disclaimer: This script was generated with the assistance of an AI language model.
 
 # Description:
-    # Lists video files (movies/series) in a nested directory structure:
-    # <Category>/<Type>/<Style>/<Collection>/<Source>/<Movie Folder>
-    # Outputs CSV file with Category, Type, Style, Source, and other info.
-    # Category can be only 'Films' or 'Series'.
-    # Collection is parsed, but not in the CSV output.
+#   Lists video files (movies/series) in a nested directory structure:
+#   <Category>/<Type>/<Style>/<Source>/<Movie Folder>
+#   Outputs CSV file with Category, Type, Style, Source, and other info.
+#   Category can be only 'Films' or 'Series'.
+#   Previously there was a 'Collection' layer; this script has been updated to remove it.
 
 def split_video(path):
     """
     Splits full video folder path:
-      <Category>/<Type>/<Style>/<Collection>/<Source>/<Movie Folder>
+      <Category>/<Type>/<Style>/<Source>/<Movie Folder>
     into:
       - Category
       - Type
       - Style
-      - Collection
       - Source
       - Title
       - Year
@@ -39,10 +38,10 @@ def split_video(path):
       - Uploader
     """
     parts = path.split(os.path.sep)
-    if len(parts) < 6:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Path '{Fore.BLUE}{path}{Style.RESET_ALL}' does not have enough levels (need at least 6)")
+    if len(parts) < 5:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Path '{Fore.BLUE}{path}{Style.RESET_ALL}' does not have enough levels (need at least 5)")
         raise ValueError("Not enough levels")
-    category, vtype, style, collection, source, remainder = parts[:6]
+    category, vtype, style, source, remainder = parts[:5]
     year_start = remainder.find('(')
     year_end = remainder.find(')')
     if year_start == -1 or year_end == -1 or year_end < year_start:
@@ -114,7 +113,6 @@ def split_video(path):
         'Category': category,
         'Type': vtype,
         'Style': style,
-        'Collection': collection,
         'Source': source,
         'Title': title,
         'Year': year,
@@ -156,28 +154,22 @@ def main():
                         continue
                     style = style_entry.name
                     style_path = style_entry.path
-                    # COLLECTION
-                    for coll_entry in os.scandir(style_path):
-                        if not coll_entry.is_dir():
+                    # SOURCE (no Collection level anymore)
+                    for src_entry in os.scandir(style_path):
+                        if not src_entry.is_dir():
                             continue
-                        collection = coll_entry.name
-                        collection_path = coll_entry.path
-                        # SOURCE
-                        for src_entry in os.scandir(collection_path):
-                            if not src_entry.is_dir():
-                                continue
-                            source = src_entry.name
-                            source_path = src_entry.path
-                            # MOVIEFOLDER
-                            moviefolders = [
-                                mf_entry.name for mf_entry in os.scandir(source_path)
-                                if mf_entry.is_dir()
-                            ]
-                            if not moviefolders:
-                                print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.BLUE}{source_path}{Style.RESET_ALL}' has no movie folders.")
-                            for moviefolder in moviefolders:
-                                rel_path = os.path.join(category, vtype, style, collection, source, moviefolder)
-                                raw_rows.append({'FullPath': rel_path})
+                        source = src_entry.name
+                        source_path = src_entry.path
+                        # MOVIEFOLDER
+                        moviefolders = [
+                            mf_entry.name for mf_entry in os.scandir(source_path)
+                            if mf_entry.is_dir()
+                        ]
+                        if not moviefolders:
+                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.BLUE}{source_path}{Style.RESET_ALL}' has no movie folders.")
+                        for moviefolder in moviefolders:
+                            rel_path = os.path.join(category, vtype, style, source, moviefolder)
+                            raw_rows.append({'FullPath': rel_path})
 
         with open(raw_csv, 'w', newline='', encoding='utf-8') as rawfile:
             writer = csv.DictWriter(rawfile, fieldnames=['FullPath'])
