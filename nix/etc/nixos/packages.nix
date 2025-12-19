@@ -155,11 +155,11 @@
 		ffmpeg                      # Complete, cross-platform solution to record, convert and stream audio and video
 		finamp                      # Open source Jellyfin music player
 		# jellyfin-media-player       # Jellyfin Desktop Client based on Plex Media Player
-		mpv                         # General-purpose media player, fork of MPlayer and mplayer2
 		# libation # moved to unstable
 		mediainfo                   # Supplies technical and tag information about a video or audio file
 		mkvtoolnix                  # Cross-platform tools for Matroska
-		mpc                         #!
+		mpc                         # Minimalist command line interface to MPD
+		mpv                         # General-purpose media player, fork of MPlayer and mplayer2
 		picard                      # picard
 		pulsemixer                  # Cli and curses mixer for pulseaudio
 		vlc                         # Cross-platform media player and streaming server
