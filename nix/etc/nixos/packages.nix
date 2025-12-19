@@ -157,6 +157,7 @@
 		# jellyfin-media-player       # Jellyfin Desktop Client based on Plex Media Player
 		mpv                         # General-purpose media player, fork of MPlayer and mplayer2
 		# libation # moved to unstable
+		mkvtoolnix                  # Cross-platform tools for Matroska
 		mpc                         #!
 		picard                      # picard
 		pulsemixer                  # Cli and curses mixer for pulseaudio
