@@ -9,7 +9,7 @@ while IFS= read -r -d '' f; do
   f="${f#./}"
   truncated_f="${f:0:50}"
   [ ${#f} -gt 50 ] && truncated_f="${truncated_f}..."
-  info=$(mkvmerge -J "$f" | jq -r '.tracks | map(if .type == "video" then "\u001b[35m\(.id)\u001b[0m: \u001b[35m\(.type)\u001b[0m: language=\u001b[35m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[35m\(.properties.language_ietf // "none")\u001b[0m" else "\u001b[34m\(.id)\u001b[0m: \u001b[34m\(.type)\u001b[0m: language=\u001b[34m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[34m\(.properties.language_ietf // "none")\u001b[0m" end) | join("\t")')
+  info=$(mkvmerge -J "$f" | jq -r '.tracks | map(if .type == "video" then "\u001b[36m\(.id)\u001b[0m: \u001b[36m\(.type)\u001b[0m: language=\u001b[34m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[35m\(.properties.language_ietf // "none")\u001b[0m" else "\u001b[36m\(.id)\u001b[0m: \u001b[36m\(.type)\u001b[0m: language=\u001b[34m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[35m\(.properties.language_ietf // "none")\u001b[0m" end) | join("\t")')
   echo -e "$info\t$truncated_f"
   count=$((count + 1))
 done < <(find . -maxdepth 1 \( -name "*.webm" -o -name "*.mkv" \) -print0)
