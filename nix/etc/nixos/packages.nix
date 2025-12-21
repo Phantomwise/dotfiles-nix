@@ -96,7 +96,9 @@
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
 		# bluetuith                 # TUI-based bluetooth connection manager
+		ethtool                     # Utility for controlling network drivers and hardware
 		gnumake                     # Tool to control the generation of non-source files from sources
+		iperf                       # Tool to measure IP bandwidth using UDP or TCP
 		rclone                      # Command line program to sync files and directories to and from major cloud storage
 		rsync                       # Fast incremental file transfer utility
 		steam-run                   # Run commands in the same FHS environment that is used for Steam
