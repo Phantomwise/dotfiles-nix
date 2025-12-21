@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # AI Disclaimer:
-# This script was written with help from GitHub Copilot.
+# This script was written with help from AI.
 
 # Check if ffprobe is installed
 if ! command -v ffprobe &> /dev/null; then
@@ -14,8 +14,14 @@ find . -maxdepth 1 -type f | sort | while IFS= read -r file; do
     # Get the resolution using ffprobe, suppress errors for unsupported files
     resolution=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$file" 2>/dev/null)
     if [ -n "$resolution" ]; then
-        echo "$resolution,$file"
+        echo -e "\033[36m$resolution\033[0m,$file"
     # else
         # echo "Unsupported or invalid file: $file"
     fi
-done | awk -F, '{ printf "%-2s %-5s %s\n", $1, $2, $3 }'
+done | awk -F, '{
+    printf "%-2s %-5s %s\n", $1, $2, $3
+    count++
+}
+END {
+    print "Total items: " count
+}'
