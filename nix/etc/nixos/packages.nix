@@ -144,6 +144,7 @@
 		vim                         # Most popular clone of the VI editor
 
 		### IMAGE ###
+		digikam                     # Photo management application
 		gimp3-with-plugins          # GNU Image Manipulation Program
 		imagemagick                 # Software suite to create, edit, compose, or convert bitmap images
 		ksnip                       # Cross-platform screenshot tool with many annotation features
