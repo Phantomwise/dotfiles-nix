@@ -23,8 +23,14 @@
 		winetricks
 
 		### GAMES ###
-		cataclysm-dda
-		unciv
+		angband                  # Single-player roguelike dungeon exploration game
+		cataclysm-dda            # Free, post apocalyptic, zombie infested rogue-like
+		exult                    # Recreation of Ultima VII for modern operating systems
+		freedroidrpg             # Isometric 3D RPG similar to game Diablo
+		narsil                   # Unofficial rewrite of Sil, a roguelike influenced by Angband
+		sil-q                    # Roguelike game set in the First Age of Middle-earth
+		tome2                    # Dungeon crawler similar to Angband, based on the works of Tolkien
+		unciv                    # Open-source Android/Desktop remake of Civ V
 		# keeperrl # Error
 
 	];
