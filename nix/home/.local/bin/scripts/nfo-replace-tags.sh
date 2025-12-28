@@ -19,8 +19,10 @@ fi
 old_tag="$1"
 new_tag="$2"
 
+# Find all movie.nfo and tvshow.nfo files that contain the old tag
+files=$(find . -type f \( -name "movie.nfo" -o -name "tvshow.nfo" \) -exec grep -l "<tag>$old_tag</tag>" {} \;)
 # Find all .nfo files that contain the old tag
-files=$(find . -name "*.nfo" -type f -exec grep -l "<tag>$old_tag</tag>" {} \;)
+# files=$(find . -name "*.nfo" -type f -exec grep -l "<tag>$old_tag</tag>" {} \;)
 
 if [ -z "$files" ]; then
     echo -e "${yellow}No files found containing the tag '<tag>$old_tag</tag>'.${reset}"
