@@ -9,8 +9,8 @@ while IFS= read -r -d '' f; do
   f="${f#./}"
   truncated_f="${f:0:50}"
   [ ${#f} -gt 50 ] && truncated_f="${truncated_f}..."
-  info=$(mkvmerge -J "$f" | jq -r '.tracks | map(if .type == "video" then "\u001b[36m\(.id)\u001b[0m: \u001b[36m\(.type)\u001b[0m: language=\u001b[34m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[35m\(.properties.language_ietf // "none")\u001b[0m" else "\u001b[36m\(.id)\u001b[0m: \u001b[36m\(.type)\u001b[0m: language=\u001b[34m\(.properties.language // "none")\u001b[0m language_ietf=\u001b[35m\(.properties.language_ietf // "none")\u001b[0m" end) | join("\t")')
+  info=$(ffprobe -v quiet -print_format json -show_streams "$f" | jq -r '.streams | map("\u001b[36m\(.index)\u001b[0m: \u001b[36m\(.codec_type)\u001b[0m: language=\u001b[34m\(.tags.LANGUAGE // .tags.language // "none")\u001b[0m language_ietf=\u001b[35m\(.tags.LANGUAGE_IETF // .tags.language_ietf // "none")\u001b[0m") | join("\t")')
   echo -e "$info\t$truncated_f"
   count=$((count + 1))
-done < <(find . -maxdepth 1 \( -name "*.webm" -o -name "*.mkv" \) -print0)
+done < <(find . -maxdepth 1 \( -name "*.mkv" -o -name "*.webm" -o -name "*.mp4" -o -name "*.m4a" -o -name "*.m4v" \) -print0)
 echo "Total items: $count"
