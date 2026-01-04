@@ -14,7 +14,7 @@ STREAM=$1
 LANGUAGE=$2
 LANGUAGE_IETF=$3
 
-for f in *; do
+for f in *.mkv *.webm *.mka *.mks *.mk3d; do
     if [ -f "$f" ]; then
         echo "Processing $f"
         # Build the command arguments
