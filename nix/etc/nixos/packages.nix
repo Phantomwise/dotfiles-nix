@@ -23,6 +23,7 @@
 		ventoy-full                 # New Bootable USB Solution
 		wine                        # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
+		pandoc                      # Conversion between documentation formats
 
 		### PROGRAMMING ###
 		git                         # Distributed version control system
