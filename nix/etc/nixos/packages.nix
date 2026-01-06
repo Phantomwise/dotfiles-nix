@@ -24,6 +24,7 @@
 		wine                        # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 		pandoc                      # Conversion between documentation formats
+		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 
 		### PROGRAMMING ###
 		git                         # Distributed version control system
