@@ -157,6 +157,7 @@
 		beets                       # Music tagger and library organizer
 		ffmpeg                      # Complete, cross-platform solution to record, convert and stream audio and video
 		finamp                      # Open source Jellyfin music player
+		gpac                        # Open Source multimedia framework for research and academic purposes
 		# jellyfin-media-player       # Jellyfin Desktop Client based on Plex Media Player
 		# libation # moved to unstable
 		mediainfo                   # Supplies technical and tag information about a video or audio file
