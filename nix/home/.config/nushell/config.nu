@@ -36,6 +36,7 @@
 	alias clamscan = clamscan -r --log=/tmp/clamscan.txt
 	alias clamscan-full = clamscan -r --follow-dir-symlinks --follow-file-symlinks --log=/tmp/clamscan.txt
 	alias weather = curl wttr.in
+	alias nix-diff = bash -c 'nvd diff $(ls -d /nix/var/nix/profiles/system-*-link | tail -2)'
 
 	# Nix commands
 	alias hh = home-manager switch
