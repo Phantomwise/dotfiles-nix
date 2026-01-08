@@ -28,6 +28,9 @@
 		exult                    # Recreation of Ultima VII for modern operating systems
 		freedroidrpg             # Isometric 3D RPG similar to game Diablo
 		narsil                   # Unofficial rewrite of Sil, a roguelike influenced by Angband
+		nethack                  # Rogue-like game
+		nethack-qt               # Rogue-like game
+		unnethack                # Fork of NetHack
 		sil-q                    # Roguelike game set in the First Age of Middle-earth
 		tome2                    # Dungeon crawler similar to Angband, based on the works of Tolkien
 		unciv                    # Open-source Android/Desktop remake of Civ V
