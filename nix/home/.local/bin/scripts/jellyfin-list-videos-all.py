@@ -17,6 +17,18 @@ init(autoreset=True)
 #   Outputs CSV file with Category, Type, Style, Source, and other info.
 #   Category can be only 'Films' or 'Series'.
 #   Previously there was a 'Collection' layer; this script has been updated to remove it.
+#
+# Changes in this version:
+# - Accept new filename format:
+#     Title (Year) [dbid] - Edition [lang] [resolution] {source}
+#   where:
+#     - the bracketed metadata formerly called "metadata" is now treated as dbid
+#       and split into DB provider and DB id on the first '-'
+#     - languages are in brackets [lang] (not parentheses)
+#     - resolution is a bracket containing dimensions (e.g. 1920x1080). ptag (e.g. 1080p)
+#       is intentionally not used; dimensions are the source of truth.
+# - Edition is optional and is treated as plain text (like title), not bracketed.
+# - Uploader in the {source, uploader} braces is optional.
 
 LOG_FILE = 'videos.log'
 
@@ -125,8 +137,8 @@ def split_video(path):
       - Source
       - Title
       - Year
-      - MProv (Metadata Provider)
-      - MID (Metadata ID)
+      - DBProv (database/provider)
+      - DBID (database id)
       - Edition (may be empty)
       - Languages
       - Resolution
@@ -134,6 +146,15 @@ def split_video(path):
       - VR (Vertical Resolution)
       - Src
       - Uploader
+
+    Expected new folder format:
+      Title (Year) [dbprov-db id] - Edition [lang] [1920x1080] {Source, Uploader}
+
+    Notes:
+    - Edition is optional (may be empty string)
+    - Languages are bracketed: [eng,jpn]
+    - Resolution must be bracketed and contain dimensions (e.g. 1920x1080)
+    - Uploader in braces is optional
     """
     parts = path.split(os.path.sep)
     if len(parts) < 5:
@@ -149,53 +170,71 @@ def split_video(path):
     year = remainder[year_start+1:year_end].strip()
     remainder2 = remainder[year_end+1:].strip()
     if not remainder2.startswith('['):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No metadata bracket in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-        raise ValueError("No metadata bracket")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No dbid bracket in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("No dbid bracket")
     meta_end = remainder2.find(']')
     if meta_end == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-        raise ValueError("Unmatched '[' in metadata")
-    meta = remainder2[1:meta_end]
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in dbid: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("Unmatched '[' in dbid")
+    dbid = remainder2[1:meta_end].strip()
     remainder2 = remainder2[meta_end+1:].strip()
-    if '-' not in meta:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Metadata malformed: '{Fore.MAGENTA}{meta}{Style.RESET_ALL}'")
-        raise ValueError("Metadata malformed")
-    metadata_provider, metadata_id = meta.split('-', 1)
+    # split dbid into provider and id on first '-'
+    if '-' not in dbid:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} DBID malformed (expected 'provider-id'): '{Fore.MAGENTA}{dbid}{Style.RESET_ALL}'")
+        raise ValueError("DBID malformed")
+    db_provider, db_id = dbid.split('-', 1)
+
+    # After dbid we expect a '-' separator before edition / release metadata
     if not remainder2.startswith('-'):
         print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Expected '-' separator for edition in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Expected '-' for edition")
     remainder2 = remainder2[1:].strip()
-    paren_idx = remainder2.find('(')
-    if paren_idx == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found after edition in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-        raise ValueError("No languages parenthesis after edition")
-    edition_details = remainder2[:paren_idx].strip()
-    remainder2 = remainder2[paren_idx:].strip()
-    if not remainder2.startswith('('):
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages parenthesis found in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-        raise ValueError("No languages parenthesis")
-    lang_end = remainder2.find(')')
+
+    # Edition is optional. If the next char is '[' then there's no edition text.
+    edition_details = ''
+    if not remainder2.startswith('['):
+        br_idx = remainder2.find('[')
+        if br_idx == -1:
+            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No opening '[' for languages after edition in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+            raise ValueError("No languages bracket after edition")
+        edition_details = remainder2[:br_idx].strip()
+        remainder2 = remainder2[br_idx:].strip()
+
+    # Now we expect languages in brackets [lang]
+    if not remainder2.startswith('['):
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No languages bracket found in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("No languages bracket")
+    lang_end = remainder2.find(']')
     if lang_end == -1:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '(' in languages: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-        raise ValueError("Unmatched '(' in languages")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in languages: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("Unmatched '[' in languages")
     languages = remainder2[1:lang_end].strip()
     remainder2 = remainder2[lang_end+1:].strip()
-    resolutions = []
-    while remainder2.startswith('['):
-        res_end = remainder2.find(']')
-        if res_end == -1:
-            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in resolution: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
-            raise ValueError("Unmatched '[' in resolution")
-        resolutions.append(remainder2[1:res_end].strip())
-        remainder2 = remainder2[res_end+1:].strip()
-    resolution = 'x'.join(resolutions)
+
+    # Next we expect a resolution bracket with dimensions (e.g. [1920x1080])
+    if not remainder2.startswith('['):
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No resolution bracket found after languages in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("No resolution bracket")
+    res_end = remainder2.find(']')
+    if res_end == -1:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '[' in resolution: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
+        raise ValueError("Unmatched '[' in resolution")
+    resolution = remainder2[1:res_end].strip()
+    remainder2 = remainder2[res_end+1:].strip()
+
+    # resolution must be dimensions containing 'x' (horizontal x vertical)
     if 'x' not in resolution:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Resolution '{Fore.CYAN}{resolution}{Style.RESET_ALL}' does not contain 'x'")
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Resolution '{Fore.CYAN}{resolution}{Style.RESET_ALL}' must contain 'x' (e.g. 1920x1080)")
         raise ValueError("Resolution format problem")
-    elif resolution.count('x') == 1:
+    # If resolution contains exactly one 'x' parse HR and VR, otherwise mark unknown
+    if resolution.count('x') == 1:
         hr, vr = resolution.split('x')
+        hr = hr.strip()
+        vr = vr.strip()
     else:
         hr = vr = 'Unknown'
+
+    # Finally, source details must be in braces {Source, Uploader}
     if not remainder2.startswith('{'):
         print(f"{Fore.RED}ERROR:{Style.RESET_ALL} No source_details braces found in '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("No source_details braces")
@@ -204,7 +243,7 @@ def split_video(path):
         print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unmatched '{{' in source details: '{Fore.CYAN}{remainder2}{Style.RESET_ALL}'")
         raise ValueError("Unmatched '{' in source details")
     source_details = remainder2[1:src_end].strip()
-    details = [x.strip() for x in source_details.split(',')]
+    details = [x.strip() for x in source_details.split(',') if x.strip()]
     Src = details[0] if len(details) >= 1 else ''
     uploader = details[1] if len(details) >= 2 else ''
     return {
@@ -214,8 +253,8 @@ def split_video(path):
         'Source': source,
         'Title': title,
         'Year': year,
-        'MProv': metadata_provider,
-        'MID': metadata_id,
+        'DBProv': db_provider,
+        'DBID': db_id,
         'Edition': edition_details,
         'Languages': languages,
         'Resolution': resolution,
@@ -285,7 +324,7 @@ def main():
 
         fieldnames = [
             'Category', 'Type', 'Style',
-            'Source', 'Title', 'Year', 'MProv', 'MID', 'Edition',
+            'Source', 'Title', 'Year', 'DBProv', 'DBID', 'Edition',
             'Languages', 'Resolution', 'HR', 'VR', 'Src', 'Uploader'
         ]
 
