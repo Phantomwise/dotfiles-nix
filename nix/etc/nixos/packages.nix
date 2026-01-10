@@ -113,6 +113,7 @@
 		### CLI ###
 		fastfetch                   # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
 		figlet                      # Program for making large letters out of ordinary text
+		detox                       # Utility designed to clean up filenames
 
 		### NETWORKING ###
 		#  wget                     # Tool for retrieving files using HTTP, HTTPS, and FTP
