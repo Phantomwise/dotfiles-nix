@@ -216,6 +216,7 @@
 					ms-vscode.cpptools                             # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
 					ms-vscode.makefile-tools                       # — Makefile language support
 					ms-python.vscode-pylance                       # Performant, feature-rich language server for Python in VS Code
+					                                               # NB: Not working
 					mechatroner.rainbow-csv                        # Rainbow syntax higlighting for CSV and TSV files in Visual Studio Code
 					thenuprojectcontributors.vscode-nushell-lang   #
 					ocamllabs.ocaml-platform                       # Official OCaml Support from OCamlLabs
@@ -230,6 +231,7 @@
 					streetsidesoftware.code-spell-checker          # Spelling checker for source code
 					streetsidesoftware.code-spell-checker-french   # French dictionary extension for VS Code
 					github.copilot                                 # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
+					                                               # NB: Not working
 					### COLOR THEMES ###
 					carrie999.cyberpunk-2020                       # Cyberpunk-inspired colour theme to satisfy your neon dreams
 					dhedgecock.radical-vscode                      # Dark theme for radical hacking inspired by retro futuristic design
