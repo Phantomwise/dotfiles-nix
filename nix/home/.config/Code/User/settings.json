@@ -8,5 +8,6 @@
     "python.languageServer": "Pylance",
     "security.workspace.trust.untrustedFiles": "open",
     "diffEditor.maxComputationTime": 0,
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "cSpell.language": "en,fr"
 }
