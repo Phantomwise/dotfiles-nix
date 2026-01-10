@@ -209,38 +209,38 @@
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
 					### LANGUAGES ###
-					bbenoist.nix                              # — Nix language support
-					bodil.blueprint-gtk                       # Gtk Blueprint language support.
-					golang.go                                 # Go extension for Visual Studio Code
-					ms-python.python                          # Visual Studio Code extension with rich support for the Python language
-					ms-vscode.cpptools                        # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
-					ms-vscode.makefile-tools                  # — Makefile language support
-					ms-python.vscode-pylance                  # Performant, feature-rich language server for Python in VS Code
-					mechatroner.rainbow-csv                   # Rainbow syntax higlighting for CSV and TSV files in Visual Studio Code
-					thenuprojectcontributors.vscode-nushell-lang  #
-					ocamllabs.ocaml-platform                  # Official OCaml Support from OCamlLabs
-					tamasfe.even-better-toml                  # — TOML language support
-					theangryepicbanana.language-pascal        # VSCode extension for high-quality Pascal highlighting
+					bbenoist.nix                                   # — Nix language support
+					bodil.blueprint-gtk                            # Gtk Blueprint language support.
+					golang.go                                      # Go extension for Visual Studio Code
+					ms-python.python                               # Visual Studio Code extension with rich support for the Python language
+					ms-vscode.cpptools                             # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
+					ms-vscode.makefile-tools                       # — Makefile language support
+					ms-python.vscode-pylance                       # Performant, feature-rich language server for Python in VS Code
+					mechatroner.rainbow-csv                        # Rainbow syntax higlighting for CSV and TSV files in Visual Studio Code
+					thenuprojectcontributors.vscode-nushell-lang   #
+					ocamllabs.ocaml-platform                       # Official OCaml Support from OCamlLabs
+					tamasfe.even-better-toml                       # — TOML language support
+					theangryepicbanana.language-pascal             # VSCode extension for high-quality Pascal highlighting
 					### OTHER ###
-					naumovs.color-highlight                   # Highlight web colors in your editor
-					ms-azuretools.vscode-docker               # Docker Extension for Visual Studio Code
-					donjayamanne.githistory                   # View git log, file history, compare branches or commits
-					seatonjiang.gitmoji-vscode                # Gitmoji tool for git commit messages in VSCode
-					ms-vscode-remote.remote-ssh               # Use any remote machine with a SSH server as your development environment
+					naumovs.color-highlight                        # Highlight web colors in your editor
+					ms-azuretools.vscode-docker                    # Docker Extension for Visual Studio Code
+					donjayamanne.githistory                        # View git log, file history, compare branches or commits
+					seatonjiang.gitmoji-vscode                     # Gitmoji tool for git commit messages in VSCode
+					ms-vscode-remote.remote-ssh                    # Use any remote machine with a SSH server as your development environment
 					streetsidesoftware.code-spell-checker          # Spelling checker for source code
 					streetsidesoftware.code-spell-checker-french   # French dictionary extension for VS Code
-					github.copilot                            # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
+					github.copilot                                 # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
 					### COLOR THEMES ###
-					carrie999.cyberpunk-2020                  # Cyberpunk-inspired colour theme to satisfy your neon dreams
-					dhedgecock.radical-vscode                 # Dark theme for radical hacking inspired by retro futuristic design
-					nonylene.dark-molokai-theme               # Theme inspired by VSCode default dark theme, monokai theme and Vim Molokai theme
-					nur.just-black                            # Dark theme designed specifically for syntax highlighting
-					viktorqvarfordt.vscode-pitch-black-theme  # 
-					zhuangtongfa.material-theme               # 
+					carrie999.cyberpunk-2020                       # Cyberpunk-inspired colour theme to satisfy your neon dreams
+					dhedgecock.radical-vscode                      # Dark theme for radical hacking inspired by retro futuristic design
+					nonylene.dark-molokai-theme                    # Theme inspired by VSCode default dark theme, monokai theme and Vim Molokai theme
+					nur.just-black                                 # Dark theme designed specifically for syntax highlighting
+					viktorqvarfordt.vscode-pitch-black-theme       #
+					zhuangtongfa.material-theme                    #
 					### ICON THEMES ###
-					teabyii.ayu                               # Simple theme with bright colors and comes in three versions — dark, light and mirage for all day long comfortable work
-					vscode-icons-team.vscode-icons            # Bring real icons to your Visual Studio Code
-					# pkief.material-icon-theme               # Material Design Icons for Visual Studio Code
+					teabyii.ayu                                    # Simple theme with bright colors and comes in three versions — dark, light and mirage for all day long comfortable work
+					vscode-icons-team.vscode-icons                 # Bring real icons to your Visual Studio Code
+					# pkief.material-icon-theme                    # Material Design Icons for Visual Studio Code
 				];
 			})
 		];
