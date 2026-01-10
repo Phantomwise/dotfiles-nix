@@ -25,6 +25,8 @@
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 		pandoc                      # Conversion between documentation formats
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
+		html-xml-utils              # Utilities for manipulating HTML and XML files
+		nvd                         # Nix/NixOS package version diff tool
 
 		### PROGRAMMING ###
 		git                         # Distributed version control system
@@ -225,6 +227,8 @@
 					donjayamanne.githistory                   # View git log, file history, compare branches or commits
 					seatonjiang.gitmoji-vscode                # Gitmoji tool for git commit messages in VSCode
 					ms-vscode-remote.remote-ssh               # Use any remote machine with a SSH server as your development environment
+					streetsidesoftware.code-spell-checker          # Spelling checker for source code
+					streetsidesoftware.code-spell-checker-french   # French dictionary extension for VS Code
 					github.copilot                            # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
 					### COLOR THEMES ###
 					carrie999.cyberpunk-2020                  # Cyberpunk-inspired colour theme to satisfy your neon dreams
