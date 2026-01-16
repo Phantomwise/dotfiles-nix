@@ -46,6 +46,9 @@
 		deno                        # Secure runtime for JavaScript and TypeScript
 			### JSON ###
 		jq                          # Lightweight and flexible command-line JSON processor
+			### HASKELL ###
+		ghc                         # Glasgow Haskell Compiler
+		haskell-language-server     # LSP server for GHC
 			### OCAML ###
 		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
 		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
@@ -213,6 +216,8 @@
 					bbenoist.nix                                   # — Nix language support
 					bodil.blueprint-gtk                            # Gtk Blueprint language support.
 					golang.go                                      # Go extension for Visual Studio Code
+					haskell.haskell                                #
+					justusadam.language-haskell                    #
 					ms-python.python                               # Visual Studio Code extension with rich support for the Python language
 					ms-vscode.cpptools                             # C/C++ extension adds language support for C/C++ to Visual Studio Code, including features such as IntelliSense and debugging
 					ms-vscode.makefile-tools                       # — Makefile language support
