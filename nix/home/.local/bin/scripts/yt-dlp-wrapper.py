@@ -61,8 +61,49 @@ def strip_user_output_options(args):
         i += 1
     return out
 
+def contains_url_option(args):
+    """
+    Return True if args contains --url
+    """
+    return "--url" in args
+
+def strip_url_options(args):
+    """
+    Remove --url and its value from args.
+    Assumes --url VALUE form.
+    Returns a new list without those options.
+    """
+    out = []
+    i = 0
+    while i < len(args):
+        a = args[i]
+        if a == "--url":
+            # skip this token and the next token (the value)
+            i += 2
+            continue
+        # otherwise keep it
+        out.append(a)
+        i += 1
+    return out
+
+def extract_url(args):
+    """
+    Extract the URL from --url VALUE.
+    Returns the URL string if found, else None.
+    Assumes --url is followed by the URL.
+    """
+    i = 0
+    while i < len(args):
+        if args[i] == "--url":
+            if i + 1 < len(args):
+                return args[i + 1]
+            else:
+                return None
+        i += 1
+    return None
+
 def main():
-    # Forward all command-line tokens the user provided (we'll filter -o/--output)
+    # Forward all command-line tokens the user provided (we'll filter -o/--output and --url)
     forwarded = sys.argv[1:]
 
     # Warn if the user included -o/--output (any form); we will still use the wrapper OUTPUT_TEMPLATE.
@@ -72,8 +113,14 @@ def main():
     # Remove any user-supplied -o/--output options to avoid conflicts
     forwarded = strip_user_output_options(forwarded)
 
-    # Always prompt for the URL (per your workflow).
-    url = input("Enter the video URL: ").strip()
+    # Check for --url option
+    url = extract_url(forwarded)
+    if url is not None:
+        # Remove --url and its value from forwarded args
+        forwarded = strip_url_options(forwarded)
+    else:
+        # Always prompt for the URL (per your workflow).
+        url = input("Enter the video URL: ").strip()
 
     # Build the yt-dlp command: program name, wrapper's -o template, forwarded args, then the URL.
     cmd = ["yt-dlp", "-o", OUTPUT_TEMPLATE]
