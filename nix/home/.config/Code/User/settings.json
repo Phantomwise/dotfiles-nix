@@ -9,5 +9,6 @@
     "security.workspace.trust.untrustedFiles": "open",
     "diffEditor.maxComputationTime": 0,
     "python.analysis.typeCheckingMode": "standard",
-    "cSpell.language": "en,fr"
+    "cSpell.language": "en,fr",
+    "haskell.manageHLS": "PATH"
 }
