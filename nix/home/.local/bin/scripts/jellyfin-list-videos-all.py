@@ -270,7 +270,7 @@ def main():
     try:
         raw_rows = []
         # Only check the known top-level category directories to avoid scanning all entries
-        for category in ['Films', 'Series']:
+        for category in ['Films', 'Series', 'Films-Short']:
             category_path = os.path.join('.', category)
             if not os.path.isdir(category_path):
                 print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Category '{Fore.CYAN}{category_path}{Style.RESET_ALL}' not found; skipping.")
