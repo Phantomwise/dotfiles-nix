@@ -27,6 +27,7 @@
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 		html-xml-utils              # Utilities for manipulating HTML and XML files
 		nvd                         # Nix/NixOS package version diff tool
+		gdb                         # GNU Project debugger
 
 		### PROGRAMMING ###
 		git                         # Distributed version control system
