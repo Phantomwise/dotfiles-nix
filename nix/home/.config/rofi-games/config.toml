@@ -28,11 +28,32 @@ title = "THE FINALS"
 hide = true
 
 
+# Angband
+[[entries]]
+title = "Angband"
+launch_command = "angband"
+path_box_art = "./angband.jpg"
+# path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
+
 # Cataclysm DDA Tiles
 [[entries]]
 title = "Cataclysm DDA (Tiles)"
 launch_command = "cataclysm-tiles"
 path_box_art = "./Cataclysm-DDA.png"
+# path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
+
+# Freedroid RPG
+[[entries]]
+title = "Freedroid RPG"
+launch_command = "freedroidRPG"
+# path_box_art = "./angband.jpg"
+# path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
+
+# Narsil
+[[entries]]
+title = "Narsil"
+launch_command = "narsil"
+# path_box_art = "./angband.jpg"
 # path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
 
 # OpenRCT2 (Flatpak)
@@ -41,6 +62,13 @@ title = "OpenRCT2 (Flatpak)"
 launch_command = "flatpak run --branch=stable --arch=x86_64 --command=openrct2 --file-forwarding"
 path_box_art = "./OpenRCT2.png"
 path_game_dir = "/var/lib/flatpak/app/io.openrct2.OpenRCT2"
+
+# TOME2
+[[entries]]
+title = "TOME2"
+launch_command = "angband"
+# path_box_art = "./angband.jpg"
+# path_game_dir = "/nix/store/onlyjohnnixosknowswhere/"
 
 # Unciv
 [[entries]]
