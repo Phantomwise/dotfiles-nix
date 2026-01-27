@@ -50,6 +50,7 @@
 			### HASKELL ###
 		ghc                         # Glasgow Haskell Compiler
 		haskell-language-server     # LSP server for GHC
+		haskellPackages.hoogle      # Haskell API Search
 			### OCAML ###
 		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
 		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
