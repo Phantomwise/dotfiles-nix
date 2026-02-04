@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define color codes
-declare -r purple="\033[1;35m"
+declare -r magenta="\033[1;35m"
 declare -r red="\033[1;31m"
 declare -r yellow="\033[1;33m"
 declare -r green="\033[1;32m"
@@ -74,7 +74,7 @@ for variable in "${variables[@]}"
 		else
 			status="(unknown)"
 			val=""
-			color="$purple"
+			color="$magenta"
 		fi
 		# printf "%-22s ${color}%-15s${reset} %s\n" "\$$variable" "$status" "$val"
 		printf "%-27s %b%-15s%b %s\n" "\$$variable" "$color" "$status" "$reset" "$val" | tr ':' '\n'
