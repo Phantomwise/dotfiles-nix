@@ -123,6 +123,7 @@
 		figlet                      # Program for making large letters out of ordinary text
 		fzf                         # Command-line fuzzy finder written in Go
 		detox                       # Utility designed to clean up filenames
+		xmlstarlet                  # Command line tool for manipulating and querying XML data
 
 		### NETWORKING ###
 		#  wget                     # Tool for retrieving files using HTTP, HTTPS, and FTP
