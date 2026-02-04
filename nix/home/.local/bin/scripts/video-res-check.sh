@@ -12,7 +12,7 @@ fi
 # Find all files in the current directory and process them
 find . -maxdepth 1 -type f | sort | while IFS= read -r file; do
     # Get the resolution using ffprobe, suppress errors for unsupported files
-    if [[ "$file" =~ \.(mp4|webm|avi|mkv|mov|flv)$ ]]; then
+    if [[ "$file" =~ \.(mp4|webm|avi|mkv|m4v|mov|flv|wmv)$ ]]; then
         resolution=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$file" 2>/dev/null)
     if [ -n "$resolution" ]; then
         echo -e "\033[36m$resolution\033[0m,$file"
