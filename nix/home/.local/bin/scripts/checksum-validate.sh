@@ -1,18 +1,37 @@
 #!/usr/bin/env bash
 
-# Description: Script to validate checksums
+# Description:
+# Script to validate checksums
 # - Runs `md5sum -c <file>.md5` for each .md5 file (one-by-one) and prints per-file success/failure
 # - Runs `sha256sum -c <file>.sha256` for each .sha256 file (one-by-one) and prints per-file success/failure
 # - Runs `sha512sum -c <file>.sha512` for each .sha512 file (one-by-one) and prints per-file success/failure
 # - By default, skips device files (/dev/*) for safety and speed
-# Usage: validate_checksums.sh [options] [directory]
+#
+# Usage:
+# validate_checksums.sh [options] [directory]
 #   If no directory is specified, uses current directory
 #   Verifies checksums of all `.md5`, `.sha256`, and `.sha512` files (non-recursive)
 # Exits with status 0 if all checks pass, non-zero if any check fails.
+#
 # AI Disclaimer: This script was written with help from an AI language model.
 
 set -o pipefail
 set -u
+
+# Define color codes
+declare -r red="\033[0;31m"      # Error messages
+declare -r green="\033[0;32m"    # Success messages
+declare -r yellow="\033[0;33m"   # Information messages
+declare -r blue="\033[0;34m"     # Files and paths
+declare -r magenta="\033[0;35m"  # Debug messages
+declare -r cyan="\033[0;36m"     # Keywords
+declare -r reset="\033[0m"       # Reset
+
+# Centralized output functions with consistent indentation
+log_section() { echo -e "$1"; }                    # Level 0: Processing phases, summary
+log_file() { echo -e "  $1"; }                     # Level 1: Individual checksum files
+log_detail() { echo -e "    $1"; }                 # Level 2: File results, skipped items, status
+log_separator() { echo "---"; }                    # Section separator
 
 # Default options
 declare include_devices=0
@@ -43,8 +62,8 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         -*)
-            echo "Error: Unknown option $1" >&2
-            echo "Use -h or --help for usage information" >&2
+            log_section "${red}Error:${reset} Unknown option $1" >&2
+            log_section "Use -h or --help for usage information" >&2
             exit 1
             ;;
         *)
@@ -56,22 +75,13 @@ done
 
 # Change to target directory
 cd "$target_dir" || { 
-    echo "Error: Cannot access directory: $target_dir" >&2
+    log_section "${red}Error:${reset} Cannot access directory: ${blue}$target_dir${reset}" >&2
     exit 1
 }
 
 if [[ "$target_dir" != "." ]]; then
-    echo "Working in directory: $target_dir"
+    log_section "${yellow}Info:${reset} Working in directory: ${blue}$target_dir${reset}"
 fi
-
-# Define color codes
-declare -r red="\033[0;31m"      # Error messages
-declare -r green="\033[0;32m"    # Success messages
-declare -r yellow="\033[0;33m"   # Information messages
-declare -r blue="\033[0;34m"     # Files and paths
-declare -r magenta="\033[0;35m"  # Debug messages
-declare -r cyan="\033[0;36m"     # Keywords
-declare -r reset="\033[0m"       # Reset
 
 # Check availability of required programs
 declare md5sum_missing=0
@@ -91,7 +101,7 @@ if ! command -v sha512sum >/dev/null 2>&1; then
 fi
 
 if [ "${md5sum_missing:-0}" -eq 1 ] && [ "${sha256sum_missing:-0}" -eq 1 ] && [ "${sha512sum_missing:-0}" -eq 1 ]; then
-  echo -e "${red}None of md5sum, sha256sum, or sha512sum were found in PATH.${reset}" >&2
+  log_section "${red}Error:${reset} None of ${cyan}md5sum${reset}, ${cyan}sha256sum${reset}, or ${cyan}sha512sum${reset} were found in PATH." >&2
   exit 2
 fi
 
@@ -105,6 +115,7 @@ sha256_files=( *.sha256 )
 sha512_files=( *.sha512 )
 
 declare rc=0
+declare sections_processed=0
 
 # Cleanup temp files on exit
 declare -a temp_files=()
@@ -144,7 +155,7 @@ filter_devices() {
       # Extract the device path for reporting
       local device_path
       device_path=$(echo "$line" | sed 's/^[[:space:]]*[a-fA-F0-9]*[[:space:]]*\(.*\)$/\1/')
-      echo -e "  ${yellow}SKIPPED:${reset} ${device_path} ${cyan}(device file, use --include-devices to validate)${reset}"
+      log_detail "${yellow}SKIPPED:${reset} ${blue}${device_path}${reset} (device file, use --include-devices to validate)"
       ((skipped_count_ref++))
     else
       echo "$line" >> "$temp_filtered"
@@ -165,19 +176,31 @@ run_single_check() {
   local skipped_count
   local tmp
 
-  echo -e "${yellow}Verifying:${reset} ${blue}${chkfile}${reset} ..."
+  log_file "${yellow}Verifying:${reset} ${blue}${chkfile}${reset} ..."
   
   # Filter device files if necessary
   filter_devices "$chkfile" filtered_file skipped_count
   
+  # Check if filtered file is empty (all entries were device files)
+  if [ ! -s "$filtered_file" ]; then
+    # All entries were skipped - nothing to validate
+    local device_word="device file"
+    if [ "$skipped_count" -gt 1 ]; then
+      device_word="device files"
+    fi
+    local status_msg="${blue}${chkfile}${reset} (${skipped_count} ${device_word}, nothing to validate)"
+    log_detail "${yellow}SKIPPED:${reset} ${status_msg}"
+    return 0
+  fi
+  
   tmp="$(mktemp)" || tmp="/tmp/validate-checksums.$$"
   temp_files+=("$tmp")
 
-  # Run verifier on the (possibly filtered) file
+  # Run verifier on the filtered file
   if "${verifier}" -c -- "${filtered_file}" >"${tmp}" 2>&1; then
     local verified_count=0
     while IFS= read -r line; do
-      echo -e "  ${line}"
+      log_detail "${line}"
       if [[ "$line" =~ :[[:space:]]*OK$ ]]; then
         ((verified_count++))
       fi
@@ -191,13 +214,13 @@ run_single_check() {
       status_msg="${chkfile} (${skipped_count} skipped)"
     fi
     
-    echo -e "${green}OK:${reset} ${status_msg}"
+    log_detail "${green}OK:${reset} ${status_msg}"
     return 0
   else
     local verified_count=0
     local failed_count=0
     while IFS= read -r line; do
-      echo -e "  ${line}"
+      log_detail "${line}"
       if [[ "$line" =~ :[[:space:]]*OK$ ]]; then
         ((verified_count++))
       elif [[ "$line" =~ :[[:space:]]*FAILED ]]; then
@@ -217,70 +240,89 @@ run_single_check() {
       fi
     fi
     
-    echo -e "${red}FAIL:${reset} ${status_msg}" >&2
+    log_detail "${red}FAIL:${reset} ${status_msg}" >&2
     return 1
   fi
 }
 
+# Process MD5 files
 if (( ${#md5_files[@]} )); then
   if [ "${md5sum_missing:-0}" -eq 0 ]; then
-    echo -e "${yellow}Processing:${reset} Verifying ${cyan}${#md5_files[@]}${reset} ${cyan}.md5${reset} file(s)..."
+    log_section "${yellow}Processing:${reset} Found ${cyan}${#md5_files[@]}${reset} ${cyan}.md5${reset} file(s) to verify..."
     for f in "${md5_files[@]}"; do
       if ! run_single_check md5sum "$f"; then
         rc=1
       fi
     done
+    ((sections_processed++))
   else
-    echo -e "${red}Error:${reset} ${cyan}md5sum${reset} not available; skipping ${cyan}.md5${reset} checks." >&2
+    log_section "${red}Error:${reset} ${cyan}md5sum${reset} not available; skipping ${cyan}.md5${reset} checks." >&2
     rc=1
   fi
 else
-  echo -e "${yellow}Info:${reset} No .md5 files found."
+  log_section "${yellow}Info:${reset} No ${cyan}.md5${reset} files found."
 fi
 
+# Process SHA256 files
 if (( ${#sha256_files[@]} )); then
+  if [ "$sections_processed" -gt 0 ]; then
+    log_separator
+  fi
   if [ "${sha256sum_missing:-0}" -eq 0 ]; then
-    echo -e "${yellow}Processing:${reset} Verifying ${cyan}${#sha256_files[@]}${reset} ${cyan}.sha256${reset} file(s)..."
+    log_section "${yellow}Processing:${reset} Found ${cyan}${#sha256_files[@]}${reset} ${cyan}.sha256${reset} file(s) to verify..."
     for f in "${sha256_files[@]}"; do
       if ! run_single_check sha256sum "$f"; then
         rc=1
       fi
     done
+    ((sections_processed++))
   else
-    echo -e "${red}Error:${reset} ${cyan}sha256sum${reset} not available; skipping ${cyan}.sha256${reset} checks." >&2
+    log_section "${red}Error:${reset} ${cyan}sha256sum${reset} not available; skipping ${cyan}.sha256${reset} checks." >&2
     rc=1
   fi
 else
-  echo -e "${yellow}Info:${reset} No .sha256 files found."
+  if [ "$sections_processed" -gt 0 ]; then
+    log_separator
+  fi
+  log_section "${yellow}Info:${reset} No ${cyan}.sha256${reset} files found."
 fi
 
+# Process SHA512 files
 if (( ${#sha512_files[@]} )); then
+  if [ "$sections_processed" -gt 0 ]; then
+    log_separator
+  fi
   if [ "${sha512sum_missing:-0}" -eq 0 ]; then
-    echo -e "${yellow}Processing:${reset} Verifying ${cyan}${#sha512_files[@]}${reset} ${cyan}.sha512${reset} file(s)..."
+    log_section "${yellow}Processing:${reset} Found ${cyan}${#sha512_files[@]}${reset} ${cyan}.sha512${reset} file(s) to verify..."
     for f in "${sha512_files[@]}"; do
       if ! run_single_check sha512sum "$f"; then
         rc=1
       fi
     done
+    ((sections_processed++))
   else
-    echo -e "${red}Error:${reset} ${cyan}sha512sum${reset} not available; skipping ${cyan}.sha512${reset} checks." >&2
+    log_section "${red}Error:${reset} ${cyan}sha512sum${reset} not available; skipping ${cyan}.sha512${reset} checks." >&2
     rc=1
   fi
 else
-  echo -e "${yellow}Info:${reset} No .sha512 files found."
+  if [ "$sections_processed" -gt 0 ]; then
+    log_separator
+  fi
+  log_section "${yellow}Info:${reset} No ${cyan}.sha512${reset} files found."
 fi
 
 # Summary statistics
 declare total_files=$((${#md5_files[@]} + ${#sha256_files[@]} + ${#sha512_files[@]}))
 if [ $total_files -gt 0 ]; then
-    echo ""
+    log_separator
     if [ $rc -eq 0 ]; then
-        echo -e "${green}✓ All $total_files checksum file(s) verified successfully${reset}"
+        log_section "${green}Success:${reset} All $total_files checksum file(s) processed successfully"
     else
-        echo -e "${red}✗ Some checksum verifications failed${reset}"
+        log_section "${red}Failure:${reset} Some checksum verifications failed"
     fi
 else
-    echo -e "${yellow}No checksum files found to verify.${reset}"
+    log_separator
+    log_section "${yellow}Info:${reset} No checksum files found to verify."
 fi
 
 exit $rc
