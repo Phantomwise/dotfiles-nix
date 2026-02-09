@@ -182,6 +182,7 @@
 		mpv                         # General-purpose media player, fork of MPlayer and mplayer2
 		picard                      # picard
 		pulsemixer                  # Cli and curses mixer for pulseaudio
+		tageditor                   # Tag editor with Qt GUI and command-line interface supporting MP4/M4A/AAC (iTunes), ID3, Vorbis, Opus, FLAC and Matroska
 		vlc                         # Cross-platform media player and streaming server
 		# yt-dlp
 		# (callPackage (import (builtins.fetchurl {
