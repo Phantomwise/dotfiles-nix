@@ -121,6 +121,7 @@
 		### CLI ###
 		fastfetch                   # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
 		figlet                      # Program for making large letters out of ordinary text
+		file                        # Program that shows the type of files
 		fzf                         # Command-line fuzzy finder written in Go
 		detox                       # Utility designed to clean up filenames
 		xmlstarlet                  # Command line tool for manipulating and querying XML data
