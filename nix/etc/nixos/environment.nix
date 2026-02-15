@@ -18,6 +18,12 @@
 			# PAM: Already doing that.
 			# Systemd: Probably the better solution but I really really really don't want to deal with systemd T_T
 
+		# Eye candy
+		NEWT_COLORS = "root=black,black;window=black,black;border=white,black;listbox=white,black;label=blue,black;checkbox=red,black;title=green,black;button=white,red;actsellistbox=white,red;actlistbox=white,gray;compactbutton=white,gray;actcheckbox=white,blue;entry=lightgray,black;textbox=blue,black";
+
+		# Misc
+		EDITOR = "micro";
+
 
 	# Copy pasted from the wiki because I don't have a clue what I'm doing:
 
