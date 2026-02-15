@@ -2,16 +2,24 @@
 
 {
 	environment.sessionVariables = rec {
-	# environment.sessionVariables = {
 
 		# PATH definitions
+			# Need to be set at login or session start for every user.
+			# Need to apply globally to all shells.
 		PATH = [ 
 			# Add scripts directories
 			"$HOME/.local/bin/scripts"
 			"$HOME/Scripts"
-			# Preserve the existing PATH (optional but recommended)
-			"$PATH"
+			"$PATH" # Doesn't actually preserve the existing PATH because it does't get expanded. Doesn't seem to be doing any harm though I guess that's fine. Leaving it as a reminder to one day getting around to finding a better solution.
 		];
+		# Alternatives:
+			# Shell config: Won't do, needs to work for all shells.
+			# Home manager: Won't do, need a solution that works for all users. Also will probably ditch home manager.
+			# PAM: Already doing that.
+			# Systemd: Probably the better solution but I really really really don't want to deal with systemd T_T
+
+
+	# Copy pasted from the wiki because I don't have a clue what I'm doing:
 
 	# This is using a rec (recursive) expression to set and access XDG_BIN_HOME within the expression
 	# For more on rec expressions see https://nix.dev/tutorials/first-steps/nix-language#recursive-attribute-set-rec
