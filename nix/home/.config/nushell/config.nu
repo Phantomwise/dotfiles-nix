@@ -22,7 +22,11 @@
 	# Directories
 	alias ~ = cd ~
 	alias .. = cd ..
+	alias cdc = cd ~/Sync/dotfiles-nix/nix/
 	alias cdd = cd ~/Sync/dotfiles-nix/nix/
+	alias cddc = cd ~/Sync/Personal/home/Documents
+	alias cddl = cd ~/Sync/Personal/home/Download
+	alias cdg = cd ~/Sync/Personal/home/Git
 	alias cdm = cd /run/user/1000/gvfs/smb-share:server=192.168.0.10,share=media/
 	alias cdp = cd ~/Sync/Personal/home/Projects
 	alias cds = cd ~/Sync/
