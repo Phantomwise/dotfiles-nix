@@ -119,6 +119,7 @@
 		tlp                         # Advanced Power Management for Linux
 
 		### CLI ###
+		b3sum                       # BLAKE3 cryptographic hash function
 		fastfetch                   # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
 		figlet                      # Program for making large letters out of ordinary text
 		file                        # Program that shows the type of files
