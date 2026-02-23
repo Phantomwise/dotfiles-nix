@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Description:
-    # Generates MD5 and/or SHA256 checksums for a specified file or all regular files in the current directory because I'm too lazy to use the command manually.
+    # Generates MD5 and/or SHA256/SHA512 checksums for a specified file or all regular files in the current directory because I'm too lazy to use the command manually.
 # Usage:
-    # checksum.sh <md5|sha256|all> <target_file|all>
+    # checksum.sh <md5|sha256|sha512|all> <target_file|all>
 # AI Disclaimer:
     # This script was written with help from an AI language model.
 
@@ -18,7 +18,7 @@ declare -r reset="\033[0m"       # Reset
 
 # Usage helper
 usage() {
-    echo -e "${red}Usage:${reset} $0 <md5|sha256|all> <target_file|all>"
+    echo -e "${red}Usage:${reset} $0 <md5|sha256|sha512|all> <target_file|all>"
     exit 1
 }
 
@@ -85,7 +85,34 @@ do_sha256() {
     fi
 }
 
-# Process a single file according to HASH_TYPE (md5, sha256, or all)
+do_sha512() {
+    local target="$1"
+    local target_dir filename out
+
+    if [ ! -f "$target" ]; then
+        echo -e "${red}Error:${reset} File ${blue}'$target'${reset} does not exist or is not a regular file"
+        return 4
+    fi
+
+    if ! command -v sha512sum >/dev/null 2>&1; then
+        echo -e "${red}Error:${reset} sha512sum not found"
+        return 2
+    fi
+
+    target_dir=$(dirname -- "$target")
+    filename=$(basename -- "$target")
+    out="${target_dir}/${filename}.sha512"
+
+    if sha512sum "$target" > "$out"; then
+        echo -e "${green}Success:${reset} SHA512 checksum saved to: ${blue}$out${reset}"
+        return 0
+    else
+        echo -e "${red}Error:${reset} SHA512 generation failed for ${blue}$target${reset}"
+        return 3
+    fi
+}
+
+# Process a single file according to HASH_TYPE (md5, sha256, sha512, or all)
 process_file() {
     local file="$1"
     case "$HASH_TYPE" in
@@ -97,19 +124,25 @@ process_file() {
             do_sha256 "$file"
             return $?
             ;;
+        sha512)
+            do_sha512 "$file"
+            return $?
+            ;;
         all)
             do_md5 "$file"
             local rc_md5=$?
             do_sha256 "$file"
-            local rc_sha=$?
-            # If either failed, report non-zero
-            if [ $rc_sha -ne 0 ] || [ $rc_md5 -ne 0 ]; then
+            local rc_sha256=$?
+            do_sha512 "$file"
+            local rc_sha512=$?
+            # If any failed, report non-zero
+            if [ $rc_md5 -ne 0 ] || [ $rc_sha256 -ne 0 ] || [ $rc_sha512 -ne 0 ]; then
                 return 1
             fi
             return 0
             ;;
         *)
-            echo -e "${red}Error:${reset} Hash type must be ${cyan}'sha256'${reset}, ${cyan}'md5'${reset}, or ${cyan}'all'${reset}"
+            echo -e "${red}Error:${reset} Hash type must be ${cyan}'sha256'${reset}, ${cyan}'sha512'${reset}, ${cyan}'md5'${reset}, or ${cyan}'all'${reset}"
             return 1
             ;;
     esac
@@ -134,18 +167,12 @@ fi
 overall_status=0
 # find . -maxdepth 1 -type f -print0 will include hidden files and avoid directories
 while IFS= read -r -d '' f; do
-    # skip the script file itself if it's in the same directory and you don't want it processed
-    # (optional) Uncomment the next two lines to skip processing this script file:
-    # if [ "$(realpath "$f")" = "$(realpath "$0")" ]; then
-    #     continue
-    # fi
-
     process_file "$f"
     rc=$?
     if [ $rc -ne 0 ]; then
         overall_status=1
     fi
-done < <(find . -maxdepth 1 -type f ! -name '*.md5' ! -name '*.sha256' -print0)
+done < <(find . -maxdepth 1 -type f ! -name '*.md5' ! -name '*.sha256' ! -name '*.sha512' -print0)
 
 if [ $overall_status -ne 0 ]; then
     echo -e "${red}Done:${reset} One or more checksums failed."
