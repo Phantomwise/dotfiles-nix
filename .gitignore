@@ -1,3 +1,6 @@
+# Git config
+.gitconfig
+
 # Micro buffer history
 /nix/home/.config/micro/buffers/history
 
