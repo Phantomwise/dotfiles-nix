@@ -9,6 +9,7 @@ in {
 
 	environment.systemPackages = with unstable; [
 		# unstable packages
+		exactaudiocopy              # Precise CD audio grabber for creating perfect quality rips using CD and DVD drives
 		yt-dlp
 		libation
 	];
