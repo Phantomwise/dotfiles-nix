@@ -1,0 +1,2 @@
+- ComicTagger
+	- https://github.com/comictagger/comictagger
