@@ -112,6 +112,7 @@
 		exiftool                    # Tool to read, write and edit EXIF meta information
 		gnumake                     # Tool to control the generation of non-source files from sources
 		iperf                       # Tool to measure IP bandwidth using UDP or TCP
+		iw                          # Tool to use nl80211
 		rclone                      # Command line program to sync files and directories to and from major cloud storage
 		rsync                       # Fast incremental file transfer utility
 		steam-run                   # Run commands in the same FHS environment that is used for Steam
