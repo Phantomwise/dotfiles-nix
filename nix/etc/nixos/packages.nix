@@ -17,64 +17,30 @@
 		### UNSORTED ###
 		appimage-run                # 
 		# cron                      # Daemon for running commands at specific times
+		b3sum                       # BLAKE3 cryptographic hash function
 		dig                         # Domain name server
+		figlet                      # Program for making large letters out of ordinary text
 		inotify-tools               #
+		steam-run                   # Run commands in the same FHS environment that is used for Steam
 		tldr                        # Simplified and community-driven man pages
 		ventoy-full                 # New Bootable USB Solution
 		wine                        # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
-		pandoc                      # Conversion between documentation formats
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
-		html-xml-utils              # Utilities for manipulating HTML and XML files
 		nvd                         # Nix/NixOS package version diff tool
-		gdb                         # GNU Project debugger
 
-		### PROGRAMMING ###
-		git                         # Distributed version control system
-		git-filter-repo             # Quickly rewrite git repository history
-		gitmoji-cli                 # Gitmoji client for using emojis on commit messages
-			### ASSEMBLY ###
-		cutter                      # Free and Open Source Reverse Engineering Platform powered by rizin
-		# ida-free                  # Freeware version of the world's smartest and most feature-full disassembler
-		                            # NB: Can't be downloaded automatically because of licensing
-		nasm                        # 80x86 and x86-64 assembler designed for portability and modularity
-			### C ###
-		clang                       # C language family frontend for LLVM (wrapper script)
-		gcc                         # GNU Compiler Collection, version 14.3.0 (wrapper script)
-		codeblocksFull              # Open source, cross platform, free C, C++ and Fortran IDE
-		clang-tools                 # Standalone command line tools for C++ development
-			### JAVASCRIPT ###
-		deno                        # Secure runtime for JavaScript and TypeScript
-			### JSON ###
-		jq                          # Lightweight and flexible command-line JSON processor
-			### HASKELL ###
-		ghc                         # Glasgow Haskell Compiler
-		haskell-language-server     # LSP server for GHC
-		haskellPackages.Decimal     # Decimal numbers with variable precision
-		haskellPackages.hoogle      # Haskell API Search
-		haskellPackages.random      # Pseudo-random number generation
-		haskellPackages.yaml        # Support for parsing and rendering YAML documents
-			### OCAML ###
-		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
-		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
-		ocamlPackages.utop          # Universal toplevel for OCaml
-		ocamlPackages.ocamlformat   # Auto-formatter for OCaml code
-			### PASCAL ###
-		lazarus                     # Graphical IDE for the FreePascal language
-			### PYTHON ###
-		(python3.withPackages (ps: [
-			ps.colorama             # Cross-platform colored terminal text
-			ps.curl-cffi            #
-			ps.pandas               # Powerful data structures for data analysis, time series, and statistics
-			ps.pyqt5                # Python bindings for Qt5
-			ps.pyqt6                # Python bindings for Qt6
-			ps.pyyaml               # Next generation YAML parser and emitter for Python
-			ps.requests             # HTTP library for Python
-			]))
-			### SQL ###
-		# sqlite                    # Self-contained, serverless, zero-configuration, transactional SQL database engine
-		sqlite-interactive          # Self-contained, serverless, zero-configuration, transactional SQL database engine
-		sqlitebrowser               # DB Browser for SQLite
+		### TOOLS ###
+		brightnessctl               # This program allows you read and control device brightness
+		detox                       # Utility designed to clean up filenames
+		file                        # Program that shows the type of files
+		fzf                         # Command-line fuzzy finder written in Go
+		killall                     #
+		gnumake                     # Tool to control the generation of non-source files from sources
+		rclone                      # Command line program to sync files and directories to and from major cloud storage
+		rsync                       # Fast incremental file transfer utility
+		stow                        # Tool for managing the installation of multiple software packages in the same run-time directory tree
+		tlp                         # Advanced Power Management for Linux
+		tree                        # Command to produce a depth indented directory listing
 
 		### LIBRARIES ###
 		libnotify                   # Library that sends desktop notifications to a notification daemon
@@ -95,48 +61,32 @@
 		btop                        # Monitor of resources
 		intel-gpu-tools             # Tools for development and testing of the Intel DRM driver
 		iotop                       # Tool to find out the processes doing the most IO
+		fastfetch                   # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
 		lm_sensors                  # Tools for reading hardware sensors
 		ncdu                        # Disk usage analyzer with an ncurses interface
 		nethogs                     # Small 'net top' tool, grouping bandwidth by process
 		smartmontools               # Tools for monitoring the health of hard drives
 		sysstat                     # Collection of performance monitoring tools for Linux (such as sar, iostat and pidstat)
 
-		### SYSTEM TOOLS ###
-		killall                     #
-		tree                        # Command to produce a depth indented directory listing
-
-		### TOOLS ###
-		brightnessctl               # This program allows you read and control device brightness
+		### NETWORKING ###
 		# bluetuith                 # TUI-based bluetooth connection manager
 		ethtool                     # Utility for controlling network drivers and hardware
-		exiftool                    # Tool to read, write and edit EXIF meta information
-		gnumake                     # Tool to control the generation of non-source files from sources
 		iperf                       # Tool to measure IP bandwidth using UDP or TCP
 		iw                          # Tool to use nl80211
-		rclone                      # Command line program to sync files and directories to and from major cloud storage
-		rsync                       # Fast incremental file transfer utility
-		steam-run                   # Run commands in the same FHS environment that is used for Steam
-		stow                        # Tool for managing the installation of multiple software packages in the same run-time directory tree
-		tlp                         # Advanced Power Management for Linux
-
-		### CLI ###
-		b3sum                       # BLAKE3 cryptographic hash function
-		fastfetch                   # An actively maintained, feature-rich and performance oriented, neofetch like system information tool
-		figlet                      # Program for making large letters out of ordinary text
-		file                        # Program that shows the type of files
-		fzf                         # Command-line fuzzy finder written in Go
-		detox                       # Utility designed to clean up filenames
-		xmlstarlet                  # Command line tool for manipulating and querying XML data
-
-		### NETWORKING ###
+		protonvpn-gui               # Proton VPN GTK app for Linux
 		#  wget                     # Tool for retrieving files using HTTP, HTTPS, and FTP
 		wg-netmanager               # Wireguard network manager
 		wireguard-tools             # Tools for the WireGuard secure network tunnel
 		wireguard-ui                # Web user interface to manage your WireGuard setup
-		protonvpn-gui               # Proton VPN GTK app for Linux
 
 		### SECURITY ###
 		clamav                      # Antivirus engine designed for detecting Trojans, viruses, malware and other malicious threats
+
+		### FILE MANIPULATION ###
+		exiftool                    # Tool to read, write and edit EXIF meta information
+		html-xml-utils              # Utilities for manipulating HTML and XML files
+		pandoc                      # Conversion between documentation formats
+		xmlstarlet                  # Command line tool for manipulating and querying XML data
 
 		### GRAPHICAL SESSION ###
 		dunst                       # Lightweight and customizable notification daemon
@@ -220,6 +170,54 @@
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
+
+		### PROGRAMMING ###
+		gdb                         # GNU Project debugger
+		git                         # Distributed version control system
+		git-filter-repo             # Quickly rewrite git repository history
+		gitmoji-cli                 # Gitmoji client for using emojis on commit messages
+			### ASSEMBLY ###
+		cutter                      # Free and Open Source Reverse Engineering Platform powered by rizin
+		# ida-free                  # Freeware version of the world's smartest and most feature-full disassembler
+		                            # NB: Can't be downloaded automatically because of licensing
+		nasm                        # 80x86 and x86-64 assembler designed for portability and modularity
+			### C ###
+		clang                       # C language family frontend for LLVM (wrapper script)
+		gcc                         # GNU Compiler Collection, version 14.3.0 (wrapper script)
+		codeblocksFull              # Open source, cross platform, free C, C++ and Fortran IDE
+		clang-tools                 # Standalone command line tools for C++ development
+			### JAVASCRIPT ###
+		deno                        # Secure runtime for JavaScript and TypeScript
+			### JSON ###
+		jq                          # Lightweight and flexible command-line JSON processor
+			### HASKELL ###
+		ghc                         # Glasgow Haskell Compiler
+		haskell-language-server     # LSP server for GHC
+		haskellPackages.Decimal     # Decimal numbers with variable precision
+		haskellPackages.hoogle      # Haskell API Search
+		haskellPackages.random      # Pseudo-random number generation
+		haskellPackages.yaml        # Support for parsing and rendering YAML documents
+			### OCAML ###
+		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
+		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
+		ocamlPackages.utop          # Universal toplevel for OCaml
+		ocamlPackages.ocamlformat   # Auto-formatter for OCaml code
+			### PASCAL ###
+		lazarus                     # Graphical IDE for the FreePascal language
+			### PYTHON ###
+		(python3.withPackages (ps: [
+			ps.colorama             # Cross-platform colored terminal text
+			ps.curl-cffi            #
+			ps.pandas               # Powerful data structures for data analysis, time series, and statistics
+			ps.pyqt5                # Python bindings for Qt5
+			ps.pyqt6                # Python bindings for Qt6
+			ps.pyyaml               # Next generation YAML parser and emitter for Python
+			ps.requests             # HTTP library for Python
+			]))
+			### SQL ###
+		# sqlite                    # Self-contained, serverless, zero-configuration, transactional SQL database engine
+		sqlite-interactive          # Self-contained, serverless, zero-configuration, transactional SQL database engine
+		sqlitebrowser               # DB Browser for SQLite
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
