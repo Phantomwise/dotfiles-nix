@@ -28,6 +28,7 @@
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 		nvd                         # Nix/NixOS package version diff tool
+		font-manager                # Simple font management for GTK desktop environments
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
