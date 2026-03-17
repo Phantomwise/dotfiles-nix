@@ -10,3 +10,4 @@ nix-rebuild:
 	@echo -e "\033[1;33mRefreshing font cache\033[0m"
 	fc-cache -fv
 	@echo -e "\033[1;32mRebuild complete\033[0m"
+	nvd diff $$(ls -d /nix/var/nix/profiles/system-*-link | tail -2)

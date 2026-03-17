@@ -24,3 +24,5 @@ nix-cleanup:
 	sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
 	@echo -e "\033[1;33mList Home Manager generations\033[0m"
 	home-manager generations
+	@echo -e "\033[1;33mList nvd diff\033[0m"
+	nvd diff $$(ls -d /nix/var/nix/profiles/system-*-link | tail -2)
