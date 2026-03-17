@@ -30,7 +30,7 @@
 	alias cdm = cd /run/user/1000/gvfs/smb-share:server=192.168.0.10,share=media/
 	alias cdp = cd ~/Sync/Personal/home/Projects
 	alias cds = cd ~/Sync/
-	alias cdy = cd ~/Sync/Personal/home/Downloads/yt-dlp/
+	alias cdy = cd ~/Downloads/yt-dlp/
 
 	# Commands replacement
 	alias ll = ls -alh
