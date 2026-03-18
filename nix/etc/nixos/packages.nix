@@ -192,15 +192,17 @@
 			### JSON ###
 		jq                          # Lightweight and flexible command-line JSON processor
 			### HASKELL ###
-		ghc                         # Glasgow Haskell Compiler
 		haskell-language-server     # LSP server for GHC
-		haskellPackages.aeson       # Fast JSON parsing and encoding
-		haskellPackages.cassava     # A CSV parsing and encoding library
-		haskellPackages.Decimal     # Decimal numbers with variable precision
-		haskellPackages.hoogle      # Haskell API Search
-		haskellPackages.random      # Pseudo-random number generation
-		haskellPackages.texts       # None
-		haskellPackages.yaml        # Support for parsing and rendering YAML documents
+		# ghc                       # Glasgow Haskell Compiler
+		(haskellPackages.ghcWithPackages (ps: with ps; [
+			aeson                   # Fast JSON parsing and encoding
+			cassava                 # A CSV parsing and encoding library
+			Decimal                 # Decimal numbers with variable precision
+			hoogle                  # Haskell API Search
+			random                  # Pseudo-random number generation
+			texts                   # None
+			yaml                    # Support for parsing and rendering YAML documents
+		]))
 			### OCAML ###
 		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
 		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
