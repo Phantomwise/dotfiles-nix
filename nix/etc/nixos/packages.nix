@@ -29,6 +29,8 @@
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 		nvd                         # Nix/NixOS package version diff tool
 		font-manager                # Simple font management for GTK desktop environments
+		p7zip                       # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
+		unzip                       # Extraction utility for archives compressed in .zip format
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
@@ -38,6 +40,7 @@
 		killall                     #
 		gnumake                     # Tool to control the generation of non-source files from sources
 		rclone                      # Command line program to sync files and directories to and from major cloud storage
+		ripgrep                     # Utility that combines the usability of The Silver Searcher with the raw speed of grep
 		rsync                       # Fast incremental file transfer utility
 		stow                        # Tool for managing the installation of multiple software packages in the same run-time directory tree
 		tlp                         # Advanced Power Management for Linux
