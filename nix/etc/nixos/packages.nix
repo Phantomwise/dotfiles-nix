@@ -42,6 +42,7 @@
 		rclone                      # Command line program to sync files and directories to and from major cloud storage
 		ripgrep                     # Utility that combines the usability of The Silver Searcher with the raw speed of grep
 		rsync                       # Fast incremental file transfer utility
+		sd                          # Intuitive find & replace CLI (sed alternative)
 		stow                        # Tool for managing the installation of multiple software packages in the same run-time directory tree
 		tlp                         # Advanced Power Management for Linux
 		tree                        # Command to produce a depth indented directory listing
