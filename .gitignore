@@ -6,3 +6,6 @@
 
 # Fontconfig metadata
 .uuid
+
+# Rofi games box art
+**/home/.config/rofi-games/box-art/*.*
