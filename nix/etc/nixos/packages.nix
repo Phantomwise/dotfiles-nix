@@ -194,9 +194,12 @@
 			### HASKELL ###
 		ghc                         # Glasgow Haskell Compiler
 		haskell-language-server     # LSP server for GHC
+		haskellPackages.aeson       # Fast JSON parsing and encoding
+		haskellPackages.cassava     # A CSV parsing and encoding library
 		haskellPackages.Decimal     # Decimal numbers with variable precision
 		haskellPackages.hoogle      # Haskell API Search
 		haskellPackages.random      # Pseudo-random number generation
+		haskellPackages.texts       # None
 		haskellPackages.yaml        # Support for parsing and rendering YAML documents
 			### OCAML ###
 		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
