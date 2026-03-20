@@ -7,6 +7,7 @@ import linecache
 import re
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from xml.sax.saxutils import escape
 from colorama import Fore, Style, init
 
 init(autoreset=True)
@@ -198,7 +199,7 @@ def main():
             outfile.write('<?xml version="1.0" encoding="utf-8" standalone="yes"?>\n')
             outfile.write('<movie>\n')
             for tag_text in sorted_tags:
-                outfile.write(f'  <tag>{tag_text}</tag>\n')
+                outfile.write(f'  <tag>{escape(tag_text)}</tag>\n')
             outfile.write('</movie>\n')
 
         print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} {Fore.CYAN}'{aggregate_nfo}'{Style.RESET_ALL} created with {len(sorted_tags)} unique tags")
