@@ -3,6 +3,10 @@
 # Enable nullglob to handle no matches gracefully
 shopt -s nullglob
 
+# Require ffmpeg and ffprobe
+command -v ffmpeg >/dev/null 2>&1 || { echo "ffmpeg is required but not found in PATH"; exit 1; }
+command -v ffprobe >/dev/null 2>&1 || { echo "ffprobe is required but not found in PATH"; exit 1; }
+
 # Check if at least two arguments are provided
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <track_spec> <language> [language-ietf]"
