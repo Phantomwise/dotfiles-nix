@@ -329,10 +329,20 @@ def main():
         ]
 
         with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
-            writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL)
+            # QUOTE_NONNUMERIC quotes all str values and leaves int/float unquoted.
+            # HR and VR are cast to int when possible so pure numbers are unquoted;
+            # ranges (e.g. '1920-1080') and 'Unknown' stay as str and get quoted.
+            # All other fields are str and will always be quoted.
+            writer = csv.writer(outfile, quoting=csv.QUOTE_NONNUMERIC)
             writer.writerow(fieldnames)
             for row in formatted_rows:
                 output_row = [row.get(field, '') for field in fieldnames]
+                for field in ('HR', 'VR'):
+                    idx = fieldnames.index(field)
+                    try:
+                        output_row[idx] = int(output_row[idx])
+                    except (ValueError, TypeError):
+                        pass  # leave as str (ranges, 'Unknown', etc.)
                 writer.writerow(output_row)
 
         print(f"{Fore.GREEN}SUCCESS:{Style.RESET_ALL} {Fore.CYAN}'{raw_csv}'{Style.RESET_ALL} and {Fore.CYAN}'{formatted_csv}'{Style.RESET_ALL} created")
