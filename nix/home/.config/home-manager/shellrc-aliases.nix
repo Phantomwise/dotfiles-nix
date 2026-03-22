@@ -13,6 +13,8 @@
 	"clamscan" = "clamscan -r --log=/tmp/clamscan.txt";
 	"clamscan-full" = "clamscan -r --follow-dir-symlinks --follow-file-symlinks --log=/tmp/clamscan.txt";
 	weather = "curl wttr.in";
+	nmtui="NEWT_COLORS='root=black,black;window=black,black;border=white,black;listbox=white,black;label=blue,black;checkbox=red,black;title=green,black;button=white,red;actsellistbox=white,red;actlistbox=white,gray;compactbutton=white,gray;actcheckbox=white,blue;entry=lightgray,black;textbox=blue,black' nmtui";
+	# export NEWT_COLORS='root=black,black;window=black,black;border=white,black;listbox=white,black;label=blue,black;checkbox=red,black;title=green,black;button=white,red;actsellistbox=white,red;actlistbox=white,gray;compactbutton=white,gray;actcheckbox=white,blue;entry=lightgray,black;textbox=blue,black'
 
 	# Nix commands
 	hh = "home-manager switch";
