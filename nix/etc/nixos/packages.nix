@@ -192,8 +192,6 @@
 		gcc                         # GNU Compiler Collection, version 14.3.0 (wrapper script)
 		codeblocksFull              # Open source, cross platform, free C, C++ and Fortran IDE
 		clang-tools                 # Standalone command line tools for C++ development
-			### JSON ###
-		jq                          # Lightweight and flexible command-line JSON processor
 			### HASKELL ###
 		haskell-language-server     # LSP server for GHC
 		# ghc                       # Glasgow Haskell Compiler
@@ -206,6 +204,8 @@
 			texts                   # None
 			yaml                    # Support for parsing and rendering YAML documents
 		]))
+			### JSON ###
+		jq                          # Lightweight and flexible command-line JSON processor
 			### OCAML ###
 		ocaml                       # OCaml is an industrial-strength programming language supporting functional, imperative and object-oriented styles
 		ocamlPackages.ocaml-lsp     # OCaml Language Server Protocol implementation
