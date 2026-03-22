@@ -168,6 +168,7 @@
 		discord-canary              # All-in-one cross-platform voice and text chat for gamers
 		freetube                    # Open Source YouTube app for privacy
 		hexchat                     # Popular and easy to use graphical IRC (chat) client
+		i2p                         # Applications and router for I2P, anonymity over the Internet
 		keepassxc                   # Offline password manager with many features
 		libreoffice                 # Comprehensive, professional-quality productivity suite, a variant of openoffice.org
 		qbittorrent                 # Featureful free software BitTorrent client
