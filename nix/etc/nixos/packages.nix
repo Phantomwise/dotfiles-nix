@@ -204,6 +204,8 @@
 			texts                   # None
 			yaml                    # Support for parsing and rendering YAML documents
 		]))
+			### JAVASCRIPT ###
+		deno                        # Secure runtime for JavaScript and TypeScript
 			### JSON ###
 		jq                          # Lightweight and flexible command-line JSON processor
 			### OCAML ###
