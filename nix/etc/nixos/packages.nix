@@ -21,6 +21,7 @@
 		dig                         # Domain name server
 		figlet                      # Program for making large letters out of ordinary text
 		inotify-tools               #
+		mesa-demos                  # Collection of demos and test programs for OpenGL and Mesa
 		steam-run                   # Run commands in the same FHS environment that is used for Steam
 		tldr                        # Simplified and community-driven man pages
 		ventoy-full                 # New Bootable USB Solution
