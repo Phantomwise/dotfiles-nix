@@ -122,6 +122,9 @@
 		gimp3-with-plugins          # GNU Image Manipulation Program
 		imagemagick                 # Software suite to create, edit, compose, or convert bitmap images
 		ksnip                       # Cross-platform screenshot tool with many annotation features
+		libresprite                 # Animated sprite editor & pixel art tool, fork of Aseprite
+		pikopixel                   # Application for drawing and editing pixel-art images
+		pinta                       # Drawing/editing program modeled after Paint.NET
 		sway-contrib.grimshot       # Helper for screenshots within sway
 		tiled                       # Free, easy to use and flexible tile map editor
 		xnviewmp                    # Efficient multimedia viewer, browser and converter
