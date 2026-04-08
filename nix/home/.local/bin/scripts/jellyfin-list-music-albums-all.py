@@ -22,9 +22,9 @@ init(autoreset=True)
 #   while still printing to the console.
 #
 #   Album folder name format (all fields required; some bracketed fields may be empty):
-#       title (original_year) (nb medium) (tracks) [issue_year] [label] [catalog] [barcode]
+#       title (original_year) (nb medium) (tracks) [issue_year] [label] [catalog] [barcode] [source]
 #   Example:
-#       My Album Title (1975) (2 CD) (18) [1999] [SomeLabel] [CAT-001] [1234567890123]
+#       My Album Title (1975) (2 CD) (18) [1999] [SomeLabel] [CAT-001] [1234567890123] [RIP]
 
 LOG_FILE = 'music-albums.log'
 
@@ -125,7 +125,7 @@ def split_album(album, album_path=None):
     - disc count and medium (second-to-last parenthetical)
     - tracks (last parenthetical) -> integer
     - issue_year (first bracketed)
-    - label, catalog, barcode (next brackets)
+    - label, catalog, barcode, source (next brackets)
 
     Raises ValueError if expected parenthetical or bracket is missing or malformed.
 
@@ -188,13 +188,13 @@ def split_album(album, album_path=None):
         else:
             idx += 1
 
-    if len(brackets) < 4:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Album '{Fore.YELLOW}{display}{Style.RESET_ALL}' must have 4 bracketed values: [issue_year] [label] [catalog] [barcode]")
+    if len(brackets) < 5:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Album '{Fore.YELLOW}{display}{Style.RESET_ALL}' must have 5 bracketed values: [issue_year] [label] [catalog] [barcode] [source]")
         raise ValueError(f"Not enough bracketed values in '{album}'")
 
-    issue_year, label, catalog, barcode = brackets[:4]
+    issue_year, label, catalog, barcode, source = brackets[:5]
 
-    return album_title, original_year, disc_count, medium, tracks, issue_year, label, catalog, barcode
+    return album_title, original_year, disc_count, medium, tracks, issue_year, label, catalog, barcode, source
 
 
 def main():
@@ -306,7 +306,7 @@ def main():
                 album_path = os.path.join(*parts)
                 try:
                     (album_title, original_year, disc_count, medium, tracks,
-                     issue_year, label, catalog, barcode) = split_album(album, album_path=album_path)
+                     issue_year, label, catalog, barcode, source) = split_album(album, album_path=album_path)
                     formatted_rows.append({
                         'Source': row.get('Source', ''),
                         'Type': row.get('Type', ''),
@@ -319,7 +319,8 @@ def main():
                         'IYear': issue_year,
                         'Label': label,
                         'Catalog': catalog,
-                        'Barcode': "#"+barcode
+                        'Barcode': "#"+barcode,
+                        'AlbumSource': source
                     })
                 except ValueError as e:
                     # Print the concise skip reason, then print the full path on a separate DEBUG line for readability.
@@ -327,8 +328,8 @@ def main():
                     print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Full path: '{Fore.BLUE}{album_path}{Style.RESET_ALL}'")
                     continue
 
-        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Medium', 'Tracks', 'IYear', 'Label', 'Catalog', 'Barcode']
-        text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Label'}
+        fieldnames = ['Source', 'Type', 'Artist', 'Album', 'OYear', 'Nb', 'Medium', 'Tracks', 'IYear', 'Label', 'Catalog', 'Barcode', 'AlbumSource']
+        text_fields = {'Artist', 'Album', 'Barcode', 'Source', 'Type', 'Label', 'AlbumSource'}
 
         with open(formatted_csv, 'w', newline='', encoding='utf-8') as outfile:
             writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL)
