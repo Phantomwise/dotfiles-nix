@@ -58,6 +58,10 @@
 	nix.gc.options = "--delete-older-than 30d";
 	nix.settings.auto-optimise-store = true;
 
+	# Nix Settings
+	nix.settings.max-jobs = 1;
+	nix.settings.cores = 2;
+
 	# Bluetooth
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
 	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
