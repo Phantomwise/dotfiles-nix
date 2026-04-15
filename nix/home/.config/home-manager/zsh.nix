@@ -10,7 +10,7 @@ in
 		enableCompletion = true;
 		autosuggestion.enable = true;
 		syntaxHighlighting.enable = true;
-		dotDir = ".config/zsh";
+		dotDir = "${config.xdg.configHome}/zsh";
 		history.ignoreAllDups = true;
 		# history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
 		history.size = 10000;
