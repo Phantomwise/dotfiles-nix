@@ -9,6 +9,7 @@ HOME_DIR := /home/phantomwise
 include nix-cleanup.mk
 include nix-info.mk
 include nix-rebuild.mk
+include nix-rebuild-throttled.mk
 include nix-update.mk
 include rclone.mk
 include stow.mk
