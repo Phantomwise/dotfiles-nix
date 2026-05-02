@@ -83,6 +83,12 @@
 		};
 	};
 
+	# Disable the algif_aead kernel module while waiting for a patched kernel (CVE-2026-31431 “Copy Fail”)
+	boot.blacklistedKernelModules = [ "algif_aead" ];
+	boot.extraModprobeConfig = ''
+		install algif_aead ${pkgs.coreutils}/bin/false
+	'';
+
 	# Configure logind
 	services.logind.settings.Login = {
 		HandleHibernateKey = "ignore";
