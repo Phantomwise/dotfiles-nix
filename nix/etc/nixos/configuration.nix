@@ -60,7 +60,7 @@
 
 	# Nix Settings
 	nix.settings.max-jobs = 1;
-	nix.settings.cores = 2;
+	nix.settings.cores = 1;
 
 	# Bluetooth
 	hardware.bluetooth.enable = true; # enables support for Bluetooth
