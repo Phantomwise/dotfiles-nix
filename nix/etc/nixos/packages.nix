@@ -27,6 +27,7 @@
 		ventoy-full                 # New Bootable USB Solution
 		wine                        # Open Source implementation of the Windows API on top of X, OpenGL, and Unix
 		libgourou                   # Implementation of Adobe's ADEPT protocol for ePub/PDF DRM
+		monolith                    # Bundle any web page into a single HTML file
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 		nvd                         # Nix/NixOS package version diff tool
 		font-manager                # Simple font management for GTK desktop environments
@@ -211,7 +212,7 @@
 			yaml                    # Support for parsing and rendering YAML documents
 		]))
 			### JAVASCRIPT ###
-		deno                        # Secure runtime for JavaScript and TypeScript
+		# deno                        # Secure runtime for JavaScript and TypeScript
 			### JSON ###
 		jq                          # Lightweight and flexible command-line JSON processor
 			### OCAML ###
