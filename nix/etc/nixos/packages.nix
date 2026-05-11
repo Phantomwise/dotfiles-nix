@@ -114,6 +114,7 @@
 		### EDITORS ###
 		featherpad                  # Lightweight Qt5 Plain-Text Editor for Linux
 		kakoune                     # Vim inspired text editor #!
+		komodo                      # Tool to build and deploy software on many servers
 		micro-full                  # Modern and intuitive terminal-based text editor
 		# leafpad                   # error: 'leafpad' has been removed due to lack of maintenance upstream. Consider using 'xfce.mousepad' instead
 		# ms-edit                   # not in repo
