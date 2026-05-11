@@ -118,6 +118,7 @@
 		micro-full                  # Modern and intuitive terminal-based text editor
 		# leafpad                   # error: 'leafpad' has been removed due to lack of maintenance upstream. Consider using 'xfce.mousepad' instead
 		# ms-edit                   # not in repo
+		scite                       # SCIntilla based Text Editor
 		vim                         # Most popular clone of the VI editor
 
 		### IMAGE ###
