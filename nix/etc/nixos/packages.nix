@@ -237,6 +237,9 @@
 		# sqlite                    # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlite-interactive          # Self-contained, serverless, zero-configuration, transactional SQL database engine
 		sqlitebrowser               # DB Browser for SQLite
+			### TCL ###
+		tcl                         # Tcl scripting language
+		tk                          # Widget toolkit that provides a library of basic elements for building a GUI in many different programming languages
 
 			(vscode-with-extensions.override {
 				vscodeExtensions = with vscode-extensions; [
