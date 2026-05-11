@@ -136,7 +136,8 @@
 
 		### AUDIO & VIDEO ###
 		ani-cli                     # Cli tool to browse and play anime
-		beets                       # Music tagger and library organizer
+		# beets                     # Music tagger and library organizer
+		                            # error: Package ‘python3.13-beets-2.5.1’ in /nix/store/[...]/beets/default.nix:483 is marked as insecure, refusing to evaluate.
 		ffmpeg                      # Complete, cross-platform solution to record, convert and stream audio and video
 		finamp                      # Open source Jellyfin music player
 		gpac                        # Open Source multimedia framework for research and academic purposes
