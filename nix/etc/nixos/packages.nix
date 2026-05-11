@@ -203,6 +203,7 @@
 		# ghc                       # Glasgow Haskell Compiler
 		(haskellPackages.ghcWithPackages (ps: with ps; [
 			aeson                   # Fast JSON parsing and encoding
+			brick                   # A declarative terminal user interface library
 			bytestring              # 
 			cassava                 # A CSV parsing and encoding library
 			Decimal                 # Decimal numbers with variable precision
