@@ -6,8 +6,8 @@
 #   make nix-rebuild-throttled CPUQUOTA=75%
 CPUQUOTA ?= 50%
 
-# nix-rebuild
-nix-rebuild:
+# nix-rebuild-throttled
+nix-rebuild-throttled:
 	@echo -e "\033[1;33mRebuilding system configuration (throttled to $(CPUQUOTA))\033[0m"
 	sudo systemd-run --scope -p CPUQuota=$(CPUQUOTA) \
 		--description="throttled nixos-rebuild" \
