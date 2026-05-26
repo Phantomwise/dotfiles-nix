@@ -11,6 +11,7 @@ in {
 		# unstable packages
 		deno                        # Secure runtime for JavaScript and TypeScript
 		exactaudiocopy              # Precise CD audio grabber for creating perfect quality rips using CD and DVD drives
+		freetube                    # Open Source YouTube app for privacy
 		yt-dlp
 		libation
 	];
