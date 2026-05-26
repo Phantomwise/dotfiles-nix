@@ -32,6 +32,7 @@
 		narsil                   # Unofficial rewrite of Sil, a roguelike influenced by Angband
 		nethack                  # Rogue-like game
 		nethack-qt               # Rogue-like game
+		pingus                   # Puzzle game with mechanics similar to Lemmings
 		unnethack                # Fork of NetHack
 		rpg-cli                  # Your filesystem as a dungeon
 		sil-q                    # Roguelike game set in the First Age of Middle-earth
