@@ -9,7 +9,7 @@ in {
 
 	environment.systemPackages = with unstable; [
 		# unstable packages
-		# deno                      # Secure runtime for JavaScript and TypeScript
+		deno                        # Secure runtime for JavaScript and TypeScript
 		exactaudiocopy              # Precise CD audio grabber for creating perfect quality rips using CD and DVD drives
 		yt-dlp
 		libation
