@@ -96,8 +96,8 @@
 		HandleLidSwitch = "suspend";
 		HandleLidSwitchDocked = "ignore";
 		HandleLidSwitchExternalPower = "suspend";
-		# powerKey = "poweroff";
-		# powerKeyLongPress = "ignore";
+		powerKey = "suspend";
+		powerKeyLongPress = "poweroff";
 		HandleSuspendKey = "ignore";
 		HandleSuspendKeyLongPress = "ignore";
 	};
