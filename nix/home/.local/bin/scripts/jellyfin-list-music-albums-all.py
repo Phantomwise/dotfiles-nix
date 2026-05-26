@@ -27,7 +27,7 @@ init(autoreset=True)
 #       My Album Title (1975) (2 CD) (18) [1999] [SomeLabel] [CAT-001] [1234567890123] [RIP]
 #       My Album Title (1975) (2 CD) (18) [1999] [SomeLabel] [CAT-001] [1234567890123] [RIP] {FLAC}
 
-LOG_FILE = 'music-albums.log'
+LOG_FILE = 'library-music-albums.log'
 
 
 class StreamTee:
@@ -300,8 +300,8 @@ def main():
                             'Type': tname
                         })
 
-        raw_csv = 'music-albums-raw.csv'
-        formatted_csv = 'music-albums-formatted.csv'
+        raw_csv = 'library-music-albums-raw.csv'
+        formatted_csv = 'library-music-albums-formatted.csv'
         with open(raw_csv, 'w', newline='', encoding='utf-8') as rawfile:
             fieldnames = ['Artist', 'Album', 'Source', 'Type']
             writer = csv.DictWriter(rawfile, fieldnames=fieldnames)
