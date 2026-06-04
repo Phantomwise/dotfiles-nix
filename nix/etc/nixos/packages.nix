@@ -6,7 +6,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 	nixpkgs.config.permittedInsecurePackages = [
-		"ventoy-1.1.10"
+		"ventoy-1.1.12"
 		"mbedtls-2.28.10"
 	];
 
