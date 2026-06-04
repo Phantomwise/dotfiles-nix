@@ -248,6 +248,7 @@
 					### LANGUAGES ###
 					bbenoist.nix                                   # — Nix language support
 					bodil.blueprint-gtk                            # Gtk Blueprint language support.
+					dhall.dhall-lang                               #
 					golang.go                                      # Go extension for Visual Studio Code
 					haskell.haskell                                #
 					justusadam.language-haskell                    #
