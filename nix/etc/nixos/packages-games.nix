@@ -36,7 +36,7 @@
 		unnethack                # Fork of NetHack
 		rpg-cli                  # Your filesystem as a dungeon
 		sil-q                    # Roguelike game set in the First Age of Middle-earth
-		tome2                    # Dungeon crawler similar to Angband, based on the works of Tolkien
+		# tome2                    # Dungeon crawler similar to Angband, based on the works of Tolkien
 		unciv                    # Open-source Android/Desktop remake of Civ V
 		# keeperrl # Error
 
