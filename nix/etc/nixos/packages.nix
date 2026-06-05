@@ -80,6 +80,8 @@
 		ethtool                     # Utility for controlling network drivers and hardware
 		iperf                       # Tool to measure IP bandwidth using UDP or TCP
 		iw                          # Tool to use nl80211
+		net-tools                   # Set of tools for controlling the network subsystem in Linux
+		nmap                        # Free and open source utility for network discovery and security auditing
 		protonvpn-gui               # Proton VPN GTK app for Linux
 		#  wget                     # Tool for retrieving files using HTTP, HTTPS, and FTP
 		wg-netmanager               # Wireguard network manager
@@ -114,7 +116,7 @@
 		### EDITORS ###
 		featherpad                  # Lightweight Qt5 Plain-Text Editor for Linux
 		kakoune                     # Vim inspired text editor #!
-		komodo                      # Tool to build and deploy software on many servers
+		# komodo                      # Tool to build and deploy software on many servers
 		micro-full                  # Modern and intuitive terminal-based text editor
 		# leafpad                   # error: 'leafpad' has been removed due to lack of maintenance upstream. Consider using 'xfce.mousepad' instead
 		# ms-edit                   # not in repo
