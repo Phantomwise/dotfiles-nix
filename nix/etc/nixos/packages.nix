@@ -33,6 +33,7 @@
 		font-manager                # Simple font management for GTK desktop environments
 		p7zip                       # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
 		unzip                       # Extraction utility for archives compressed in .zip format
+		vulkan-tools                # Khronos official Vulkan Tools and Utilities
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
