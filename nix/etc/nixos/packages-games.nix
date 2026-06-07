@@ -33,6 +33,7 @@
 		nethack                  # Rogue-like game
 		nethack-qt               # Rogue-like game
 		pingus                   # Puzzle game with mechanics similar to Lemmings
+		pysolfc                  # Collection of more than 1000 solitaire card games
 		unnethack                # Fork of NetHack
 		rpg-cli                  # Your filesystem as a dungeon
 		sil-q                    # Roguelike game set in the First Age of Middle-earth
