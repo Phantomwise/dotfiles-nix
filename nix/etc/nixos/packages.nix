@@ -273,7 +273,7 @@
 					ms-vscode-remote.remote-ssh                    # Use any remote machine with a SSH server as your development environment
 					streetsidesoftware.code-spell-checker          # Spelling checker for source code
 					streetsidesoftware.code-spell-checker-french   # French dictionary extension for VS Code
-					github.copilot                                 # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
+					github.copilot-chat                            # GitHub Copilot uses OpenAI Codex to suggest code and entire functions in real-time right from your editor
 					                                               # NB: Not working
 					### COLOR THEMES ###
 					carrie999.cyberpunk-2020                       # Cyberpunk-inspired colour theme to satisfy your neon dreams
