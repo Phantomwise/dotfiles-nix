@@ -239,6 +239,7 @@
 			ps.pyqt6                # Python bindings for Qt6
 			ps.pyyaml               # Next generation YAML parser and emitter for Python
 			ps.requests             # HTTP library for Python
+			ps.bgutil-ytdlp-pot-provider   # Proof-of-origin token provider plugin for yt-dlp
 			]))
 			### SQL ###
 		# sqlite                    # Self-contained, serverless, zero-configuration, transactional SQL database engine
