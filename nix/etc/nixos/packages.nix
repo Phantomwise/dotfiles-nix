@@ -129,6 +129,8 @@
 		gimp3-with-plugins          # GNU Image Manipulation Program
 		imagemagick                 # Software suite to create, edit, compose, or convert bitmap images
 		ksnip                       # Cross-platform screenshot tool with many annotation features
+		libavif                     # C implementation of the AV1 Image File Format
+		libwebp                     # Tools and library for the WebP image format
 		libresprite                 # Animated sprite editor & pixel art tool, fork of Aseprite
 		# pikopixel                 # Application for drawing and editing pixel-art images
 		                            # Not working with Sway, makes Waybar freeze
