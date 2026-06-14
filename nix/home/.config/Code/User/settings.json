@@ -16,6 +16,8 @@
         "ansi",
         "ascii",
         "blake",
+        "bytestring",
+        "bytestrings",
         "chokepoint",
         "chokepoints",
         "civilizational",
@@ -23,8 +25,11 @@
         "corvid",
         "cranequin",
         "featureful",
+        "flowy",
         "groundedness",
+        "incentivised",
         "Jellyfin",
+        "lightbulbs",
         "megastructures",
         "microbiota",
         "Northanger",
@@ -35,11 +40,15 @@
         "repairability",
         "succ",
         "superorganism",
+        "superweapon",
+        "superweapons",
+        "swordfights",
         "triaging",
         "typeclass",
         "typeclasses",
         "uncurried",
         "uncurry",
+        "unredeemably",
         "watchlist",
         "weaponization",
         "winchlass",
@@ -48,5 +57,8 @@
     ],
     "github.copilot.enable": {
         "haskell": false
-    }
+    },
+    "git.addAICoAuthor": "off",
+    "editor.tabCompletion": "on",
+    "chat.disableAIFeatures": true
 }
