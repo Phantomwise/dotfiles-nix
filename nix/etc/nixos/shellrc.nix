@@ -2,6 +2,11 @@
 
 {
 
+	environment.shells = with pkgs; [
+		nushell
+		zsh
+	];
+
 	environment.systemPackages = with pkgs; [
 		zsh-autocomplete
 		zsh-autosuggestions
