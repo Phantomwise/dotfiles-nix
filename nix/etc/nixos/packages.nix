@@ -84,7 +84,7 @@
 		iw                          # Tool to use nl80211
 		net-tools                   # Set of tools for controlling the network subsystem in Linux
 		nmap                        # Free and open source utility for network discovery and security auditing
-		protonvpn-gui               # Proton VPN GTK app for Linux
+		proton-vpn                  # Proton VPN GTK app for Linux
 		#  wget                     # Tool for retrieving files using HTTP, HTTPS, and FTP
 		wg-netmanager               # Wireguard network manager
 		wireguard-tools             # Tools for the WireGuard secure network tunnel
