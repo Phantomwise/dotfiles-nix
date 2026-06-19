@@ -31,6 +31,7 @@
 		wget                        # Tool for retrieving files using HTTP, HTTPS, and FTP
 		nvd                         # Nix/NixOS package version diff tool
 		font-manager                # Simple font management for GTK desktop environments
+		nushell                     # Modern shell written in Rust
 		p7zip                       # New p7zip fork with additional codecs and improvements (forked from https://sourceforge.net/projects/p7zip/)
 		unzip                       # Extraction utility for archives compressed in .zip format
 		vulkan-tools                # Khronos official Vulkan Tools and Utilities
