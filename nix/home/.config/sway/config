@@ -1,0 +1,234 @@
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░███████╗██╗░░░░██╗░█████╗░██╗░░░██╗███████╗██╗░░██╗░░░█║
+# █║░░░██╔════╝██║░░░░██║██╔══██╗╚██╗░██╔╝██╔════╝╚██╗██╔╝░░░█║
+# █║░░░███████╗██║░█╗░██║███████║░╚████╔╝░█████╗░░░╚███╔╝░░░░█║
+# █║░░░╚════██║██║███╗██║██╔══██║░░╚██╔╝░░██╔══╝░░░██╔██╗░░░░█║
+# █║░░░███████║╚███╔███╔╝██║░░██║░░░██║░░░██║░░░░░██╔╝░██╗░░░█║
+# █║░░░╚══════╝░╚══╝╚══╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░╚═╝░░╚═╝░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░ SwayFX configuration ░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ Ioke theme ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░ by Phantomwise ░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░ ~/.config/sway/config ░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░ IMPORT FILES ░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Import /etc config
+include /etc/sway/config.d/*
+
+# Import keybindings
+include ~/.config/sway/keybindings
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ VARIABLES ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ ENVIRONMENT ░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Environment variables
+# set $XDG_CURRENT_DESKTOP sway
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ VARIABLES ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░ COLOR ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Color variables
+    # Pure colors
+        set $rgb-black #000000
+        set $rgba-black #000000FF
+        set $rgb-white #FFFFFF
+        set $rgba-white #FFFFFFFF
+        # set $rgb-yellow-p = rgb(ffff00)
+        # set $rgb-red-p = rgb(ff0000)
+        # set $rgb-purple-p = rgb(ff00ff)
+        # set $rgb-blue-p = rgb(0000ff)
+        # set $rgb-cyan-p = rgb(00ffff)
+        # set $rgb-green-p = rgb(00ff00)
+        # set $rgb-xxx = rgb(0000ff)
+    # Other colors
+        set $rgb-blue #0080FF
+        set $rgba-blue #0080FFFF
+        # set $rgb-yellow-dk1 = rgb(ffaa00)
+        # set $rgb-yellow-dk2 = rgb(ee9400)
+        set $rgb-red #A10000
+        set $rgba-red #A10000FF
+        # set $rgb-pink = rgb(a00035)
+        # set $rgb-violet = rgb(8900ff)
+    # Theme colors
+        # set $rgb-light = rgb(004baa)
+        # set $rgb-dark = rgb(004baa)
+    # Transparent colors ()
+
+    # Color format : #RRGGBB or #RRGGBBAA
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ AUTOSTART ░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Polkit authentication agent
+exec /usr/lib/polkit-kde-authentication-agent-1
+
+# Check for updates
+exec ~/.local/bin/scripts/dunst/check-updates.sh
+
+# Synology Drive Client
+exec steam-run synology-drive
+# exec wrapper-synology-drive-client
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░ INPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input "type:keyboard" {
+    xkb_layout us,us,fr
+    xkb_variant ,colemak,
+    # xkb_variant ,colemak,
+    xkb_options grp:alt_space_toggle
+}
+
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+
+input type:touchpad {
+    # dwt enabled
+    # tap enabled
+    # natural_scroll enabled
+    # middle_emulation enabled
+}
+
+input "1133:49271:Logitech_USB_Optical_Mouse" {
+    # left_handed enabled
+}
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ OUTPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
+# output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░ WAYBAR ░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# exec 'waybar --config ~/.config/waybar/config-sway.jsonc'
+# exec 'killall waybar || waybar
+exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░ SWAY-BAR ░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+    # position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    # colors {
+        # statusline $rgb-white
+        # background $rgb-black
+        # focused_workspace $rgba-blue $rgba-black $rgba-blue
+        # active_workspace $rgba-blue $rgba-black $rgba-white
+        # inactive_workspace $rgba-black $rgba-black $rgba-white
+        # urgent_workspace $rgba-red $rgba-black $rgba-white
+    # }
+# }
+
+# Valid colors:
+    # statusline #ffffff
+    # background #323232
+    # inactive_workspace #32323200 #32323200 #5c5c5c
+
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░ IDLE ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# ████████████████████████████████████████████████████████████╗
+# █╔═════════════════════════════════════════════════════════█║
+# █║░░░░░░░░░░░░░░░░░░░░░░░░░░ END ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
+# ████████████████████████████████████████████████████████████║
+# ╚═══════════════════════════════════════════════════════════╝
+
+# Your preferred terminal emulator
+set $term kitty
+# Your preferred application launcher
+set $menu wmenu-run
+
+
+
+#
+# Utilities:
+#
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
