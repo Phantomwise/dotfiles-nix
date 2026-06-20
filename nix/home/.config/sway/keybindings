@@ -88,6 +88,13 @@ set $gamess rofi -modi games -show games -theme theme-games-phantomwise-small
 # Kill focused window
 bindsym $mod+Shift+q kill
 
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+bindsym $mod+Alt+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -95,12 +102,13 @@ bindsym $mod+Shift+q kill
 # mouse button for dragging.
 floating_modifier $mod normal
 
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-bindsym $mod+Alt+c reload
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# Mouse bindings
+# Mouse bindings operate on the container under the cursor instead of the container that has fo‐
+# cus. Mouse buttons can either be specified in the form button[1-9] or by using the name of the
+# event code (ex BTN_LEFT or BTN_RIGHT). For the former option, the buttons will  be  mapped  to
+# their  values  in  X11  (1=left, 2=middle, 3=right, 4=scroll up, 5=scroll down, 6=scroll left,
+# 7=scroll right, 8=back, 9=forward). For the latter option, you can find the event names  using
+# libinput debug-events.
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
@@ -109,38 +117,38 @@ bindsym $mod+Shift+m exec swaynag -t warning -m 'You pressed the exit shortcut. 
 	# ╚══════════════════════════════════════════════════════════════╝
 
 # Applications
-bindsym $mod+Return exec $term
-bindsym $mod+z exec $terminal
-bindsym Ctrl+Alt+z exec $terminal
-bindsym Ctrl+Alt+t exec $texteditor
-bindsym Ctrl+Alt+c exec $codeeditor
-bindsym Ctrl+Alt+f exec $filemanager
-bindsym Ctrl+Alt+l exec $webbrowser2
-bindsym Ctrl+Alt+o exec $office
-bindsym Ctrl+Alt+w exec $webbrowser1
-bindsym Ctrl+Alt+m exec $audioplayer
-bindsym Ctrl+Alt+v exec $videoplayer
+bindsym $mod+Return  exec $term
+bindsym $mod+z       exec $terminal
+bindsym Ctrl+Alt+z   exec $terminal
+bindsym Ctrl+Alt+t   exec $texteditor
+bindsym Ctrl+Alt+c   exec $codeeditor
+bindsym Ctrl+Alt+f   exec $filemanager
+bindsym Ctrl+Alt+l   exec $webbrowser2
+bindsym Ctrl+Alt+o   exec $office
+bindsym Ctrl+Alt+w   exec $webbrowser1
+bindsym Ctrl+Alt+m   exec $audioplayer
+bindsym Ctrl+Alt+v   exec $videoplayer
 
 # Start your sway-bar
 # bindsym $mod+d exec $menu
 
 # Start rofi
-bindsym $mod+r exec $runmenu
-bindsym $mod+x exec $drunmenu
-bindsym $mod+d exec $drunmenu
-bindsym $mod+b exec $filebrowsermenu
-bindsym $mod+s exec $sshmenu
-bindsym $mod+m exec $emoji
-bindsym $mod+c exec $calc
-bindsym $mod+g exec $gamess
+bindsym $mod+r       exec $runmenu
+bindsym $mod+x       exec $drunmenu
+bindsym $mod+d       exec $drunmenu
+bindsym $mod+b       exec $filebrowsermenu
+bindsym $mod+s       exec $sshmenu
+bindsym $mod+m       exec $emoji
+bindsym $mod+c       exec $calc
+bindsym $mod+g       exec $gamess
 bindsym $mod+Shift+g exec $gamesl
-# bindsym $mod+l exec $powermenu
-bindsym Alt+Tab exec $windowmenu
+# bindsym $mod+l     exec $powermenu
+bindsym Alt+Tab      exec $windowmenu
 
 # Start/kill waybar
 # bindsym $mod+Alt+w exec 'pkill waybar || waybar'
 # bindsym $mod+Alt+w exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
-bindsym $mod+Alt+w exec 'pkill waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+bindsym $mod+Alt+w   exec 'pkill waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
