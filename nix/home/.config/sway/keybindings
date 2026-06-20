@@ -326,7 +326,8 @@ bindsym $mod+Shift+F8              exec bash -c 'wpctl set-volume -l 2.0 @DEFAUL
 bindsym Shift+XF86AudioLowerVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
 bindsym $mod+Shift+F7              exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@ 0%; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
 
-# Add mute/unmute script
+# Mute/unmute microphone
+bindsym $mod+Shift+F5              exec bash -c 'wpctl set-mute -l 2.0 @DEFAULT_AUDIO_SOURCE@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
