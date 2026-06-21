@@ -9,6 +9,6 @@ nix-update:
 	@echo -e "\033[1;33mRebuilding\033[0m"
 	sudo nixos-rebuild switch --upgrade
 	@echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
-	home-manager switch
-	@echo -e "\033[1;32mUpdate complete\033[0m"
+	# home-manager switch
+	# @echo -e "\033[1;32mUpdate complete\033[0m"
 	nvd diff $$(ls -d /nix/var/nix/profiles/system-*-link | tail -2)
