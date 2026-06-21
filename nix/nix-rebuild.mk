@@ -6,7 +6,7 @@ NIXOS_CONFIG ?= /etc/nixos/configuration.nix
 nix-rebuild:
 	@echo -e "\033[1;33mRebuilding system configuration\033[0m"
 	sudo nixos-rebuild switch -I nixos-config=$(NIXOS_CONFIG)
-	@echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
+	# @echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
 	# home-manager switch
 	# @echo -e "\033[1;33mRefreshing font cache\033[0m"
 	fc-cache -fv
