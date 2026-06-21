@@ -1,14 +1,28 @@
 .PHONY: nix-rebuild-core nix-rebuild nix-rebuild-laptop nix-rebuild-desktop
 .PHONY: nix-update-core nix-update nix-update-laptop nix-update-desktop
 .PHONY: nix-post
+.PHONY: nix-rebuild-core-throttled nix-rebuild-laptop-throttled
+.PHONY: nix-update-core-throttled nix-update-laptop-throttled
 
 NIXOS_CONFIG ?= /etc/nixos/configuration.nix
+CPUQUOTA ?= 50%
 
 nix-rebuild-core:
 	@echo -e "\033[1;33mRebuilding system configuration\033[0m"
 	sudo nixos-rebuild switch -I nixos-config=$(NIXOS_CONFIG)
 	# @echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
 	# home-manager switch
+	# @echo -e "\033[1;32mRebuild complete\033[0m"
+
+nix-rebuild-core-throttled:
+	@echo -e "\033[1;33mRebuilding system configuration (throttled to $(CPUQUOTA))\033[0m"
+	sudo systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+		--description="throttled nixos-rebuild" \
+		sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 nixos-rebuild switch"
+	# @echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
+	# systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	# 	--description="throttled nixos-rebuild" \
+	# 	sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 home-manager switch
 	# @echo -e "\033[1;32mRebuild complete\033[0m"
 
 nix-update-core:
@@ -21,6 +35,20 @@ nix-update-core:
 	# home-manager switch --upgrade
 	# @echo -e "\033[1;32mUpdate complete\033[0m"
 
+nix-update-core-throttled:
+	@echo -e "\033[1;33mUpdating channels\033[0m"
+	nix-channel --update
+	sudo nix-channel --update
+	@echo -e "\033[1;33mUpgrading system configuration (throttled to $(CPUQUOTA))\033[0m"
+	sudo systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+		--description="throttled nixos update" \
+		sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 nixos-rebuild switch --upgrade"
+	# @echo -e "\033[1;33mRebuilding updated Home Manager configuration\033[0m"
+	# systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	# 	--description="throttled nixos-rebuild" \
+	# 	sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 home-manager switch
+	# @echo -e "\033[1;32mUpdate complete\033[0m"
+
 nix-post:
 	# @echo -e "\033[1;33mRefreshing font cache\033[0m"
 	fc-cache -fv
@@ -31,22 +59,30 @@ nix-rebuild:
 	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration.nix
 	$(MAKE) nix-post
 
+nix-rebuild-desktop:
+	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+	$(MAKE) nix-post
+
 nix-rebuild-laptop:
 	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
 	$(MAKE) nix-post
 
-nix-rebuild-desktop:
-	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+nix-rebuild-laptop-throttled:
+	$(MAKE) nix-rebuild-core-throttled NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
 	$(MAKE) nix-post
 
 nix-update:
 	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration.nix
 	$(MAKE) nix-post
 
+nix-update-desktop:
+	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+	$(MAKE) nix-post
+
 nix-update-laptop:
 	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
 	$(MAKE) nix-post
 
-nix-update-desktop:
-	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+nix-update-laptop-throttled:
+	$(MAKE) nix-update-core-throttled NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
 	$(MAKE) nix-post
