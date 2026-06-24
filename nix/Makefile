@@ -10,4 +10,5 @@ include nix-cleanup.mk
 include nix-info.mk
 include nix-rebuild.mk
 include rclone.mk
+include rclone-games.mk
 include stow.mk
