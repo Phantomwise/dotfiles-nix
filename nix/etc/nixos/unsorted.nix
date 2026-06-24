@@ -50,15 +50,6 @@
 	# Enable polkit
 	security.polkit.enable = true;
 
-	# Enable tlp for power management
-	services.tlp = {
-		enable = true;
-		settings = {
-				START_CHARGE_THRESH_BAT0 = 50;
-				STOP_CHARGE_THRESH_BAT0 = 80;
-		};
-	};
-
 	# Disable the algif_aead kernel module while waiting for a patched kernel (CVE-2026-31431 “Copy Fail”)
 	boot.blacklistedKernelModules = [ "algif_aead" ];
 	boot.extraModprobeConfig = ''
