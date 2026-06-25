@@ -59,6 +59,8 @@
 
 		### FILESYSTEMS ###
 		cifs-utils                  # Tools for managing Linux CIFS client filesystems
+		exfatprogs                  # exFAT filesystem userspace utilities
+		e2fsprogs                   # Tools for creating and checking ext2/ext3/ext4 filesystems
 		gvfs                        # Virtual Filesystem support library
 		gnome.gvfs                  # Virtual Filesystem support library (full GNOME support)
 		nfs-utils                   # Linux user-space NFS utilities
