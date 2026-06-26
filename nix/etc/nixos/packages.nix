@@ -65,6 +65,7 @@
 		gnome.gvfs                  # Virtual Filesystem support library (full GNOME support)
 		nfs-utils                   # Linux user-space NFS utilities
 		ntfs3g                      # FUSE-based NTFS driver with full write support
+		ntfsprogs                   # FUSE-based NTFS driver with full write support
 		samba                       # Standard Windows interoperability suite of programs for Linux and Unix
 
 		### MONITORING ###
