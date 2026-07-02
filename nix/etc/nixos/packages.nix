@@ -54,6 +54,7 @@
 
 		### LIBRARIES ###
 		libnotify                   # Library that sends desktop notifications to a notification daemon
+		libsecret                   # Library for storing and retrieving passwords and other secrets
 		libva-utils                 # Collection of utilities and examples for VA-API
 		libGLU                      # OpenGL utility library
 		mesa                        # Open source 3D graphics library
