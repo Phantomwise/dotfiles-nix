@@ -212,6 +212,7 @@
 		codeblocksFull              # Open source, cross platform, free C, C++ and Fortran IDE
 		clang-tools                 # Standalone command line tools for C++ development
 			### HASKELL ###
+		cabal-install               # The command-line interface for Cabal and Hackage
 		haskell-language-server     # LSP server for GHC
 		# ghc                       # Glasgow Haskell Compiler
 		(haskellPackages.ghcWithPackages (ps: with ps; [
