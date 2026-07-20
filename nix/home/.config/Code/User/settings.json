@@ -10,7 +10,7 @@
     "diffEditor.maxComputationTime": 0,
     "python.analysis.typeCheckingMode": "standard",
     "cSpell.language": "en,fr",
-    "haskell.manageHLS": "GHCup",
+    "haskell.manageHLS": "PATH",
     "cSpell.userWords": [
         "aeson",
         "ansi",
@@ -61,6 +61,6 @@
     },
     "git.addAICoAuthor": "off",
     "editor.tabCompletion": "on",
-    "editor.acceptSuggestionOnEnter": "off",
+    "chat.disableAIFeatures": true,
     "keyboard.dispatch": "keyCode"
 }
