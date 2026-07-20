@@ -10,7 +10,7 @@
     "diffEditor.maxComputationTime": 0,
     "python.analysis.typeCheckingMode": "standard",
     "cSpell.language": "en,fr",
-    "haskell.manageHLS": "PATH",
+    "haskell.manageHLS": "GHCup",
     "cSpell.userWords": [
         "aeson",
         "ansi",
@@ -56,9 +56,11 @@
         "zotero"
     ],
     "github.copilot.enable": {
-        "haskell": false
+        "haskell": false,
+        "*": false
     },
     "git.addAICoAuthor": "off",
     "editor.tabCompletion": "on",
-    "chat.disableAIFeatures": true
+    "editor.acceptSuggestionOnEnter": "off",
+    "keyboard.dispatch": "keyCode"
 }
