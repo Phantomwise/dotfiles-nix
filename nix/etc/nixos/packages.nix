@@ -37,6 +37,7 @@
 		vulkan-tools                # Khronos official Vulkan Tools and Utilities
 		protonup-rs                 # Rust app to install and update GE-Proton for Steam, and Wine-GE for Lutris
 		xdg-user-dirs               # Tool to help manage well known user directories like the desktop folder and the music folder
+		stoat-desktop               # Open source user-first chat platform
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
@@ -192,6 +193,7 @@
 		keepassxc                   # Offline password manager with many features
 		libreoffice                 # Comprehensive, professional-quality productivity suite, a variant of openoffice.org
 		qbittorrent                 # Featureful free software BitTorrent client
+		stoat-desktop               # Open source user-first chat platform
 		synology-drive-client       # Desktop application to synchronize files and folders between the computer and the Synology Drive server
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
