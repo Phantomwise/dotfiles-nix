@@ -317,20 +317,22 @@
 
 	### MISC ###
 
-	programs.firefox = {
-		enable = true;
-		languagePacks = [ "en-US" "fr" ];
-		policies = {
-			DisableFirefoxStudies           = true;
-			DisableTelemetry                = true;
-			DisplayMenuBar                  = "never";
-			DontCheckDefaultBrowser         = true;
-		};
-		preferences = {
-			# "browser.startup.homepage"    = "https://example.com";
-			"privacy.resistFingerprinting"  = true;
-		};
-	};
+	programs.firefox.enable = true;
+
+# 	programs.firefox = {
+# 		enable = true;
+# 		languagePacks = [ "en-US" "fr" ];
+# 		policies = {
+# 			DisableFirefoxStudies           = true;
+# 			DisableTelemetry                = true;
+# 			DisplayMenuBar                  = "never";
+# 			DontCheckDefaultBrowser         = true;
+# 		};
+# 		preferences = {
+# 			# "browser.startup.homepage"    = "https://example.com";
+# 			"privacy.resistFingerprinting"  = true;
+# 		};
+# 	};
 
 	services.gvfs.enable = true;
 }
