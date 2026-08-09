@@ -735,6 +735,18 @@
         category = sync.succeed
         default_icon = sync-error
 
+[override-mic.mute]
+        category = mic.mute
+        default_icon = mic-mute
+        word_wrap = false
+        # id = 109105099 (mic)
+
+[override-mic.unmute]
+        category = mic.unmute
+        default_icon = mic-unmute
+        word_wrap = false
+        # id = 109105099 (mic)
+
 [override-volume.change]
         category = volume.change
         default_icon = volume-medium
