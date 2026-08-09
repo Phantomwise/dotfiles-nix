@@ -6,6 +6,7 @@ import sys
 # AI Disclaimer: This script was generated with the assistance of an AI language model.
 
 # Always use this output template
+# OUTPUT_TEMPLATE = "%(title)s [%(extractor)s, [%(id)s] [%(format_id)s].%(ext)s"
 OUTPUT_TEMPLATE = "%(title)s [%(extractor)s, %(uploader_id,channel_id,uploader,channel)s] [%(id)s] [%(format_id)s].%(ext)s"
 
 def contains_user_output_option(args):
