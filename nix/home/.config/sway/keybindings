@@ -335,8 +335,8 @@ bindsym Shift+XF86AudioLowerVolume exec bash -c 'wpctl set-volume -l 2.0 @DEFAUL
 bindsym $mod+Shift+F6              exec bash -c 'wpctl set-volume -l 2.0 @DEFAULT_AUDIO_SINK@   0%;     bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
 
 # Mute/unmute microphone
-bindsym $mod+Shift+F5              exec bash -c 'wpctl set-mute -l 2.0   @DEFAULT_AUDIO_SOURCE@ toggle; bash $HOME/.local/bin/scripts/dunst/volume-change.sh'
-# TODO: Change dunst script and notification icon
+bindsym $mod+Shift+F5              exec bash -c 'wpctl set-mute          @DEFAULT_AUDIO_SOURCE@ toggle; bash $HOME/.local/bin/scripts/dunst/mic-mute.sh'
+
 
 	# ███████████████████████████████████████████████████████████████╗
 	# █╔════════════════════════════════════════════════════════════█║
