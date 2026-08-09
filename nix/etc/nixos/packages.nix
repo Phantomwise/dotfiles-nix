@@ -136,6 +136,7 @@
 		digikam                     # Photo management application
 		gimp3-with-plugins          # GNU Image Manipulation Program
 		imagemagick                 # Software suite to create, edit, compose, or convert bitmap images
+		inkscape                    # Vector graphics editor
 		ksnip                       # Cross-platform screenshot tool with many annotation features
 		libavif                     # C implementation of the AV1 Image File Format
 		libwebp                     # Tools and library for the WebP image format
