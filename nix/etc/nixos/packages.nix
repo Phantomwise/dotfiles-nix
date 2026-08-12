@@ -280,6 +280,8 @@
 					ocamllabs.ocaml-platform                       # Official OCaml Support from OCamlLabs
 					tamasfe.even-better-toml                       # — TOML language support
 					theangryepicbanana.language-pascal             # VSCode extension for high-quality Pascal highlighting
+					# bierner.github-markdown-preview                # VSCode extension that changes the markdown preview to support GitHub markdown features
+					# shd101wyy.markdown-preview-enhanced            # Provides a live preview of markdown using either markdown-it or pandoc
 					### OTHER ###
 					naumovs.color-highlight                        # Highlight web colors in your editor
 					ms-azuretools.vscode-docker                    # Docker Extension for Visual Studio Code
