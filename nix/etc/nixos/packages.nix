@@ -225,6 +225,7 @@
 			bytestring              # 
 			cassava                 # A CSV parsing and encoding library
 			Decimal                 # Decimal numbers with variable precision
+			haskellPackages.dhall   # A configuration language guaranteed to terminate
 			hoogle                  # Haskell API Search
 			random                  # Pseudo-random number generation
 			texts                   # None
