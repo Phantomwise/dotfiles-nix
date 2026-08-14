@@ -228,6 +228,7 @@
 			Decimal                 # Decimal numbers with variable precision
 			haskellPackages.dhall   # A configuration language guaranteed to terminate
 			hoogle                  # Haskell API Search
+			pretty-simple           # pretty printer for data types with a 'Show' instance
 			random                  # Pseudo-random number generation
 			texts                   # None
 			yaml                    # Support for parsing and rendering YAML documents
