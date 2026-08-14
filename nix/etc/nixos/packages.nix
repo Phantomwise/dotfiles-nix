@@ -133,6 +133,7 @@
 		vim                         # Most popular clone of the VI editor
 
 		### IMAGE ###
+		ascii-draw                  # Draw diagrams or anything using only ASCII
 		digikam                     # Photo management application
 		gimp3-with-plugins          # GNU Image Manipulation Program
 		imagemagick                 # Software suite to create, edit, compose, or convert bitmap images
