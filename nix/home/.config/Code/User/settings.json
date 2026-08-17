@@ -62,5 +62,6 @@
     "git.addAICoAuthor": "off",
     "editor.tabCompletion": "on",
     "chat.disableAIFeatures": true,
-    "keyboard.dispatch": "keyCode"
+    "keyboard.dispatch": "keyCode",
+    "git.promptToSaveFilesBeforeCommit": "never"
 }
