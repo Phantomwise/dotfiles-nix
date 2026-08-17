@@ -13,9 +13,10 @@ init(autoreset=True)
 
 # Description:
 #   Lists video files (movies/series) in a nested directory structure:
-#   <Category>/<Type>/<Style>/<Source>/<Movie Folder>
+#     Films / Films-Short: <Category>/<Type>/<Style>/<Source>/<Movie Folder>
+#     Series:               <Category>/<Completion>/<Type>/<Style>/<Source>/<Movie Folder>
 #   Outputs CSV file with Category, Type, Style, Source, and other info.
-#   Category can be only 'Films' or 'Series'.
+#   Category can be only 'Films', 'Films-Short' or 'Series'.
 #   Previously there was a 'Collection' layer; this script has been updated to remove it.
 #
 # Changes in this version:
@@ -29,6 +30,10 @@ init(autoreset=True)
 #       is intentionally not used; dimensions are the source of truth.
 # - Edition is optional and is treated as plain text (like title), not bracketed.
 # - Uploader in the {source, uploader} braces is optional.
+# - Series folders now have an extra "Completion" level right after Category:
+#     Series/<C|I|O>/<Type>/<Style>/<Source>/<Movie Folder>
+#   where C = Complete, I = Incomplete, O = Ongoing.
+#   Films and Films-Short are unaffected and keep the original 5-level layout.
 
 LOG_FILE = 'videos.log'
 
@@ -126,28 +131,21 @@ def setup_stdout_stderr_capture(path=LOG_FILE):
     atexit.register(restore)
 
 
+VALID_COMPLETION = {'C', 'I', 'O'}
+
+
 def split_video(path):
     """
-    Splits full video folder path:
-      <Category>/<Type>/<Style>/<Source>/<Movie Folder>
-    into:
-      - Category
-      - Type
-      - Style
-      - Source
-      - Title
-      - Year
-      - DBProv (database/provider)
-      - DBID (database id)
-      - Edition (may be empty)
-      - Languages
-      - Resolution
-      - HR (Horizontal Resolution)
-      - VR (Vertical Resolution)
-      - Src
-      - Uploader
+    Splits full video folder path into fields.
 
-    Expected new folder format:
+    Films / Films-Short (5 levels):
+      <Category>/<Type>/<Style>/<Source>/<Movie Folder>
+
+    Series (6 levels):
+      <Category>/<Completion>/<Type>/<Style>/<Source>/<Movie Folder>
+      where Completion is one of C (Complete), I (Incomplete), O (Ongoing).
+
+    Movie Folder expected format:
       Title (Year) [dbprov-db id] - Edition [lang] [1920x1080] {Source, Uploader}
 
     Notes:
@@ -157,10 +155,27 @@ def split_video(path):
     - Uploader in braces is optional
     """
     parts = path.split(os.path.sep)
-    if len(parts) < 5:
-        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Path '{Fore.BLUE}{path}{Style.RESET_ALL}' does not have enough levels (need at least 5)")
-        raise ValueError("Not enough levels")
-    category, vtype, style, source, remainder = parts[:5]
+    if len(parts) < 1:
+        print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Path '{Fore.BLUE}{path}{Style.RESET_ALL}' is empty")
+        raise ValueError("Empty path")
+
+    category = parts[0]
+
+    if category == 'Series':
+        if len(parts) < 6:
+            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Series path '{Fore.BLUE}{path}{Style.RESET_ALL}' does not have enough levels (need at least 6)")
+            raise ValueError("Not enough levels")
+        _, completion, vtype, style, source, remainder = parts[:6]
+        if completion not in VALID_COMPLETION:
+            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Unrecognized completion level '{Fore.MAGENTA}{completion}{Style.RESET_ALL}' in '{Fore.BLUE}{path}{Style.RESET_ALL}' (expected one of {sorted(VALID_COMPLETION)})")
+            raise ValueError("Unrecognized completion level")
+    else:
+        if len(parts) < 5:
+            print(f"{Fore.RED}ERROR:{Style.RESET_ALL} Path '{Fore.BLUE}{path}{Style.RESET_ALL}' does not have enough levels (need at least 5)")
+            raise ValueError("Not enough levels")
+        completion = ''
+        _, vtype, style, source, remainder = parts[:5]
+
     year_start = remainder.find('(')
     year_end = remainder.find(')')
     if year_start == -1 or year_end == -1 or year_end < year_start:
@@ -248,6 +263,7 @@ def split_video(path):
     uploader = details[1] if len(details) >= 2 else ''
     return {
         'Category': category,
+        'Completion': completion,
         'Type': vtype,
         'Style': style,
         'Source': source,
@@ -264,6 +280,40 @@ def split_video(path):
         'Uploader': uploader
     }
 
+
+def walk_type_style_source(base_path, *prefix_parts):
+    """Walk Type/Style/Source/MovieFolder under base_path, yielding full relative paths.
+
+    prefix_parts are the path components (as strings) that come before Type,
+    e.g. (category,) for Films or (category, completion) for Series.
+    """
+    rel_rows = []
+    for type_entry in os.scandir(base_path):
+        if not type_entry.is_dir():
+            continue
+        vtype = type_entry.name
+        type_path = type_entry.path
+        for style_entry in os.scandir(type_path):
+            if not style_entry.is_dir():
+                continue
+            style = style_entry.name
+            style_path = style_entry.path
+            for src_entry in os.scandir(style_path):
+                if not src_entry.is_dir():
+                    continue
+                source = src_entry.name
+                source_path = src_entry.path
+                moviefolders = [
+                    mf_entry.name for mf_entry in os.scandir(source_path)
+                    if mf_entry.is_dir()
+                ]
+                if not moviefolders:
+                    print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.CYAN}{source_path}{Style.RESET_ALL}' has no movie folders.")
+                for moviefolder in moviefolders:
+                    rel_rows.append(os.path.join(*prefix_parts, vtype, style, source, moviefolder))
+    return rel_rows
+
+
 def main():
     raw_csv = 'videos-raw.csv'
     formatted_csv = 'videos-formatted.csv'
@@ -276,34 +326,23 @@ def main():
                 print(f"{Fore.MAGENTA}DEBUG:{Style.RESET_ALL} Category '{Fore.CYAN}{category_path}{Style.RESET_ALL}' not found; skipping.")
                 continue
 
-            # TYPE
-            for type_entry in os.scandir(category_path):
-                if not type_entry.is_dir():
-                    continue
-                vtype = type_entry.name
-                type_path = type_entry.path
-                # STYLE
-                for style_entry in os.scandir(type_path):
-                    if not style_entry.is_dir():
+            if category == 'Series':
+                # Series has an extra Completion level (C/I/O) right after Category
+                for completion_entry in os.scandir(category_path):
+                    if not completion_entry.is_dir():
                         continue
-                    style = style_entry.name
-                    style_path = style_entry.path
-                    # SOURCE (no Collection level anymore)
-                    for src_entry in os.scandir(style_path):
-                        if not src_entry.is_dir():
-                            continue
-                        source = src_entry.name
-                        source_path = src_entry.path
-                        # MOVIEFOLDER
-                        moviefolders = [
-                            mf_entry.name for mf_entry in os.scandir(source_path)
-                            if mf_entry.is_dir()
-                        ]
-                        if not moviefolders:
-                            print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Source '{Fore.CYAN}{source_path}{Style.RESET_ALL}' has no movie folders.")
-                        for moviefolder in moviefolders:
-                            rel_path = os.path.join(category, vtype, style, source, moviefolder)
-                            raw_rows.append({'FullPath': rel_path})
+                    completion = completion_entry.name
+                    if completion not in VALID_COMPLETION:
+                        print(f"{Fore.YELLOW}WARNING:{Style.RESET_ALL} Unrecognized completion folder '{Fore.CYAN}{completion_entry.path}{Style.RESET_ALL}' (expected one of {sorted(VALID_COMPLETION)}); skipping.")
+                        continue
+                    completion_path = completion_entry.path
+                    rel_rows = walk_type_style_source(completion_path, category, completion)
+                    for rel_path in rel_rows:
+                        raw_rows.append({'FullPath': rel_path})
+            else:
+                rel_rows = walk_type_style_source(category_path, category)
+                for rel_path in rel_rows:
+                    raw_rows.append({'FullPath': rel_path})
 
         with open(raw_csv, 'w', newline='', encoding='utf-8') as rawfile:
             writer = csv.DictWriter(rawfile, fieldnames=['FullPath'])
@@ -323,7 +362,7 @@ def main():
                     continue
 
         fieldnames = [
-            'Category', 'Type', 'Style',
+            'Category', 'P', 'Type', 'Style',
             'Source', 'Title', 'Year', 'DBProv', 'DBID', 'Edition',
             'Languages', 'Resolution', 'HR', 'VR', 'Src', 'Uploader'
         ]
