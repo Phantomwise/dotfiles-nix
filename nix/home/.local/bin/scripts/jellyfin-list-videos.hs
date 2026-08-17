@@ -5,6 +5,7 @@
 -- ================================================================
 
 
+import Control.Monad (filterM)
 import System.Directory (listDirectory, doesDirectoryExist)
 
 import Text.Pretty.Simple (pPrint)
@@ -100,7 +101,9 @@ data SeriesStructure = SeriesStructure
 
 main :: IO ()
 main = do
-	ld <- listDirectory "."
+	la <- listDirectory "."
+	ld <- filterM doesDirectoryExist la
 	pPrint ld
+
 
 -- ================================================================
