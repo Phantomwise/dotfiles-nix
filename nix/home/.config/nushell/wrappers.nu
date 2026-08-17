@@ -9,7 +9,6 @@ export def list-env [] {
 	^env | lines | parse "{name}={value}"
 }
 
-
 export def list-path [] {
     $env.PATH
 }
