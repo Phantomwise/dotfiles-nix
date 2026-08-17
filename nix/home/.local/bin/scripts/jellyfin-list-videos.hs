@@ -25,12 +25,22 @@ data Completion = C | I | O | U
 	deriving (Eq, Show)
 
 
-data Type = Documentary | Fiction | Any
-	deriving (Eq, Show)
+data Type = Documentary | Fiction | AnyType
+	deriving (Eq)
+
+instance Show Type where
+	show Documentary = "Documentary"
+	show Fiction     = "Fiction"
+	show AnyType     = "Any"
 
 
-data Style = Animated | LA | Any
-	deriving (Eq, Show)
+data Style = Animated | LA | AnyStyle
+	deriving (Eq)
+
+instance Show Style where
+	show Animated = "Animated"
+	show LA       = "LA"
+	show AnyStyle = "Any"
 
 
 data Source = Rip | Network | Dailymotion | InternetArchive | YouTube
