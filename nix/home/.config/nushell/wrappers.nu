@@ -5,7 +5,7 @@
 # ╚══════════════════════════════════════════════════════════════╝
 
 
-export def env [] {
+export def list-env [] {
 	^env | lines | parse "{name}={value}"
 }
 
