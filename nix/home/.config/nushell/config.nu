@@ -20,27 +20,27 @@
 # Aliases
 
 	# Directories
-	alias ~ = cd ~
-	alias .. = cd ..
-	alias cdc = cd ~/Sync/dotfiles-nix/nix/
-	alias cdd = cd ~/Sync/dotfiles-nix/nix/
+	alias ~    = cd ~
+	alias ..   = cd ..
+	alias cdc  = cd ~/Sync/dotfiles-nix/nix/
+	alias cdd  = cd ~/Sync/dotfiles-nix/nix/
 	alias cddc = cd ~/Sync/Personal/home/Documents
 	alias cddl = cd ~/Sync/Personal/home/Download
-	alias cdg = cd ~/Sync/Personal/home/Git
-	alias cdm = cd /run/user/1000/gvfs/smb-share:server=192.168.0.10,share=media/
-	alias cdp = cd ~/Sync/Personal/home/Projects
-	alias cds = cd ~/Sync/
-	alias cdy = cd ~/Downloads/yt-dlp/
+	alias cdg  = cd ~/Sync/Personal/home/Git
+	alias cdm  = cd /run/user/1000/gvfs/smb-share:server=192.168.1.79,share=media/
+	alias cdp  = cd ~/Sync/Personal/home/Projects
+	alias cds  = cd ~/Sync/
+	alias cdy  = cd ~/Downloads/yt-dlp/
 
 	# Commands replacement
-	alias ll = ls -alh
-	alias core-grep = grep
-	alias grep = grep --color=auto
+	alias ll            = ls -alh
+	alias core-grep     = grep
+	alias grep          = grep --color=auto
 	alias core-clamscan = clamscan
-	alias clamscan = clamscan -r --log=/tmp/clamscan.txt
+	alias clamscan      = clamscan -r --log=/tmp/clamscan.txt
 	alias clamscan-full = clamscan -r --follow-dir-symlinks --follow-file-symlinks --log=/tmp/clamscan.txt
-	alias weather = curl wttr.in
-	alias nix-diff = bash -c 'nvd diff $(ls -d /nix/var/nix/profiles/system-*-link | tail -2)'
+	alias weather       = curl wttr.in
+	alias nix-diff      = bash -c 'nvd diff $(ls -d /nix/var/nix/profiles/system-*-link | tail -2)'
 
 	# Nix commands
 	alias hh = home-manager switch
