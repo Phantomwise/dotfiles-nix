@@ -35,7 +35,7 @@ outputFileRaw :: FilePath = "jellyfin-videos.txt"
 
 
 data Category = Films | FilmsShort | Series
-	deriving (Eq)
+	deriving (Eq, Bounded, Enum)
 
 instance Show Category where
 	show Films      = "Films"
@@ -112,7 +112,31 @@ main :: IO ()
 main = do
 	la <- listDirectory "."
 	ld <- filterM doesDirectoryExist la
+	putStrLn "pPrint ld"
 	pPrint ld
+	putStrLn ""
+
+	let cat = [minBound .. maxBound] :: [Category]
+	putStrLn "pPrint cat"
+	pPrint cat
+	putStrLn ""
+
+	lcat <- mapM listCategoryContent cat
+	putStrLn "pPrint lcat"
+	pPrint lcat
+	putStrLn ""
+
+
+listCategoryContent :: Category -> IO [FilePath]
+listCategoryContent c = do
+	let dir = show c
+	entries <- listDirectory dir
+	dirs <- filterM (doesDir1Exist dir) entries
+	return dirs
+
+
+doesDir1Exist :: FilePath -> FilePath -> IO Bool
+doesDir1Exist dir1 dir2 = doesDirectoryExist (dir1 ++ "/" ++ dir2)
 
 
 -- ================================================================
