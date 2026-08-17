@@ -30,7 +30,7 @@ outputFileRaw :: FilePath = "jellyfin-videos.txt"
 
 
 -- ================================================================
--- DATA TYPES
+-- DATA TYPES FOR PATH LEVELS
 -- ================================================================
 
 
@@ -77,7 +77,41 @@ instance Show Source where
 
 
 -- ================================================================
--- RECORDS
+-- SPECS FOR PATHS
+-- ================================================================
+
+
+data LevelSpec = LevelSpec
+	{ levelName    :: !String
+	, validEntries :: ![String]
+	}
+
+
+filmsPathSpec :: [LevelSpec]
+filmsPathSpec =
+	[ LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
+	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
+	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
+	]
+
+shortsPathSpec :: [LevelSpec]
+shortsPathSpec =
+	[ LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
+	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
+	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
+	]
+
+seriesPathSpec :: [LevelSpec]
+seriesPathSpec =
+	[ LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) }
+	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
+	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
+	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
+	]
+
+
+-- ================================================================
+-- RECORDS FOR ...
 -- ================================================================
 
 
@@ -101,7 +135,7 @@ data SeriesStructure = SeriesStructure
 	, seriesStyle      :: !Style
 	, seriesSource     :: !Source
 	}
-
+	
 
 -- ================================================================
 -- MAIN
