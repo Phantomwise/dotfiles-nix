@@ -45,3 +45,30 @@ instance Show Source where
 
 
 -- ================================================================
+-- RECORDS
+-- ================================================================
+
+
+data FilmsStructure = FilmsStructure
+	{ filmsType       :: !Type
+	, filmsStyle      :: !Style
+	, filmsSource     :: !Source
+	}
+	-- Add completion later, it has been added to the filesystem and the folders have been moved
+
+data FilmsShortStructure = FilmsShortStructure
+	{ shortsType       :: !Type
+	, shortsStyle      :: !Style
+	, shortsSource     :: !Source
+	}
+	-- Add completion later, it has been added to the filesystem and the folders have been moved
+
+data SeriesStructure = SeriesStructure
+	{ seriesCompletion :: !Completion
+	, seriesType       :: !Type
+	, seriesStyle      :: !Style
+	, seriesSource     :: !Source
+	}
+
+
+-- ================================================================
