@@ -200,6 +200,7 @@
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
+		sqlitebrowser               # DB Browser for SQLite
 
 		### PROGRAMMING ###
 		gdb                         # GNU Project debugger
