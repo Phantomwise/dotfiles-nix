@@ -17,6 +17,7 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+
 # Aliases
 
 	# Directories
@@ -49,3 +50,10 @@
 
 	# Other
 #	alias "path" = "echo $PATH | tr ':' '\n'" # NOTWORKING
+
+
+# Wrappers
+
+def env [] {
+	^env | lines | parse "{name}={value}"
+}
