@@ -33,9 +33,6 @@ export alias hh = home-manager switch
 # alias rebuild = sudo nixos-rebuild switch
 # alias update = sudo nixos-rebuild switch --upgrade
 
-# Others
-# alias "path" = "echo $PATH | tr ':' '\n'" # NOTWORKING
-
 
 # ███████████████████████████████████████████████████████████████╗
 # ╚══════════════════════════════════════════════════════════════╝
