@@ -44,11 +44,11 @@ instance Show Category where
 
 
 data Completion = C | I | O | U
-	deriving (Eq, Show)
+	deriving (Eq, Show, Bounded, Enum)
 
 
 data Type = Documentary | Fiction | AnyType
-	deriving (Eq)
+	deriving (Eq, Bounded, Enum)
 
 instance Show Type where
 	show Documentary = "Documentary"
@@ -57,7 +57,7 @@ instance Show Type where
 
 
 data Style = Animated | LA | AnyStyle
-	deriving (Eq)
+	deriving (Eq, Bounded, Enum)
 
 instance Show Style where
 	show Animated = "Animated"
@@ -66,7 +66,7 @@ instance Show Style where
 
 
 data Source = Rip | Network | Dailymotion | InternetArchive | YouTube
-	deriving (Eq)
+	deriving (Eq, Bounded, Enum)
 
 instance Show Source where
 	show Rip             = "Rip"
