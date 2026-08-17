@@ -7,6 +7,8 @@
 
 import System.Directory (listDirectory, doesDirectoryExist)
 
+import Text.Pretty.Simple (pPrint)
+
 
 -- ================================================================
 -- CONSTANTS
@@ -99,6 +101,6 @@ data SeriesStructure = SeriesStructure
 main :: IO ()
 main = do
 	ld <- listDirectory "."
-	print ld
+	pPrint ld
 
 -- ================================================================
