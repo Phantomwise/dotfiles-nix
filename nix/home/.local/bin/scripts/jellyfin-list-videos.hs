@@ -16,6 +16,7 @@
 
 import Control.Monad (filterM)
 import System.Directory (listDirectory, doesDirectoryExist)
+import System.FilePath ((</>))
 
 import Text.Pretty.Simple (pPrint)
 
@@ -135,7 +136,7 @@ data SeriesStructure = SeriesStructure
 	, seriesStyle      :: !Style
 	, seriesSource     :: !Source
 	}
-	
+
 
 -- ================================================================
 -- MAIN
