@@ -171,7 +171,7 @@ listCategoryContent c = do
 
 
 doesDir1Exist :: FilePath -> FilePath -> IO Bool
-doesDir1Exist dir1 dir2 = doesDirectoryExist (dir1 ++ "/" ++ dir2)
+doesDir1Exist dir1 dir2 = doesDirectoryExist (dir1 </> dir2)
 
 
 -- ================================================================
