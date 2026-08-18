@@ -111,6 +111,7 @@ input "type:keyboard" {
     xkb_variant ,colemak,
     # xkb_variant ,colemak,
     xkb_options grp:alt_space_toggle
+    xkb_numlock enabled
 }
 
 # Example configuration:
