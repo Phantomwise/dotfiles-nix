@@ -15,7 +15,9 @@ export alias cddl = cd ~/Sync/Personal/home/Download
 export alias cdg  = cd ~/Sync/Personal/home/Git
 export alias cdm  = cd /run/user/1000/gvfs/smb-share:server=192.168.1.79,share=media/
 export alias cdp  = cd ~/Sync/Personal/home/Projects
+export alias cdpi  = cd ~/Sync/Personal/home/Pictures
 export alias cds  = cd ~/Sync/
+export alias cdv  = cd ~/Sync/Personal/home/Videos
 export alias cdy  = cd ~/Downloads/yt-dlp/
 
 # Commands replacement
