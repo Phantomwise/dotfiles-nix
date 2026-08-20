@@ -13,6 +13,11 @@ export def list-path [] {
     $env.PATH
 }
 
+export def --wrapped mkvpropedit-loop [...rest] {
+    for f in (ls *.mkv | get name) {
+        mkvpropedit $f ...$rest
+    }
+}
 
 # ███████████████████████████████████████████████████████████████╗
 # ╚══════════════════════════════════════════════════════════════╝
