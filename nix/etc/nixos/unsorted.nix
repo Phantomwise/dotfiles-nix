@@ -101,4 +101,8 @@
 	# Enable the OpenSSH daemon.
 	# services.openssh.enable = true;
 
+	# Start the SSH agent automatically
+	programs.ssh.startAgent = true;
+	# TODO: Test if ssh-add works without `eval $(ssh-agent)`. If not, test if `export SSH_AUTH_SOCK=/run/user/1000/ssh-agent` fixes it.
+
 }
