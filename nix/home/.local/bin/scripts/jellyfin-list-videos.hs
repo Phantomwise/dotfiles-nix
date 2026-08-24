@@ -145,8 +145,8 @@ data SeriesStructure = SeriesStructure
 
 main :: IO ()
 main = do
-	la <- listDirectory "."
-	ld <- filterM doesDirectoryExist la
+	la <- listDirectory "." -- Lists all files in the current working directory
+	ld <- filterM doesDirectoryExist la -- Filter for directories
 	putStrLn "pPrint ld"
 	pPrint ld
 	putStrLn ""
