@@ -78,6 +78,18 @@ instance Show Source where
 
 
 -- ================================================================
+-- SPECS FOR CATEGORIES
+-- ================================================================
+
+
+-- Match each Category to its LevelSpec record
+categorySpec :: Category -> [LevelSpec]
+categorySpec Films      = filmsPathSpec
+categorySpec FilmsShort = shortsPathSpec
+categorySpec Series     = seriesPathSpec
+
+
+-- ================================================================
 -- SPECS FOR PATHS
 -- ================================================================
 
