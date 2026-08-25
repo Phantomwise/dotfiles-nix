@@ -201,6 +201,7 @@
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
 		sqlitebrowser               # DB Browser for SQLite
+		visidata                    # Interactive terminal multitool for tabular data
 
 		### PROGRAMMING ###
 		gdb                         # GNU Project debugger
