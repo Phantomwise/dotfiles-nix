@@ -26,8 +26,8 @@ import Text.Pretty.Simple (pPrint)
 -- ================================================================
 
 
-outputFileCSV :: FilePath = "jellyfin-videos.csv"
-outputFileRaw :: FilePath = "jellyfin-videos.txt"
+outputFileCSV :: FilePath = "jellyfin-videos.csv" -- NB: Not yet in use
+outputFileRaw :: FilePath = "jellyfin-videos.txt" -- NB: Not yet in use
 
 
 -- ================================================================
@@ -86,6 +86,7 @@ data LevelSpec = LevelSpec
 	{ levelName    :: !String
 	, validEntries :: ![String]
 	}
+	-- NB: Not yet in use
 
 
 filmsPathSpec :: [LevelSpec]
@@ -94,6 +95,7 @@ filmsPathSpec =
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
 	]
+	-- NB: Not yet in use
 
 shortsPathSpec :: [LevelSpec]
 shortsPathSpec =
@@ -101,6 +103,7 @@ shortsPathSpec =
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
 	]
+	-- NB: Not yet in use
 
 seriesPathSpec :: [LevelSpec]
 seriesPathSpec =
@@ -109,6 +112,7 @@ seriesPathSpec =
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
 	]
+	-- NB: Not yet in use
 
 
 -- ================================================================
@@ -122,6 +126,7 @@ data FilmsStructure = FilmsStructure
 	, filmsSource     :: !Source
 	}
 	-- Add completion later, it has been added to the filesystem and the folders have been moved
+	-- NB: Not yet in use
 
 data FilmsShortStructure = FilmsShortStructure
 	{ shortsType       :: !Type
@@ -129,6 +134,7 @@ data FilmsShortStructure = FilmsShortStructure
 	, shortsSource     :: !Source
 	}
 	-- Add completion later, it has been added to the filesystem and the folders have been moved
+	-- NB: Not yet in use
 
 data SeriesStructure = SeriesStructure
 	{ seriesCompletion :: !Completion
@@ -136,6 +142,7 @@ data SeriesStructure = SeriesStructure
 	, seriesStyle      :: !Style
 	, seriesSource     :: !Source
 	}
+	-- NB: Not yet in use
 
 
 -- ================================================================
