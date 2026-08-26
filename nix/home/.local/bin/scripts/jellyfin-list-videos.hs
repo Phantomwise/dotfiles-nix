@@ -162,6 +162,66 @@ data SeriesStructure = SeriesStructure
 
 
 -- ================================================================
+-- CATEGORIES SCANNER
+-- ================================================================
+
+
+scanCategory :: [LevelSpec] -> IO [FilePath]
+scanCategory sps = do
+	putStrLn "scanCategory : pPrint : sps"
+	pPrint sps
+	putStrLn ""
+	putStrLn ""
+	putStrLn "scanCategory : call `buildPaths sps`"
+	putStrLn ""
+	paths <- buildPaths [""] sps -- Doesn't work with an empty list, needs a list with one empty String
+	putStrLn "scanCategory : pPrint : paths = buildPaths sps"
+	pPrint paths
+	putStrLn ""
+	return paths
+
+
+-- ================================================================
+-- PATH BUILDERS
+-- ================================================================
+
+
+buildPaths :: [FilePath] -> [LevelSpec] -> IO [FilePath]
+buildPaths arg [] = do
+	putStrLn "buildPaths []"
+	putStrLn ""
+	return arg
+buildPaths arg (sp:rest) = do
+	putStrLn "buildPaths (sp:rest) : pPrint : arg"
+	pPrint arg
+	putStrLn ""
+	putStrLn "buildPaths (sp:rest) : pPrint : sp"
+	pPrint sp
+	putStrLn ""
+	putStrLn "buildPaths (sp:rest) : pPrint : validEntries sp"
+	pPrint (validEntries sp)
+	putStrLn ""
+	putStrLn "buildPaths (sp:rest) : pPrint : rest"
+	pPrint rest
+	putStrLn ""
+	putStrLn "buildPaths (sp:rest) : calling `buildPaths rest`"
+	putStrLn ""
+	let result = recursePaths arg (validEntries sp)
+	putStrLn "buildPaths (sp:rest) : pPrint : recursePaths arg (validEntries sp)"
+	pPrint result
+	putStrLn ""
+	resultRest <- buildPaths result rest
+	putStrLn "buildPaths (sp:rest) : pPrint : buildPaths result rest"
+	pPrint resultRest
+	putStrLn ""
+	return resultRest
+
+
+recursePaths :: [FilePath] -> [String] -> [FilePath]
+recursePaths prev new = [ x </> y | x <- prev, y <- new ]
+
+
+-- ================================================================
 -- MAIN
 -- ================================================================
 
@@ -183,6 +243,15 @@ main = do
 	putStrLn "main : pPrint : lcat"
 	pPrint lcat
 	putStrLn ""
+
+	putStrLn "main : calling `scanCategory filmsPathSpec`"
+	putStrLn ""
+	result <- scanCategory filmsPathSpec
+	putStrLn "main : pPrint : result <- scanCategory filmsPathSpec"
+	pPrint result
+	putStrLn ""
+
+	return ()
 	
 
 listCategoryContent :: Category -> IO [FilePath]
