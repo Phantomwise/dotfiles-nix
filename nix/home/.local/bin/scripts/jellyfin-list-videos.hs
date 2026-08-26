@@ -44,7 +44,7 @@ instance Show Category where
 	show Series     = "Series"
 
 
-data Completion = C | I | O | U
+data Progress = C | I | O | U
 	deriving (Eq, Show, Bounded, Enum)
 
 
@@ -105,7 +105,7 @@ data LevelSpec = LevelSpec
 filmsPathSpec :: [LevelSpec]
 filmsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show Films] }
-	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) } -- TODO: Add Completion folder to the filesystem
+	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -115,7 +115,7 @@ filmsPathSpec =
 shortsPathSpec :: [LevelSpec]
 shortsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show FilmsShort] }
-	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) } -- TODO: Add Completion folder to the filesystem
+	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -125,7 +125,7 @@ shortsPathSpec =
 seriesPathSpec :: [LevelSpec]
 seriesPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show Series] }
-	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) }
+	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) }
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -155,7 +155,7 @@ data FilmsShortStructure = FilmsShortStructure
 	-- NB: Not yet in use
 
 data SeriesStructure = SeriesStructure
-	{ seriesCompletion :: !Completion
+	{ seriesProgress :: !Progress
 	, seriesType       :: !Type
 	, seriesStyle      :: !Style
 	, seriesSource     :: !Source
