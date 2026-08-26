@@ -105,6 +105,7 @@ data LevelSpec = LevelSpec
 filmsPathSpec :: [LevelSpec]
 filmsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show Films] }
+	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) } -- TODO: Add Completion folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -114,6 +115,7 @@ filmsPathSpec =
 shortsPathSpec :: [LevelSpec]
 shortsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show FilmsShort] }
+	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) } -- TODO: Add Completion folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -174,7 +176,7 @@ scanCategory sps = do
 	putStrLn ""
 	putStrLn "scanCategory : call `buildPaths sps`"
 	putStrLn ""
-	paths <- buildPaths [""] sps -- Doesn't work with an empty list, needs a list with one empty String
+	paths <- buildPaths [""] sps -- TODO: Find out why it doesn't work with an empty list and needs a list with one empty String instead
 	putStrLn "scanCategory : pPrint : paths = buildPaths sps"
 	pPrint paths
 	putStrLn ""
