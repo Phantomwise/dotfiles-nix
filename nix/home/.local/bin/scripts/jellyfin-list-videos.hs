@@ -176,7 +176,7 @@ scanCategory sps = do
 	putStrLn ""
 	putStrLn "scanCategory : call `buildPaths sps`"
 	putStrLn ""
-	paths <- buildPaths [""] sps -- TODO: Find out why it doesn't work with an empty list and needs a list with one empty String instead
+	let paths = buildPaths [""] sps -- TODO: Find out why it doesn't work with an empty list and needs a list with one empty String instead
 	putStrLn "scanCategory : pPrint : paths = buildPaths sps"
 	pPrint paths
 	putStrLn ""
@@ -188,35 +188,12 @@ scanCategory sps = do
 -- ================================================================
 
 
-buildPaths :: [FilePath] -> [LevelSpec] -> IO [FilePath]
-buildPaths arg [] = do
-	putStrLn "buildPaths []"
-	putStrLn ""
-	return arg
-buildPaths arg (sp:rest) = do
-	putStrLn "buildPaths (sp:rest) : pPrint : arg"
-	pPrint arg
-	putStrLn ""
-	putStrLn "buildPaths (sp:rest) : pPrint : sp"
-	pPrint sp
-	putStrLn ""
-	putStrLn "buildPaths (sp:rest) : pPrint : validEntries sp"
-	pPrint (validEntries sp)
-	putStrLn ""
-	putStrLn "buildPaths (sp:rest) : pPrint : rest"
-	pPrint rest
-	putStrLn ""
-	putStrLn "buildPaths (sp:rest) : calling `buildPaths rest`"
-	putStrLn ""
-	let result = recursePaths arg (validEntries sp)
-	putStrLn "buildPaths (sp:rest) : pPrint : recursePaths arg (validEntries sp)"
-	pPrint result
-	putStrLn ""
-	resultRest <- buildPaths result rest
-	putStrLn "buildPaths (sp:rest) : pPrint : buildPaths result rest"
-	pPrint resultRest
-	putStrLn ""
-	return resultRest
+buildPaths :: [FilePath] -> [LevelSpec] -> [FilePath]
+buildPaths arg [] = arg
+buildPaths arg (sp:rest) =
+	let result     = recursePaths arg (validEntries sp)
+	    resultRest = buildPaths result rest
+	in resultRest
 
 
 recursePaths :: [FilePath] -> [String] -> [FilePath]
