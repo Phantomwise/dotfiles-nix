@@ -103,7 +103,8 @@ data LevelSpec = LevelSpec
 
 filmsPathSpec :: [LevelSpec]
 filmsPathSpec =
-	[ LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
+	[ LevelSpec { levelName = "Category",   validEntries = [show Films] }
+	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
 	]
@@ -111,7 +112,8 @@ filmsPathSpec =
 
 shortsPathSpec :: [LevelSpec]
 shortsPathSpec =
-	[ LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
+	[ LevelSpec { levelName = "Category",   validEntries = [show FilmsShort] }
+	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
 	]
@@ -119,7 +121,8 @@ shortsPathSpec =
 
 seriesPathSpec :: [LevelSpec]
 seriesPathSpec =
-	[ LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) }
+	[ LevelSpec { levelName = "Category",   validEntries = [show Series] }
+	, LevelSpec { levelName = "Completion", validEntries = map show ([minBound .. maxBound] :: [Completion]) }
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -179,7 +182,7 @@ main = do
 	putStrLn "pPrint lcat"
 	pPrint lcat
 	putStrLn ""
-
+	
 
 listCategoryContent :: Category -> IO [FilePath]
 listCategoryContent c = do
