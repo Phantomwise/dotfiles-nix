@@ -105,7 +105,7 @@ data LevelSpec = LevelSpec
 filmsPathSpec :: [LevelSpec]
 filmsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show Films] }
-	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
+	, LevelSpec { levelName = "Progress",   validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -115,7 +115,7 @@ filmsPathSpec =
 shortsPathSpec :: [LevelSpec]
 shortsPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show FilmsShort] }
-	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
+	, LevelSpec { levelName = "Progress",   validEntries = map show ([minBound .. maxBound] :: [Progress]) } -- TODO: Add Progress folder to the filesystem
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
@@ -125,7 +125,7 @@ shortsPathSpec =
 seriesPathSpec :: [LevelSpec]
 seriesPathSpec =
 	[ LevelSpec { levelName = "Category",   validEntries = [show Series] }
-	, LevelSpec { levelName = "Progress", validEntries = map show ([minBound .. maxBound] :: [Progress]) }
+	, LevelSpec { levelName = "Progress",   validEntries = map show ([minBound .. maxBound] :: [Progress]) }
 	, LevelSpec { levelName = "Type",       validEntries = map show ([minBound .. maxBound] :: [Type]) }
 	, LevelSpec { levelName = "Style",      validEntries = map show ([minBound .. maxBound] :: [Style]) }
 	, LevelSpec { levelName = "Source",     validEntries = map show ([minBound .. maxBound] :: [Source]) }
