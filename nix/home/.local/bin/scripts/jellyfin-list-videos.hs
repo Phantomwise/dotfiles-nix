@@ -170,17 +170,17 @@ main :: IO ()
 main = do
 	la <- listDirectory "." -- Lists all files in the current working directory
 	ld <- filterM doesDirectoryExist la -- Filter for directories
-	putStrLn "pPrint ld"
+	putStrLn "main : pPrint : ld"
 	pPrint ld
 	putStrLn ""
 
 	let cat = [minBound .. maxBound] :: [Category]
-	putStrLn "pPrint cat"
+	putStrLn "main : pPrint : cat"
 	pPrint cat
 	putStrLn ""
 
 	lcat <- mapM listCategoryContent cat
-	putStrLn "pPrint lcat"
+	putStrLn "main : pPrint : lcat"
 	pPrint lcat
 	putStrLn ""
 	
