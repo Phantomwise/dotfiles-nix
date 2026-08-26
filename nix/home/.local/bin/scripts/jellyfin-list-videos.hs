@@ -191,13 +191,13 @@ scanCategory sps = do
 buildPaths :: [FilePath] -> [LevelSpec] -> [FilePath]
 buildPaths arg [] = arg
 buildPaths arg (sp:rest) =
-	let result     = recursePaths arg (validEntries sp)
-	    resultRest = buildPaths result rest
+	let result     = recursePaths arg (validEntries sp) -- Join the path produced by the previous step (initially empty) with the validEntries for the current step (head of the list)
+	    resultRest = buildPaths result rest             -- Call itself with the previous step + rest as arguments
 	in resultRest
 
 
 recursePaths :: [FilePath] -> [String] -> [FilePath]
-recursePaths prev new = [ x </> y | x <- prev, y <- new ]
+recursePaths prev new = [ x </> y | x <- prev, y <- new ] -- Take two lists and get all the concatenation variations with </> joining them
 
 
 -- ================================================================
