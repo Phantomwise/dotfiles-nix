@@ -98,6 +98,7 @@ data LevelSpec = LevelSpec
 	{ levelName    :: !String
 	, validEntries :: ![String]
 	}
+	deriving Show
 	-- NB: Not yet in use
 
 
@@ -197,3 +198,4 @@ doesDir1Exist dir1 dir2 = doesDirectoryExist (dir1 </> dir2)
 
 
 -- ================================================================
+
