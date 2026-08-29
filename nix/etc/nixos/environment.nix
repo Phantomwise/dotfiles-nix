@@ -11,7 +11,7 @@
 			"$HOME/.local/bin/scripts"
 			"$HOME/.local/bin/scripts/dunst"
 			"$HOME/Scripts"
-			"$PATH" # Doesn't actually preserve the existing PATH because it does't get expanded. Doesn't seem to be doing any harm though I guess that's fine. Leaving it as a reminder to one day getting around to finding a better solution.
+			# "$PATH" # Doesn't actually preserve the existing PATH because it does't get expanded. Doesn't seem to be doing any harm though I guess that's fine. Leaving it as a reminder to one day getting around to finding a better solution.
 		];
 		# Alternatives:
 			# Shell config: Won't do, needs to work for all shells.
