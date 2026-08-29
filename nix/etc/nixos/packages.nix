@@ -38,6 +38,7 @@
 		protonup-rs                 # Rust app to install and update GE-Proton for Steam, and Wine-GE for Lutris
 		xdg-user-dirs               # Tool to help manage well known user directories like the desktop folder and the music folder
 		stoat-desktop               # Open source user-first chat platform
+		pciutils                    # Collection of programs for inspecting and manipulating configuration of PCI devices
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
