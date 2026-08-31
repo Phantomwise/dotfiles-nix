@@ -9,18 +9,18 @@ CPUQUOTA ?= 50%
 
 nix-rebuild-core:
 	@echo -e "\033[1;33mRebuilding system configuration\033[0m"
-	sudo nixos-rebuild switch -I nixos-config=$(NIXOS_CONFIG)
+	sudo nixos-rebuild switch -I nixos-config=${NIXOS_CONFIG}
 	# @echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
 	# home-manager switch
 	# @echo -e "\033[1;32mRebuild complete\033[0m"
 
 nix-rebuild-core-throttled:
-	@echo -e "\033[1;33mRebuilding system configuration (throttled to $(CPUQUOTA))\033[0m"
-	sudo systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	@echo -e "\033[1;33mRebuilding system configuration (throttled to ${CPUQUOTA})\033[0m"
+	sudo systemd-run --scope -p CPUQuota="${CPUQUOTA}" \
 		--description="throttled nixos-rebuild" \
 		sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 nixos-rebuild switch"
 	# @echo -e "\033[1;33mRebuilding Home Manager configuration\033[0m"
-	# systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	# systemd-run --scope -p CPUQuota="${CPUQUOTA}" \
 	# 	--description="throttled nixos-rebuild" \
 	# 	sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 home-manager switch
 	# @echo -e "\033[1;32mRebuild complete\033[0m"
@@ -30,7 +30,7 @@ nix-update-core:
 	nix-channel --update
 	sudo nix-channel --update
 	@echo -e "\033[1;33mRebuilding updated system configuration\033[0m"
-	sudo nixos-rebuild switch --upgrade -I nixos-config=$(NIXOS_CONFIG)
+	sudo nixos-rebuild switch --upgrade -I nixos-config=${NIXOS_CONFIG}
 	# @echo -e "\033[1;33mRebuilding updated Home Manager configuration\033[0m"
 	# home-manager switch --upgrade
 	# @echo -e "\033[1;32mUpdate complete\033[0m"
@@ -39,12 +39,12 @@ nix-update-core-throttled:
 	@echo -e "\033[1;33mUpdating channels\033[0m"
 	nix-channel --update
 	sudo nix-channel --update
-	@echo -e "\033[1;33mUpgrading system configuration (throttled to $(CPUQUOTA))\033[0m"
-	sudo systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	@echo -e "\033[1;33mUpgrading system configuration (throttled to ${CPUQUOTA})\033[0m"
+	sudo systemd-run --scope -p CPUQuota="${CPUQUOTA}" \
 		--description="throttled nixos update" \
 		sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 nixos-rebuild switch --upgrade"
 	# @echo -e "\033[1;33mRebuilding updated Home Manager configuration\033[0m"
-	# systemd-run --scope -p CPUQuota="$(CPUQUOTA)" \
+	# systemd-run --scope -p CPUQuota="${CPUQUOTA}" \
 	# 	--description="throttled nixos-rebuild" \
 	# 	sh -c "NINJAFLAGS='-j1' MAKEFLAGS='-j1' CARGO_BUILD_JOBS=1 home-manager switch
 	# @echo -e "\033[1;32mUpdate complete\033[0m"
