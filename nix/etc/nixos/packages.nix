@@ -236,6 +236,7 @@
 			random                  # Pseudo-random number generation
 			texts                   # None
 			yaml                    # Support for parsing and rendering YAML documents
+			pandoc                  # Conversion between markup formats
 		]))
 			### JAVASCRIPT ###
 		# deno                        # Secure runtime for JavaScript and TypeScript
