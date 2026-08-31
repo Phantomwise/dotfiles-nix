@@ -63,5 +63,6 @@
     "editor.tabCompletion": "on",
     "chat.disableAIFeatures": true,
     "keyboard.dispatch": "keyCode",
-    "git.promptToSaveFilesBeforeCommit": "never"
+    "git.promptToSaveFilesBeforeCommit": "never",
+    "haskell.trace.server": "verbose"
 }
