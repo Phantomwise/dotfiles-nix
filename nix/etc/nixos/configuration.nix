@@ -13,7 +13,7 @@
 			# ./home-manager.nix                    # Home manager config —deactivated, trying a user install instead
 			./locale.nix                            # Locale settings
 			# ./mounts-nfs.nix                        # NFS Mounts configuration
-			# ./mounts-cifs.nix                     # CIFS Mounts configuration
+			./mounts-cifs.nix                       # CIFS Mounts configuration
 			./networking.nix                        # Networking config
 			./packages.nix                          # Packages declarations
 			./packages-flatpak.nix                  # Flatpak packages
