@@ -4,8 +4,15 @@
 .PHONY: nix-rebuild-core-throttled nix-rebuild-laptop-throttled
 .PHONY: nix-update-core-throttled nix-update-laptop-throttled
 
-NIXOS_CONFIG ?= /etc/nixos/configuration.nix
-CPUQUOTA ?= 50%
+
+CONFIG_DEFAULT  = /etc/nixos/configuration.nix
+CONFIG_DESKTOP  = /etc/nixos/configuration-desktop.nix
+CONFIG_LAPTOP   = /etc/nixos/configuration-laptop.nix
+
+NIXOS_CONFIG   ?= ${CONFIG_DEFAULT}
+
+CPUQUOTA       ?= 50%
+
 
 nix-rebuild-core:
 	@echo -e "\033[1;33mRebuilding system configuration\033[0m"
@@ -56,33 +63,33 @@ nix-post:
 	nvd diff $$(ls -d /nix/var/nix/profiles/system-*-link | tail -2)
 
 nix-rebuild:
-	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration.nix
+	$(MAKE) nix-rebuild-core NIXOS_CONFIG=${CONFIG_DEFAULT}
 	$(MAKE) nix-post
 
 nix-rebuild-desktop:
-	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+	$(MAKE) nix-rebuild-core NIXOS_CONFIG=${CONFIG_DESKTOP}
 	$(MAKE) nix-post
 
 nix-rebuild-laptop:
-	$(MAKE) nix-rebuild-core NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
+	$(MAKE) nix-rebuild-core NIXOS_CONFIG=${CONFIG_LAPTOP}
 	$(MAKE) nix-post
 
 nix-rebuild-laptop-throttled:
-	$(MAKE) nix-rebuild-core-throttled NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
+	$(MAKE) nix-rebuild-core-throttled NIXOS_CONFIG=${CONFIG_LAPTOP}
 	$(MAKE) nix-post
 
 nix-update:
-	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration.nix
+	$(MAKE) nix-update-core NIXOS_CONFIG=${CONFIG_DEFAULT}
 	$(MAKE) nix-post
 
 nix-update-desktop:
-	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration-desktop.nix
+	$(MAKE) nix-update-core NIXOS_CONFIG=${CONFIG_DESKTOP}
 	$(MAKE) nix-post
 
 nix-update-laptop:
-	$(MAKE) nix-update-core NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
+	$(MAKE) nix-update-core NIXOS_CONFIG=${CONFIG_LAPTOP}
 	$(MAKE) nix-post
 
 nix-update-laptop-throttled:
-	$(MAKE) nix-update-core-throttled NIXOS_CONFIG=/etc/nixos/configuration-laptop.nix
+	$(MAKE) nix-update-core-throttled NIXOS_CONFIG=${CONFIG_LAPTOP}
 	$(MAKE) nix-post
