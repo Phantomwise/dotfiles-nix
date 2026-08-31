@@ -8,7 +8,7 @@
 	imports =
 		[
 			./configuration.nix                     # Common configuration
-			./packages-desktop.nix                  # Packages declarations
+			./packages/packages-desktop.nix         # Packages declarations
 		];
 
 }

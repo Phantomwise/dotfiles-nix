@@ -15,11 +15,11 @@
 			# ./mounts-nfs.nix                        # NFS Mounts configuration
 			./mounts-cifs.nix                       # CIFS Mounts configuration
 			./networking.nix                        # Networking config
-			./packages.nix                          # Packages declarations
-			./packages-dev.nix                      # Dev packages
-			./packages-flatpak.nix                  # Flatpak packages
-			./packages-games.nix                    # Packages declarations for games
-			./packages-unstable.nix                 # Packages from the unstable repo
+			./packages/common/packages-common-base.nix      # Packages declarations
+			./packages/common/packages-common-dev.nix       # Dev packages
+			./packages/common/packages-common-flatpak.nix   # Flatpak packages
+			./packages/common/packages-common-games.nix     # Packages declarations for games
+			./packages/common/packages-common-unstable.nix  # Packages from the unstable repo
 			./shellrc.nix                           # Bash and Zsh configuration
 			# ./theming.nix                           # Themes configuration --> NOT WORKING
 			./users.nix                             # Users configuration

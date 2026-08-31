@@ -8,7 +8,7 @@
 	imports =
 		[
 			./configuration.nix                     # Common configuration
-			./packages-laptop.nix                   # Packages declarations
+			./packages/packages-laptop.nix          # Packages declarations
 		];
 
 	# Enable tlp for power management
