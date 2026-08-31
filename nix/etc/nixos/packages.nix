@@ -238,6 +238,8 @@
 			yaml                    # Support for parsing and rendering YAML documents
 			pandoc                  # Conversion between markup formats
 		]))
+			### HTML ###
+			html-tidy               # HTML validator and `tidier'
 			### JAVASCRIPT ###
 		# deno                        # Secure runtime for JavaScript and TypeScript
 			### JSON ###
