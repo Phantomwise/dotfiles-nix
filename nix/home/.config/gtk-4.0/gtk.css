@@ -1,1 +1,5 @@
 @import 'colors.css';
+
+window {
+	border-radius: 0px !important;
+}
