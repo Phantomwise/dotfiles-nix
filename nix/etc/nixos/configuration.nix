@@ -7,29 +7,29 @@
 {
 	imports =
 		[
-			/etc/nixos/hardware-configuration.nix   # Include the results of the hardware scan.
-			./environment.nix                       # Environment variables
-			./fonts.nix                             # Fonts
-			# ./home-manager.nix                    # Home manager config —deactivated, trying a user install instead
-			./locale.nix                            # Locale settings
-			# ./mounts-nfs.nix                        # NFS Mounts configuration
-			./mounts-cifs.nix                       # CIFS Mounts configuration
-			./networking.nix                        # Networking config
+			/etc/nixos/hardware-configuration.nix           # Include the results of the hardware scan.
+			./environment.nix                               # Environment variables
+			./fonts.nix                                     # Fonts
+			# ./home-manager.nix                            # Home manager config —deactivated, trying a user install instead
+			./locale.nix                                    # Locale settings
+			# ./mounts-nfs.nix                                # NFS Mounts configuration
+			./mounts-cifs.nix                               # CIFS Mounts configuration
+			./networking.nix                                # Networking config
 			./packages/common/packages-common-base.nix      # Packages declarations
 			./packages/common/packages-common-dev.nix       # Dev packages
 			./packages/common/packages-common-flatpak.nix   # Flatpak packages
 			./packages/common/packages-common-games.nix     # Packages declarations for games
 			./packages/common/packages-common-unstable.nix  # Packages from the unstable repo
-			./shellrc.nix                           # Bash and Zsh configuration
-			# ./theming.nix                           # Themes configuration --> NOT WORKING
-			./users.nix                             # Users configuration
-			./systemd.nix                           # Systemd services and timers
-			# ./systemd-services.nix                # Systemd services and timers
-			./wayland.nix                           # Wayland portals configuration
-			# ./config-cron.nix                     # Configuration for cron —DEPRECATED
-			# "/etc/nixos/config-wireguard.nix"     # Configuration for wireguard —NOT WORKING: cuts all internet
-			# "/etc/nixos/networking-wg-quick.nix"  # VPN config
-			./unsorted.nix                          # Other stuff
+			./shellrc.nix                                   # Bash and Zsh configuration
+			# ./theming.nix                                   # Themes configuration --> NOT WORKING
+			./users.nix                                     # Users configuration
+			./systemd.nix                                   # Systemd services and timers
+			# ./systemd-services.nix                        # Systemd services and timers
+			./wayland.nix                                   # Wayland portals configuration
+			# ./config-cron.nix                             # Configuration for cron —DEPRECATED
+			# "/etc/nixos/config-wireguard.nix"             # Configuration for wireguard —NOT WORKING: cuts all internet
+			# "/etc/nixos/networking-wg-quick.nix"          # VPN config
+			./unsorted.nix                                  # Other stuff
 		];
 
 	# This value determines the NixOS release from which the default
