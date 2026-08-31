@@ -37,7 +37,6 @@
 		vulkan-tools                # Khronos official Vulkan Tools and Utilities
 		protonup-rs                 # Rust app to install and update GE-Proton for Steam, and Wine-GE for Lutris
 		xdg-user-dirs               # Tool to help manage well known user directories like the desktop folder and the music folder
-		stoat-desktop               # Open source user-first chat platform
 		pciutils                    # Collection of programs for inspecting and manipulating configuration of PCI devices
 
 		### TOOLS ###
@@ -201,7 +200,6 @@
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
-		sqlitebrowser               # DB Browser for SQLite
 		visidata                    # Interactive terminal multitool for tabular data
 
 		### PROGRAMMING ###
