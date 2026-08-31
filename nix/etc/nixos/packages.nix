@@ -209,6 +209,7 @@
 		git                         # Distributed version control system
 		git-filter-repo             # Quickly rewrite git repository history
 		gitmoji-cli                 # Gitmoji client for using emojis on commit messages
+		neocities                   # CLI and library for interacting with the Neocities API
 			### ASSEMBLY ###
 		cutter                      # Free and Open Source Reverse Engineering Platform powered by rizin
 		# ida-free                  # Freeware version of the world's smartest and most feature-full disassembler
