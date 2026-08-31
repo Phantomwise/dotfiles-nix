@@ -16,6 +16,7 @@
 			./mounts-cifs.nix                       # CIFS Mounts configuration
 			./networking.nix                        # Networking config
 			./packages.nix                          # Packages declarations
+			./packages-dev.nix                      # Dev packages
 			./packages-flatpak.nix                  # Flatpak packages
 			./packages-games.nix                    # Packages declarations for games
 			./packages-unstable.nix                 # Packages from the unstable repo
