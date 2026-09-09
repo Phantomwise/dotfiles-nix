@@ -36,6 +36,7 @@
 
 use aliases.nu *
 use wrappers.nu *
+use bluetooth.nu *
 
 
 # ███████████████████████████████████████████████████████████████╗
