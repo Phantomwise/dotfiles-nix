@@ -38,6 +38,8 @@
 		protonup-rs                 # Rust app to install and update GE-Proton for Steam, and Wine-GE for Lutris
 		xdg-user-dirs               # Tool to help manage well known user directories like the desktop folder and the music folder
 		pciutils                    # Collection of programs for inspecting and manipulating configuration of PCI devices
+		nix-du                      # Tool to determine which gc-roots take space in your nix store
+		nix-tree                    # Interactively browse a Nix store paths dependencies
 
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
