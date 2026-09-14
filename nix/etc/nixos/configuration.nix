@@ -20,6 +20,7 @@
 			./packages/common/packages-common-flatpak.nix   # Flatpak packages
 			./packages/common/packages-common-games.nix     # Packages declarations for games
 			./packages/common/packages-common-unstable.nix  # Packages from the unstable repo
+			./packages/common/packages-testing.nix          # Temporary packages being tested
 			./shellrc.nix                                   # Bash and Zsh configuration
 			# ./theming.nix                                   # Themes configuration --> NOT WORKING
 			./users.nix                                     # Users configuration
