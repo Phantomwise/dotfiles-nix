@@ -41,6 +41,15 @@
 		nix-du                      # Tool to determine which gc-roots take space in your nix store
 		nix-tree                    # Interactively browse a Nix store paths dependencies
 
+		### CLI EYECANDY ###
+		cmatrix                     # Simulates the falling characters theme from The Matrix movie
+		cowsay                      # Program which generates ASCII pictures of a cow with a message
+		fortune                     # Program that displays a pseudorandom message from a database of quotations
+		genact                      # Nonsense activity generator
+		hollywood                   # Fill your console with Hollywood melodrama technobabble
+		rust-stakeholder            # Generate impressive-looking terminal output to look busy when stakeholders walk by
+		sl                          # Steam Locomotive runs across your terminal when you type 'sl'
+
 		### TOOLS ###
 		brightnessctl               # This program allows you read and control device brightness
 		detox                       # Utility designed to clean up filenames
