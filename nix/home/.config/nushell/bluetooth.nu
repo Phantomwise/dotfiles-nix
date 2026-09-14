@@ -22,11 +22,11 @@ export def btds [] {
 }
 
 export def btce [] {
-	bluetoothctl connect (mac-speakers)
+	bluetoothctl connect (mac-earbuds)
 }
 
 export def btde [] {
-	bluetoothctl disconnect (mac-speakers)
+	bluetoothctl disconnect (mac-earbuds)
 }
 
 
