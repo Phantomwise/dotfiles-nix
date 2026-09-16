@@ -47,6 +47,7 @@
 		fortune                     # Program that displays a pseudorandom message from a database of quotations
 		genact                      # Nonsense activity generator
 		hollywood                   # Fill your console with Hollywood melodrama technobabble
+		nms                         # A command line tool that recreates the famous data decryption effect seen in the 1992 movie Sneakers. 
 		rust-stakeholder            # Generate impressive-looking terminal output to look busy when stakeholders walk by
 		sl                          # Steam Locomotive runs across your terminal when you type 'sl'
 
