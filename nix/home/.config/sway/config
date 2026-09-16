@@ -17,11 +17,9 @@
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
 
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+
 # Read `man 5 sway` for a complete reference.
+
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
@@ -29,11 +27,13 @@
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
 
+
 # Import /etc config
 include /etc/sway/config.d/*
 
 # Import keybindings
 include ~/.config/sway/keybindings
+
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
@@ -42,8 +42,10 @@ include ~/.config/sway/keybindings
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
 
+
 # Environment variables
 # set $XDG_CURRENT_DESKTOP sway
+
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
@@ -51,6 +53,7 @@ include ~/.config/sway/keybindings
 # █║░░░░░░░░░░░░░░░░░░░░░░░░░ COLOR ░░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # Color variables
     # Pure colors
@@ -81,11 +84,13 @@ include ~/.config/sway/keybindings
 
     # Color format : #RRGGBB or #RRGGBBAA
 
+
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░ AUTOSTART ░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # Polkit authentication agent
 exec /usr/lib/polkit-kde-authentication-agent-1
@@ -97,11 +102,13 @@ exec ~/.local/bin/scripts/dunst/check-updates.sh
 # exec steam-run synology-drive
 # exec wrapper-synology-drive-client
 
+
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░░░ INPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -134,11 +141,13 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
     # left_handed enabled
 }
 
+
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░░ OUTPUT ░░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
@@ -149,6 +158,7 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░ STATUS BAR ░░░░░░░░░░░░░░░░░░░░░░░█║
@@ -156,9 +166,11 @@ input "1133:49271:Logitech_USB_Optical_Mouse" {
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
 
+
 # exec 'waybar --config ~/.config/waybar/config-sway.jsonc'
 # exec 'killall waybar || waybar
 exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
+
 
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
@@ -166,6 +178,7 @@ exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 # █║░░░░░░░░░░░░░░░░░░░░░░░ SWAY-BAR ░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # Read `man 5 sway-bar` for more information about this section.
 # bar {
@@ -208,6 +221,7 @@ exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
 
+
 # Example configuration:
 #
 # exec swayidle -w \
@@ -219,11 +233,13 @@ exec 'killall waybar || waybar --config ~/.config/waybar/config-sway.jsonc'
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+
 # ████████████████████████████████████████████████████████████╗
 # █╔═════════════════════════════════════════════════════════█║
 # █║░░░░░░░░░░░░░░░░░░░░░░░░░░ END ░░░░░░░░░░░░░░░░░░░░░░░░░░█║
 # ████████████████████████████████████████████████████████████║
 # ╚═══════════════════════════════════════════════════════════╝
+
 
 # Your preferred terminal emulator
 set $term kitty
