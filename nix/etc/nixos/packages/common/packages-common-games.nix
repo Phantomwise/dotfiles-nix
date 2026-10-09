@@ -21,6 +21,7 @@
 		gamescope
 		protontricks
 		winetricks
+		weidu                    # InfinityEngine Modding Engine
 
 		### GAMES ###
 		angband                  # Single-player roguelike dungeon exploration game
