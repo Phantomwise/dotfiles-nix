@@ -8,6 +8,7 @@
 	imports =
 		[
 			./configuration.nix                     # Common configuration
+			./systemd-desktop.nix                   # Systemd desktop configuration
 			./packages/packages-desktop.nix         # Packages declarations
 		];
 
