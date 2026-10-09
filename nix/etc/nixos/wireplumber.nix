@@ -28,24 +28,38 @@ in
 			];
 		};
 
-		"98-earbuds-volume" =
+		"98-earbuds" =
 		{
 			"monitor.bluez.rules" =
 			[
 				{
 					matches = [ { "node.name" = "bluez_output.${JBES_A9}.1"; } ];
-					actions.update-props = { "node.volume" = 0.2; };
+					actions = {
+						update-props =
+						{
+							"node.volume" = 0.2;
+							"priority.driver" = 2200;
+							"priority.session" = 2200;
+						};
+					};
 				}
 			];
 		};
 
-		"98-speakers-volume" =
+		"98-speakers" =
 		{
 			"monitor.bluez.rules" =
 			[
 				{
 					matches = [ { "node.name" = "bluez_output.${EDIFIER_R1700BT}.1"; } ];
-					actions.update-props = { "node.volume" = 0.5; };
+					actions = {
+						update-props =
+						{
+							"node.volume" = 0.5;
+							"priority.driver" = 2000;
+							"priority.session" = 2000;
+						};
+					};
 				}
 			];
 		};
