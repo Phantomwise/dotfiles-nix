@@ -7,6 +7,8 @@
 			MemoryHigh = "50G";
 			MemoryMax = "55G";
 			MemorySwapMax = "10G";
+			ManagedOOMMemoryPressure = "kill";
+			ManagedOOMMemoryPressureLimit = "60%";
 		};
 	};
 
