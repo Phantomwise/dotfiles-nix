@@ -31,6 +31,7 @@
 			# ./config-cron.nix                             # Configuration for cron —DEPRECATED
 			# "/etc/nixos/config-wireguard.nix"             # Configuration for wireguard —NOT WORKING: cuts all internet
 			# "/etc/nixos/networking-wg-quick.nix"          # VPN config
+			# ./xkb-colemak-fr.nix
 			./unsorted.nix                                  # Other stuff
 		];
 
