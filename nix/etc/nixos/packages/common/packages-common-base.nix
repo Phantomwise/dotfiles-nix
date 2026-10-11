@@ -8,6 +8,7 @@
 	nixpkgs.config.permittedInsecurePackages = [
 		"ventoy-1.1.12"
 		"mbedtls-2.28.10"
+		"electron-41.10.7"
 	];
 
 	# List packages installed in system profile. To search, run:
@@ -212,6 +213,7 @@
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
+		tartube-yt-dlp              # GUI front-end for youtube-dl
 		visidata                    # Interactive terminal multitool for tabular data
 
 		];
@@ -233,6 +235,7 @@
 	### MISC ###
 
 	programs.firefox.enable = true;
+	# programs.chromium.enable = true;
 
 # 	programs.firefox = {
 # 		enable = true;
