@@ -18,6 +18,7 @@ export alias cdp  = cd ~/Sync/Personal/home/Projects
 export alias cdpi  = cd ~/Sync/Personal/home/Pictures
 export alias cds  = cd ~/Sync/
 export alias cdv  = cd ~/Sync/Personal/home/Videos
+export alias cdw  = cd /mnt/wdc20tb
 export alias cdy  = cd ~/Downloads/yt-dlp/
 
 # Commands replacement
