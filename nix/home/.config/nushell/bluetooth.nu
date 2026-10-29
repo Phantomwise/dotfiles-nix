@@ -9,8 +9,12 @@ export def mac-speakers [] {
 	open /etc/nixos/secrets/MAC/bluetooth/EDIFIER_R1700BT.txt | str trim
 }
 
-export def mac-earbuds [] {
-	open /etc/nixos/secrets/MAC/bluetooth/JBES-A9.txt | str trim
+export def mac-earbuds-black [] {
+	open /etc/nixos/secrets/MAC/bluetooth/JBES-A9-Black.txt | str trim
+}
+
+export def mac-earbuds-white [] {
+	open /etc/nixos/secrets/MAC/bluetooth/JBES-A9-White.txt | str trim
 }
 
 export def btcs [] {
@@ -21,12 +25,20 @@ export def btds [] {
 	bluetoothctl disconnect (mac-speakers)
 }
 
-export def btce [] {
-	bluetoothctl connect (mac-earbuds)
+export def btceb [] {
+	bluetoothctl connect (mac-earbuds-black)
 }
 
-export def btde [] {
-	bluetoothctl disconnect (mac-earbuds)
+export def btdeb [] {
+	bluetoothctl disconnect (mac-earbuds-black)
+}
+
+export def btcew [] {
+	bluetoothctl connect (mac-earbuds-white)
+}
+
+export def btdew [] {
+	bluetoothctl disconnect (mac-earbuds-white)
 }
 
 
