@@ -78,6 +78,7 @@
 		cifs-utils                  # Tools for managing Linux CIFS client filesystems
 		exfatprogs                  # exFAT filesystem userspace utilities
 		e2fsprogs                   # Tools for creating and checking ext2/ext3/ext4 filesystems
+		gptfdisk                    # Set of text-mode partitioning tools for Globally Unique Identifier (GUID) Partition Table (GPT) disks
 		gvfs                        # Virtual Filesystem support library
 		gnome.gvfs                  # Virtual Filesystem support library (full GNOME support)
 		nfs-utils                   # Linux user-space NFS utilities
