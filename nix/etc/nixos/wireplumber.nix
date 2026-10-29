@@ -1,7 +1,8 @@
 let
-	devices         = import ./var/ip.nix;
-	EDIFIER_R1700BT = builtins.replaceStrings [":"] ["_"] devices.EDIFIER_R1700BT;
-	JBES_A9         = builtins.replaceStrings [":"] ["_"] devices.JBES_A9;
+	devices          = import ./var/mac.nix;
+	EDIFIER_R1700BT  = builtins.replaceStrings [":"] ["_"] devices.EDIFIER_R1700BT;
+	JBES_A9_B        = builtins.replaceStrings [":"] ["_"] devices.JBES_A9_B;
+	JBES_A9_W        = builtins.replaceStrings [":"] ["_"] devices.JBES_A9_W;
 in
 
 {
@@ -33,7 +34,10 @@ in
 			"monitor.bluez.rules" =
 			[
 				{
-					matches = [ { "node.name" = "bluez_output.${JBES_A9}.1"; } ];
+					matches = [
+						{ "node.name" = "bluez_output.${JBES_A9_B}.1"; }
+						{ "node.name" = "bluez_output.${JBES_A9_W}.1"; }
+];
 					actions = {
 						update-props =
 						{
