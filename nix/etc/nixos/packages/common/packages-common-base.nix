@@ -165,6 +165,7 @@
 
 		### AUDIO & VIDEO ###
 		ani-cli                     # Cli tool to browse and play anime
+		audacity                    # Sound editor with graphical UI
 		# beets                     # Music tagger and library organizer
 		                            # error: Package ‘python3.13-beets-2.5.1’ in /nix/store/[...]/beets/default.nix:483 is marked as insecure, refusing to evaluate.
 		ffmpeg                      # Complete, cross-platform solution to record, convert and stream audio and video
@@ -195,7 +196,7 @@
 		dvdbackup                   # Tool to rip video DVDs from the command line
 		handbrake                   # Tool for converting video files and ripping DVDs
 		libdvdcss                   # Library for decrypting DVDs
-		makemkv                     # Convert blu-ray and dvd to mkv
+		# makemkv                     # Convert blu-ray and dvd to mkv
 		rubyripper                  # High quality CD audio ripper
 		whipper                     # CD ripper aiming for accuracy over speed
 
@@ -214,7 +215,7 @@
 		zotero                      # Collect, organize, cite, and share your research sources
 		evolution                   # Personal information management application that provides integrated mail, calendaring and address book functionality
 		# calibre                   # Comprehensive e-book software
-		tartube-yt-dlp              # GUI front-end for youtube-dl
+		# tartube-yt-dlp              # GUI front-end for youtube-dl
 		visidata                    # Interactive terminal multitool for tabular data
 
 		];
