@@ -10,6 +10,7 @@
 			### QT ###
 			qtcreator               # Cross-platform IDE tailored to the needs of Qt developers
 			qt6.qttools             # Cross-platform application framework for C++
+			kiwix                   # Offline reader for Web content
 
 	];
 
